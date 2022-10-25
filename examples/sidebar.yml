@@ -1,0 +1,8 @@
+---
+section: examples
+title: Beispiele für Verfahren und APIs
+entries:
+- title: S3-Verschlüsselung testen und demonstrieren
+  url: "/examples/test-demonstrate-S3-encryption.html"
+- title: S3-Objektsperre testen und demonstrieren
+  url: "/examples/test-demonstrate-S3-object-lock.html"

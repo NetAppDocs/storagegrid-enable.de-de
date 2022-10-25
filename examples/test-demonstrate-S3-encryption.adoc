@@ -1,0 +1,187 @@
+---
+permalink: examples/test-demonstrate-S3-encryption.html 
+sidebar: sidebar 
+keywords: cli, aws, S3, encryption, SSE, SSE-C, SSE-S3, api 
+summary: StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand. 
+---
+= Testen und Demonstrieren der S3 Verschlüsselungsoptionen auf StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand. Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/storagegrid-116/admin/reviewing-storagegrid-encryption-methods.html["Prüfen Sie die StorageGRID Verschlüsselungsmethoden"^].
+
+In diesem Leitfaden werden die S3-API-Verschlüsselungsmethoden demonstriert.
+
+
+
+== Serverseitige Verschlüsselung (SSE)
+
+Mit SSE kann der Client ein Objekt speichern und mit einem eindeutigen Schlüssel verschlüsseln, der von StorageGRID verwaltet wird. Wenn das Objekt angefordert wird, wird das Objekt durch den in StorageGRID gespeicherten Schlüssel entschlüsselt.
+
+
+
+=== Beispiel: SSE
+
+* SETZEN Sie ein Objekt mit SSE
++
+[source, console]
+----
+aws s3api put-object --bucket <bucket>  --key <file> --body "<file>" --server-side-encryption AES256 --endpoint-url https://s3.example.com
+----
+* LEITEN Sie das Objekt, um die Verschlüsselung zu überprüfen
++
+[source, console]
+----
+aws s3api head-object --bucket <bucket>  --key <file>   --endpoint-url https://s3.example.com
+----
++
+[listing]
+----
+{
+    "AcceptRanges": "bytes",
+    "LastModified": "2022-05-02T19:03:03+00:00",
+    "ContentLength": 47,
+    "ETag": "\"82e8bfb872e778a4687a26e6c0b36bc1\"",
+    "ContentType": "text/plain",
+    "ServerSideEncryption": "AES256",
+    "Metadata": {}
+}
+----
+* GET das Objekt
++
+[source, console]
+----
+aws s3api get-object --bucket <bucket>  --key <file> <file> --endpoint-url https://s3.example.com
+----
+
+
+
+
+== Serverseitige Verschlüsselung mit vom Kunden bereitgestellten Schlüsseln (SSE-C)
+
+Mit SSE kann der Client ein Objekt speichern und mit einem eindeutigen Schlüssel verschlüsseln, der vom Client mit dem Objekt bereitgestellt wird. Wenn das Objekt angefordert wird, muss derselbe Schlüssel bereitgestellt werden, um das Objekt zu entschlüsseln und zurückzugeben.
+
+
+
+=== Beispiel SSE-C
+
+* Sie können zu Test- oder Demonstrationszwecken einen Schlüssel erstellen
++
+** Erstellen eines Verschlüsselungsschlüssels
++
+[source, console]
+----
+openssl enc -aes-128-cbc -pass pass:secret -P`
+----
++
+[listing]
+----
+salt=E9DBB6603C7B3D2A
+key=23832BAC16516152E560F933F261BF03
+iv =71E87C0F6EC3C45921C2754BA131A315
+----
+
+
+* Legen Sie ein Objekt mit dem generierten Schlüssel
++
+[source, console]
+----
+aws s3api put-object --bucket <bucket> --key <file> --body "file" --sse-customer-algorithm AES256 --sse-customer-key 23832BAC16516152E560F933F261BF03 --endpoint-url https://s3.example.com
+----
+* Das Objekt in den Kopf stellen
++
+[source, console]
+----
+aws s3api head-object --bucket <bucket> --key <file> --sse-customer-algorithm AES256 --sse-customer-key 23832BAC16516152E560F933F261BF03 --endpoint-url https://s3.example.com
+----
++
+[listing]
+----
+            {
+                "AcceptRanges": "bytes",
+                "LastModified": "2022-05-02T19:20:02+00:00",
+                "ContentLength": 47,
+                "ETag": "\"f92ef20ab87e0e13951d9bee862e9f9a\"",
+                "ContentType": "binary/octet-stream",
+                "Metadata": {},
+                "SSECustomerAlgorithm": "AES256",
+                "SSECustomerKeyMD5": "rjGuMdjLpPV1eRuotNaPMQ=="
+            }
+----
+
+
+
+NOTE: Wenn Sie den Verschlüsselungsschlüssel nicht angeben, erhalten Sie einen Fehler „ein Fehler ist aufgetreten (404), wenn Sie den HeadObject-Vorgang aufrufen: Nicht gefunden“.
+
+* Get das Objekt
++
+[source, console]
+----
+aws s3api get-object --bucket <bucket> --key <file> <file> --sse-customer-algorithm AES256 --sse-customer-key 23832BAC16516152E560F933F261BF03 --endpoint-url https://s3.example.com
+----
+
+
+
+NOTE: Wenn Sie den Verschlüsselungsschlüssel nicht bereitstellen, erhalten Sie beim Aufruf des GetObject-Vorgangs einen Fehler „aufgetreten (InvalidRequest): Das Objekt wurde mit einer Form von serverseitiger Verschlüsselung gespeichert. Zum Abrufen des Objekts müssen die richtigen Parameter angegeben werden.“
+
+
+
+== Bucket-serverseitige Verschlüsselung (SSE-S3)
+
+Mit SSE-S3 kann der Client ein Standardverschlüsselungsverhalten für alle in einem Bucket gespeicherten Objekte definieren. Die Objekte werden mit einem eindeutigen Schlüssel verschlüsselt, der von StorageGRID gemanagt wird. Wenn das Objekt angefordert wird, wird das Objekt von dem in StorageGRID gespeicherten Schlüssel entschlüsselt.
+
+
+
+=== Beispiel für Bucket SSE-S3
+
+* Erstellen eines neuen Buckets und Festlegen einer Standardverschlüsselungsrichtlinie
++
+** Erstellen eines neuen Buckets
++
+[source, console]
+----
+aws s3api create-bucket --bucket <bucket> --region us-east-1 --endpoint-url https://s3.example.com
+----
+** Put Bucket-Verschlüsselung
++
+[source, console]
+----
+aws s3api put-bucket-encryption --bucket <bucket> --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}' --endpoint-url https://s3.example.com
+----
+
+
+* Legen Sie ein Objekt in den Bucket
++
+[source, console]
+----
+aws s3api put-object --bucket <bucket> --key <file> --body "file" --endpoint-url https://s3.example.com
+----
+* Das Objekt in den Kopf stellen
++
+[source, console]
+----
+aws s3api head-object --bucket <bucket> --key <file> --endpoint-url https://s3.example.com
+----
++
+[listing]
+----
+{
+"AcceptRanges": "bytes",
+"LastModified": "2022-05-02T20:16:23+00:00",
+"ContentLength": 47,
+"ETag": "\"82e8bfb872e778a4687a26e6c0b36bc1\"",
+"ContentType": "binary/octet-stream",
+"ServerSideEncryption": "AES256",
+"Metadata": {}
+}
+----
+* GET das Objekt
++
+[source, console]
+----
+aws s3api get-object --bucket <bucket>  --key <file> <file> --endpoint-url https://s3.example.com
+----
+

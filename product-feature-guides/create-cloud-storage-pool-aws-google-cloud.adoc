@@ -1,0 +1,51 @@
+---
+permalink: product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html 
+sidebar: sidebar 
+keywords: cloud storage pool, aws, S3, amazon web services, google cloud 
+summary: 'Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen S3-Bucket verschieben möchten. Der externe Bucket kann zu Amazon S3 (AWS) oder Google Cloud gehören.' 
+---
+= Cloud Storage Pool für AWS oder Google Cloud erstellen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen S3-Bucket verschieben möchten. Der externe Bucket kann zu Amazon S3 (AWS) oder Google Cloud gehören.
+
+.Was Sie und#8217;ll benötigen
+* StorageGRID 11.6 wurde konfiguriert.
+* Sie haben bereits einen externen S3-Bucket auf AWS oder Google Cloud eingerichtet.
+
+
+.Schritte
+. Navigieren Sie im Grid Manager zu *ILM* > *Storage Pools*.
+. Wählen Sie im Abschnitt Cloud-Speicherpools der Seite *Erstellen* aus.
++
+Das Popup-Fenster „Cloud-Speicherpool erstellen“ wird angezeigt.
+
+. Geben Sie einen Anzeigenamen ein.
+. Wählen Sie in der Dropdown-Liste Provider Type * Amazon S3* aus.
++
+Dieser Provider-Typ funktioniert für AWS S3 oder Google Cloud.
+
+. Geben Sie den URI für den S3-Bucket ein, der für den Cloud-Storage-Pool verwendet werden soll.
++
+Es sind zwei Formate zulässig:
+
++
+`https://host:port`
+
++
+`http://host:port`
+
+. Geben Sie den S3-Bucket-Namen ein.
++
+Der angegebene Name muss exakt mit dem Namen des S3-Buckets übereinstimmen. Andernfalls schlägt die Erstellung von Cloud-Storage-Pool fehl. Sie können diesen Wert nicht ändern, nachdem der Cloud-Speicherpool gespeichert wurde.
+
+. Geben Sie optional die Zugriffsschlüssel-ID und den geheimen Zugriffsschlüssel ein.
+. Wählen Sie in der Dropdown-Liste * Zertifikat nicht überprüfen* aus.
+. Klicken Sie Auf *Speichern*.
+
+
+Es muss sichergestellt werden, dass ein Cloud-Storage-Pool für Amazon S3 oder Google Cloud erstellt wurde.

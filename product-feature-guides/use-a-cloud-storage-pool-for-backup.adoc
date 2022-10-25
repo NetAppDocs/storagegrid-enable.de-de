@@ -1,0 +1,35 @@
+---
+permalink: product-feature-guides/use-a-cloud-storage-pool-for-backup.html 
+sidebar: sidebar 
+keywords: cloud storage pool, backup, ILM, CSP 
+summary: Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen Cloud Storage Pool zu verschieben. 
+---
+= Verwenden Sie einen Cloud Storage Pool für Backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen Cloud Storage-Pool zu verschieben.
+
+.Was Sie und#8217;ll benötigen
+* StorageGRID 11.6 wurde konfiguriert.
+* Sie haben bereits einen externen Azure-Container eingerichtet.
+
+
+.Schritte
+. Navigieren Sie im Grid Manager zu *ILM* > *Regeln* > *Erstellen*.
+. Geben Sie eine Beschreibung ein.
+. Geben Sie ein Kriterium ein, um die Regel auszulösen.
+. Klicken Sie Auf *Weiter*.
+. Replizieren Sie das Objekt auf Storage Nodes.
+. Fügen Sie eine Platzierungsregel hinzu.
+. Replizieren des Objekts in den Cloud Storage Pool
+. Klicken Sie Auf *Weiter*.
+. Klicken Sie Auf *Speichern*.
+
+
+Vergewissern Sie sich, dass im Aufbewahrungsdiagramm die lokal in StorageGRID gespeicherten Objekte und in einem Cloud-Speicherpool für Backups angezeigt werden.
+
+Vergewissern Sie sich, dass bei Auslösung der ILM-Regel im Cloud Storage Pool eine Kopie vorhanden ist und Sie das Objekt lokal abrufen können, ohne ein Objekt wiederherstellen zu müssen.

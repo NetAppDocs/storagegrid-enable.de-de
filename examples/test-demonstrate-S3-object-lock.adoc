@@ -1,0 +1,222 @@
+---
+permalink: examples/test-demonstrate-S3-object-lock.html 
+sidebar: sidebar 
+keywords: cli, aws, S3, object lock, compliance, worm, api 
+summary: Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten. 
+---
+= S3-Objektsperre auf StorageGRID testen und demonstrieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten.
+
+In diesem Handbuch wird die S3-Objekt-Lock-API demonstriert.
+
+
+
+== Gesetzliche Aufbewahrungspflichten
+
+* Object Lock Legal Hold ist ein einfacher ein-/Ausschaltstatus, der auf ein Objekt angewendet wird.
++
+[source, console]
+----
+aws s3api put-object-legal-hold --bucket <bucket> --key <file> --legal-hold Status=ON --endpoint-url https://s3.company.com
+----
+* Überprüfen Sie es mit EINEM GET-Vorgang.
++
+[source, console]
+----
+aws s3api get-object-legal-hold --bucket <bucket> --key <file> --endpoint-url https://s3.company.com
+----
++
+[listing]
+----
+{
+    "LegalHold": {
+        "Status": "ON"
+    }
+}
+----
+* Deaktivieren Sie die gesetzliche Aufbewahrungspflichten
++
+[source, console]
+----
+aws s3api put-object-legal-hold --bucket <bucket> --key <file> --legal-hold Status=OFF --endpoint-url https://s3.company.com
+----
+* Überprüfen Sie es mit EINEM GET-Vorgang.
++
+[source, console]
+----
+aws s3api get-object-legal-hold --bucket <bucket> --key <file> --endpoint-url https://s3.company.com
+----
++
+[listing]
+----
+{
+    "LegalHold": {
+        "Status": "OFF"
+    }
+}
+----
+
+
+
+
+== Compliance-Modus
+
+* Die Objektspeicherung erfolgt mit einer Aufbewahrung bis zum Zeitstempel.
++
+[source, console]
+----
+aws s3api put-object-retention --bucket <bucket> --key <file> --retention '{"Mode":"COMPLIANCE", "RetainUntilDate": "2025-06-10T16:00:00"}' --endpoint-url https://s3.company.com
+----
+* Überprüfen Sie den Aufbewahrungsstatus
++
+[source, console]
+----
+aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url https://s3.company.com
++
+----
++
+[listing]
+----
+{
+    "Retention": {
+        "Mode": "COMPLIANCE",
+        "RetainUntilDate": "2025-06-10T16:00:00+00:00"
+    }
+}
+----
+
+
+
+
+== Standardaufbewahrung
+
+* Legen Sie den Aufbewahrungszeitraum in Tagen und Jahren als Aufbewahrungsdatum fest, das mit der API pro Objekt definiert wurde.
++
+[source, console]
+----
+aws s3api put-object-lock-configuration --bucket <bucket> --object-lock-configuration '{"ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 10 }}}' --endpoint-url https://s3.company.com
+----
+* Überprüfen Sie den Aufbewahrungsstatus
++
+[source, console]
+----
+aws s3api get-object-lock-configuration --bucket <bucket> --endpoint-url https://s3.company.com
+----
++
+[listing]
+----
+{
+    "ObjectLockConfiguration": {
+        "ObjectLockEnabled": "Enabled",
+        "Rule": {
+            "DefaultRetention": {
+                "Mode": "COMPLIANCE",
+                "Days": 10
+            }
+        }
+    }
+}
+----
+* Legen Sie ein Objekt in den Bucket
++
+[source, console]
+----
+aws s3api put-object --bucket <bucket> --key <file> --body "file" --endpoint-url https://s3.example.com
+----
+* Die auf dem Bucket festgelegte Aufbewahrungsdauer wird in einen Aufbewahrungszeitstempel des Objekts konvertiert.
++
+[source, console]
+----
+aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url https://s3.company.com
+----
++
+[listing]
+----
+{
+    "Retention": {
+        "Mode": "COMPLIANCE",
+        "RetainUntilDate": "2022-03-02T15:22:47.202000+00:00"
+    }
+}
+----
+
+
+
+
+== Testen Löschen eines Objekts mit einer definierten Aufbewahrung
+
+Objekt Lock basiert auf der Versionierung. Die Aufbewahrung ist für eine Version des Objekts definiert. Wenn versucht wird, ein Objekt mit einer definierten Aufbewahrung zu löschen, und keine Version angegeben wird, wird als aktuelle Version des Objekts eine Löschmarkierung erstellt.
+
+* Löschen Sie das Objekt mit definierter Aufbewahrung
++
+[source, console]
+----
+aws s3api delete-object --bucket <bucket> --key <file> --endpoint-url https://s3.example.com
+----
+* Listen Sie die Objekte im Bucket auf
++
+[source, console]
+----
+aws s3api list-objects --bucket <bucket> --endpoint-url https://s3.example.com
+----
++
+** Beachten Sie, dass das Objekt nicht aufgeführt ist.
+
+
+* Listen Sie Versionen auf, um die Löschen-Markierung und die ursprüngliche gesperrte Version anzuzeigen
++
+[source, console]
+----
+aws s3api list-object-versions --bucket <bucket> --prefix <file> --endpoint-url https://s3.example.com
+----
++
+[listing]
+----
+{
+    "Versions": [
+        {
+            "ETag": "\"82e8bfb872e778a4687a26e6c0b36bc1\"",
+            "Size": 47,
+            "StorageClass": "STANDARD",
+            "Key": "file.txt",
+            "VersionId": "RDVDMjYwMTQtQkNDQS0xMUVDLThGOEUtNjQ3NTAwQzAxQTk1",
+            "IsLatest": false,
+            "LastModified": "2022-04-15T14:46:29.734000+00:00",
+            "Owner": {
+                "DisplayName": "Tenant01",
+                "ID": "56622399308951294926"
+            }
+        }
+    ],
+    "DeleteMarkers": [
+        {
+            "Owner": {
+                "DisplayName": "Tenant01",
+                "ID": "56622399308951294926"
+            },
+            "Key": "file01.txt",
+            "VersionId": "QjVDQzgzOTAtQ0FGNi0xMUVDLThFMzgtQ0RGMjAwQjk0MjM1",
+            "IsLatest": true,
+            "LastModified": "2022-05-03T15:35:50.248000+00:00"
+        }
+    ]
+}
+----
+* Löschen Sie die gesperrte Version des Objekts
++
+[source, console]
+----
+aws s3api delete-object  --bucket <bucket> --key <file> --version-id "<VersionId>" --endpoint-url https://s3.example.com
+----
++
+[listing]
+----
+An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied
+----
+

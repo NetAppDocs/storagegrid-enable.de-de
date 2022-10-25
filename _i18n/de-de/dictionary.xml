@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="6876ee74f7cdb6259933dce90e333623" category="summary">Drittanbieterlösungen für StorageGRID 11.2 validiert</block>
+  <block id="f0579cc7b6353a01b20e6af293042053" category="doc">StorageGRID 11.2 validierte Drittanbieterlösungen</block>
+  <block id="02baabb078f56a4b2eaed00d5476df83" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.2 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
+  <block id="ae0059acd69f3c963f558e0836885ebd" category="section-title">Drittanbieterlösungen, die auf StorageGRID validiert sind</block>
+  <block id="76ad060973d3a7496e879a9a4e27c43b" category="paragraph">Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.</block>
+  <block id="84fc43d78afb43b9be9fd32800c39e14" category="list-text">Actifio</block>
+  <block id="8026ca17ba2e3a987c9fc1ebbfa3b2f2" category="list-text">Cantemo</block>
+  <block id="bfe4a98ea39df43ecba3c8d81fcc406a" category="list-text">Citrix Content Collaboration</block>
+  <block id="9f261daecd1acf3f272449558565c275" category="list-text">Commvault 11</block>
+  <block id="9c7bdce226629cb4a20d49af20efddcf" category="list-text">Ctera Portal 6</block>
+  <block id="845c7d7e641b871eaa30a5ea02be05e5" category="list-text">Dalet</block>
+  <block id="3f781d47f2e5d89a93134863d08f310b" category="list-text">Data Dynamics StorageX</block>
+  <block id="608d7a3725a65397d284fed2077eca9c" category="list-text">DefendX</block>
+  <block id="7a0544f18be9ec8b7501804c3f19c86c" category="list-text">Interica</block>
+  <block id="04f35663b44ba178a51b9ba61068586f" category="list-text">Komprise</block>
+  <block id="99df5bd357117615d75315f590990b3a" category="list-text">SCHÖN</block>
+  <block id="878104a806df63b5f965361247b7a859" category="list-text">Nasuni</block>
+  <block id="14567310e264c20e4722d80d29f2ca18" category="list-text">OpenText Documentum 16.4</block>
+  <block id="a0446088f8be69cb1f7ca15146abf100" category="list-text">OpenText Media Management 16.5 mit CyanGate Cloud</block>
+  <block id="3e9ddaaf6a6f980a64ddec983d935475" category="list-text">Panzura</block>
+  <block id="10f5ba42ae6dbd321e57bede0c83ec2a" category="list-text">Gateway für die Archivierung 2.0</block>
+  <block id="c28db35a9854d4fa7280c032d2eae288" category="list-text">Punkt Storage Manager 6.4</block>
+  <block id="bc038212039876aff8158c4afb937ef2" category="list-text">Primestream</block>
+  <block id="d36bb4409abcdf753c1103a769bf94a9" category="list-text">Quantum StorNext 5.4.0.1</block>
+  <block id="c758745dbf39c7b4da86cae8edf2ec63" category="list-text">Rubrik CDM 5.0.1 p1-1342</block>
+  <block id="f27bd3342419229be7da8dd9234adbd4" category="list-text">Signiant</block>
+  <block id="83b20ea3ae67e47021c38e81e4f589ca" category="list-text">Splunk Smartstore</block>
+  <block id="3c03c9aa39f09aa3bf70c853404ab185" category="list-text">Lack Enterprise 6.0.4</block>
+  <block id="01d16ea73fb659ea507974db4f28b791" category="list-text">Veeam 9.5.4</block>
+  <block id="683c5d7a06c262f5e2e17cbb84869a3d" category="list-text">Veritas Enterprise Vault 11</block>
+  <block id="1f61ef960fbeb10906bd09932e1faa5e" category="list-text">Veritas Enterprise Vault 12</block>
+  <block id="aa92d10a39cb2c4707a61d62d73be93f" category="list-text">Veritas NetBackup 8.0</block>
+  <block id="2bfecc5738e4f19170da7b6787f2aac4" category="list-text">Vidispine</block>
+  <block id="d78ff41b8e44ae00b917e9776f3ecd41" category="summary">In Zusammenarbeit mit unseren Partnern hat NetApp diese Lösungen zur Verwendung mit StorageGRID validiert. Lesen Sie die Informationen in diesem Abschnitt, um zu erfahren, welche Lösungen validiert wurden, und um weitere Anweisungen, falls zutreffend, zu erhalten.</block>
+  <block id="4a5b1a544c031534fcf2fa85a625ce63" category="doc">Validierte Lösungen von Drittanbietern: Überblick</block>
+  <block id="df245b9cfd302a8af7987f33f6ed60df" category="inline-link">Werden Sie noch heute Alliance-Partner</block>
+  <block id="98e55b10201a07cc0419d8c723a34cf1" category="paragraph">Im Team mit NetApp erweitern Sie Ihr Portfolio schneller, erzielen einen höheren Bekanntheitsgrad und generieren Umsätze, indem Sie getestete, erstklassige NetApp Lösungen entwickeln.<block ref="c243ccaaa8a956e841065a878a76ac60" category="inline-link-rx"></block>.</block>
+  <block id="e1b55d6b6904a9bbd61463de2b1306c9" category="summary">Drittanbieterlösungen für StorageGRID 11.5 validiert</block>
+  <block id="5c77045b793e49a2c9356629fa42247c" category="doc">StorageGRID 11.5 validierte Drittanbieterlösungen</block>
+  <block id="a3c271786c8eb7cf6e9beebf6c8792f6" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.5 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
+  <block id="0f678aab91e44750e132ec71d8e8b27d" category="list-text">Moonwalk Universal</block>
+  <block id="e8089c684949d337dcfc2355146ea8ee" category="list-text">OpenText Documentum 21.4</block>
+  <block id="cfbf45bf3636e57e75d2d19e94581808" category="list-text">OpenText InfoArchive 16 EP7</block>
+  <block id="95e97cbf382fde28370be90f19cb74b7" category="list-text">Veeam 11</block>
+  <block id="6edef17a1a8c1377d059d1da9e0875fa" category="list-text">Vertica 10.x</block>
+  <block id="e6a211de1fc20ed87589cd9c30f29ac3" category="list-text">Virtalica StorageFabric</block>
+  <block id="5c89f8abd30585311811b6067eeaf96d" category="section-title">Lösungen von Drittanbietern, die auf StorageGRID mit Objektsperre validiert wurden</block>
+  <block id="5b334f642369a1ed86af886a70b9a70a" category="summary">Drittanbieterlösungen für StorageGRID 11.4 validiert</block>
+  <block id="bf535f2769af42cb4a0ef69bf5605f50" category="doc">StorageGRID 11.4 validierte Drittanbieterlösungen</block>
+  <block id="e9a092b9753e7fc3b79569222be951af" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.4 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
+  <block id="598a701d550c449b8c8b6fbf28ac59f7" category="summary">Drittanbieterlösungen für StorageGRID 11.6 validiert</block>
+  <block id="95cf74ab542e1ad06be5bdbad0153b3e" category="doc">StorageGRID 11.6 validierte Drittanbieterlösungen</block>
+  <block id="fbc9e339224fe0b0576e98b4bab07ea8" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.6 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
+  <block id="bb2bd99338b18762ef6953ad2cbfafc7" category="list-text">Apache Kafka</block>
+  <block id="d48885bf40ed8b15489c6b02ba7daa08" category="list-text">Diskover-Daten</block>
+  <block id="288e0e9ab8b8ac8737afefecf16f61fd" category="list-text">Dremio</block>
+  <block id="58440fea435f9474a314a8f58636ba4e" category="list-text">Emam</block>
+  <block id="59c21e020bd89c6971219d3b6d98e955" category="list-text">Fujifilm Object Archive</block>
+  <block id="09af2487255bbc1b9747ab2c0f958375" category="list-text">GitHub Enterprise Server</block>
+  <block id="391115de0fbff45e2374fc17057efc2a" category="list-text">IBM FileNet</block>
+  <block id="156393fd2d6d5720c9c89cf61b4b63af" category="list-text">IBM Spectrum Protect Plus</block>
+  <block id="ec8f51b51cf3e627e98adab6a9707073" category="list-text">Microsoft SQL Server Big Data-Cluster</block>
+  <block id="7045f46ad76322e4dc3af49b0bb57c27" category="list-text">Model9</block>
+  <block id="d5b38301ef87d6a23fb50fbf5a064be8" category="list-text">Modzy</block>
+  <block id="003600b94a5f1f52b3d6bc2e8863271a" category="list-text">PixitMedia ngenea</block>
+  <block id="e07088b3eedf498bf832f9346b0e3c02" category="list-text">Reveille v10 Build 220706 oder höher</block>
+  <block id="edf1439075a83a447fb8b630ddc9c8de" category="list-text">Schneeflocke</block>
+  <block id="e53636996ad9257c31aa596f6c267dbd" category="list-text">Storage Leicht Gemacht</block>
+  <block id="dbaa460bd61bfe1c91c1c136338013e6" category="list-text">Veritas Enterprise Vault 14</block>
+  <block id="f1ef2cbfa857a0d2a7b845499f219ef8" category="list-text">WEKA v3.10 oder höher</block>
+  <block id="1c4333b49a7b43ae27f876070a712cb8" category="list-text">Commvault 11, Feature Release 26</block>
+  <block id="401b6d44d3c927f0424adce982cc6506" category="list-text">Veritas Enterprise Vault 14.2.2</block>
+  <block id="213bf2ec1d0bd70bddfd4c935885677a" category="summary">Drittanbieterlösungen für StorageGRID 11.3 validiert</block>
+  <block id="0147e507e7b15a9ed1a38c66a279beb6" category="doc">StorageGRID 11.3 validierte Drittanbieterlösungen</block>
+  <block id="7190c305424285fe4256ab8cdf614311" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.3 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
+  <block id="a1224e8e1d42e54574d1b861a3df5f2f" category="summary">NetApp StorageGRID ist eine softwaredefinierte Objekt-Storage-Suite, die eine Vielzahl von Anwendungsfällen in Public-, Private- und Hybrid-Multi-Cloud-Umgebungen unterstützt. StorageGRID nutzt branchenführende Innovationen wie automatisiertes Lifecycle Management für die Speicherung, Sicherung, Sicherung und Aufbewahrung unstrukturierter Daten für den Einsatz in mehreren Zwecke über lange Zeiträume.</block>
+  <block id="696ea9ebe2a9f57bb062aba5c1d58b10" category="doc">StorageGRID in Ihrer Umgebung aktivieren</block>
+  <block id="5acb44ecb8d9d7e55b00e2a97ca3c4f5" category="summary">Die vollständige Dokumentation zu jeder NetApp StorageGRID Version finden Sie hier.</block>
+  <block id="d55a0f29052225dac98466ee9b92f4a1" category="doc">NetApp StorageGRID-Dokumentation</block>
+  <block id="22c5de521c44ad2015e5ce711b46bebf" category="paragraph">Die vollständige Dokumentation zu jeder NetApp StorageGRID Version finden Sie hier:</block>
+  <block id="dc2c61abf0171b5abd61211f37552e18" category="inline-link">StorageGRID 11.6</block>
+  <block id="1f24789c68b06d446e0ebee3e2b81c66" category="list-text"><block ref="1f24789c68b06d446e0ebee3e2b81c66" category="inline-link-rx"></block></block>
+  <block id="c7bb2251d54b13e3891aea37cdb54cd1" category="inline-link">StorageGRID 11.5</block>
+  <block id="1a433578de1b07641fbd7e4fa310d058" category="list-text"><block ref="1a433578de1b07641fbd7e4fa310d058" category="inline-link-rx"></block></block>
+  <block id="32e750dc43168f85f193ec7b20f6e5c4" category="inline-link">StorageGRID 11.4</block>
+  <block id="ab11b93693987b00bd58948f5b72c34a" category="list-text"><block ref="ab11b93693987b00bd58948f5b72c34a" category="inline-link-rx"></block></block>
+  <block id="37ef4cafeb8ccc9607db85cd3fab57f8" category="inline-link">StorageGRID 11.3</block>
+  <block id="c18e44cb0cb6bc2f462d1e006c443b06" category="list-text"><block ref="c18e44cb0cb6bc2f462d1e006c443b06" category="inline-link-rx"></block></block>
+  <block id="13947b810d54d07e62ef2873b8620fe7" category="inline-link">StorageGRID 11.2</block>
+  <block id="fa96f2375d9c1354445489d7c5ab86dc" category="list-text"><block ref="fa96f2375d9c1354445489d7c5ab86dc" category="inline-link-rx"></block></block>
+  <block id="932b23c9adc6de8aea5fed582f4afb76" category="summary">S3cmd ist ein kostenloses Befehlszeilen-Tool und Client für S3-Vorgänge. Mit S3cmd können sie den s3-Zugriff auf StorageGRID testen und demonstrieren.</block>
+  <block id="450d1a071fcbc323ff4710aa7452fdd5" category="doc">Verwenden Sie S3cmd, um den S3-Zugriff auf StorageGRID zu testen und zu demonstrieren</block>
+  <block id="1905fbd5d74fe86a969eaff7ff00f7fc" category="paragraph">S3cmd ist ein kostenloses Befehlszeilen-Tool und Client für S3-Vorgänge. Sie können s3cmd verwenden, um den s3-Zugriff auf StorageGRID zu testen und zu demonstrieren.</block>
+  <block id="744511f8f2fbc194c76d0d79673bfae6" category="section-title">S3cmd installieren und konfigurieren</block>
+  <block id="afb33c859ca6b8231970317fad403dd6" category="inline-link">Kommandozeile S3-Client</block>
+  <block id="43ce8a46c220f7e1200c26cf9fdda89e" category="paragraph">Um S3cmd auf einer Workstation oder einem Server zu installieren, laden Sie ihn von herunter<block ref="7378b19c1bb6e55a9a8910d8ad3a0679" category="inline-link-rx"></block>. S3cmd ist vorinstalliert auf jedem StorageGRID-Knoten als Tool zur Unterstützung der Fehlerbehebung.</block>
+  <block id="aeb3ce9dba65427ab03cba1cf27c246b" category="section-title">Erste Konfigurationsschritte</block>
+  <block id="524f45072627111da5b21bda68e3200d" category="list-text">S3cmd --configure</block>
+  <block id="71b08894081527233da8439cba4e157c" category="list-text">Geben Sie nur Access_Key und Secret_Key an, für den Rest behalten Sie die Standardeinstellungen.</block>
+  <block id="f87598afee396ede6fded5c127f5710b" category="list-text">Zugriff mit den angegebenen Zugangsdaten testen? [J/n]: n (den Test umgehen, da er fehlschlägt)</block>
+  <block id="8f8b232ac491b44abd4e3c73095be26f" category="list-text">Einstellungen speichern? [J/N] J</block>
+  <block id="20fc045a3cb98f5d53190a084eab5777" category="list-text">Konfiguration in '/root/.s3cfg' gespeichert</block>
+  <block id="2a0dc1b5996fa32c9cff4613164a9fa7" category="list-text">In .s3cfg make fields Host_base and Host_bucket leerer nach dem "=" Zeichen :</block>
+  <block id="d6a40235079422dc94593513bb262a4f" category="list-text">Host_Base =</block>
+  <block id="deffd87ba6416775ccd717de678a52f6" category="list-text">Host_Bucket =</block>
+  <block id="0c4b929b440945de149593225ef4d11a" category="admonition">Wenn Sie in Schritt 4 Host_Base und Host_Bucket angeben, müssen Sie in der CLI keinen Endpunkt mit --Host angeben. Beispiel:</block>
+  <block id="24bf95be39d5b143037e293fd845755a" category="section-title">Beispiele für grundlegende Befehle</block>
+  <block id="40ff4deace0a58ba7da244066c61b419" category="list-text">*Erstellen Sie einen Eimer:*</block>
+  <block id="2b55d1dacc7066c55f775211c6d2d6fb" category="paragraph"><block ref="9926a0e618f4a96f54b25191dc5ca449" prefix="" category="inline-code"></block></block>
+  <block id="b3cfb276af36f62a54a7575fde41c5c3" category="list-text">*Alle Buckets auflisten:*</block>
+  <block id="5a9e189ea6aff52db6c42ed8dc13a581" category="paragraph"><block ref="c553c5db0c9a1c3bd18863bbd80a9a82" prefix="" category="inline-code"></block></block>
+  <block id="a500560628b5b26184ccd1c5bb710ad7" category="list-text">*Alle Eimer und deren Inhalt auflisten:*</block>
+  <block id="e39715fa32da966d21a67b6f4b657375" category="paragraph"><block ref="657b1e62e0aa19e261ab1b935504aaa2" prefix="" category="inline-code"></block></block>
+  <block id="a0e8caa1006eb0cb202216f58d3ef3bc" category="list-text">*Objekte in einem bestimmten Bucket auflisten:*</block>
+  <block id="99cf6d132b68c3ee42ec1c2868670095" category="paragraph"><block ref="86369850092f98b8ce5891755c07f695" prefix="" category="inline-code"></block></block>
+  <block id="1253bae3769a3e203047d32867d8d8b5" category="list-text">*Ein Eimer löschen:*</block>
+  <block id="33baac546bf69d3cba8e4e55809362c2" category="paragraph"><block ref="2277e7a00d9c20c9ee05cec85e03c899" prefix="" category="inline-code"></block></block>
+  <block id="4baf4031f964504db7c312e4eb5032f9" category="list-text">*Legen Sie ein Objekt:*</block>
+  <block id="99ada43576cbc748a543ef56c15239fd" category="paragraph"><block ref="d44c1f58c1cf07814082ef2d763049ea" prefix="" category="inline-code"></block></block>
+  <block id="cf50e7bb0c83a17917775f6502fd592c" category="list-text">*Holen Sie sich ein Objekt:*</block>
+  <block id="7afaf73cd0748a5fd70da28b10e8f9e3" category="paragraph"><block ref="4cc5c80ade7f46f0422919b5a4d2da59" prefix="" category="inline-code"></block></block>
+  <block id="11ce41b9c95136feb022ed6b7dc35f56" category="list-text">*Ein Objekt löschen:*</block>
+  <block id="85977fbb9d2313217f8fcad9ab99ec24" category="paragraph"><block ref="408f1f967fd7121521566d30b32acceb" prefix="" category="inline-code"></block></block>
+  <block id="0a7fcea811cb899434230e06e3477b84" category="summary">Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen Programmier-Frameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, auf denen jede Maschine ihre lokalen Computing- und Storage-Ressourcen bot.</block>
+  <block id="e28a2374ec10c84082a75afb2254f4e2" category="doc">Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID</block>
+  <block id="69cfaca1831444acadd7835297b7d501" category="paragraph">Hadoop ist seit einiger Zeit einer der beliebtesten Wissenschaftler von Data Scientist. Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen ProgrammierFrameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, wobei jede Maschine über lokale Computing- und Storage-Ressourcen verfügt.</block>
+  <block id="ae19997258b86e93601b9072dd73b100" category="section-title">Vorteile von S3A für Hadoop Workflows</block>
+  <block id="edb332fdf13a795cb04d8673475e7002" category="paragraph">Mit der Zeit hat das Datenvolumen zugenommen, aber die Nutzung der IT-Infrastruktur mit eigenen Computing- und Storage-Ressourcen ist ineffizient. Durch die lineare Skalierung entstehen Herausforderungen für die effiziente Nutzung von Ressourcen und das Management der Infrastruktur.</block>
+  <block id="ab8402eb6a573e76dfe21f21689c9ae9" category="paragraph">Zur Bewältigung dieser Herausforderungen bietet der Hadoop S3A-Client hochperformante I/O-Vorgänge im Vergleich zu S3-Objekt-Storage. Durch die Implementierung eines Hadoop Workflows mit S3A können Sie Objekt-Storage als Daten-Repository nutzen und Computing- und Storage-Ressourcen separat voneinander skalieren. Dadurch wiederum können Sie Computing- und Storage-Ressourcen unabhängig voneinander skalieren. Die Abkopplung von Computing und Storage eröffnet Ihnen auch die Möglichkeit, die passende Menge an Ressourcen für Ihre Rechneraufgaben zu beanspruchen und Kapazitäten basierend auf der Größe Ihres Datensatzes zu bereitstellen. Somit lassen sich die Gesamtbetriebskosten für Hadoop Workflows verringern.</block>
+  <block id="95c00c41a442070ea0794b977de417b8" category="section-title">S3A-Anschluss für die Verwendung von StorageGRID konfigurieren</block>
+  <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">Voraussetzungen</block>
+  <block id="d26ba44c410bd88ab784003c4e881389" category="list-text">Einen StorageGRID S3-Endpunkt-URL, einen S3-Zugriffsschlüssel für Mandanten und einen geheimen Schlüssel für Hadoop S3A-Verbindungstests.</block>
+  <block id="6762ef556fff500baba3e28bdce2febb" category="list-text">Ein Cloudera Cluster und Root- oder sudo-Berechtigung für jeden Host im Cluster, um das Java-Paket zu installieren.</block>
+  <block id="0f00c0e9578f0ff277a08d08ef376836" category="paragraph">Seit April 2022 wurde Java 11.0.14 mit Cloudera 7.1.7 gegen StorageGRID 11.5 und 11.6 getestet. Die Java-Versionsnummer kann jedoch bei einer neuen Installation unterschiedlich sein.</block>
+  <block id="4064bf12468c8bc6d21b4c1c947f9ed1" category="section-title">Installieren Sie das Java-Paket</block>
+  <block id="3408188787a55fb9708798cddbce37b0" category="inline-link">Cloudera Support-Matrix</block>
+  <block id="e9be8954eba184e4880371339e422a20" category="list-text">Prüfen Sie die<block ref="31da88a07df8e391e811822caa135aca" category="inline-link-rx"></block> Für die unterstützte JDK-Version.</block>
+  <block id="162479463df046cb4a74da2008354eed" category="inline-link">Java 11.x-Paket</block>
+  <block id="4c2d03bf2e98573fa9436705b37a57a1" category="list-text">Laden Sie die herunter<block ref="60b96115cb33d167b5449475d0ab85e0" category="inline-link-rx"></block> Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.</block>
+  <block id="149f40ea9f9ffb02d7eeba792298fe1e" category="list-text">Melden Sie sich bei jedem Host als Root an oder verwenden Sie ein Konto mit sudo-Berechtigung. Führen Sie für jeden Host folgende Schritte durch:</block>
+  <block id="52afb08cb748c04055be489c0b9a888e" category="list-text">Installieren Sie das Paket:</block>
+  <block id="88499cbc0c83e386e53fdb36804337d9" category="list-text">Überprüfen Sie, wo Java installiert ist. Wenn mehrere Versionen installiert sind, legen Sie die neu installierte Version als Standard fest:</block>
+  <block id="b26c64ac085c28a1738346e2ec4d1520" category="list-text">Fügen Sie diese Zeile am Ende von hinzu<block ref="23c25d718cd1c062574a1081b3ee4426" prefix=" " category="inline-code"></block>. Der Pfad sollte dem Pfad der obigen Auswahl entsprechen:</block>
+  <block id="5f88743172c002de2f07047875fd2634" category="list-text">Führen Sie den folgenden Befehl aus, damit das Profil wirksam wird:</block>
+  <block id="3659ebed6f89d43e919d92d8a4f7279e" category="section-title">Konfiguration von Cloudera HDFS S3A</block>
+  <block id="4839d2f25cc35b249d5db15efa1afd75" category="paragraph">*Schritte*</block>
+  <block id="c1d889a86b4ee1f584c957eb2c6788a5" category="list-text">Wählen Sie in der Cloudera Manager GUI Cluster &gt; HDFS aus, und wählen Sie Konfiguration aus.</block>
+  <block id="47f7c5aaea9ec9316850eea3fb28134a" category="list-text">Wählen Sie unter KATEGORIE die Option Erweitert aus, und blättern Sie nach unten, um zu suchen<block ref="5e413df62314135af540dffa988cbbba" prefix=" " category="inline-code"></block>.</block>
+  <block id="0f4af84337510994f3225d2912229b08" category="list-text">Klicken Sie auf das (+)-Zeichen und fügen Sie folgende Wertpaare hinzu.</block>
+  <block id="49ee3087348e8d44e1feda1917443987" category="cell">Name</block>
+  <block id="689202409e48743b914713f96d93947c" category="cell">Wert</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
+  <block id="7755119082c17ec5a3af74f22d8f3aeb" category="paragraph">fs.s3a.access.key</block>
+  <block id="b7be29f43cb131b105a1709a4f9c9a47" category="paragraph">_&lt;S3-Zugriffsschlüssel des Mandanten von StorageGRID&gt;_</block>
+  <block id="cf2f74e5c9b775c0484e6cbc43fad16f" category="paragraph">fs.s3a.secret.key</block>
+  <block id="519b3534e0953e9f790740bb65fa9c85" category="paragraph">_&lt;Mandant s3 geheimen Schlüssel von StorageGRID&gt;_</block>
+  <block id="44b80c022f07d7386faad66ac455d150" category="paragraph">fs.s3a.connection.ssl.enabled</block>
+  <block id="e7c95635ca48bb5a8924d326b1bb75b3" category="paragraph">[Wahr oder falsch] (Standardeinstellung: Https, wenn dieser Eintrag fehlt)</block>
+  <block id="57f2049492fc15207b8727a44d9de577" category="paragraph">fs.s3a.Endpunkt</block>
+  <block id="62c6bd01433e2f02e630f1c410723151" category="paragraph">_&lt;StorageGRID S3 Endpunkt:Port&gt;_</block>
+  <block id="1a95b45b39a6285f9154d0687dc81b19" category="paragraph">fs.s3a.mpl</block>
+  <block id="2227817813f0b981f0f8fdd5a9deaffa" category="paragraph">Org.apache.hadoop.fs.s3a.S3AFileSystem</block>
+  <block id="f5a9c1cd529c584fa53b0a52eb61dcd3" category="paragraph">fs.s3a.path.style.Access</block>
+  <block id="e935d7bd3d4a49248bd3ef5e65504984" category="paragraph">[True oder false] (Standard ist der Stil des virtuellen Hosts, wenn dieser Eintrag fehlt)</block>
+  <block id="0d5c3854a6a39265583df58f1d37b3a2" category="paragraph">*Beispiel Screenshot*</block>
+  <block id="b956fcc114b2bdd5a14d25ccea32b2ea" category="image-alt">S3A-Konfiguration</block>
+  <block id="13a78f349c69274252fa8cde26ca554d" category="list-text">Klicken Sie auf die Schaltfläche Änderungen speichern. Wählen Sie in der HDFS-Menüleiste das Symbol „veraltete Konfiguration“ aus, wählen Sie auf der nächsten Seite „veraltete Dienste neu starten“ und anschließend „Jetzt neu starten“ aus.</block>
+  <block id="1e9d3fb4b7267b5c4de2a7f67956da90" category="image-alt">Veraltete Service-Symbol für Hadoop neu starten</block>
+  <block id="68dbc18976f73773bc2d5deb27f4780f" category="section-title">S3A-Verbindung mit StorageGRID testen</block>
+  <block id="a13db3eed845386ceaab26fb7644f80a" category="section-title">Führen Sie einen grundlegenden Verbindungstest durch</block>
+  <block id="8a494f649ac7828977d5f96db63466eb" category="paragraph">Melden Sie sich bei einem der Hosts im Cloudera Cluster an, und geben Sie ein<block ref="1d687c0ea0afd4875193c5398048c3fa" prefix=" " category="inline-code"></block>.</block>
+  <block id="0dfddb891adaa02cdfc088a098890620" category="paragraph">Im folgenden Beispiel wird Pfadsyle mit einem vorhandenen hdfs-Test-Bucket und einem Testobjekt verwendet.</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="section-title">Fehlerbehebung</block>
+  <block id="d42e8fbcf79f7de1303918aafa7d9fa7" category="section-title">Szenario 1</block>
+  <block id="6dec63b261842f0351dbe18a56aa7703" category="paragraph">Verwenden Sie eine HTTPS-Verbindung zu StorageGRID, und holen Sie ein<block ref="79db796776246d2c3aaca8b375e662c4" prefix=" " category="inline-code"></block> Fehler nach einem Timeout von 15 Minuten.</block>
+  <block id="fe585fc6e6e5b4d2d51d9d6e24fe5d87" category="paragraph">*Grund:* alte JRE/JDK-Version mit veralteter oder nicht unterstützter TLS-Chiffre-Suite für die Verbindung zu StorageGRID.</block>
+  <block id="f37ed697750770b7a12ad7e08848a5f2" category="paragraph">*Beispiel-Fehlermeldung*</block>
+  <block id="2f463c682630a0a4549da5e367566421" category="paragraph">*Auflösung:* stellen Sie sicher, dass JDK 11.x oder höher installiert ist und auf die Java-Bibliothek eingestellt ist. Siehe <block ref="16e523618132c52360c79287d334eb35" category="inline-xref-macro-rx"></block> Weitere Informationen finden Sie in.</block>
+  <block id="0f85bc5e180a369ebccc65db2ddf9288" category="section-title">Szenario 2:</block>
+  <block id="2cd1296de7ffb189828b5d1d8f8c74db" category="paragraph">Fehler beim Herstellen der Verbindung zum StorageGRID mit Fehlermeldung<block ref="196748628d766a0b269e9435a7bad237" prefix=" " category="inline-code"></block>.</block>
+  <block id="608bb8a9d2247ad73a54f0b36e35e529" category="paragraph">*Grund:* StorageGRID S3-Endpoint-Server-Zertifikat wird nicht von Java-Programm vertrauenswürdig.</block>
+  <block id="71f31feeda8d8d4f38fbd0e77d82c5a9" category="paragraph">Beispielfehlermeldung:</block>
+  <block id="3233e5ff1af3df3490648806d2e307fb" category="paragraph">*Auflösung:* NetApp empfiehlt die Verwendung eines Serverzertifikats, das von einer bekannten öffentlichen Zertifizierungsstelle ausgestellt wurde, um die Sicherheit der Authentifizierung sicherzustellen. Alternativ können Sie dem Java Trust Store ein benutzerdefiniertes CA- oder Serverzertifikat hinzufügen.</block>
+  <block id="70135898629d17d48ccbf801de69bd60" category="paragraph">Führen Sie die folgenden Schritte aus, um eine benutzerdefinierte StorageGRID-Zertifizierungsstelle oder ein Serverzertifikat zum Java-Treuhandspeicher hinzuzufügen.</block>
+  <block id="45eab7349f288790d0a805a261f1e633" category="list-text">Sichern Sie die vorhandene Standard-Java-Cacaerts-Datei.</block>
+  <block id="96a3c1cb03afb8a8fdc408548dea3311" category="list-text">Importieren Sie das StorageGRID S3-Endpunktcert in den Java-Treuhandspeicher.</block>
+  <block id="ddbb2c51fdb8d9c867287e4815a4bc07" category="section-title">Tipps zur Fehlerbehebung</block>
+  <block id="92530c0f71b6f0c67f81127b722a268b" category="list-text">Erhöhen sie den hadoop Protokolllevel zum DEBUGGEN.</block>
+  <block id="7434b0a8c7df6a944a97a97dab787fa2" category="paragraph"><block ref="f3f47f7ed9637380b29b6315ff5f1321" prefix="" category="inline-code"></block></block>
+  <block id="fb10d0d432199779c224d4da6d5acf10" category="list-text">Führen Sie den Befehl aus und leiten Sie die Protokollmeldungen an ERROR.log.</block>
+  <block id="c774f55d8bba0b0011caed823df573f4" category="paragraph"><block ref="099875a7aead810a01f8c241fd159ee8" prefix="" category="inline-code"></block></block>
+  <block id="a55559222587bd5f2986759b8e95387a" category="summary">Dieser technische Bericht enthält detaillierte Anweisungen zur Konfiguration von NetApp StorageGRID 11.6 mit externen Services Prometheus und Grafana.</block>
+  <block id="ec88743b2ce92a6f481315232bded2cc" category="doc">Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern</block>
+  <block id="0b79795d3efc95b9976c7c5b933afce2" category="section-title">Einführung</block>
+  <block id="3778f3873debfe11e2ace6bb6af1e417" category="inline-link">StorageGRID-Dokumentation</block>
+  <block id="19e3e1c7497754486f9fce5eaded999d" category="paragraph">StorageGRID speichert Kennzahlen mithilfe von Prometheus und visualisiert diese Kennzahlen über integrierte Grafana Dashboards. Die Kennzahlen von Prometheus können über StorageGRID sicher abgerufen werden, indem Client-Zugriffszertifikate konfiguriert und prometheus-Zugriff für den angegebenen Client ermöglicht wird. Derzeit wird die Aufbewahrung dieser metrischen Daten durch die Storage-Kapazität des Administrations-Nodes begrenzt. Um eine längere Dauer zu erreichen und individuelle Visualisierungen dieser Kennzahlen zu erstellen, werden wir einen neuen Prometheus- und Grafana-Server einsetzen, unseren neuen Server für die Scrape der Kennzahlen aus der StorageGRIDs-Instanz konfigurieren und ein Dashboard mit den für uns wichtigen Kennzahlen erstellen. Weitere Informationen zu den in der erfassten Prometheus-Kennzahlen finden Sie unter<block ref="b4322fd604ba4ce3b6c052facca6761f" category="inline-link-rx"></block>.</block>
+  <block id="4ea04e03e09a38c155d3e71e1fb7de4c" category="section-title">Föderate Prometheus</block>
+  <block id="4d27d8d41585fe5291670dc3d60f75a7" category="section-title">Labordetails</block>
+  <block id="85bef63997bbb31cf4fa40eff8acef2b" category="paragraph">Für die Zwecke dieses Beispiels werde ich alle virtuellen Maschinen für StorageGRID 11.6 Knoten und einen Debian 11-Server verwenden. Die StorageGRID-Managementoberfläche ist mit einem öffentlich vertrauenswürdigen CA-Zertifikat konfiguriert. Dieses Beispiel wird die Installation und Konfiguration des StorageGRID-Systems oder der Debian linux-Installation nicht durchlaufen. Sie können jeden gewünschten Linux-Geschmack verwenden, der von Prometheus und Grafana unterstützt wird. Sowohl Prometheus als auch Grafana können als Docker-Container installiert, aus der Quelle erstellt oder vorkompilierte Binärdateien erstellt werden. In diesem Beispiel werde ich sowohl Prometheus- als auch Grafana-Binärdateien direkt auf dem gleichen Debian-Server installieren. Laden Sie sich die grundlegenden Installationsanweisungen von herunter<block ref="89724ccad5c62d1626a6c4f814f7ad92" category="inline-link-rx"></block> Und<block ref="14b4aeaebc6939fe5db011cfca13bded" category="inline-link-rx"></block> Jeweils.</block>
+  <block id="e6c56f2ad47108b72210c45d114ab981" category="section-title">Konfigurieren Sie StorageGRID für Prometheus Client-Zugriff</block>
+  <block id="a5b8a4af4e814e777e9666e98c1489b1" category="paragraph">Um Zugriff auf gespeicherte prometheus-Kennzahlen zu StorageGRIDs zu erhalten, müssen Sie ein Clientzertifikat mit privatem Schlüssel generieren oder hochladen und die Berechtigung für den Client aktivieren. Die StorageGRID-Schnittstelle muss ein SSL-Zertifikat haben. Dieses Zertifikat muss vom prometheus-Server entweder von einer vertrauenswürdigen CA oder manuell vertrauenswürdig sein, wenn es selbst signiert ist. Weitere Informationen finden Sie auf der<block ref="10adb8f93432a6d42dbae4551371be78" category="inline-link-rx"></block>.</block>
+  <block id="76f344ac7fba487473f1b7a1890e9f8e" category="list-text">Wählen Sie in der StorageGRID-Managementoberfläche unten links die Option „KONFIGURATION“ und klicken Sie in der zweiten Spalte unter „Sicherheit“ auf Zertifikate.</block>
+  <block id="6672f37bb0822d570acc565c15cb698f" category="list-text">Wählen Sie auf der Seite Zertifikate die Registerkarte „Client“ aus und klicken Sie auf die Schaltfläche „Add“.</block>
+  <block id="2f33cc1441b10d118155c459b7c0ec4f" category="list-text">Geben Sie einen Namen für den Client an, dem Zugriff gewährt wird, und verwenden Sie dieses Zertifikat. Klicken Sie auf das Feld unter „Berechtigungen“ vor „Prometheus zulassen“ und klicken Sie auf die Schaltfläche „Weiter“.</block>
+  <block id="e59f14e1cf84d2b0c36bfe68a98c16ed" category="image-alt">Zertifikatname</block>
+  <block id="b47c072e73067166591337127c6332cf" category="list-text">Wenn Sie ein CA-signiertes Zertifikat haben, können Sie das Optionsfeld für "Zertifikat hochladen" wählen, aber in unserem Fall werden wir StorageGRID das Client-Zertifikat generieren lassen, indem Sie das Optionsfeld für "Zertifikat generieren". Die Pflichtfelder werden angezeigt, in die ausgefüllt werden soll. Geben Sie den FQDN für den Client-Server, die IP des Servers, den Betreff und die gültigen Tage ein. Dann klicken Sie auf die Schaltfläche „Erzeugen“.</block>
+  <block id="efdc2e922559f9410d73ad5e9763cfe1" category="image-alt">Zertifikatdetail</block>
+  <block id="512a2185a4d8f29cd92f5eeca5299428" category="list-text">Laden Sie die Pem-Datei des Zertifikats und die Pem-Datei des privaten Schlüssels herunter.</block>
+  <block id="950d1a08b94affeab69ad5298853bcab" category="image-alt">Zertifikat-Download</block>
+  <block id="c7d534d2e8c571fc60886fffffaed71d" category="section-title">Bereiten Sie den Linux-Server für die Prometheus-Installation vor</block>
+  <block id="1a1198e75df118c29ed3f2cfe6f42314" category="paragraph">Vor der Installation von Prometheus möchte ich meine Umgebung mit einem Prometheus-Benutzer, der Verzeichnisstruktur vorbereiten und die Kapazität für den Speicherort der Kennzahlen konfigurieren.</block>
+  <block id="53012110a3b12b6dbece7a2d3329563c" category="list-text">Erstellen Sie den Prometheus-Benutzer.</block>
+  <block id="75ad7bfc7b05da8e590553a1ba59d00e" category="list-text">Erstellen Sie die Verzeichnisse für Prometheus, Clientzertifikat und Kennzahlendaten.</block>
+  <block id="cf93e27e07f84a6f34c0baad77d73502" category="list-text">Ich formatierte die Festplatte, die ich für die Aufbewahrung der Kennzahlen mit einem ext4 Dateisystem verwende.</block>
+  <block id="dba914a2be67f5826db730febd483dbb" category="list-text">Ich montierte dann das Dateisystem in das Prometheus-Kennzahlenverzeichnis.</block>
+  <block id="1db6657920c882fe516dc56a8fc42ae0" category="list-text">Holen Sie die UUID der Festplatte, die Sie für Ihre Kennzahlendaten verwenden.</block>
+  <block id="de5a7b5d75aef0f9aa929a3ffdd7bf91" category="list-text">Hinzufügen eines Eintrags in /etc/fstab/ das Hinzufügen des Mount bei Neustarts mit der UUID von /dev/sdb.</block>
+  <block id="e7184db422126b9a8ae98daa3ef08b00" category="section-title">Installation und Konfiguration von Prometheus</block>
+  <block id="51006cba71ff2e50795b3bf3c2b2e223" category="paragraph">Nachdem der Server nun bereit ist, kann ich die Prometheus-Installation starten und den Service konfigurieren.</block>
+  <block id="c99b7eb31cdbd3d09abc27ebdcb5325d" category="list-text">Extrahieren Sie das Prometheus Installationspaket</block>
+  <block id="6d1af4201bd8173d4f87201195065c96" category="list-text">Kopieren Sie die Binärdateien in /usr/local/bin, und ändern Sie das Eigentumsrecht in den zuvor erstellten prometheus-Benutzer</block>
+  <block id="22971a12624067801ed27bf22a1a43d4" category="list-text">Kopieren Sie die Konsolen und Bibliotheken auf /etc/prometheus</block>
+  <block id="c0b8e90b4197c0bc1a63ab18dad551cb" category="list-text">Kopieren Sie das Clientzertifikat und die pem-Dateien mit privaten Schlüsseln, die zuvor von StorageGRID heruntergeladen wurden, in /etc/prometheus/certs</block>
+  <block id="6fd6fe03d0bae048f49350a7b29d2b20" category="list-text">Erstellen Sie die yaml-Konfigurationsdatei für prometheus</block>
+  <block id="650d2cc27d4f8021f93af373465ebb1d" category="list-text">Geben Sie die folgende Konfiguration ein. Der Jobname kann alles sein, was Sie wünschen. Ändern Sie die „-Targets: [']“ in den FQDN des Admin-Knotens. Wenn Sie die Namen des Zertifikats und der Dateinamen des privaten Schlüssels geändert haben, aktualisieren Sie bitte den abschnitt tls_config, um mit dem Eintrag übereinstimmen. Speichern Sie anschließend die Datei. Wenn Ihre Grid-Management-Schnittstelle ein selbstsigniertes Zertifikat verwendet, laden Sie das Zertifikat herunter und legen Sie es mit dem Clientzertifikat mit einem eindeutigen Namen ab, und fügen Sie im Abschnitt tls_config Ca_file: /Etc/prometheus/cert/UICert.pem hinzu</block>
+  <block id="adbbb69e4573c242198e942a4c984a56" category="list-text">In diesem Beispiel sammle ich alle Kennzahlen, die mit alertmanager, cassandra, Node und StorageGRID beginnen. Weitere Informationen zu den Prometheus-Kennzahlen finden Sie im<block ref="b4322fd604ba4ce3b6c052facca6761f" category="inline-link-rx"></block>.</block>
+  <block id="2a83272e8be3a9939618ae5d54c15280" category="paragraph">Wenn Ihre Grid-Managementoberfläche ein selbstsigniertes Zertifikat verwendet, laden Sie das Zertifikat herunter, und legen Sie es mit dem Clientzertifikat mit einem eindeutigen Namen ab. Fügen Sie im Abschnitt tls_config das Zertifikat über dem Clientzertifikat und den privaten Schlüsselzeilen hinzu</block>
+  <block id="9d5f73c80f9dcd64a2b4f51ed7df1c74" category="list-text">Ändern Sie das Eigentum aller Dateien und Verzeichnisse in /etc/prometheus und /var/lib/prometheus in den prometheus-Benutzer</block>
+  <block id="94394bcffb3c751d1a1c75adf1dd3339" category="list-text">Erstellen Sie eine prometheus-Servicedatei in /etc/systemd/System</block>
+  <block id="1c83729b0147981bd53a386123e950b2" category="list-text">Fügen Sie die folgenden Zeilen ein, beachten Sie die #--Storage.tsdb.Retention.time=1y#, welche die Aufbewahrung der metrischen Daten auf 1 Jahr festlegt. Alternativ können Sie zur Basis-Aufbewahrung auf Storage-Beschränkungen #--Storage.tsdb.Retention.size=300gib# verwenden. Dies ist der einzige Speicherort, der die Aufbewahrung von Kennzahlen vornimmt.</block>
+  <block id="c44e8fe3436b496aa03fa98464a357bb" category="list-text">Laden Sie den systemd-Dienst erneut, um den neuen prometheus-Service zu registrieren. Dann starten und aktivieren sie den prometheus Service.</block>
+  <block id="a95dc294578d84798aa85e589b1d7169" category="list-text">Überprüfen Sie, ob der Service ordnungsgemäß läuft</block>
+  <block id="efb4923d4171f8bbe31a74fc17e7a4ea" category="list-text">Sie sollten nun in der Lage sein, auf die Benutzeroberfläche Ihres prometheus-Servers zu navigieren<block ref="9c036ae021e9b80558a889223ee0da28" category="inline-link-rx"></block> Und siehe UI</block>
+  <block id="6246893720a6bc3db5f56c322fc01d95" category="image-alt">prometheus UI-Seite</block>
+  <block id="bc9d8c8501595ac689577e371305dd0c" category="list-text">Unter "Status" Targets sehen Sie den Status des StorageGRID Endpunkts, den wir in prometheus.yml konfiguriert haben</block>
+  <block id="ef446049ce3cd8c094f34cb3047e10d7" category="image-alt">prometheus Statusmenü</block>
+  <block id="b46ccb7031f632fe5680ae39d381aac5" category="image-alt">seite prometheus Targets</block>
+  <block id="d438cb3ada618e17e8da5458906319f6" category="list-text">Auf der Seite Diagramm können Sie eine Testabfrage ausführen und überprüfen, ob die Daten erfolgreich abgefangen wurden. Geben Sie beispielsweise „storagegrid_Node_cpu_Utiltiy_percenty“ in die Abfrageleiste ein und klicken Sie auf die Schaltfläche Ausführen.</block>
+  <block id="a4b484847ff4cdaf28ddb0fbdebf7234" category="image-alt">prometheus Abfrage ausführen</block>
+  <block id="4b9bf479d75eb40b84a86c9d4d9829c6" category="section-title">Installation und Konfiguration von Grafana</block>
+  <block id="d6c4e0d91ac95c90048b7b552f962b83" category="paragraph">Nach der Installation und dem Betrieb von prometheus können wir nun zur Installation von Grafana und zur Konfiguration eines Dashboards wechseln</block>
+  <block id="28946a57c620a6d61330c3ec2b855ea1" category="section-title">Grafana-Instalation</block>
+  <block id="886d386fd41ddae5268cb47bd2c0f6f7" category="list-text">Installieren Sie die neueste Enterprise Edition von Grafana</block>
+  <block id="2b486298e7630814372aec36baee859f" category="list-text">Dieses Repository für stabile Versionen hinzufügen:</block>
+  <block id="166a21daf7286fbeb21167b5802de660" category="list-text">Nachdem Sie das Repository hinzugefügt haben.</block>
+  <block id="2557b3cde7450f332315bc10e61bdba8" category="list-text">Laden Sie den systemd-Dienst neu, um den neuen grafana-Dienst zu registrieren. Starten und aktivieren Sie dann den Grafana-Service.</block>
+  <block id="c96bdac515037faefe395a7292cce691" category="list-text">Grafana wird jetzt installiert und ausgeführt. Wenn Sie einen Browser zu HTTP://Prometheus-Server:3000 öffnen, werden Sie mit der Grafana-Anmeldeseite begrüßt.</block>
+  <block id="b5ed0857233fefc7884d300cb79511cc" category="list-text">Die Standard-Anmeldeinformationen sind admin/admin. Sie sollten ein neues Passwort festlegen, wenn Sie dazu aufgefordert werden.</block>
+  <block id="a201e49270e34f12f6f8e8e17b7f63b4" category="section-title">Erstellen eines Grafana Dashboards für StorageGRID</block>
+  <block id="8fa4555fc2e45c8e0b51029500b0ed27" category="paragraph">Mit der Installation und dem Betrieb von Grafana und Prometheus ist es jetzt an der Zeit, beide zu verbinden. Dazu wird eine Datenquelle erstellt und ein Dashboard erstellt</block>
+  <block id="4824e95e765437e0267119c28a2ebf58" category="list-text">Erweitern Sie im linken Fensterbereich „Konfiguration“ und wählen Sie „Datenquellen“, und klicken Sie dann auf die Schaltfläche „Datenquelle hinzufügen“</block>
+  <block id="5ab8c2d2b825ee44ae77e39f44377ef6" category="list-text">Prometheus wird eine der wichtigsten Datenquellen zur Auswahl sein. Wenn nicht, dann verwenden Sie die Suchleiste zu finden "Prometheus"</block>
+  <block id="bef2ae359538161990ca7f4f33bcbb9b" category="list-text">Konfigurieren Sie die Prometheus-Quelle, indem Sie die URL der prometheus-Instanz und das Scrape-Intervall eingeben, um das Prometheus-Intervall zu entsprechen. Ich habe auch den Abschnitt „Warnungen“ deaktiviert, da ich den Alarmmanager auf prometheus nicht konfiguriert habe.</block>
+  <block id="a40cb233948efde79195641883d0e611" category="image-alt">konfiguration von grafana prometheus</block>
+  <block id="b84470c739701819ce6f044fb322a73b" category="list-text">Blättern Sie nach unten, und klicken Sie auf „Speichern &amp; Testen“, wenn Sie die gewünschten Einstellungen eingegeben haben.</block>
+  <block id="a4d1cacdf98710f66261bf842712805f" category="list-text">Nachdem der Konfigurationstest erfolgreich abgeschlossen wurde, klicken Sie auf die Schaltfläche Explore.</block>
+  <block id="0dbc8986f05d1af0419dde8bc4a17614" category="list-text">Im Erkundungs-Fenster können Sie die gleiche Metrik verwenden, die wir Prometheus mit „storagegrid_Node_cpu_Utifficienty_percenty“ getestet haben, und auf die Schaltfläche „Run query“ klicken</block>
+  <block id="65408cc1057e1983691b2ab33f411afc" category="image-alt">grafana prometheus metrische Erkundung</block>
+  <block id="59c74787b5c8d94700e0808eb7f7080d" category="list-text">Nachdem die Datenquelle konfiguriert ist, können wir jetzt ein Dashboard erstellen.</block>
+  <block id="2dbede5ad9fd60cdbd41384214e737a8" category="list-text">Erweitern Sie im linken Fensterbereich „Dashboards“ und wählen Sie „+ neues Dashboard“ aus.</block>
+  <block id="9b8670951f7b4684c224ee7c839d456e" category="list-text">Wählen Sie „Neues Bedienfeld hinzufügen“ aus.</block>
+  <block id="0679a10db91cc04805eaf260fa1cf908" category="list-text">Konfigurieren Sie das neue Panel durch Auswahl einer Metrik, wieder werde ich "storagegrid_Node_cpu_Utilement_percenty" verwenden, einen Titel für das Panel eingeben, unten "Optionen" erweitern und für Legende ändern zu Custom und geben Sie "{{instance}}" ein, um die Knotennamen zu definieren, und im rechten Fensterbereich unter "Standardoptionen" setzen "Einheit" auf "Misc/Prozent(0-100)". Klicken Sie dann auf „Übernehmen“, um das Panel im Dashboard zu speichern.</block>
+  <block id="5a2f263537e34f8a641847b07c2dbb3a" category="image-alt">Konfigurieren des grafana-Panels</block>
+  <block id="171b2836c7ab4655438b8b81bc7d0d7f" category="list-text">Wir könnten unser Dashboard für jede gewünschte Metrik weiter ausbauen, aber glücklicherweise verfügt StorageGRID bereits über Dashboards mit Panels, die wir in unsere benutzerdefinierten Dashboards kopieren können.</block>
+  <block id="0045460d4b8ee6e2ccf21ba85bb61aa2" category="list-text">Wählen Sie im linken Fensterbereich der StorageGRID-Managementoberfläche „Support“ und klicken Sie unten in der Spalte „Tools“ auf „Metriken“.</block>
+  <block id="dacb92a5479161b14f63fe1bc9ae9551" category="list-text">Innerhalb von Kennzahlen wähle ich den Link „Grid“ oben in der mittleren Spalte aus.</block>
+  <block id="d41d9476c523c25b4f286c1fb9f71af1" category="image-alt">StorageGRID-Kennzahlen</block>
+  <block id="bcb5b82ee118287323cbbcf5705d51fd" category="list-text">Wählen Sie im Grid-Dashboard den Bereich „Storage Used - Object Metadata“ aus. Klicken Sie auf den kleinen Pfeil nach unten und auf das Ende des Bedienfeldtitels, um ein Menü zu öffnen. Wählen Sie in diesem Menü „Inspect“ und „Panel JSON“ aus.</block>
+  <block id="3283a20d4b70f7f18e4ffa4329564dec" category="image-alt">StorageGRID Dashboard</block>
+  <block id="bdfde960a4b9f7a6f52bc1bbcfb809ea" category="list-text">Kopieren Sie den JSON-Code und schließen Sie das Fenster.</block>
+  <block id="0ae78f538d8850bb1adf673ad3d9b9de" category="image-alt">StorageGRID JSON</block>
+  <block id="dd5507576d8e651777535414a2a4d89c" category="list-text">Klicken Sie in unserem neuen Dashboard auf das Symbol, um ein neues Panel hinzuzufügen.</block>
+  <block id="b87847301cad106c92101bdca1149176" category="image-alt">grafana Add Panel</block>
+  <block id="e7db75cfcf6183907b6f092041507fab" category="list-text">Wenden Sie das neue Bedienfeld an, ohne Änderungen vorzunehmen</block>
+  <block id="28117e550ca797c69346cfabb47d4275" category="list-text">Wie bei dem StorageGRID-Panel sollten Sie auch die JSON überprüfen. Entfernen Sie den gesamten JSON-Code, und ersetzen Sie ihn durch den kopierten Code aus dem StorageGRID-Fenster.</block>
+  <block id="243663c8bbd4a1adc19a8656ea49f52a" category="image-alt">grafana inspect Panel</block>
+  <block id="045121a7dd658eca0fb920eae2865bc5" category="list-text">Bearbeiten Sie das neue Bedienfeld, und auf der rechten Seite sehen Sie eine Migrationsmeldung mit einem "Migrate"-Button. Klicken Sie auf die Schaltfläche und dann auf die Schaltfläche „Übernehmen“.</block>
+  <block id="57a8b8008e71c9674e7cceda50fba182" category="image-alt">Menü des bearbeitungsanfelds grafana</block>
+  <block id="f810aaf1536bfcba66e5b92d051c04df" category="image-alt">grafana-Bearbeitungsfenster</block>
+  <block id="4d3250551177a4d9cd85c16745cc024a" category="list-text">Sobald Sie alle Panels eingerichtet und so konfiguriert haben, wie Sie möchten. Speichern Sie das Dashboard, indem Sie oben rechts auf das Festplatten-Symbol klicken und Ihrem Dashboard einen Namen geben.</block>
+  <block id="6f8b794f3246b0c1e1780bb4d4d5dc53" category="section-title">Schlussfolgerung</block>
+  <block id="3c381cb8a7d35d21cb305dce81f773fb" category="paragraph">Jetzt verfügen wir über einen Prometheus Server mit anpassbarer Datenaufbewahrung und Storage-Kapazität. Damit können wir unsere eigenen Dashboards mit den für unsere Betriebsabläufe wichtigsten Kennzahlen weiterentwickeln. Weitere Informationen zu den in der erfassten Prometheus-Kennzahlen finden Sie unter<block ref="b4322fd604ba4ce3b6c052facca6761f" category="inline-link-rx"></block>.</block>
+  <block id="bb59d42d40970acdd091a1d9e3013ed1" category="summary">In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben.</block>
+  <block id="3944f79e14bd534dce03dc9377e507b2" category="doc">Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung</block>
+  <block id="1351a64c902bed1342b8e0b3b15016e1" category="paragraph">Vertica ist eine Software für das Analyse-Datenbankmanagement. Es handelt sich um eine spaltenbasierte Storage-Plattform zur Verarbeitung großer Datenvolumen. Damit ermöglicht sie eine sehr schnelle Abfrage-Performance in einem klassisch intensiven Szenario. Eine Vertica-Datenbank läuft in einem der beiden Modi: Eon oder Enterprise. Beide Modi können sowohl lokal als auch in der Cloud implementiert werden.</block>
+  <block id="0ff6ef083e5937ae37d85f7e32b9c415" category="paragraph">Eon- und Enterprise-Modi unterscheiden sich hauptsächlich darin, wo sie Daten speichern:</block>
+  <block id="742f8282711edec5deb4f1c27cba460b" category="list-text">Die Eon-Modus-Datenbanken verwenden einen gemeinsamen Speicher für ihre Daten. Dies wird von Vertica empfohlen.</block>
+  <block id="10b13e2ff5733c9c1736ca88a58fce37" category="list-text">Die Enterprise-Mode-Datenbanken speichern die Daten lokal im Dateisystem der Knoten, aus denen die Datenbank besteht.</block>
+  <block id="da071698872dd5a11fcfcdc6e87ce00b" category="section-title">Eon-Mode-Architektur</block>
+  <block id="eacdb46886950f67125163a0ac7c547b" category="paragraph">Eon-Modus trennt die Computing-Ressourcen von der gemeinsamen Storage-Schicht der Datenbank, wodurch Computing- und Storage-Ressourcen getrennt skaliert werden können. Vertica im Eon-Modus ist für variable Workloads optimiert und kann durch die Nutzung separater Computing- und Storage-Ressourcen voneinander isoliert werden.</block>
+  <block id="c9537751a44904cbd1595766ea947357" category="paragraph">Eon-Modus speichert Daten in einem gemeinsam genutzten Objektspeicher, dem sogenannten Communal Storage – einem S3-Bucket, der entweder lokal oder in Amazon S3 gehostet wird.</block>
+  <block id="ae79effc6d45e14ea71e610bb3d9669c" category="image-alt">Vertica Eon-Mode Cluster mit gemeinsamem Speicher</block>
+  <block id="d9bdcaa0d990474197d196d3848befca" category="section-title">Gemeinschaftsspeicher</block>
+  <block id="f208cb9b2076d8b42eb21a99f5e12b86" category="paragraph">Statt Daten lokal zu speichern, verwendet der Eon-Modus einen einzigen gemeinsamen Speicherort für alle Daten und den Katalog (Metadaten). Der zentrale Speicherort der Datenbank, der von den Datenbank-Nodes gemeinsam genutzt wird, ist die gemeinsame Speicherung.</block>
+  <block id="d00864c661d9eea6d6bc179f2c282e45" category="paragraph">Kommunale Lagerung hat folgende Eigenschaften:</block>
+  <block id="e7bc675af5b1688f139c70343df7051b" category="list-text">Kommunaler Storage in der Cloud oder On-Premises-Objekt-Storage ist ausfallsicherer und anfällig für Datenverluste aufgrund von Storage-Ausfällen als Storage auf Festplatte an individuellen Maschinen.</block>
+  <block id="e1a644db903707c56d177424599944ca" category="list-text">Alle Daten können von jedem Node aus denselben Pfad gelesen werden.</block>
+  <block id="363e9f9d5ab59fe87846e1fa6280937c" category="list-text">Die Kapazität ist nicht durch den Festplattenspeicher auf Nodes begrenzt.</block>
+  <block id="e41c3434b54256834c20bb764ccb3dfb" category="list-text">Da Daten communal gespeichert werden, können Sie den Cluster flexibel skalieren, um den sich ändernden Anforderungen gerecht zu werden. Falls die Daten lokal auf den Nodes gespeichert wurden, müssten beim Hinzufügen oder Entfernen von Nodes umfangreiche Datenmengen zwischen Nodes verschoben werden, um sie entweder von entfernten Nodes oder auf neu erstellte Nodes zu verschieben.</block>
+  <block id="2aa2d7b479eff89354f5a5d47c966c7b" category="section-title">Das Depot</block>
+  <block id="69b552cd0cc8cd7cedbb740166c2b67d" category="paragraph">Ein Nachteil der kommunalen Lagerung ist seine Geschwindigkeit. Der Zugriff auf Daten von einem gemeinsam genutzten Cloud-Speicherort ist langsamer als das Lesen von einer lokalen Festplatte. Darüber hinaus kann die Verbindung zu kommunalem Storage zu einem Engpass werden, wenn viele Nodes die Daten gleichzeitig lesen. Zur Verbesserung der Zugriffsgeschwindigkeit für Daten führen die Knoten in einer Eon-Modus-Datenbank einen lokalen Festplatten-Cache mit Daten, die als Depot bezeichnet werden. Bei der Ausführung einer Abfrage prüfen die Knoten zunächst, ob sich die erforderlichen Daten im Depot befinden. Ist dies der Fall, wird die Abfrage beendet, indem die lokale Kopie der Daten verwendet wird. Wenn sich die Daten nicht im Depot befindet, ruft der Knoten die Daten aus dem gemeinsamen Lager ab und speichert eine Kopie im Depot.</block>
+  <block id="adefcaa5a25e4b7dd144fc0f19c1cfcd" category="section-title">NetApp StorageGRID-Empfehlungen</block>
+  <block id="770d5275891c4480deae83e407a6f54f" category="paragraph">Vertica speichert Datenbankdaten im Objekt-Storage als Tausende (oder Millionen) komprimierter Objekte (die beobachtete Größe beträgt 200 bis 500 MB pro Objekt. Wenn ein Benutzer Datenbankabfragen ausführt, ruft Vertica den ausgewählten Datenbereich aus diesen komprimierten Objekten parallel mit dem GET-Aufruf des Byte-Bereichs ab. Jeder Byte-Bereich HAT ca. 8 KB.</block>
+  <block id="041a4ffdefdbba3e879952330449b52f" category="paragraph">Während des 10-TB-Datenbankdepots zur Prüfung von Benutzeranfragen wurden 4,000 bis 10,000 GET-Anforderungen (Byte-Bereich GET) pro Sekunde an das Grid gesendet. Bei diesem Test werden SG6060 Appliances eingesetzt, obwohl die CPU-Auslastung des % pro Appliance-Node niedrig ist (etwa 20 bis 30 %), warten 2/3 der CPU-Zeit auf I/O Bei SGF6024 wird ein sehr kleiner Prozentsatz (0 % bis 0.5 %) des I/O-Wartens beobachtet.</block>
+  <block id="ee5b06737289123ef2b5504214d0a959" category="paragraph">Aufgrund der hohen Anforderungen an kleine IOPS mit sehr niedrigen Latenzanforderungen (der Durchschnitt liegt bei weniger als 0.01 Sekunden) empfiehlt NetApp die Verwendung von SFG6024 für Objekt-Storage-Services. Falls das SG6060 für sehr große Datenbanken benötigt wird, sollte der Kunde mit dem Vertica Account-Team zusammenarbeiten, um den aktiv abgefragten Datensatz zu unterstützen.</block>
+  <block id="69eb0bfa315677fb31292eb1879ef1e2" category="paragraph">Für den Admin-Node und den API-Gateway-Node kann der Kunde das SG100 oder SG1000 verwenden. Die Wahl hängt von der Anzahl der Abfragen der Benutzer in paralleler und Datenbank-Größe ab. Wenn der Kunde einen Drittanbieter-Load-Balancer einsetzen möchte, empfiehlt NetApp einen dedizierten Load Balancer für Workloads mit hohen Performance-Anforderungen. Informationen zur StorageGRID Dimensionierung erhalten Sie vom NetApp Account Team.</block>
+  <block id="75a344cafb10d96419edf5a61e63c7c0" category="paragraph">Weitere Empfehlungen für die StorageGRID-Konfiguration:</block>
+  <block id="5b0c5b5e09678e4458f93ea143915cd4" category="list-text">*Grid-Topologie*. Kombinieren Sie SGF6024 nicht mit anderen Storage Appliance-Modellen am selben Grid-Standort. Wenn Sie den SG6060 für den langfristigen Archivierungsschutz verwenden möchten, sollten Sie den SGF6024 mit einem dedizierten Grid Load Balancer am eigenen Grid-Standort (entweder am physischen oder logischen Standort) für eine aktive Datenbank aufbewahren, um die Performance zu steigern. Die Kombination verschiedener Appliance-Modelle am selben Standort verringert die Gesamtleistung am Standort.</block>
+  <block id="a8b59be6737824c8ebdf70e871ae770b" category="list-text">*Datenschutz*. Verwenden Sie Replizieren-Kopien für die Sicherheit. Verwenden Sie kein Erasure Coding für eine aktive Datenbank. Der Kunde kann das Verfahren zur Einhaltung von Datenkonsistenz (Erasure Coding) verwenden, um inaktive Datenbanken langfristig zu schützen.</block>
+  <block id="37b5ca073879940e05a508cb8e173209" category="list-text">*Gitterkompression nicht aktivieren*. Vertica komprimiert Objekte, bevor sie in Objekt-Storage gespeichert werden. Durch die Aktivierung der Grid-Komprimierung wird die Storage-Auslastung nicht weiter gesenkt und DIE GET-Performance im Byte-Bereich wird deutlich verringert.</block>
+  <block id="e0a0f5ab016a2e63cf33ff41b6c64f8d" category="list-text">*HTTP im Vergleich zu HTTPS S3-Endpunktverbindung*. Während des Benchmark-Tests konnten wir bei der Verwendung einer HTTP S3-Verbindung vom Vertica Cluster zum StorageGRID Load Balancer-Endpunkt eine Performance-Steigerung von ca. 5 % feststellen. Diese Auswahl sollte auf den Sicherheitsanforderungen des Kunden basieren.</block>
+  <block id="4b28b0ac82f7df42e45ed03d7ec68cbe" category="paragraph">Empfehlungen für eine Vertica Konfiguration sind:</block>
+  <block id="12e901de5151934289876684be69dbd3" category="list-text">*Die Standardeinstellungen des Vertica Datenbank-Depots sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge*. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.</block>
+  <block id="dd75d17318890d52ab1d8e037befc36f" category="inline-xref">Deaktivieren von Streaming-Einschränkungen</block>
+  <block id="b5cea23fe7560dccda4bff6fe086b074" category="list-text">*Streaming-Einschränkungen deaktivieren*. Weitere Informationen zur Konfiguration finden Sie im Abschnitt <block ref="622e251fe1340a5a963a60975f5cfd66" category="inline-xref-macro-rx"></block>.</block>
+  <block id="a49ece59a164bea53c1c444816a1423e" category="section-title">Installation von Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID</block>
+  <block id="c120fe39689790c17f819d12b1470734" category="inline-link-macro">Installation einer On-Premises-Eon-Mode-Datenbank</block>
+  <block id="60c5f0d9d4093b532349fb2c84a2f907" category="paragraph">In den folgenden Abschnitten wird das Verfahren beschrieben, um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren. Das Verfahren zur Konfiguration von S3-kompatiblem Objektspeicher (Simple Storage Service) ähnelt dem Verfahren im Vertica-Leitfaden. <block ref="291481b0beedb487e265883c3de1da25" category="inline-link-macro-rx"></block>.</block>
+  <block id="18d45b04dd1a7895a2c977550f8911d7" category="paragraph">Für den Funktionstest wurde folgendes Setup verwendet:</block>
+  <block id="afdaec41fcd7f8ba541d0750dcbd6960" category="list-text">StorageGRID 11.4.0.4</block>
+  <block id="c6624074e9b8a278bfe04013c96fc36e" category="list-text">Vertica 10.1.0</block>
+  <block id="e2faa2feaa265e01fe33c216af9efb3d" category="list-text">Drei Virtual Machines (VMs) mit CentOS 7.x OS für Vertica Nodes zu einem Cluster bilden. Dieses Setup gilt nur für den Funktionstest, nicht für das Produktions-Datenbank-Cluster der Vertica.</block>
+  <block id="fe8be754482a7a11d9d5a2d53443cedc" category="paragraph">Diese drei Nodes sind mit einem SSH-Schlüssel (Secure Shell) eingerichtet, um SSH ohne Passwort zwischen den Nodes innerhalb des Clusters zuzulassen.</block>
+  <block id="f5d7d5da5cd7e937a30a5f247eee8768" category="section-title">Erforderliche Informationen von NetApp StorageGRID</block>
+  <block id="784d884ec512d4e088d2a6cb0c7a12ec" category="paragraph">Um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren, müssen Sie die folgenden Vorbedingung-Informationen haben.</block>
+  <block id="9ce37b571d32bd29d59a6463c83b9056" category="list-text">IP-Adresse oder vollständig qualifizierter Domain-Name (FQDN) und Portnummer des StorageGRID S3-Endpunkts. Wenn Sie HTTPS verwenden, verwenden Sie eine CA (Custom Certificate Authority) oder ein selbstsigniertes SSL-Zertifikat, das am StorageGRID S3-Endpunkt implementiert wurde.</block>
+  <block id="222a56bb23dfff9aa9774dd9c3e4ee56" category="list-text">Bucket-Name Er muss vorexistieren und leer sein.</block>
+  <block id="fdae6c2e4ab36d6033d962c50f414ccb" category="list-text">Schlüssel-ID und geheimer Zugriffsschlüssel mit Lese- und Schreibzugriff auf den Bucket</block>
+  <block id="98c67820d16a1b9909ecb5354f6822a6" category="section-title">Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt</block>
+  <block id="beaa6107ac08a69977170ef5066ba7d5" category="paragraph">Beim Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt gelten die folgenden Voraussetzungen:</block>
+  <block id="7a83bfd6cbc9c75248c5c1aa0561e094" category="list-text">Vertica ist installiert.</block>
+  <block id="52bb7b8803b5d17a4da99db7aba31c93" category="list-text">Ein Cluster ist für die Datenbankerstellung eingerichtet, konfiguriert und bereit.</block>
+  <block id="aa3fedd0a7a12417c91b0d938a4d2f1d" category="paragraph">So erstellen Sie eine Autorisierungsdatei für den Zugriff auf den S3-Endpunkt:</block>
+  <block id="b87e30a2e9d3e21c51073e1db74466e2" category="list-text">Melden Sie sich beim Vertica-Knoten an, auf dem Sie ausgeführt werden<block ref="cc600eba5e662103a60e01438a28e293" prefix=" " category="inline-code"></block> So erstellen Sie die Eon-Modus-Datenbank.</block>
+  <block id="302df0b551a339ce9b649c1c77f6f22f" category="paragraph">Der Standardbenutzer ist<block ref="03a73f3e7c9a7b38d196cd34c072567e" prefix=" " category="inline-code"></block>, Erstellt während der Vertica Cluster Installation.</block>
+  <block id="32307e5a5d0dcaf9f32db0202471f86a" category="list-text">Verwenden Sie einen Texteditor, um eine Datei unter dem zu erstellen<block ref="f02890c824b79b1e714efc565cd0c3b9" prefix=" " category="inline-code"></block> Verzeichnis. Der Dateiname kann alles sein, was Sie wollen, z. B.<block ref="e4a2a2433f30c8bc1bde86be770e8675" prefix=" " category="inline-code"></block>.</block>
+  <block id="c13f6f849620f8cc13bc4474d9555200" category="list-text">Wenn der S3-Endpunkt einen Standard-HTTP-Port 80 oder HTTPS-Port 443 verwendet, überspringen Sie die Portnummer. Um HTTPS zu verwenden, legen Sie die folgenden Werte fest:</block>
+  <block id="3068a18f4c22a22b0a2ecd5b1416a5ec" category="list-text"><block ref="88cbe6a19a807462cfc277889de4dfc8" prefix="" category="inline-code"></block>, Sonst setzen Sie den Wert auf<block ref="cfcd208495d565ef66e7dff9f98764da" prefix=" " category="inline-code"></block>.</block>
+  <block id="116bd825db022c3159b1677a3dc64f06" category="list-text"><block ref="0966d4902ebc0bef4587305d001e18e2" prefix="" category="inline-code"></block></block>
+  <block id="1d33a1b42749a2480d0f6640c5ff2e84" category="list-text"><block ref="b27efc654db78c919a0d639dd8ccbdd6" prefix="" category="inline-code"></block></block>
+  <block id="e6e1ee0e7535b2e405ebb8e300b98120" category="paragraph">Um eine benutzerdefinierte CA oder ein selbstsigniertes SSL-Zertifikat für die HTTPS-Verbindung des StorageGRID S3-Endpunkts zu verwenden, geben Sie den vollständigen Dateipfad und den Dateinamen des Zertifikats an. Diese Datei muss sich am selben Speicherort auf jedem Vertica-Knoten befinden und über Leseberechtigung für alle Benutzer verfügen. Überspringen Sie diesen Schritt, wenn das StorageGRID S3 Endpoint SSL-Zertifikat von einer öffentlich bekannten CA signiert wurde.</block>
+  <block id="696e259f94c7ad1305f19356063ef22a" category="paragraph"><block ref="85e1e804f8bcc895638749c766e2d591" prefix="" category="inline-code"></block></block>
+  <block id="0d1ac53170a5118fa04c541efad5bb4d" category="paragraph">Informationen hierzu finden Sie beispielsweise in der folgenden Beispieldatei:</block>
+  <block id="fc77af791d1dc32525fcc72feee625e1" category="admonition">In einer Produktionsumgebung muss der Kunde ein Serverzertifikat implementieren, das von einer öffentlich bekannten CA auf einem StorageGRID S3 Load Balancer-Endpunkt unterzeichnet wurde.</block>
+  <block id="59826e109f3e784088f86690d77d3668" category="section-title">Auswählen eines Depotpfads auf allen Vertica-Knoten</block>
+  <block id="b4129381183bb3a2dcc258f9cf71eee3" category="paragraph">Wählen Sie auf jedem Knoten ein Verzeichnis für den Depot-Speicherpfad aus oder erstellen Sie ein Verzeichnis. Das Verzeichnis, das Sie für den Parameter Depot-Speicherpfad bereitstellen, muss Folgendes haben:</block>
+  <block id="a77408fa769995f6c1b1614db78cd9d3" category="list-text">Derselbe Pfad auf allen Nodes im Cluster (z. B.<block ref="21bfad35ead9f21122c1332b1584b472" prefix=" " category="inline-code"></block>)</block>
+  <block id="a3505e1f8f85c906e127d552d198d4ed" category="list-text">Vom dbadmin-Benutzer lesbar und beschreibbar sein</block>
+  <block id="05a29aef1a17d794559074061ce7180e" category="list-text">Ausreichende Lagerung</block>
+  <block id="a11c22527e5b1ee68fbaab45fce06809" category="inline-link-macro">Dimensionierung des Vertica Clusters für eine Eon-Mode-Datenbank</block>
+  <block id="00dadf185ad569b9ff9af5c62063d2ec" category="paragraph">Standardmäßig verwendet Vertica 60 % des Dateisystemspeichers, der das Verzeichnis für die Depotspeicherung enthält. Sie können die Größe des Depots mithilfe der begrenzen<block ref="b0b82412d27e4583772fd4e1ef53cb5c" prefix=" " category="inline-code"></block> Argument in<block ref="9206ac2c2ac2a6a510d4dd0f6049401d" prefix=" " category="inline-code"></block> Befehl. Siehe <block ref="5ed72ba4f95868ac00a71daae1b19940" category="inline-link-macro-rx"></block> Artikel für allgemeine Vertica Größenrichtlinien oder wenden Sie sich an Ihren Vertica Account Manager.</block>
+  <block id="298b1561e22818ad31df6e4836a6aca2" category="paragraph">Der<block ref="87d9cc3ea9ea36136197dfac04f97f7e" prefix=" " category="inline-code"></block> Das Tool versucht, den Depotpfad für Sie zu erstellen, wenn dieser nicht vorhanden ist.</block>
+  <block id="4536a0f0846353aa5de6714204bd897a" category="section-title">Erstellen der On-Premises-Datenbank von Eon</block>
+  <block id="6ed9ef1283f8a665ad7dbfe450f4616c" category="paragraph">So erstellen Sie die On-Premises-Datenbank von Eon:</block>
+  <block id="c8fac0ae7f28a985c6f7041e704cb9e9" category="list-text">Verwenden Sie zum Erstellen der Datenbank die<block ref="87d9cc3ea9ea36136197dfac04f97f7e" prefix=" " category="inline-code"></block> Werkzeug.</block>
+  <block id="ba1f54172ea851b435ebad930979214e" category="paragraph">Die folgende Liste enthält eine kurze Erläuterung der Argumente, die in diesem Beispiel verwendet werden. Eine detaillierte Erläuterung aller erforderlichen und optionalen Argumente finden Sie im Dokument Vertica.</block>
+  <block id="d560ea5a8e684843d3e61026f97988ea" category="inline-xref">„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“</block>
+  <block id="49231ccf7e1f2892d02e363b3996f6b1" category="list-text">-X &lt;Pfad/Dateiname der in erstellten Autorisierungsdatei <block ref="ff01d755c02cf9eac8acabe776f4ae31" category="inline-xref-macro-rx"></block> &gt;.</block>
+  <block id="f405bc9fea0f983aec86bf3b39598931" category="paragraph">Die Autorisierungsdetails werden nach erfolgreicher Erstellung in der Datenbank gespeichert. Sie können diese Datei entfernen, um zu vermeiden, dass der S3-Geheimschlüssel offengelegt wird.</block>
+  <block id="8bb92892cb170f0a2e9faa38b08707d2" category="list-text">--communal-Storage-location &lt;s3://storagegrid buchname&gt;</block>
+  <block id="730286a138b893db744ec9b6d5eb53cc" category="list-text">-S &lt;kommagetrennte Liste der Vertica-Knoten, die für diese Datenbank verwendet werden sollen&gt;</block>
+  <block id="ff3ce7ef8f8faa42ab218e0e6a952005" category="list-text">-D &lt;Name der zu erstellenden Datenbank&gt;</block>
+  <block id="cbfebf618a39b6eebd458ebccb35811d" category="list-text">-P &lt;Kennwort für diese neue Datenbank&gt; festlegen. Den folgenden Beispielbefehl können Sie z. B. einsehen:</block>
+  <block id="f0f9a3849fe5730a2c9d6f1fec222ca3" category="paragraph">Das Erstellen einer neuen Datenbank dauert abhängig von der Anzahl der Nodes für die Datenbank mehrere Minuten. Wenn Sie die Datenbank zum ersten Mal erstellen, werden Sie aufgefordert, die Lizenzvereinbarung zu akzeptieren.</block>
+  <block id="3b8065a08e54f4e0956f3b822ffb8a91" category="paragraph">Informationen hierzu finden Sie z. B. in der folgenden Beispielautorisierungsdatei und<block ref="4b8d66b6fea92738d266b3270eb3ee2a" prefix=" " category="inline-code"></block> Befehl:</block>
+  <block id="011babd6bb6bec44f7f5c42f6c3e7a38" category="cell">Objektgröße (Byte)</block>
+  <block id="e6ada8a15e80a48f024520ab8ffb24a5" category="cell">Bucket/Objektschlüssel vollständiger Pfad</block>
+  <block id="8f283c17785e8043629e6a7e1d721498" category="paragraph"><block ref="7f39f8317fbdb1988ef4c628eba02591" prefix="" category="inline-code"></block></block>
+  <block id="194ed05748ef16c0095eca9bbdccfd15" category="paragraph"><block ref="2a9537d551a115c0581e6a99013ad97f" prefix="" category="inline-code"></block></block>
+  <block id="729c949b77c1b640517910da82d0009e" category="paragraph"><block ref="2b24d495052a8ce66358eb576b8912c8" prefix="" category="inline-code"></block></block>
+  <block id="02dde8fef0da052a66cc199f0d934f95" category="paragraph"><block ref="a11dc00cfe864427dd13d210d503b383" prefix="" category="inline-code"></block></block>
+  <block id="436383be1a5ea8f6f9a05e8b93c69d9d" category="paragraph"><block ref="a5e00132373a7031000fd987a3c9f87b" prefix="" category="inline-code"></block></block>
+  <block id="70e1bd6136404a49a88f7fb3dd3465c3" category="paragraph"><block ref="488b03cbf8d7dca7f976b76a6b3305ff" prefix="" category="inline-code"></block></block>
+  <block id="715eac993d42a26a194f16062429238e" category="paragraph"><block ref="d645920e395fedad7bbbed0eca3fe2e0" prefix="" category="inline-code"></block></block>
+  <block id="29cbdad4e0c6e39f8d84a0d5416eb1e8" category="paragraph"><block ref="e748376abe3535c6ed0f94d7209e0b81" prefix="" category="inline-code"></block></block>
+  <block id="4ddd669e9e695a865f4ee77b92335a6b" category="paragraph"><block ref="e0f871ea87601f49c5260cbb97129eca" prefix="" category="inline-code"></block></block>
+  <block id="a0531813d4911f4468a61b1a8b8be492" category="paragraph"><block ref="e369853df766fa44e1ed0ff613f563bd" prefix="" category="inline-code"></block></block>
+  <block id="f99e684ff65b8e3fa1b1115a8e4f6455" category="paragraph"><block ref="5ae58d1c42c8115c2df9593f2104f83c" prefix="" category="inline-code"></block></block>
+  <block id="964578668d432e948ebd36046dbb63a0" category="paragraph"><block ref="3416a75f4cea9109507cacd8e2f2aefc" prefix="" category="inline-code"></block></block>
+  <block id="0d8920cf1f46e7225ad12a12aa3ef7fa" category="paragraph"><block ref="a606c1397ffbf271ac4500f8560b4741" prefix="" category="inline-code"></block></block>
+  <block id="ee33f05ae2d631fbc7214baa242bbe6b" category="paragraph"><block ref="6403a20352055938e4c6dacc6eae1473" prefix="" category="inline-code"></block></block>
+  <block id="54070e15a029f7447e1ecebc3d82b773" category="paragraph"><block ref="1afa34a7f984eeabdbb0a7d494132ee5" prefix="" category="inline-code"></block></block>
+  <block id="66f64ef6cf860c2f0ce6a5a2c23761e3" category="paragraph"><block ref="a935cd5a857f7c622ddef1d201ad9f18" prefix="" category="inline-code"></block></block>
+  <block id="bd8b3b2174b3dc482b0c5e38e6cddac3" category="paragraph"><block ref="54229abfcfa5649e7003b83dd4755294" prefix="" category="inline-code"></block></block>
+  <block id="162c559c21f5cc69fe9ebd819fde72e2" category="paragraph"><block ref="4929a83db805164a3d4af9038606f546" prefix="" category="inline-code"></block></block>
+  <block id="dc16a418b068800db4274918cfb8cbd5" category="paragraph"><block ref="5ef059938ba799aaa845e1c2e8a762bd" prefix="" category="inline-code"></block></block>
+  <block id="c891ece8fdff5a56142befae63efdf59" category="paragraph"><block ref="4133e9dbad269b96e4df224428a40068" prefix="" category="inline-code"></block></block>
+  <block id="cfcfa2b8b73ab4ebd558c0c1fef3ddb5" category="paragraph"><block ref="2b44928ae11fb9384c4cf38708677c48" prefix="" category="inline-code"></block></block>
+  <block id="a153a0e9f0ae1d6ee55d81dc814a6b1a" category="paragraph"><block ref="59208371b736bea305d585be7c8e871e" prefix="" category="inline-code"></block></block>
+  <block id="df6e76b7db7e1995b581978628f232d2" category="paragraph"><block ref="182be0c5cdcd5072bb1864cdee4d3d6e" prefix="" category="inline-code"></block></block>
+  <block id="adf4c765585112bb17f45e76f9d9d590" category="paragraph"><block ref="a88fb480e1da4bf824cb86d3397d3b49" prefix="" category="inline-code"></block></block>
+  <block id="5bad592e6f7fea9a405f17f8f9340030" category="paragraph"><block ref="9fc3d7152ba9336a670e36d0ed79bc43" prefix="" category="inline-code"></block></block>
+  <block id="87316eaa24ad32afbe0ef544c6bca09a" category="paragraph"><block ref="8a3aff91c1692c5ade1a80d581160573" prefix="" category="inline-code"></block></block>
+  <block id="82923f5350a7cf37b21ea38721c005a9" category="paragraph"><block ref="a5771bce93e200c36f7cd9dfd0e5deaa" prefix="" category="inline-code"></block></block>
+  <block id="614c8126b9e7031460260b44d16aeeee" category="paragraph"><block ref="7d98dc2d0490c44ebd6a412a4169d3c6" prefix="" category="inline-code"></block></block>
+  <block id="ccc61782f821297d4d0f1d6adc8c005b" category="paragraph"><block ref="13651f0a7d5708216c3eecebbee6739b" prefix="" category="inline-code"></block></block>
+  <block id="0688523b1b9b233c01258f78a3b678d1" category="paragraph"><block ref="8d7c5aedb695e0b23a6ea60d65a8855e" prefix="" category="inline-code"></block></block>
+  <block id="5bd0f2c4067288be395e7abd381a1c08" category="paragraph"><block ref="7437c765cfa61635504011d395b82c87" prefix="" category="inline-code"></block></block>
+  <block id="bc9b86685d9566e8f05dc5bf8d3a1fbc" category="paragraph"><block ref="60f62e3e7de6ded7b50f3448f400a6db" prefix="" category="inline-code"></block></block>
+  <block id="d38e8ffa6625a5a4b6bad1c1d7382fb5" category="paragraph"><block ref="f806758b752385f11b99d1621bbe7877" prefix="" category="inline-code"></block></block>
+  <block id="af6664da5e630dd702d05572ececa175" category="paragraph"><block ref="b09bda479d124c5af723d47b0ec55d4d" prefix="" category="inline-code"></block></block>
+  <block id="de27bd64b0a8f6533689f4b16da6bfb0" category="paragraph"><block ref="80ec738ce7ea9421d5393b4ed7c54465" prefix="" category="inline-code"></block></block>
+  <block id="9ef62a917e9958765d5bcb465a51ac57" category="paragraph"><block ref="f3d2fa52cee88b9ebaefbacfc3a6f2e3" prefix="" category="inline-code"></block></block>
+  <block id="3783651d1a6b717d08885cf53bd7d16e" category="paragraph"><block ref="8aedda865d9225f03e77db1032a0e471" prefix="" category="inline-code"></block></block>
+  <block id="c3d8042b5920b9834cdc8c607700579b" category="paragraph"><block ref="db272f341e697ef627fd2d022ed6c3af" prefix="" category="inline-code"></block></block>
+  <block id="cb5e272ca193ebaf253184d8cfc81f6c" category="paragraph"><block ref="985e17a0891008705e757fd895ff9fb9" prefix="" category="inline-code"></block></block>
+  <block id="9f99944286c11b6b1d4ae4f3afeaccce" category="paragraph"><block ref="36d788dbd52b259680455d7bc6e217ae" prefix="" category="inline-code"></block></block>
+  <block id="5c7d0ca56c0f98a44c9694b3b23638a6" category="paragraph"><block ref="b89436bab4e972038d3da096a47ae4f7" prefix="" category="inline-code"></block></block>
+  <block id="953a580241e2775e0639090df2123983" category="paragraph"><block ref="cdd61595c0339d02f58715ef22c6695b" prefix="" category="inline-code"></block></block>
+  <block id="b91fb7e8554567dee7fd85bf527a5d61" category="paragraph"><block ref="1ecc76497b95f7da179408cc5e319610" prefix="" category="inline-code"></block></block>
+  <block id="2eab01f0a4f4ba0111890349a5f85444" category="paragraph"><block ref="1c002a6012990f579800d186c0520e45" prefix="" category="inline-code"></block></block>
+  <block id="f27cf13b696134d286beb7542a5b8ee9" category="paragraph"><block ref="efdfce7d75d6621a825f4fe36cac73b0" prefix="" category="inline-code"></block></block>
+  <block id="5b1513e00fa72794bd306e4661c0d8af" category="paragraph"><block ref="505e160adf31f0aa737ba4acf2646601" prefix="" category="inline-code"></block></block>
+  <block id="66e66fba54c58c7cfab3b8c11a8b73a3" category="paragraph"><block ref="c3b248368efa9b09eb9910aaa56dcd91" prefix="" category="inline-code"></block></block>
+  <block id="82901f02268c81d3e27980ba5e0b77d5" category="paragraph"><block ref="8e8792865226999b0d1a43221ab78f85" prefix="" category="inline-code"></block></block>
+  <block id="7914ba13e7d387d65c9411aeea0e0892" category="paragraph"><block ref="aca4991ef1318a546a7ad09d98b1bd72" prefix="" category="inline-code"></block></block>
+  <block id="bf40bf1f33abeba0c5f6118b0b478254" category="paragraph"><block ref="9a5b88ed30156b31f83f213e61f293bf" prefix="" category="inline-code"></block></block>
+  <block id="89fe14ef338a0aad387cf40439c765d3" category="paragraph"><block ref="1fc3d7204f5822b9496675aac391502f" prefix="" category="inline-code"></block></block>
+  <block id="f09043d36889d1d269a7e6511fafff88" category="paragraph"><block ref="b885e1cb687943ca873a1b85b8ee0336" prefix="" category="inline-code"></block></block>
+  <block id="9f4bb57d3119e159eda6dc91b421e12c" category="paragraph"><block ref="a16c819ad9a8cbb4b53fbd9edae96f3f" prefix="" category="inline-code"></block></block>
+  <block id="75dc180047a4a65cc91cdc34bafd5f13" category="paragraph"><block ref="e32c6c0d76c602ec48a1ec030982eb85" prefix="" category="inline-code"></block></block>
+  <block id="5fe8f5a5faaf24b63d974fff8f45ad49" category="paragraph"><block ref="dc648edb256e246a06ced879104e79e3" prefix="" category="inline-code"></block></block>
+  <block id="cb455610261549601a968727f75e173c" category="paragraph"><block ref="a412a7201da49be4ca69b7c1c5129607" prefix="" category="inline-code"></block></block>
+  <block id="734d9f32a69fc76666aa927960e1ba72" category="paragraph"><block ref="df4fc0b495507deac11bb692afee0165" prefix="" category="inline-code"></block></block>
+  <block id="fdbaf1b0ee4e02044e36d36dd4518eb0" category="paragraph"><block ref="c52f1bd66cc19d05628bd8bf27af3ad6" prefix="" category="inline-code"></block></block>
+  <block id="1fd58d19f264e720bbbb53577d7a2e49" category="paragraph"><block ref="b09a241f797133d9f4bc87d08bd6a649" prefix="" category="inline-code"></block></block>
+  <block id="0dde90dd52d8ff73123cc9260d7786ec" category="paragraph"><block ref="b91b1facf3b3a7890177f02ac188f14c" prefix="" category="inline-code"></block></block>
+  <block id="13a8345978900e79a14d95d85370d8e4" category="paragraph"><block ref="ca01bfa16644b0e8d15c3fba1cd706ef" prefix="" category="inline-code"></block></block>
+  <block id="ef3a67b278f31bdbebbe75fa5f8c0d8f" category="paragraph"><block ref="9b04d152845ec0a378394003c96da594" prefix="" category="inline-code"></block></block>
+  <block id="6d2efa8379c2fd39a36d84564be5a1b4" category="paragraph"><block ref="4d42769ecccf6f9fb4c9aa3d2760f985" prefix="" category="inline-code"></block></block>
+  <block id="2912813aa00f32add6928d2cd9f830d6" category="paragraph"><block ref="7dd6949a9e69a4f9ae1186e75cdb7c40" prefix="" category="inline-code"></block></block>
+  <block id="f141618d089b11b78013a4fad88af223" category="paragraph"><block ref="3852eef95da714c0cb5f03b288f5e13c" prefix="" category="inline-code"></block></block>
+  <block id="6c6fe7b656c6c32a26871dfb19f4b7b3" category="paragraph"><block ref="22f92949af5f28f5cee14e452ef2fe0d" prefix="" category="inline-code"></block></block>
+  <block id="703d5c404aa85c4c6a2e4cd844293b36" category="paragraph"><block ref="0c66ebf3f5f9bbfd1c9352f7df800319" prefix="" category="inline-code"></block></block>
+  <block id="4640693ffd9b0eb61a5ee402925c804c" category="paragraph"><block ref="89109ed93a10b12f2a676dd64823b638" prefix="" category="inline-code"></block></block>
+  <block id="bd064eec6e4122c37fd1528794b1faec" category="paragraph"><block ref="bd70364a8fcba02366697df66f50b4d4" prefix="" category="inline-code"></block></block>
+  <block id="6fa963a88e2173bc42c4994cd74cf77e" category="paragraph"><block ref="cf85f5d2c6f5945e2cd4ae332190a042" prefix="" category="inline-code"></block></block>
+  <block id="f1b0090937d01be346c5db6567a13320" category="paragraph"><block ref="f72b3704530738c43595827943c82927" prefix="" category="inline-code"></block></block>
+  <block id="84e5609dfad6367600760692fafa2463" category="paragraph"><block ref="576d50ce4770b4030b1e7d4d72a29d8f" prefix="" category="inline-code"></block></block>
+  <block id="5b767a2a9f98b85fae682314aaeb580a" category="paragraph"><block ref="a860a7886d7c7e2a8d3eaac96f76dc0d" prefix="" category="inline-code"></block></block>
+  <block id="738665eaf340c6f336e0ac44a1fbd7f1" category="paragraph"><block ref="81772979683c8bdcd4d4deaf67c9c002" prefix="" category="inline-code"></block></block>
+  <block id="1ff46952208a49a43363ce080cfdfc26" category="paragraph"><block ref="16437d40c29a1a7b1e78143c9c38f289" prefix="" category="inline-code"></block></block>
+  <block id="960d9a61ddbe51dee57ad226374094a3" category="paragraph"><block ref="3e146fa59223929546e34486680916ae" prefix="" category="inline-code"></block></block>
+  <block id="2911e600bbad981e24b3e2a2b3a03f82" category="paragraph"><block ref="cfcd208495d565ef66e7dff9f98764da" prefix="" category="inline-code"></block></block>
+  <block id="cc11cb8ec5bc5124b58731d343024acf" category="paragraph"><block ref="107e4337974c2ee42cb8b08039095b56" prefix="" category="inline-code"></block></block>
+  <block id="e5f72d0ac30042b1e1228050cf4db009" category="paragraph"><block ref="5632b12e7510205571a482f69c17e0a0" prefix="" category="inline-code"></block></block>
+  <block id="fe509c64685e0e86b37d4a4168383981" category="paragraph"><block ref="56b8f47993528591bf495a4ae11445fe" prefix="" category="inline-code"></block></block>
+  <block id="c874813a1ab759170832ad00490add5b" category="paragraph"><block ref="be83ab3ecd0db773eb2dc1b0a17836a1" prefix="" category="inline-code"></block></block>
+  <block id="a7b6a33ea6804bc24f95087a2767144a" category="paragraph"><block ref="0b1b44e21cc611b5fd9fa4e59133a5df" prefix="" category="inline-code"></block></block>
+  <block id="607ce6df5f7416ceecf46b2565cf78b6" category="paragraph"><block ref="15bcdc507219f867af64801cdb9aa0fe" prefix="" category="inline-code"></block></block>
+  <block id="f16dd1621cefe9daf11aa717c6f5ff3c" category="paragraph"><block ref="f2ca74f69e1dce337ea56ee5a80ac3bf" prefix="" category="inline-code"></block></block>
+  <block id="1a4a32022249a74ade4da57bc540ae45" category="paragraph"><block ref="65d5064dd26880ab158bae5ab54b7533" prefix="" category="inline-code"></block></block>
+  <block id="ee70ce19fcb6a37181f0f2a1b295cac2" category="paragraph"><block ref="86a6e4712201e822121205ff80f8141d" prefix="" category="inline-code"></block></block>
+  <block id="ef88602de03096d5337e01c415fb757e" category="paragraph"><block ref="40d5dca87f60acd5f70880d1e6fbcb40" prefix="" category="inline-code"></block></block>
+  <block id="cfa501ab966cb7076ab4bea35887c268" category="paragraph"><block ref="096062e2384626d0ab1db780a414cad6" prefix="" category="inline-code"></block></block>
+  <block id="0efaef21765abae97f8823284089d92e" category="paragraph"><block ref="ddafa560edc9f0c66f8a83c720d12c44" prefix="" category="inline-code"></block></block>
+  <block id="f8a27da0cd8f29eeb5dec4c51b6ddaed" category="paragraph"><block ref="34e3232a61ee76c904ab07be4139d34c" prefix="" category="inline-code"></block></block>
+  <block id="9137c061f66498d02d0a5dae8cd11fb7" category="paragraph"><block ref="d655f9e97c16223dd09bbe4e493aaa43" prefix="" category="inline-code"></block></block>
+  <block id="6c4e066b2f26281da7b7403d03d8a904" category="paragraph"><block ref="c1b8bb2e607f3ff5a598308ea2a61825" prefix="" category="inline-code"></block></block>
+  <block id="377e8de315163c073e4c65030a631ab8" category="paragraph">Dieses Verfahren basiert auf dem Vertica-Leitfaden für andere On-Premises-Objektspeicher und sollte für StorageGRID angewendet werden.</block>
+  <block id="7a62369a8bc7139feef72cf70ca75b13" category="list-text">Deaktivieren Sie nach dem Erstellen der Datenbank das<block ref="e041ecca02b8efe429ce017b901b4740" prefix=" " category="inline-code"></block> Konfigurationsparameter durch Festlegen auf<block ref="cfcd208495d565ef66e7dff9f98764da" prefix=" " category="inline-code"></block>. Diese Einstellung ist für eine On-Premises-Installation im Eon-Modus mit kommunalem Speicher nicht erforderlich. Dieser Konfigurationsparameter steuert die Anzahl der Verbindungen zu dem Objektspeicher, den Vertica für das Streaming von Lesevorgängen verwendet. In einer Cloud-Umgebung verhindert diese Einstellung, dass aus dem Objektspeicher Daten gestreamt werden, alle verfügbaren Datei-Handles nutzen. Einige Datei-Handles stehen für andere Objektspeichervorgänge zur Verfügung. Aufgrund der niedrigen Latenz von On-Premises-Objektspeichern ist diese Option nicht erforderlich.</block>
+  <block id="9bbb476c1b20d451a6b1efc6d9f3c996" category="list-text">Verwenden Sie A<block ref="58cbc8586fff71470b4b4bfd251f75ce" prefix=" " category="inline-code"></block> Anweisung zum Aktualisieren des Parameterwerts. Das Passwort ist das Datenbank-Passwort, das Sie unter „Erstellen der On-Premises-Datenbank von Eon“ festgelegt haben. Informationen hierzu finden Sie z. B. in der folgenden Beispielausgabe:</block>
+  <block id="bbbc233057e904f5095141454e43564f" category="section-title">Depot-Einstellungen werden überprüft</block>
+  <block id="fd9c0f2a65006cc20a093358569ff9c4" category="paragraph">Standarddepot-Einstellungen der Vertica-Datenbank sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.</block>
+  <block id="1844bf3855f7b6c5d660568fcf9d8381" category="section-title">Laden von Probendaten (optional)</block>
+  <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">Hier</block>
+  <block id="6be5fbd5ae75780985c67dc6ceac5c11" category="paragraph">Wenn diese Datenbank zu Testzwecken bereit ist und entfernt werden wird, können Sie Beispieldaten zu Testzwecken in diese Datenbank laden. Vertica kommt mit Probendatensatz, VMart, gefunden unter<block ref="e8c6291610cd28d989973481cf42f276" prefix=" " category="inline-code"></block> Auf jedem Vertica-Knoten. Weitere Informationen zu diesem Beispieldatensatz finden Sie hier <block ref="a43712dd91d6373beb0a27dc61f34970" category="inline-link-macro-rx"></block>.</block>
+  <block id="b3b0c649f69631d0d5f8abca04e393df" category="paragraph">Führen Sie die folgenden Schritte aus, um die Probendaten zu laden:</block>
+  <block id="30cd3777be39c484720b1ce07e97b8a4" category="list-text">Melden Sie sich als dbadmin an einem der Vertica-Knoten an: cd /opt/vertica/examples/VMart_Schema/</block>
+  <block id="7ec0cfc5ec14c9333b6810bbf84fe541" category="list-text">Laden Sie Beispieldaten in die Datenbank, und geben Sie das Datenbank-Passwort ein, wenn Sie in den Unterschritten c und d aufgefordert werden:</block>
+  <block id="a8900c6772f9006786fee28bf50ff58e" category="list-text"><block ref="9a6bcd8e9c1cec849ce8242362f71826" prefix="" category="inline-code"></block></block>
+  <block id="c43a7b61de777223de68bb230032f64f" category="list-text"><block ref="3ed176ab666a1a9d7f7c02d55efa235a" prefix="" category="inline-code"></block></block>
+  <block id="16c970dcd26069436e93acae9cef7ad7" category="list-text"><block ref="ccf4a81deb3d732d517b47cee36c96d0" prefix="" category="inline-code"></block></block>
+  <block id="08af76b6687df620bd989c053338f859" category="list-text"><block ref="723ca5f648d0046911e3d37f4126d562" prefix="" category="inline-code"></block></block>
+  <block id="89e26598cb765dcbe94f71e860e94c64" category="list-text">Es gibt mehrere vordefinierte SQL-Abfragen. Sie können einige davon ausführen, um zu bestätigen, dass die Testdaten erfolgreich in die Datenbank geladen wurden. Beispiel:<block ref="06daacd857395ce7d4555182b3e10d04" prefix=" " category="inline-code"></block></block>
+  <block id="4bb047f8c530785002e490ef17fa725e" category="section-title">Wo Sie weitere Informationen finden</block>
+  <block id="7d5b957cd473f6eaf5ad335a9c63c4ff" category="paragraph">Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:</block>
+  <block id="dc09a61f5267f59b07d945a7843dd0ff" category="inline-link-macro">NetApp StorageGRID 11.4 Produktdokumentation</block>
+  <block id="3bba50322e3e61749a153f6c0f61881b" category="list-text"><block ref="3bba50322e3e61749a153f6c0f61881b" category="inline-link-macro-rx"></block></block>
+  <block id="8a9cd131f57d065d753803a90387c310" category="inline-link-macro">Datenblatt zu StorageGRID</block>
+  <block id="d6ed371e4ca6112ef8dca75d49381711" category="list-text"><block ref="d6ed371e4ca6112ef8dca75d49381711" category="inline-link-macro-rx"></block></block>
+  <block id="0e25eb5c75f8069f3e7864cc794fc73f" category="inline-link-macro">Vertica 10.1 Produktdokumentation</block>
+  <block id="8f6785fde2797084dc5e67b73921c890" category="list-text"><block ref="8f6785fde2797084dc5e67b73921c890" category="inline-link-macro-rx"></block></block>
+  <block id="f6a738f75f76f62a241636eca02cd87d" category="section-title">Versionsverlauf</block>
+  <block id="34b6cd75171affba6957e308dcbd92be" category="cell">Version</block>
+  <block id="44749712dbec183e983dcd78a7736c41" category="cell">Datum</block>
+  <block id="8002bc13927c65b5f265b031079ce1d4" category="cell">Versionsverlauf des Dokuments</block>
+  <block id="3798985ee5e15c84c4263815d5a4d0b7" category="paragraph">Version 1.0</block>
+  <block id="d802637b72ebddd27cf9b28f9f198763" category="paragraph">September 2021</block>
+  <block id="ea9349a37bfee247df0f87cbcacca796" category="paragraph">Erste Version.</block>
+  <block id="51e1f53c9c33ce7f260e99f66853181d" category="summary">Mit der StorageGRID 11.6 Syslog Forward-Funktion können Sie einen externen Syslog-Server zum Erfassen und Analysieren von StorageGRID-Protokollmeldungen konfigurieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Dieser Artikel enthält eine Logstash-Konfigurationsprobe zum Filtern und Definieren von Protokollmeldungsmustern, Kibana-Abfrage, Diagrammen und Dashboard-Beispiel, um Ihnen einen schnellen Start für die StorageGRID-Protokollverwaltung und -Analyse zu ermöglichen.</block>
+  <block id="ba8b98c81be3d04d10309b1945f41b3c" category="doc">StorageGRID-Protokollanalyse mit ELK-Stack</block>
+  <block id="febdad8f949c4133d32f6ec0e8b0ca1c" category="inline-link">StorageGRID-Protokollanalyse mit ELK-Video</block>
+  <block id="b165bee40a44e630afb8a902059ed458" category="paragraph">Mit der Funktion StorageGRID 11.6 syslog Forward können Sie einen externen Syslog-Server konfigurieren, um StorageGRID-Protokollmeldungen zu erfassen und zu analysieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Sehen Sie sich an<block ref="1c3903c549bd0599ac0ebb1c424871aa" category="inline-link-rx"></block> Zeigt eine ELK-Beispielkonfiguration an und wie sie verwendet werden kann, um fehlerhafte S3-Anforderungen zu identifizieren und zu beheben. Dieser Artikel enthält Beispieldateien der Logstash-Konfiguration, Kibana-Abfragen, Diagramme und Dashboard, die Ihnen einen schnellen Einstieg in die StorageGRID-Protokollverwaltung und -Analyse ermöglichen.</block>
+  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="section-title">Anforderungen</block>
+  <block id="b30496f397e70350f3c0324082c41741" category="list-text">StorageGRID 11.6.0.2 oder höher</block>
+  <block id="b8dc02d4e6fb27304a65c0d58fbdf121" category="list-text">ELK (Elasticsearch, Logstash und Kibana) 7.1x oder höher installiert und in Betrieb</block>
+  <block id="9db4c047fbc2df77e904876ca407a10a" category="section-title">Beispieldateien</block>
+  <block id="7d62fedde871da77290cb136048ab8ae" category="inline-link-macro">Laden Sie das Paket Logstash 7.x Beispieldateien herunter</block>
+  <block id="7f736656dd8100c22291010843e5658f" category="list-text"><block ref="f317985ee56adafb12c2258472a6183e" category="inline-link-macro-rx"></block> + *md5 Prüfsumme* 148c23d0021d9a4bb4a6c0287464deab + *sha256 Prüfsumme* f51ec9e2e3f842d5a786156b167a561beb4373038b4e7bb3c8be3d522adf2d6</block>
+  <block id="69cc1f5bcff32557cde6f7f5b4b365ed" category="inline-link-macro">Laden Sie das Paket Logstash 8.x Beispieldateien herunter</block>
+  <block id="a87365d5d3e0619dfacb72153399871c" category="list-text"><block ref="61afb638ef1cfaa2ac62beb76c59b80b" category="inline-link-macro-rx"></block> + *md5 Prüfsumme* e11bae3a662f87c310ef363d0fe06835 + *sha256 Prüfsumme* 5c670755742cfd5aa723a596ba087e0153a65bcae3934afddddddddd68d</block>
+  <block id="cdcccab01175eb4e232499c66bfa50af" category="section-title">Annahme</block>
+  <block id="430bacfb127efaca8a86b36b918f14b8" category="paragraph">Leser kennen die Terminologie und den Betrieb von StorageGRID und ELK.</block>
+  <block id="c742c5a36b6307267bb709355feb2c41" category="section-title">Anweisung</block>
+  <block id="eac3387862d4c7d3f970561bfc3f7c02" category="paragraph">Zwei Beispielversionen werden aufgrund von Unterschieden in Namen bereitgestellt, die durch grok-Muster definiert wurden. + zum Beispiel definiert das SYSLOGBASE-grok-Muster in der Logstash config-Datei Feldnamen je nach installierter Logstash-Version unterschiedlich.</block>
+  <block id="4f709f3097a2dcda180a37ee47844c13" category="paragraph">*Logstash 7.17 Beispiel*</block>
+  <block id="4f81ab746526b7ac4b040718ec7acade" category="image-alt">Logstash 7.17 Beispiel</block>
+  <block id="91106d0591f097e8bbf222df7706bd2d" category="paragraph">*Logstash 8.23 Beispiel*</block>
+  <block id="c59ad685927ef7bba94abe95eaa87376" category="image-alt">Logstash 8.23 Beispiel</block>
+  <block id="bb8122fb7f8c30744fed84c9462b305d" category="list-text">Entpacken Sie das angegebene Muster anhand Ihrer installierten ELK-Version. + der Beispielordner enthält zwei Logstash-Konfigurationsbeispiele: + *sglog-2-file.conf:* Diese Konfigurationsdatei gibt StorageGRID-Protokollnachrichten ohne Datentransformation in eine Datei auf Logstash aus. Sie können auf diese Weise bestätigen, dass Logstash StorageGRID Nachrichten empfangen oder StorageGRID-Protokollmuster verstehen. + *sglog-2-es.conf:* Diese Konfigurationsdatei wandelt StorageGRID-Protokollmeldungen mithilfe verschiedener Muster und Filter um. Dazu gehören beispielsweise Drop-Statements, die Meldungen basierend auf Mustern oder Filtern ablegen. Die Ausgabe wird zur Indizierung an Elasticsearch gesendet. + Passen Sie die ausgewählte Konfigurationsdatei entsprechend der Anweisung in der Datei an.</block>
+  <block id="3ed4288764d66f2a65f7b85b652b32d3" category="list-text">Testen Sie die benutzerdefinierte Konfigurationsdatei:</block>
+  <block id="4c6585842bcd6ea99d8f33b205b2620e" category="paragraph">Wenn die letzte zurückgegebene Zeile der unten angegebenen Zeile ähnelt, weist die Konfigurationsdatei keine Syntaxfehler auf:</block>
+  <block id="49e1ff176740ef27a71315d47a28cec0" category="list-text">Benutzerdefinierte conf-Datei auf den Logstash-Server kopieren.config: /Etc/logstash/conf.d + Wenn Sie config.reload.automatic in /etc/logstash/logstash.yml nicht aktiviert haben, starten Sie den Logstash-Dienst neu. Andernfalls warten Sie, bis das Neueintervall der Konfiguration abgelaufen ist.</block>
+  <block id="1e2849b34515b73b14e350b3cfc6a222" category="list-text">Prüfen Sie /var/log/logstash/logstash-plain.log und vergewissern Sie sich, dass beim Starten von Logstash mit der neuen Konfigurationsdatei keine Fehler auftreten.</block>
+  <block id="25b182c5b3173c341b5471a371174d7d" category="list-text">Bestätigen Sie, dass der TCP-Port gestartet wurde und Sie zuhören. + in diesem Beispiel wird der TCP-Port 5000 verwendet.</block>
+  <block id="225e60e541052bd49fdac4b77ffecbc9" category="inline-link">Demovideo</block>
+  <block id="fa1074da41258119adddd6a31eb40641" category="list-text">Konfigurieren Sie über die StorageGRID Manager-GUI einen externen Syslog-Server, um Protokollmeldungen an Logstash zu senden. Siehe<block ref="144d48037e96a9804672c6dc7123d436" category="inline-link-rx"></block> Entsprechende Details.</block>
+  <block id="defe6f8b45f596c620301bef8fdfbee9" category="list-text">Sie müssen die Firewall auf dem Logstash-Server konfigurieren oder deaktivieren, damit StorageGRID-Knoten eine Verbindung zum definierten TCP-Port herstellen können.</block>
+  <block id="9391523be65dad63e7fad8e0d28ee818" category="list-text">Wählen Sie in der Kibana GUI die Option Management -&gt; Dev Tools. Führen Sie auf der Konsolenseite diesen BEFEHL GET aus, um zu bestätigen, dass neue Indizes auf Elasticsearch erstellt werden.</block>
+  <block id="30d46e8002bdd5c520a62523d772ebca" category="list-text">Erstellen Sie in der Kibana GUI Indexmuster (ELK 7.x) oder Datenansicht (ELK 8.x).</block>
+  <block id="291020c626f44ee2ce32684bc3a13980" category="list-text">Geben Sie in der Kibana GUI in das Suchfeld, das sich in der oberen Mitte befindet, „abgetackte Objekte“ ein. + Wählen Sie auf der Seite gespeicherte Objekte die Option Importieren. Wählen Sie unter „Importoptionen“ die Option „Aktion für Konflikt anfordern“ aus.</block>
+  <block id="d5a554fb68642d807aee43887546b43a" category="image-alt">Kibana-Importoptionen</block>
+  <block id="42451b291f11e82724f65b3c852cca1d" category="paragraph">Importieren Sie elk&lt;Version&gt;-query-Chart-sample.ndjson. + Wählen Sie bei Aufforderung zur Lösung des Konflikts das in Schritt 8 erstellte Indexmuster oder die Datenansicht aus.</block>
+  <block id="bc1a8499a0350f03b4ca75964eaad9cb" category="image-alt">Kibana-Konflikt</block>
+  <block id="d304b6866d45389dd644b1c1788bfd5a" category="paragraph">Die folgenden Kibana-Objekte werden importiert: + *Query* + * Audit-msg-s3rq-orlm + * bycast Log s3 bezogene Nachrichten + * Loglevel Warnung oder höher + * fehlgeschlagenes Sicherheitsereignis + *Diagramm* + * s3 Anfragen zählen auf Basis von bycast.log + * HTTP-Statuscode + * Audit msg Aufschlüsselung nach Typ + * durchschnittliche s3-Antwort Time + *Dashboard* + * S3-Request-Dashboard mit den oben genannten Diagrammen.</block>
+  <block id="367c071ddbe8d1248ceb63f940e9b3cc" category="paragraph">Sie können nun die StorageGRID-Protokollanalyse mit Kibana durchführen.</block>
+  <block id="8cd58c89ff3d51a256ecfe3fe8bab20f" category="section-title">Weitere Ressourcen</block>
+  <block id="925a38c6c8bc1c84ae702d840efa1ef4" category="inline-link">Syslog101</block>
+  <block id="43b4ce193ce75a7c51a41a392da0e953" category="list-text"><block ref="43b4ce193ce75a7c51a41a392da0e953" category="inline-link-rx"></block></block>
+  <block id="36df17c33644048e4c07c17be01b2524" category="inline-link">Was ist der ELK-Stack</block>
+  <block id="2403480f61f37fce13a75f67d092ed18" category="list-text"><block ref="2403480f61f37fce13a75f67d092ed18" category="inline-link-rx"></block></block>
+  <block id="19d3c10a857b63064e06411baf1285b1" category="inline-link">Liste der Tülenmuster</block>
+  <block id="7c6102b1302815b75a46740d436c93fc" category="list-text"><block ref="7c6102b1302815b75a46740d436c93fc" category="inline-link-rx"></block></block>
+  <block id="13fc1087c795f112d8979eb5e2780e5c" category="inline-link">Ein Anfängerführer zum Logstash: Grok</block>
+  <block id="a39eed6135a0acdcad49fe799eb1bd27" category="list-text"><block ref="a39eed6135a0acdcad49fe799eb1bd27" category="inline-link-rx"></block></block>
+  <block id="1482da3b9a25b116ee5827795ac8fbbd" category="inline-link">Eine praktische Anleitung zum Logstash: Syslog Deep Dive</block>
+  <block id="9a51320cc75988e79a130ea7dc86875c" category="list-text"><block ref="9a51320cc75988e79a130ea7dc86875c" category="inline-link-rx"></block></block>
+  <block id="3a280b4922aa9eb7ce4c328f7f7dbbb3" category="inline-link">Kibana Guide – Erkunden Sie das Dokument</block>
+  <block id="ffe5d2718c9048b9edb4a4a97d96e90f" category="list-text"><block ref="ffe5d2718c9048b9edb4a4a97d96e90f" category="inline-link-rx"></block></block>
+  <block id="98d2f29265a464a9765db0d88f294336" category="inline-link">Referenz für StorageGRID-Prüfprotokolle</block>
+  <block id="baba0109751acb7c22b021c76b6d7b51" category="list-text"><block ref="baba0109751acb7c22b021c76b6d7b51" category="inline-link-rx"></block></block>
+  <block id="7c9bea5c137c35be356406479a949aef" category="summary">Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten.</block>
+  <block id="33978f74a8897c3da7935e1ac3118552" category="doc">S3-Objektsperre auf StorageGRID testen und demonstrieren</block>
+  <block id="1d1d2f802d9cc6b6eb57739286faf4b3" category="paragraph">Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten.</block>
+  <block id="56971a583f52c8e863bd76946fd7e4df" category="paragraph">In diesem Handbuch wird die S3-Objekt-Lock-API demonstriert.</block>
+  <block id="1e3a85ebb1c233113bf042fe963e7cf5" category="section-title">Gesetzliche Aufbewahrungspflichten</block>
+  <block id="deb6fc774008b995e323cca66b1facaf" category="list-text">Object Lock Legal Hold ist ein einfacher ein-/Ausschaltstatus, der auf ein Objekt angewendet wird.</block>
+  <block id="93c9236e0c41f2878728edae2046ae50" category="list-text">Überprüfen Sie es mit EINEM GET-Vorgang.</block>
+  <block id="147baac1f38a06bbf4e892a7420f03bb" category="list-text">Deaktivieren Sie die gesetzliche Aufbewahrungspflichten</block>
+  <block id="ef1f6350727f7558bf0dcb99de8b43a4" category="section-title">Compliance-Modus</block>
+  <block id="ca03998a8a72276e144b390281ede11f" category="list-text">Die Objektspeicherung erfolgt mit einer Aufbewahrung bis zum Zeitstempel.</block>
+  <block id="f50bafdbea3b79e2d9f5fdd9a5add716" category="list-text">Überprüfen Sie den Aufbewahrungsstatus</block>
+  <block id="71b2566ef5a1fcd229a2d9785ed41db7" category="section-title">Standardaufbewahrung</block>
+  <block id="7dd96a99846895f9e3a3b91e8b8ec0fa" category="list-text">Legen Sie den Aufbewahrungszeitraum in Tagen und Jahren als Aufbewahrungsdatum fest, das mit der API pro Objekt definiert wurde.</block>
+  <block id="25b92ba9ae0e5c3886d5397a33f4ce21" category="list-text">Legen Sie ein Objekt in den Bucket</block>
+  <block id="4aa3f3b4e7b7410ce27736bcc6748358" category="list-text">Die auf dem Bucket festgelegte Aufbewahrungsdauer wird in einen Aufbewahrungszeitstempel des Objekts konvertiert.</block>
+  <block id="6a0f60b1ed8b19b1d7db3515b6695da6" category="section-title">Testen Löschen eines Objekts mit einer definierten Aufbewahrung</block>
+  <block id="d0cdc49fa0022b266468f0e306c00e54" category="paragraph">Objekt Lock basiert auf der Versionierung. Die Aufbewahrung ist für eine Version des Objekts definiert. Wenn versucht wird, ein Objekt mit einer definierten Aufbewahrung zu löschen, und keine Version angegeben wird, wird als aktuelle Version des Objekts eine Löschmarkierung erstellt.</block>
+  <block id="42ae4cc4d992b73b098cf1a15b7b156f" category="list-text">Löschen Sie das Objekt mit definierter Aufbewahrung</block>
+  <block id="80f89ef3a56a59415fb7de5ec8de5095" category="list-text">Listen Sie die Objekte im Bucket auf</block>
+  <block id="b4f9a7eae41a98dfb0771f92707d7f68" category="list-text">Beachten Sie, dass das Objekt nicht aufgeführt ist.</block>
+  <block id="cc3153459e96342ef7d219589d19f208" category="list-text">Listen Sie Versionen auf, um die Löschen-Markierung und die ursprüngliche gesperrte Version anzuzeigen</block>
+  <block id="8697c94dccfe3cbc3ee4e7cd58a5022a" category="list-text">Löschen Sie die gesperrte Version des Objekts</block>
+  <block id="ce2702286f63f4ae6103107902322a34" category="summary">StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand.</block>
+  <block id="9c1f8aaacc1a56ce4e9a0dad8b9f85d5" category="doc">Testen und Demonstrieren der S3 Verschlüsselungsoptionen auf StorageGRID</block>
+  <block id="a8e93751c131aa808a9eafa1b8e11286" category="inline-link">Prüfen Sie die StorageGRID Verschlüsselungsmethoden</block>
+  <block id="d303cdd8f1d3ee1dde4e3ada41998deb" category="paragraph">StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand. Weitere Informationen finden Sie unter<block ref="54fa7d466db811b97852dfc564ca4383" category="inline-link-rx"></block>.</block>
+  <block id="492f68a8c44fdeeefd5fdfecd42dbccc" category="paragraph">In diesem Leitfaden werden die S3-API-Verschlüsselungsmethoden demonstriert.</block>
+  <block id="8851edf36d0b5638c8a4f6ac64923370" category="section-title">Serverseitige Verschlüsselung (SSE)</block>
+  <block id="0eb4ff54e584f9eaf62705a77663a748" category="paragraph">Mit SSE kann der Client ein Objekt speichern und mit einem eindeutigen Schlüssel verschlüsseln, der von StorageGRID verwaltet wird. Wenn das Objekt angefordert wird, wird das Objekt durch den in StorageGRID gespeicherten Schlüssel entschlüsselt.</block>
+  <block id="941f37e6c0faf75d7632b45e2853416d" category="section-title">Beispiel: SSE</block>
+  <block id="63e43077ce3ba881fa5ae9806e2d3e5f" category="list-text">SETZEN Sie ein Objekt mit SSE</block>
+  <block id="6aa955f0cbda4b4e5c5d34ea6d859a7c" category="list-text">LEITEN Sie das Objekt, um die Verschlüsselung zu überprüfen</block>
+  <block id="a4214b559bb4db0e923b33d1d6f2d0ff" category="list-text">GET das Objekt</block>
+  <block id="9e334fc718c77d2698ec6aaa3259bb80" category="section-title">Serverseitige Verschlüsselung mit vom Kunden bereitgestellten Schlüsseln (SSE-C)</block>
+  <block id="18bc90d6da56c6a0ca8a43370fb89730" category="paragraph">Mit SSE kann der Client ein Objekt speichern und mit einem eindeutigen Schlüssel verschlüsseln, der vom Client mit dem Objekt bereitgestellt wird. Wenn das Objekt angefordert wird, muss derselbe Schlüssel bereitgestellt werden, um das Objekt zu entschlüsseln und zurückzugeben.</block>
+  <block id="aaf850473d937d172559cb570dab234d" category="section-title">Beispiel SSE-C</block>
+  <block id="1e7708d7f60a3422da31ffb25df4f214" category="list-text">Sie können zu Test- oder Demonstrationszwecken einen Schlüssel erstellen</block>
+  <block id="422423cacc3731aece78081dcce4a364" category="list-text">Erstellen eines Verschlüsselungsschlüssels</block>
+  <block id="684f8aafe1c1f1de5e081831230eabd7" category="list-text">Legen Sie ein Objekt mit dem generierten Schlüssel</block>
+  <block id="06154eb3744171105830473b1636041a" category="list-text">Das Objekt in den Kopf stellen</block>
+  <block id="e5f9c75d403887203c2b7b0f94663953" category="admonition">Wenn Sie den Verschlüsselungsschlüssel nicht angeben, erhalten Sie einen Fehler „ein Fehler ist aufgetreten (404), wenn Sie den HeadObject-Vorgang aufrufen: Nicht gefunden“.</block>
+  <block id="9dd97e164ee8102cf66ded8b2e6365f9" category="list-text">Get das Objekt</block>
+  <block id="25800fc2c4fb712f003b8dde72f89e9b" category="admonition">Wenn Sie den Verschlüsselungsschlüssel nicht bereitstellen, erhalten Sie beim Aufruf des GetObject-Vorgangs einen Fehler „aufgetreten (InvalidRequest): Das Objekt wurde mit einer Form von serverseitiger Verschlüsselung gespeichert. Zum Abrufen des Objekts müssen die richtigen Parameter angegeben werden.“</block>
+  <block id="b7aaef273d10ecbd096947fb1bedf595" category="section-title">Bucket-serverseitige Verschlüsselung (SSE-S3)</block>
+  <block id="c61a8c52ec13232670b3fcf3aa61ecb1" category="paragraph">Mit SSE-S3 kann der Client ein Standardverschlüsselungsverhalten für alle in einem Bucket gespeicherten Objekte definieren. Die Objekte werden mit einem eindeutigen Schlüssel verschlüsselt, der von StorageGRID gemanagt wird. Wenn das Objekt angefordert wird, wird das Objekt von dem in StorageGRID gespeicherten Schlüssel entschlüsselt.</block>
+  <block id="af888980113838f4be36b5dc77e84a11" category="section-title">Beispiel für Bucket SSE-S3</block>
+  <block id="8256c537cf6e9ece3847813951e9fdfb" category="list-text">Erstellen eines neuen Buckets und Festlegen einer Standardverschlüsselungsrichtlinie</block>
+  <block id="2c63f6f1bb6a77a8a7fd5977aead1d84" category="list-text">Erstellen eines neuen Buckets</block>
+  <block id="8117fcb97cf86729cfbe315fb7c069c7" category="list-text">Put Bucket-Verschlüsselung</block>
+  <block id="aaeeb364be922e789a908072881b88ea" category="summary">Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen Cloud Storage Pool zu verschieben.</block>
+  <block id="85020881afe59b6c9413c4d50d2a26d0" category="doc">Verwenden Sie einen Cloud Storage Pool für Backups</block>
+  <block id="4b0e54b770307ad63bdf2f9e861d65d8" category="paragraph">Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen Cloud Storage-Pool zu verschieben.</block>
+  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Was Sie und#8217;ll benötigen</block>
+  <block id="3ed256c1f351a8fcb6f88836f9344657" category="list-text">StorageGRID 11.6 wurde konfiguriert.</block>
+  <block id="0106fb5b56f13c91c190596b35b034a4" category="list-text">Sie haben bereits einen externen Azure-Container eingerichtet.</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">Schritte</block>
+  <block id="9c23d5280c083a21f3e88f979b42a529" category="list-text">Navigieren Sie im Grid Manager zu *ILM* &gt; *Regeln* &gt; *Erstellen*.</block>
+  <block id="ce8eebfe6fafce433c006d354edaf1a1" category="list-text">Geben Sie eine Beschreibung ein.</block>
+  <block id="329e9e5f00527442ffb8ddb0d1d33273" category="list-text">Geben Sie ein Kriterium ein, um die Regel auszulösen.</block>
+  <block id="5a378b18f7bf0c4cabc6c655cd2f535e" category="list-text">Klicken Sie Auf *Weiter*.</block>
+  <block id="67e0764defc4dc09f19960feb173f810" category="list-text">Replizieren Sie das Objekt auf Storage Nodes.</block>
+  <block id="971a29d2c438993347d735d425c2a162" category="list-text">Fügen Sie eine Platzierungsregel hinzu.</block>
+  <block id="39c7ca89a1c72a8fd424c69cd35616bc" category="list-text">Replizieren des Objekts in den Cloud Storage Pool</block>
+  <block id="4cc186df234138a57b2e8c5d8e5f7f8d" category="list-text">Klicken Sie Auf *Speichern*.</block>
+  <block id="d00aaeae3c5233d689ab6c1fa3391d6c" category="paragraph">Vergewissern Sie sich, dass im Aufbewahrungsdiagramm die lokal in StorageGRID gespeicherten Objekte und in einem Cloud-Speicherpool für Backups angezeigt werden.</block>
+  <block id="eccd0905bbb9877cfd0ba7f4cc26a3c6" category="paragraph">Vergewissern Sie sich, dass bei Auslösung der ILM-Regel im Cloud Storage Pool eine Kopie vorhanden ist und Sie das Objekt lokal abrufen können, ohne ein Objekt wiederherstellen zu müssen.</block>
+  <block id="b80a3dfef6be295438d7e805b11c4bc9" category="summary">Sie können einen Cloud-Storage-Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen Azure Container verschieben möchten.</block>
+  <block id="749b3ee0b1315337c79533871bba825a" category="doc">Cloud Storage Pool für Azure Blob Storage erstellen</block>
+  <block id="861ae314cc8e000e48d818fcd75a2966" category="paragraph">Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen Azure Container verschieben möchten.</block>
+  <block id="e0d561a0d43acc9575b7bc753d813e5c" category="list-text">Navigieren Sie im Grid Manager zu *ILM* &gt; *Storage Pools*.</block>
+  <block id="19ac403a0d6c78e78c0d289e7331185e" category="list-text">Wählen Sie im Abschnitt Cloud-Speicherpools der Seite *Erstellen* aus.</block>
+  <block id="d97d852e8166f1982454eda55e5c517b" category="paragraph">Das Popup-Fenster „Cloud-Speicherpool erstellen“ wird angezeigt.</block>
+  <block id="27bc4f94bb55216da5446bb2fdb8ced0" category="list-text">Geben Sie einen Anzeigenamen ein.</block>
+  <block id="8bb07513ee1970ee4c61dec825ef35cc" category="list-text">Wählen Sie in der Dropdown-Liste Provider Type * Azure Blob Storage* aus.</block>
+  <block id="28e89d4189931a40a6eaa1548a6f0da4" category="list-text">Geben Sie den URI für den S3-Bucket ein, der für den Cloud-Storage-Pool verwendet werden soll.</block>
+  <block id="4f2400827753dc0695dede1947e79e86" category="paragraph">Es sind zwei Formate zulässig:</block>
+  <block id="a0678dbf696ee57402a994b15a017fed" category="paragraph"><block ref="3419791a36de13c614c2797eda8d9b67" prefix="" category="inline-code"></block></block>
+  <block id="bcca4a11cec95b0dcec0633cf0aa2e53" category="paragraph"><block ref="601eee1e8bbd13560835d502cd3dc9a2" prefix="" category="inline-code"></block></block>
+  <block id="fdcdebdb8587867805e6b14c39279411" category="list-text">Geben Sie den Azure-Containernamen ein.</block>
+  <block id="d4bed7a2666bc07a1fdf0b1b0a0d76ba" category="paragraph">Der angegebene Name muss exakt mit dem Azure-Containernamen übereinstimmen. Andernfalls schlägt die Erstellung des Cloud-Storage-Pools fehl. Sie können diesen Wert nicht ändern, nachdem der Cloud-Speicherpool gespeichert wurde.</block>
+  <block id="f7c6315a28b94e99eab96017afd099b2" category="list-text">Geben Sie optional den zugeordneten Kontonamen und den Kontokschlüssel des Azure-Containers für die Authentifizierung ein.</block>
+  <block id="1486b2fc2d7628bc94918b17dd1e2dbc" category="list-text">Wählen Sie in der Dropdown-Liste * Zertifikat nicht überprüfen* aus.</block>
+  <block id="77d01b70f1590b2dce595a6504470002" category="paragraph">Erstellen eines Cloud-Storage-Pools für Azure Blob Storage bestätigen</block>
+  <block id="12934b080defe99c475857cf35fc736b" category="summary">Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen S3-Bucket verschieben möchten. Der externe Bucket kann zu Amazon S3 (AWS) oder Google Cloud gehören.</block>
+  <block id="5726c3e825fdb258e1525c22d51442ea" category="doc">Cloud Storage Pool für AWS oder Google Cloud erstellen</block>
+  <block id="d3c15aac7a26c8e69f0d3a923ebea0d3" category="list-text">Sie haben bereits einen externen S3-Bucket auf AWS oder Google Cloud eingerichtet.</block>
+  <block id="b9a5f574231e2fdc69a9ccace21be039" category="list-text">Wählen Sie in der Dropdown-Liste Provider Type * Amazon S3* aus.</block>
+  <block id="b99241459e3ab67c1795a54b1eadb85a" category="paragraph">Dieser Provider-Typ funktioniert für AWS S3 oder Google Cloud.</block>
+  <block id="773a527b6815140da355b051effea746" category="list-text">Geben Sie den S3-Bucket-Namen ein.</block>
+  <block id="4bec2393e5f6d93abd85adfa9ee9f170" category="paragraph">Der angegebene Name muss exakt mit dem Namen des S3-Buckets übereinstimmen. Andernfalls schlägt die Erstellung von Cloud-Storage-Pool fehl. Sie können diesen Wert nicht ändern, nachdem der Cloud-Speicherpool gespeichert wurde.</block>
+  <block id="d539647e4ced58d3f54c2a4ce23c5708" category="list-text">Geben Sie optional die Zugriffsschlüssel-ID und den geheimen Zugriffsschlüssel ein.</block>
+  <block id="7c73eae507b98bafb559cd915f7f9750" category="paragraph">Es muss sichergestellt werden, dass ein Cloud-Storage-Pool für Amazon S3 oder Google Cloud erstellt wurde.</block>
+  <block id="87edd78cd55896c283c8e2897bc9ba41" category="summary">Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des NetApp StorageGRID 11.6 Suchintegrationsservice mit Amazon OpenSearch Service oder On-Premises-Elasticsearch.</block>
+  <block id="c86030d76e5f59c53ee3bc844dccdbd2" category="doc">Konfigurieren Sie den Integrationsservice für die StorageGRID Suche</block>
+  <block id="f14bf9907ae948f8af2bfd00dbd85f09" category="paragraph">Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des NetApp StorageGRID 11.6 Suchintegrationsservice mit Amazon OpenSearch Service oder On-Premises-Elasticsearch.</block>
+  <block id="24aceb5c24cf5a3bbe879def9dd06dd3" category="paragraph">StorageGRID unterstützt drei Arten von Plattform-Services.</block>
+  <block id="fde5ed7646cf684c0972be9a066f6914" category="list-text">*StorageGRID CloudMirror Replikation*. Spiegeln bestimmter Objekte aus einem StorageGRID-Bucket auf ein angegebenes externes Ziel</block>
+  <block id="8e304e3c51ae41ba284a04741c9b3ffd" category="list-text">*Benachrichtigungen*. Bucket-spezifische Ereignisbenachrichtigungen senden Benachrichtigungen über bestimmte Aktionen, die an Objekten durchgeführt werden, an einen bestimmten externen Amazon Simple Notification Service (Amazon SNS).</block>
+  <block id="6829b0de5985e8a1d0e7cdb7a6f93842" category="list-text">*Integrationsservice suchen*. Senden von einfachen Storage Service (S3) Objektmetadaten in einen angegebenen Elasticsearch-Index, wo Sie die Metadaten mithilfe des externen Service durchsuchen oder analysieren können.</block>
+  <block id="95309527f7dabbe3fe32e0802fc9852c" category="inline-link">Überlegungen bei der Verwendung von Plattform-Services</block>
+  <block id="a45c124a240baea662f0da5e22df0d82" category="paragraph">Plattform-Services werden vom S3-Mandanten über die Mandanten-Manager-UI konfiguriert. Weitere Informationen finden Sie unter<block ref="4ebe502af7f5bafb1d6a5d8f629eaf76" category="inline-link-rx"></block>.</block>
+  <block id="59544fa9157551ea504a21302a6951ec" category="inline-link">StorageGRID 11.6 Mandantenleitfaden</block>
+  <block id="05cc541a01f9762a12d5264d6eb03ae8" category="paragraph">Dieses Dokument dient als Ergänzung zum<block ref="eeb341388640105e8957a286cb4738c0" category="inline-link-rx"></block> Und enthält Schritt-für-Schritt-Anleitungen und Beispiele für die Endpunkt- und Bucket-Konfiguration für Suchintegrations-Services. Die hier enthaltene Anleitung zur Einrichtung von Amazon Web Services (AWS) oder lokalen Elasticsearch-Services dienen nur zu Test- oder Demonstrationszwecken.</block>
+  <block id="615d163ca568994b3435939b26db5805" category="paragraph">Zielgruppen sollten mit Grid Manager, Mandanten-Manager vertraut sein und über den S3-Browser Zugang verfügen, um grundlegende Vorgänge zum Hochladen (PUT) und Herunterladen (GET) für StorageGRID-Suchintegrationstests durchzuführen.</block>
+  <block id="f612053df248affdc8387fca6d9bee0a" category="section-title">Erstellung von Mandanten und Aktivierung von Plattform-Services</block>
+  <block id="27daf95e5e10f8ac74651d4d9130e719" category="list-text">Erstellen Sie einen S3-Mandanten mithilfe von Grid Manager, geben Sie einen Anzeigenamen ein und wählen Sie das S3-Protokoll aus.</block>
+  <block id="fbfe9415a29f758b59248cc814fe3c18" category="list-text">Wählen Sie auf der Berechtigungsseite die Option Plattformdienste zulassen. Wählen Sie ggf. andere Berechtigungen aus.</block>
+  <block id="f9472d6ac345c05d3cc61568620086f6" category="image-alt">Wählen Sie Screenshot mit Berechtigungen aus</block>
+  <block id="9b0222bb86df62edf8f9a4fd84ba7bdf" category="list-text">Richten Sie das ursprüngliche Kennwort des Mandanten-Root-Benutzers ein, oder wählen Sie, falls im Raster der Identifikationsverbund aktiviert ist, welche föderierte Gruppe Root-Zugriffsberechtigungen hat, um das Mandantenkonto zu konfigurieren.</block>
+  <block id="b363f2379a05efb18c601af7e4e70d90" category="list-text">Klicken Sie auf als Stamm anmelden und wählen Sie Bucket: Erstellen und verwalten.</block>
+  <block id="27c6c9b9ce32fafa453c2df32dcbedd9" category="paragraph">Dies führt Sie zur Seite Tenant Manager.</block>
+  <block id="9fd75fca62b65c4af75fe743c1571eef" category="list-text">Wählen Sie im Tenant Manager My Access Keys aus, um den S3-Zugriffsschlüssel für spätere Tests zu erstellen und herunterzuladen.</block>
+  <block id="0ec9b083d174497de65ea36e8f62118c" category="section-title">Integrationsservices mit Amazon OpenSearch suchen</block>
+  <block id="d3a3d7e6d3be793f5878e195a0502f20" category="section-title">Einrichtung des Amazon OpenSearch Service (ehemals Elasticsearch)</block>
+  <block id="ca543db8f60ee6d618b2fce4e398ff9d" category="inline-xref-macro">Suchintegrations-Services für On-Premises-Elasticsearch</block>
+  <block id="91ca81266b2f6987e787fc132213833b" category="paragraph">Verwenden Sie dieses Verfahren für eine schnelle und einfache Einrichtung des OpenSearch-Dienstes nur zu Test-/Demo-Zwecken. Wenn Sie On-Premises-Elasticsearch für Suchintegrationsservices verwenden, lesen Sie den Abschnitt <block ref="7949c0a8df6276ef905e1f32c3cd38da" category="inline-xref-macro-rx"></block>.</block>
+  <block id="7a39dc4b754c9843c8b8e82e129df95a" category="admonition">Sie müssen über eine gültige Anmeldung für die AWS-Konsole, einen Zugriffsschlüssel, einen geheimen Zugriffsschlüssel und die Berechtigung zum Abonnieren des OpenSearch-Dienstes verfügen.</block>
+  <block id="04465e32e50f755028937109f8195d88" category="inline-link-macro">AWS OpenSearch Service – erste Schritte</block>
+  <block id="f072124705611ed25ec02b7577163209" category="list-text">Erstellen Sie mithilfe der Anweisungen von eine neue Domäne <block ref="db5f7712c2bd05f059f1113f251a8653" category="inline-link-macro-rx"></block>, Mit Ausnahme der folgenden:</block>
+  <block id="29d9d092d398fb44d9f8798062efa761" category="list-text">Schritt 4: Domain-Name: Sgdemo</block>
+  <block id="5ac3c34060203d7e326e3102ecdaba60" category="list-text">Schritt 10: Feinkörnige Zugriffssteuerung: Deaktivieren Sie die Option Enable Fine-genarainable Access Control.</block>
+  <block id="016ccae457dbedb93f0de7d4602d6c4b" category="list-text">Schritt 12: Zugriffsrichtlinie: Wählen Sie Zugriffsrichtlinie auf Zugriffsebene konfigurieren, wählen Sie die Registerkarte JSON aus, um die Zugriffsrichtlinie anhand des folgenden Beispiels zu ändern:</block>
+  <block id="4f6a3e5d8a887d3c8d485fbcacc2fb47" category="list-text">Ersetzen Sie den hervorgehobenen Text durch Ihre eigene AWS IAM-ID (Identity and Access Management) und Ihren Benutzernamen.</block>
+  <block id="53e9754db1787f07e19e5680b1b0b11e" category="list-text">Ersetzen Sie den markierten Text (die IP-Adresse) durch die öffentliche IP-Adresse Ihres lokalen Computers, über den Sie auf die AWS-Konsole zugreifen.</block>
+  <block id="ff323c6f0c5ceb97eed49121babcec0f" category="inline-link"><block ref="ff323c6f0c5ceb97eed49121babcec0f" category="inline-link-rx"></block></block>
+  <block id="b001a21bb86d7507e75c22c5e0711e4d" category="list-text">Öffnen Sie eine Browserregisterkarte für<block ref="d59cf0c4ab596379c6604694ab2ef059" category="inline-link-rx"></block> Um Ihre öffentliche IP zu finden.</block>
+  <block id="f8f40f877af3c3d201008b8c5be2c37d" category="image-alt">Screenshot zur Integration durchsuchen</block>
+  <block id="29053e2d92070487f785eef51e730dc4" category="list-text">Warten Sie 15 bis 20 Minuten, bis die Domain aktiv ist.</block>
+  <block id="f0eda7032507e6d5560f84391d733351" category="image-alt">Domain-Screenshot wird aktiviert</block>
+  <block id="28424454f1de84544a80fe8c1c48775c" category="list-text">Klicken Sie auf OpenSearch Dashboards URL, um die Domäne in einer neuen Registerkarte zu öffnen, um auf das Dashboard zuzugreifen. Wenn ein Fehler beim Zugriff verweigert wird, überprüfen Sie, ob die Quell-IP-Adresse der Zugriffsrichtlinie korrekt auf Ihre öffentliche IP-Adresse des Computers eingestellt ist, um den Zugriff auf das Domain-Dashboard zu ermöglichen.</block>
+  <block id="b53d0b4902659d8d2f913cad2204dafa" category="list-text">Wählen Sie auf der Willkommensseite des Dashboards „Explore“ auf eigene Faust aus. Wählen Sie im Menü „Management -&gt; Entwicklungstools“</block>
+  <block id="64529406325d80102a66bca5577acc93" category="list-text">Geben Sie unter Dev Tools -&gt; Console ein<block ref="ab08cfff1b94ebb18a15cbe63aae2158" prefix=" " category="inline-code"></block> Wo Sie den Index zum Speichern von StorageGRID-Objektmetadaten verwenden. Im folgenden Beispiel verwenden wir den Indexnamen 'sgmetadaten'. Klicken Sie auf das kleine Dreieck-Symbol, um den PUT-Befehl auszuführen. Das erwartete Ergebnis wird im rechten Bereich angezeigt, wie im folgenden Beispiel Screenshot dargestellt.</block>
+  <block id="d109971fa7c388dc06d7b1809b235b8d" category="image-alt">Mit Put-Befehl für Index-Screenshot</block>
+  <block id="e10dd1b001fba4bfb5226f32dff82bfb" category="list-text">Überprüfen Sie, ob der Index über die Benutzeroberfläche von Amazon OpenSearch unter sgdomain &gt; Indizes sichtbar ist.</block>
+  <block id="efe6f3e30e8b2c5483ffdf27a0654511" category="image-alt">Verifying-the-Index Screenshot</block>
+  <block id="2b3c30e7f44f2aac501d2e83c6219832" category="section-title">Endpoint-Konfiguration für Plattform-Services</block>
+  <block id="8c4ec52c2351d47f61041ea0f6d68abc" category="paragraph">Gehen Sie wie folgt vor, um die Endpunkte der Plattformservices zu konfigurieren:</block>
+  <block id="2f79efe541087dee090636fcc45a179f" category="list-text">In Tenant Manager wechseln Sie zu STORAGE(S3) &gt; Plattform-Services-Endpunkten.</block>
+  <block id="b34d3c3f94b41d3571f8ca1f3cddd7e5" category="list-text">Klicken Sie auf Endpunkt erstellen, geben Sie Folgendes ein und klicken Sie dann auf Weiter:</block>
+  <block id="a6dbfe22a145135ffcb921b9d47c971b" category="list-text">Beispiel für einen Anzeigenamen<block ref="a04b5c27161ff0619ad3bdbf197eff81" prefix=" " category="inline-code"></block></block>
+  <block id="c8ebb37d076b51461df1832842943a56" category="list-text">Der Domänenendpunkt im Beispiel-Screenshot unter Schritt 2 des vorhergehenden Verfahrens im URI-Feld.</block>
+  <block id="62ac5878f5ad652b348bf756180bd23b" category="list-text">Die Domäne ARN, die in Schritt 2 des vorhergehenden Verfahrens im Feld URN verwendet wurde und addieren<block ref="518a7ad3aaa7039fac81e9f011602236" prefix=" " category="inline-code"></block> Bis zum Ende von ARN.</block>
+  <block id="55d2f2cd1ece54b1c4d553e157cfa3a2" category="paragraph">In diesem Beispiel wird URN<block ref="fa1ec382e8a609178d5ff16bbf34f501" prefix=" " category="inline-code"></block>.</block>
+  <block id="f8a9b600f50cc5b60751952c56d0f3fc" category="image-alt">Screenshot mit Details zu Endpunkten</block>
+  <block id="3c56a593460a6f84bfc344ffe6150097" category="list-text">Um auf die Amazon OpenSearch sgdomain zuzugreifen, wählen Sie als Authentifizierungstyp den Zugriffsschlüssel aus, und geben Sie dann den Amazon S3-Zugriffsschlüssel und den geheimen Schlüssel ein. Um zur nächsten Seite zu gelangen, klicken Sie auf Weiter.</block>
+  <block id="aa0f9a4ba593122d011f03e2316ce19b" category="image-alt">Authentifizierung von Verbindungen zum Screenshot von Endpunkten</block>
+  <block id="d078b4431fcc80fbee2cd9a3c87293b1" category="list-text">Um den Endpunkt zu überprüfen, wählen Sie Operating System CA Certificate und Test and Create Endpoint aus. Wenn die Überprüfung erfolgreich ist, wird ein Endpunkt-Bildschirm angezeigt, der der folgenden Abbildung entspricht. Wenn die Überprüfung fehlschlägt, überprüfen Sie, ob der URN umfasst<block ref="518a7ad3aaa7039fac81e9f011602236" prefix=" " category="inline-code"></block> Am Ende des Pfads und der AWS Zugriffsschlüssel und der Geheimschlüssel sind korrekt.</block>
+  <block id="fe28f79fc55095a8e58030809820fe42" category="image-alt">Screenshot der Plattform-Service-Endpunkte</block>
+  <block id="9d7ff9ab7c49eef4133e233cbed1198b" category="section-title">Elasticsearch-Einrichtung vor Ort</block>
+  <block id="a7d37b98c9dd326efe3690654fe9d37f" category="paragraph">Dieses Verfahren dient der schnellen Einrichtung von vor-Ort-Elasticsearch und Kibana mit Docker nur zu Testzwecken. Wenn Elasticsearch und Kibana-Server bereits vorhanden sind, fahren Sie mit Schritt 5 fort.</block>
+  <block id="5061a9f622798427aca0d360cc138888" category="inline-link-macro">Docker-Installationsvorgang</block>
+  <block id="d180e3941d65b33ef407bed8ae52ddc8" category="inline-link-macro">CentOS Docker Installationsverfahren</block>
+  <block id="80f7fe607a20803747ad9b40d526935c" category="list-text">Folgen Sie diesen Anweisungen <block ref="3b1e055afa87d3b585871c5e6a6e5a09" category="inline-link-macro-rx"></block> So installieren Sie den Docker. Wir verwenden den <block ref="bac8b475dc6eefa0e27bba4925d480b4" category="inline-link-macro-rx"></block> In diesem Setup.</block>
+  <block id="8244486218d0bcf97251923ef2f0be45" category="list-text">Um den Docker nach dem Neustart zu starten, geben Sie Folgendes ein:</block>
+  <block id="2bcd57548845273190401d9ba79767a3" category="list-text">Stellen Sie die ein<block ref="9340013c56f3e983fa2505fb8a443d6d" prefix=" " category="inline-code"></block> Wert für 262144:</block>
+  <block id="43433bec04d909d718c7800aa96f1beb" category="list-text">Um die Einstellung nach dem Neustart zu behalten, geben Sie Folgendes ein:</block>
+  <block id="67003ee2f4042eb1f705313a4dc58cfd" category="inline-link-macro">Elasticsearch Quick Start Guide</block>
+  <block id="1c046e86c75e8fd764a3285f110da4d7" category="list-text">Folgen Sie den <block ref="f2c2be7ac1a239dac97b7af8519d2c7b" category="inline-link-macro-rx"></block> Selbstverwalteter Abschnitt zum Installieren und Ausführen der Elasticsearch- und Kibana-Docker. In diesem Beispiel wurde die Version 8.1 installiert.</block>
+  <block id="193e2040e8163613cb1974450d2af29c" category="admonition">Beachten Sie den Benutzernamen/das Kennwort und das Token, das Elasticsearch erstellt hat. Sie müssen diese zum Starten der Kibana UI und der StorageGRID-Plattform-Endpunktauthentifizierung verwenden.</block>
+  <block id="a7d9a6a3c74bd9faac38bc1bb130a796" category="image-alt">Suche Integration Elasticsearch Screenshot</block>
+  <block id="332f50821b852451ef88ea9dbe07a0dc" category="list-text">Nachdem der Kibana-Docker-Container gestartet wurde, wird der URL-Link aufgerufen<block ref="5ab5ae539ccf6dd33a96ae2042975875" prefix=" " category="inline-code"></block> Wird in der Konsole angezeigt. Ersetzen Sie 0.0.0.0 durch die Server-IP-Adresse in der URL.</block>
+  <block id="90ec7e4d1719c2a884a27d95126c0f0f" category="list-text">Melden Sie sich mit dem Benutzernamen bei der Kibana-Benutzeroberfläche an<block ref="e16ddaf4f91df524b27bf4f2e4b1ac09" prefix=" " category="inline-code"></block> Und das Passwort, das im vorherigen Schritt von Elastic generiert wurde.</block>
+  <block id="9e4e15cd3018d0529612a23324c26d35" category="list-text">Wenn Sie sich zum ersten Mal anmelden möchten, wählen Sie auf der Begrüßungsseite „Explore“. Wählen Sie im Menü Verwaltung &gt; Entwicklungstools.</block>
+  <block id="7ce90614c51c6b29f6b2ef2391c41a72" category="list-text">Geben Sie auf dem Bildschirm Dev Tools Console die Eingabe ein<block ref="ab08cfff1b94ebb18a15cbe63aae2158" prefix=" " category="inline-code"></block> Dort, wo Sie diesen Index zum Speichern von StorageGRID-Objektmetadaten verwenden. Wir verwenden den Indexnamen<block ref="3e64d6e208e9fa644fab92b5e43c08a8" prefix=" " category="inline-code"></block> In diesem Beispiel. Klicken Sie auf das kleine Dreieck-Symbol, um den PUT-Befehl auszuführen. Das erwartete Ergebnis wird im rechten Bereich angezeigt, wie im folgenden Beispiel Screenshot dargestellt.</block>
+  <block id="6b2c56310234326372b84f2537bfb34b" category="image-alt">Ausführen von Put-Befehl-Screenshot</block>
+  <block id="d2c398101283b85a574ecda90393e5b0" category="paragraph">Gehen Sie wie folgt vor, um Endpunkte für Plattformservices zu konfigurieren:</block>
+  <block id="6988d11970dc632c6cbaea778ec31ebd" category="list-text">In Tenant Manager wechseln Sie zu STORAGE (S3) &gt; Plattform-Services-Endpunkten</block>
+  <block id="2411ab8836570fc720961d9ca4d31170" category="list-text">Beispiel für Anzeigename:<block ref="18897dcfce6a4e7ae63a3baeed443c48" prefix=" " category="inline-code"></block></block>
+  <block id="c3ab52d125350a189f9be76434bf5565" category="list-text">URI:<block ref="9e9aa824efb29c4fa21a19e77b73edd5" prefix=" " category="inline-code"></block></block>
+  <block id="97fbbb5c5782ba00d7871db3cbbcaadc" category="list-text">URNE:<block ref="dac8cd5f14c59b5d8ee793c84414edb3" prefix=" " category="inline-code"></block> Wobei der Indexname der Name ist, den Sie auf der Kibana-Konsole verwendet haben. Beispiel:<block ref="687bfef08d9562becdb91393e77f7fc4" prefix=" " category="inline-code"></block></block>
+  <block id="c21a9f9baede4b3ff45e83c1195d954e" category="image-alt">Screenshot mit Details zu Plattform-Service-Endpunkten</block>
+  <block id="9c530e0250b2365dd2bc6de7cd8226af" category="list-text">Wählen Sie Basic HTTP als Authentifizierungstyp, geben Sie den Benutzernamen ein<block ref="e16ddaf4f91df524b27bf4f2e4b1ac09" prefix=" " category="inline-code"></block> Und das durch den Elasticsearch-Installationsprozess generierte Passwort. Um zur nächsten Seite zu gelangen, klicken Sie auf Weiter.</block>
+  <block id="90686e747228f4ffd85f26a78549d504" category="image-alt">Screenshot zur Authentifizierung des Plattform-Service-Endpunkts</block>
+  <block id="16dab22118d1bb9c774fc20b7eff75bf" category="list-text">Wählen Sie Zertifikat nicht überprüfen und Endpunkt erstellen und testen, um den Endpunkt zu überprüfen. Wenn die Überprüfung erfolgreich ist, wird ein Endpunkt-Bildschirm angezeigt, der dem folgenden Screenshot ähnelt. Wenn die Überprüfung fehlschlägt, überprüfen Sie, ob die Einträge für URN, URI und Benutzername/Passwort korrekt sind.</block>
+  <block id="18f6fe973b6c5651f69da53d3aafaf5c" category="image-alt">Endpunkt erfolgreich verifiziert</block>
+  <block id="e20dd85152fb7211af43f55d94499b76" category="section-title">Konfiguration des integrierten Service für die Bucket-Suche</block>
+  <block id="874357ee35df6a54445e352c3dbb57e2" category="paragraph">Nachdem der Plattform-Service-Endpunkt erstellt wurde, besteht der nächste Schritt darin, diesen Service auf Bucket-Ebene zu konfigurieren, um Objektmetadaten an den definierten Endpunkt zu senden, sobald ein Objekt erstellt, gelöscht oder seine Metadaten oder Tags aktualisiert werden.</block>
+  <block id="69f509c71b61364d5893d46c8b9dba26" category="paragraph">Sie können die Suchintegration mit Tenant Manager konfigurieren, um eine benutzerdefinierte StorageGRID-Konfigurations-XML auf einen Bucket anzuwenden wie folgt:</block>
+  <block id="0e9ce58fdfd458e352fcd0b7403656ca" category="list-text">Wählen Sie in Tenant Manager „STORAGE(S3)“ &gt; „Buckets“</block>
+  <block id="6492a87a353e042bb5a4f6ac7f70ce04" category="list-text">Klicken Sie auf Create Bucket. Geben Sie den Bucket-Namen ein (z. B.<block ref="cd60277b06437d9842f25b79df5c796c" prefix=" " category="inline-code"></block>) Und akzeptieren Sie die Standardeinstellung<block ref="c800b6d9163b0db7d28f86c1470a9542" prefix=" " category="inline-code"></block> Werden.</block>
+  <block id="147431664d9610b7596ebb51b74d698d" category="list-text">Klicken Sie Auf Weiter &gt; Bucket Erstellen.</block>
+  <block id="cbdfd9b1c3376777ffe0bd1bb6f31691" category="list-text">Um die Seite „Bucket-Übersicht“ aufzurufen, klicken Sie auf den Bucket-Namen und wählen Sie „Platform Services“ aus.</block>
+  <block id="ff02db931d00676bbd2e49c8d66ba260" category="list-text">Wählen Sie das Dialogfeld Integration der Suche aktivieren aus. Geben Sie im angegebenen XML-Feld die Konfigurations-XML-XML-Datei unter Verwendung dieser Syntax ein.</block>
+  <block id="f1c5bfdd87a5f745188dfcf269154c5e" category="paragraph">Der hervorgehobene URN muss mit dem von Ihnen definierten Endpunkt für Plattformservices übereinstimmen. Sie können eine weitere Browserregisterkarte öffnen, um auf den Mandantenmanager zuzugreifen und URN vom definierten Endpunkt der Plattformdienste zu kopieren.</block>
+  <block id="ee4590422d317c3015f14170526c3977" category="paragraph">In diesem Beispiel haben wir kein Präfix verwendet, was bedeutet, dass die Metadaten für jedes Objekt in diesem Bucket an den zuvor definierten Elasticsearch-Endpunkt gesendet werden.</block>
+  <block id="26add7d33fe03962af376f500b33916e" category="list-text">Verwenden Sie S3-Browser, um eine Verbindung zu StorageGRID mit dem Mandantenzugriff/geheimen Schlüssel herzustellen und Testobjekte in hochzuladen<block ref="cd60277b06437d9842f25b79df5c796c" prefix=" " category="inline-code"></block> Bucket und fügen Sie Tags oder benutzerdefinierte Metadaten zu Objekten hinzu.</block>
+  <block id="09b447705582a66ef41783e259fb6a78" category="image-alt">Screenshot der Testobjekte hochladen</block>
+  <block id="174949bad1f8938630874b6623815f20" category="list-text">Verwenden Sie die Kibana UI, um zu überprüfen, ob die Objektmetadaten in den Index der sgmetadaten geladen wurden.</block>
+  <block id="e3fdae847eec4a409ba0a70f299d8ee3" category="list-text">Wählen Sie im Menü Verwaltung &gt; Entwicklungstools.</block>
+  <block id="d322ac9e51a4b7cf746cfe0af7c0445c" category="list-text">Fügen Sie die Beispielabfrage in das Konsolenfenster auf der linken Seite ein, und klicken Sie auf das Dreieckssymbol, um sie auszuführen.</block>
+  <block id="49806491d4539bc7e2a5b05d737ab750" category="paragraph">Das Beispielergebnis für die Abfrage 1 im folgenden Beispiel-Screenshot zeigt vier Datensätze. Dies entspricht der Anzahl der Objekte im Bucket.</block>
+  <block id="65201bc39dd240892dab55de46e2a0bb" category="image-alt">Abfrage 1 Beispiel-Screenshot</block>
+  <block id="53573d96c3d967152d1c791a2e79dcb5" category="paragraph">Das Beispielergebnis für Abfrage 2 im folgenden Screenshot zeigt zwei Datensätze mit Tag-Typ jpg.</block>
+  <block id="1962b22fc9378586da892a0bc564acda" category="image-alt">Probe 2 abfragen</block>
+  <block id="110f5c1e103a95f521005d2b098ea662" category="inline-link">Was sind Plattform-Services</block>
+  <block id="05bcb775989a8e045997b61b4712bd11" category="list-text"><block ref="05bcb775989a8e045997b61b4712bd11" category="inline-link-rx"></block></block>
+  <block id="68482d23bcdb3015258243e1b9aacf51" category="inline-link">StorageGRID 11.6-Dokumentation</block>
+  <block id="e33f6ccf77d0d8efe2a762267b6fd088" category="list-text"><block ref="e33f6ccf77d0d8efe2a762267b6fd088" category="inline-link-rx"></block></block>
+  <block id="03a51c290895d5f1a6828b0491c2a44a" category="summary">Hier sind aktuelle Änderungen an dieser Seite.</block>
+  <block id="490414e0366b091220802d406e52c076" category="doc">Was ist neu</block>
+  <block id="8b69c0257aaf35a9ec0a1259d54ff096" category="paragraph">Diese Dokumentensammlung zeigt, wie Sie Applikationen und Tools in Ihrer Umgebung aktivieren und die Testfunktionen von StorageGRID nutzen. Hier finden Sie Beispiele und Cookbooks zur Erweiterung der Produktdokumentation und einige nächste Schritte bei der Bewertung und Integration mit StorageGRID.</block>
+  <block id="b8e7b465df7c5979dc731d06e84ce2cf" category="cell">Freigabe</block>
+  <block id="ad0b6652f18f25a574f9f4900521e06b" category="cell">Was sich geändert hat</block>
+  <block id="36552b079970ffb2dd1314115af76c4b" category="paragraph">11.6</block>
+  <block id="b8c1c014b9752469294df284a3fc13cc" category="paragraph">Erste Version. Enthält Leitfäden und validierte Lösungen von Drittanbietern für StorageGRID Versionen 11.2-11.6.</block>
+  <block id="c27ce751e131719af380702f6711a49d" category="sidebar">Aktivieren von StorageGRID</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Was ist neu</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Los geht's</block>
+  <block id="7b99b0e0bb2f7f24ff67fbcc39f899f1" category="sidebar">Validierte Lösungen von Drittanbietern</block>
+  <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Überblick</block>
+  <block id="bc7a074f94cb3e6b09ba943468b03bd0" category="sidebar">Produktfunktionshandbücher</block>
+  <block id="e02e6c7dee6578ec85d1e57d9e5d7505" category="sidebar">Cloud Storage Pool für AWS oder Google erstellen</block>
+  <block id="f1f92d294ec1c6f6fdea0f29b7e96f97" category="sidebar">Cloud Storage Pool für Azure Blob Storage erstellen</block>
+  <block id="1cf458dbfa770c9c7189b79723753358" category="sidebar">Konfigurieren Sie den Suchintegrationsdienst</block>
+  <block id="408cdd6548bf39b1766ce095fd112e06" category="sidebar">Tool- und Anwendungsleitfäden</block>
+  <block id="d83a76224c587ea0af02d9f6d8ee0099" category="sidebar">Nutzen Sie den Cloudera Hadoop S3A Connector</block>
+  <block id="c305708b9554a582b18cd4563fac118b" category="sidebar">Erstellen Sie eine Vertica Eon Mode-Datenbank mit gemeinsamem Speicher</block>
+  <block id="71a42bc38b535445f495ee32a46355ba" category="sidebar">Verwenden Sie S3cmd zum Testen und Demonstrieren des S3-Zugriffs</block>
+  <block id="e2b1887bff53094ff4de31a5b6be8203" category="sidebar">Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse</block>
+  <block id="e8aaf062a960aeba132419a40c4e85ef" category="sidebar">Beispiele für Verfahren und APIs</block>
+  <block id="a82a0897ec719037339f7e557ccdc5b3" category="sidebar">S3-Verschlüsselung testen und demonstrieren</block>
+  <block id="d1fc85d07fb8abfaa8142a6bddefd16f" category="sidebar">S3 Object Lock testen und demonstrieren</block>
+  <block id="81a123ccab93cd947289b672b0e50348" category="sidebar">Demos Tutorials</block>
+  <block id="37a22f48989cdc6e7e3429f09be3fc5c" category="sidebar">StorageGRID-Videobibliothek</block>
+  <block id="f8e43c2f779dd11ddf192ae101019ea1" category="sidebar">NetApp Learning Services</block>
+  <block id="958e51c613c42a5edd4e8f06fad6128b" category="sidebar">StorageGRID-Protokollanalyse mit ELK-Stack von NetApp TV</block>
+  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Mehr Ressourcen</block>
+  <block id="5c8fba8e6a4b1c808cb6fcd601dd89ce" category="sidebar">StorageGRID Support-Seite</block>
+  <block id="697ea025ecb303d4f40d1bf3a8b4bde0" category="sidebar">NetApp Interoperabilitäts-Matrix-Tool (IMT)</block>
+  <block id="8ef596bf4eb7277f78ad1d7ad4cc04de" category="sidebar">StorageGRID Knowledge Base</block>
+  <block id="c2d388654878e1108f99fdeaa465fcac" category="sidebar">NetApp Blog</block>
+  <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">NetApp Community</block>
+  <block id="024f3a8ba5709643c2f09c8eabccae87" category="sidebar">Validierte Drittanbieterlösungen – Übersicht</block>
+  <block id="f4bf6c62a8784f065cebbacf57a1c62c" category="sidebar">S3-Objektsperre testen und demonstrieren</block>
+</blocks>

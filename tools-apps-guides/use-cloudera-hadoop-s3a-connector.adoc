@@ -1,0 +1,255 @@
+---
+permalink: tools-apps-guides/use-cloudera-hadoop-s3a-connector.html 
+sidebar: sidebar 
+keywords: hadoop, cloudera, s3a 
+summary: Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen Programmier-Frameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, auf denen jede Maschine ihre lokalen Computing- und Storage-Ressourcen bot. 
+---
+= Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID
+:allow-uri-read: 
+
+
+[role="lead"]
+Hadoop ist seit einiger Zeit einer der beliebtesten Wissenschaftler von Data Scientist. Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen ProgrammierFrameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, wobei jede Maschine über lokale Computing- und Storage-Ressourcen verfügt.
+
+
+
+== Vorteile von S3A für Hadoop Workflows
+
+Mit der Zeit hat das Datenvolumen zugenommen, aber die Nutzung der IT-Infrastruktur mit eigenen Computing- und Storage-Ressourcen ist ineffizient. Durch die lineare Skalierung entstehen Herausforderungen für die effiziente Nutzung von Ressourcen und das Management der Infrastruktur.
+
+Zur Bewältigung dieser Herausforderungen bietet der Hadoop S3A-Client hochperformante I/O-Vorgänge im Vergleich zu S3-Objekt-Storage. Durch die Implementierung eines Hadoop Workflows mit S3A können Sie Objekt-Storage als Daten-Repository nutzen und Computing- und Storage-Ressourcen separat voneinander skalieren. Dadurch wiederum können Sie Computing- und Storage-Ressourcen unabhängig voneinander skalieren. Die Abkopplung von Computing und Storage eröffnet Ihnen auch die Möglichkeit, die passende Menge an Ressourcen für Ihre Rechneraufgaben zu beanspruchen und Kapazitäten basierend auf der Größe Ihres Datensatzes zu bereitstellen. Somit lassen sich die Gesamtbetriebskosten für Hadoop Workflows verringern.
+
+
+
+== S3A-Anschluss für die Verwendung von StorageGRID konfigurieren
+
+
+
+=== Voraussetzungen
+
+* Einen StorageGRID S3-Endpunkt-URL, einen S3-Zugriffsschlüssel für Mandanten und einen geheimen Schlüssel für Hadoop S3A-Verbindungstests.
+* Ein Cloudera Cluster und Root- oder sudo-Berechtigung für jeden Host im Cluster, um das Java-Paket zu installieren.
+
+
+Seit April 2022 wurde Java 11.0.14 mit Cloudera 7.1.7 gegen StorageGRID 11.5 und 11.6 getestet. Die Java-Versionsnummer kann jedoch bei einer neuen Installation unterschiedlich sein.
+
+
+
+=== Installieren Sie das Java-Paket
+
+. Prüfen Sie die https://docs.cloudera.com/cdp-private-cloud-upgrade/latest/release-guide/topics/cdpdc-java-requirements.html["Cloudera Support-Matrix"^] Für die unterstützte JDK-Version.
+. Laden Sie die herunter https://www.oracle.com/java/technologies/downloads/["Java 11.x-Paket"^] Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.
+. Melden Sie sich bei jedem Host als Root an oder verwenden Sie ein Konto mit sudo-Berechtigung. Führen Sie für jeden Host folgende Schritte durch:
++
+.. Installieren Sie das Paket:
++
+[listing]
+----
+$ sudo rpm -Uvh jdk-11.0.14_linux-x64_bin.rpm
+----
+.. Überprüfen Sie, wo Java installiert ist. Wenn mehrere Versionen installiert sind, legen Sie die neu installierte Version als Standard fest:
++
+[listing, subs="specialcharacters,quotes"]
+----
+alternatives --config java
+
+There are 2 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+ +1           /usr/java/jre1.8.0_291-amd64/bin/java
+  2           /usr/java/jdk-11.0.14/bin/java
+
+Enter to keep the current selection[+], or type selection number: 2
+----
+.. Fügen Sie diese Zeile am Ende von hinzu `/etc/profile`. Der Pfad sollte dem Pfad der obigen Auswahl entsprechen:
++
+[listing]
+----
+export JAVA_HOME=/usr/java/jdk-11.0.14
+----
+.. Führen Sie den folgenden Befehl aus, damit das Profil wirksam wird:
++
+[listing]
+----
+source /etc/profile
+----
+
+
+
+
+
+
+=== Konfiguration von Cloudera HDFS S3A
+
+*Schritte*
+
+. Wählen Sie in der Cloudera Manager GUI Cluster > HDFS aus, und wählen Sie Konfiguration aus.
+. Wählen Sie unter KATEGORIE die Option Erweitert aus, und blättern Sie nach unten, um zu suchen `Cluster-wide Advanced Configuration Snippet (Safety Valve) for core-site.xml`.
+. Klicken Sie auf das (+)-Zeichen und fügen Sie folgende Wertpaare hinzu.
++
+[cols="1a,4a"]
+|===
+| Name | Wert 
+
+
+ a| 
+fs.s3a.access.key
+ a| 
+_<S3-Zugriffsschlüssel des Mandanten von StorageGRID>_
+
+
+
+ a| 
+fs.s3a.secret.key
+ a| 
+_<Mandant s3 geheimen Schlüssel von StorageGRID>_
+
+
+
+ a| 
+fs.s3a.connection.ssl.enabled
+ a| 
+[Wahr oder falsch] (Standardeinstellung: Https, wenn dieser Eintrag fehlt)
+
+
+
+ a| 
+fs.s3a.Endpunkt
+ a| 
+_<StorageGRID S3 Endpunkt:Port>_
+
+
+
+ a| 
+fs.s3a.mpl
+ a| 
+Org.apache.hadoop.fs.s3a.S3AFileSystem
+
+
+
+ a| 
+fs.s3a.path.style.Access
+ a| 
+[True oder false] (Standard ist der Stil des virtuellen Hosts, wenn dieser Eintrag fehlt)
+
+|===
++
+*Beispiel Screenshot*
+
++
+image::../media/hadoop-s3a/hadoop-s3a-configuration.png[S3A-Konfiguration]
+
+. Klicken Sie auf die Schaltfläche Änderungen speichern. Wählen Sie in der HDFS-Menüleiste das Symbol „veraltete Konfiguration“ aus, wählen Sie auf der nächsten Seite „veraltete Dienste neu starten“ und anschließend „Jetzt neu starten“ aus.
++
+image::../media/hadoop-s3a/hadoop-restart-stale-service-icon.png[Veraltete Service-Symbol für Hadoop neu starten]
+
+
+
+
+
+== S3A-Verbindung mit StorageGRID testen
+
+
+
+=== Führen Sie einen grundlegenden Verbindungstest durch
+
+Melden Sie sich bei einem der Hosts im Cloudera Cluster an, und geben Sie ein `hadoop fs -ls s3a://_<bucket-name>_/`.
+
+Im folgenden Beispiel wird Pfadsyle mit einem vorhandenen hdfs-Test-Bucket und einem Testobjekt verwendet.
+
+[listing]
+----
+[root@ce-n1 ~]# hadoop fs -ls s3a://hdfs-test/
+22/02/15 18:24:37 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/02/15 18:24:37 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/02/15 18:24:37 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/02/15 18:24:37 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+Found 1 items
+-rw-rw-rw-   1 root root       1679 2022-02-14 16:03 s3a://hdfs-test/test
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+----
+
+
+=== Fehlerbehebung
+
+
+
+==== Szenario 1
+
+Verwenden Sie eine HTTPS-Verbindung zu StorageGRID, und holen Sie ein `handshake_failure` Fehler nach einem Timeout von 15 Minuten.
+
+*Grund:* alte JRE/JDK-Version mit veralteter oder nicht unterstützter TLS-Chiffre-Suite für die Verbindung zu StorageGRID.
+
+*Beispiel-Fehlermeldung*
+
+[listing]
+----
+[root@ce-n1 ~]# hadoop fs -ls s3a://hdfs-test/
+22/02/15 18:52:34 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/02/15 18:52:34 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/02/15 18:52:34 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/02/15 18:52:35 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+22/02/15 19:04:51 WARN fs.FileSystem: Failed to initialize fileystem s3a://hdfs-test/: org.apache.hadoop.fs.s3a.AWSClientIOException: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: Received fatal alert: handshake_failure: Unable to execute HTTP request: Received fatal alert: handshake_failure
+ls: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: Received fatal alert: handshake_failure: Unable to execute HTTP request: Received fatal alert: handshake_failure
+----
+*Auflösung:* stellen Sie sicher, dass JDK 11.x oder höher installiert ist und auf die Java-Bibliothek eingestellt ist. Siehe  Java package Weitere Informationen finden Sie in.
+
+
+
+==== Szenario 2:
+
+Fehler beim Herstellen der Verbindung zum StorageGRID mit Fehlermeldung `Unable to find valid certification path to requested target`.
+
+*Grund:* StorageGRID S3-Endpoint-Server-Zertifikat wird nicht von Java-Programm vertrauenswürdig.
+
+Beispielfehlermeldung:
+
+[listing]
+----
+[root@hdp6 ~]# hadoop fs -ls s3a://hdfs-test/
+22/03/11 20:58:12 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/03/11 20:58:13 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/03/11 20:58:13 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/03/11 20:58:13 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+22/03/11 21:12:25 WARN fs.FileSystem: Failed to initialize fileystem s3a://hdfs-test/: org.apache.hadoop.fs.s3a.AWSClientIOException: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target: Unable to execute HTTP request: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+----
+*Auflösung:* NetApp empfiehlt die Verwendung eines Serverzertifikats, das von einer bekannten öffentlichen Zertifizierungsstelle ausgestellt wurde, um die Sicherheit der Authentifizierung sicherzustellen. Alternativ können Sie dem Java Trust Store ein benutzerdefiniertes CA- oder Serverzertifikat hinzufügen.
+
+Führen Sie die folgenden Schritte aus, um eine benutzerdefinierte StorageGRID-Zertifizierungsstelle oder ein Serverzertifikat zum Java-Treuhandspeicher hinzuzufügen.
+
+. Sichern Sie die vorhandene Standard-Java-Cacaerts-Datei.
++
+[listing]
+----
+cp -ap $JAVA_HOME/lib/security/cacerts $JAVA_HOME/lib/security/cacerts.orig
+----
+. Importieren Sie das StorageGRID S3-Endpunktcert in den Java-Treuhandspeicher.
++
+[listing, subs="specialcharacters,quotes"]
+----
+keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -noprompt -alias sg-lb -file _<StorageGRID CA or server cert in pem format>_
+----
+
+
+
+
+==== Tipps zur Fehlerbehebung
+
+. Erhöhen sie den hadoop Protokolllevel zum DEBUGGEN.
++
+`export HADOOP_ROOT_LOGGER=hadoop.root.logger=DEBUG,console`
+
+. Führen Sie den Befehl aus und leiten Sie die Protokollmeldungen an ERROR.log.
++
+`hadoop fs -ls s3a://_<bucket-name>_/ &>error.log`
+
+

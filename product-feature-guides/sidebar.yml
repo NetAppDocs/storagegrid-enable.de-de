@@ -1,0 +1,12 @@
+---
+section: product-feature-guides
+title: Produktfunktionshandbücher
+entries:
+- title: Cloud Storage Pool für AWS oder Google Cloud erstellen
+  url: "/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html"
+- title: Cloud Storage Pool für Azure Blob Storage erstellen
+  url: "/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html"
+- title: Verwenden Sie einen Cloud Storage Pool für Backups
+  url: "/product-feature-guides/use-a-cloud-storage-pool-for-backup.html"
+- title: Konfigurieren Sie den Suchintegrationsdienst
+  url: "/product-feature-guides/storagegrid-search-integration-service.html"
