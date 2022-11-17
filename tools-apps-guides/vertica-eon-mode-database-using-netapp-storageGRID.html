@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head class="at-element-marker">
+  <title>Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
+	<meta property="og:description" content="In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben." />
+  <meta property="og:image" content="https://docs.netapp.com/de-de/storagegrid-enable/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben.">
+  <meta name="keywords" content=" Vertica Eon Mode database"><!-- Icons -->
+  <link rel="icon" href="/de-de/storagegrid-enable/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/de-de/storagegrid-enable/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/de-de/storagegrid-enable/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/de-de/storagegrid-enable/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/de-de/storagegrid-enable/js/na-search.js'></script><script src='/de-de/storagegrid-enable/js/na-pagenav.js'></script><script src='/de-de/storagegrid-enable/js/na-utility.js'></script>
+  <script src='/de-de/storagegrid-enable/js/clouddocs.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/de-de/storagegrid-enable/js/toc.js'></script>
+  <script src='/de-de/storagegrid-enable/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/de-de/storagegrid-enable"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/de-de/storagegrid-enable/js/custom-dropdown.js'></script>
+  <script src='/de-de/storagegrid-enable/js/FileSaver.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jszip-utils.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jszip.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/issues/new?body=Page%3A%20[Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung](https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/de-de/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Dokumentationsänderungen beantragen</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/vertica-eon-mode-database-using-netapp.adoc" class="page-nav-contribute-link" role="button"><img src="/de-de/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />In GitHub bearbeiten</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/de-de/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Leitfaden für Beitragende</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">AUF DIESER SEITE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Produkt und Lösungen</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Support und Schulung</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Kundenberichte</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/de-de/storagegrid-enable/search.html"
+          data-type="widget" 
+          data-placeholder="Dokumentation durchsuchen"
+          data-no-results-found="Keine Ergebnisse für {query} gefunden"
+          data-did-you-mean="Nach {suggestion} suchen."
+          data-no-results-found-did-you-mean="Keine Ergebnisse für {query} gefunden. Meinten Sie {suggestion}?"
+          data-results-found="{hitCount} Ergebnisse gefunden"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Deutsch</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/de-de/storagegrid-enable/images/collapse.png" alt="Navigationsbereich reduzieren"></button>
+      <div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aktivieren von StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/index.html">
+        Aktivieren von StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Was ist neu"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/whats-new.html">
+        Was ist neu
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Validierte Lösungen von Drittanbietern"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Validierte Lösungen von Drittanbietern</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Validierte Drittanbieterlösungen – Übersicht"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/index.html">
+        Überblick
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.6"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/116-3rd-party-list.html">
+        StorageGRID 11.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.5"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/115-3rd-party-list.html">
+        StorageGRID 11.5
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.4"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/114-3rd-party-list.html">
+        StorageGRID 11.4
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/113-3rd-party-list.html">
+        StorageGRID 11.3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.2"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/112-3rd-party-list.html">
+        StorageGRID 11.2
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Produktfunktionshandbücher"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Produktfunktionshandbücher</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Storage Pool für AWS oder Google Cloud erstellen"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html">
+        Cloud Storage Pool für AWS oder Google Cloud erstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Storage Pool für Azure Blob Storage erstellen"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html">
+        Cloud Storage Pool für Azure Blob Storage erstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verwenden Sie einen Cloud Storage Pool für Backups"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/use-a-cloud-storage-pool-for-backup.html">
+        Verwenden Sie einen Cloud Storage Pool für Backups
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Konfigurieren Sie den Suchintegrationsdienst"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/storagegrid-search-integration-service.html">
+        Konfigurieren Sie den Suchintegrationsdienst
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Tool- und Anwendungsleitfäden"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Tool- und Anwendungsleitfäden</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nutzen Sie den Cloudera Hadoop S3A Connector"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html">
+        Nutzen Sie den Cloudera Hadoop S3A Connector
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verwenden Sie S3cmd zum Testen und Demonstrieren des S3-Zugriffs"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html">
+        Verwenden Sie S3cmd zum Testen und Demonstrieren des S3-Zugriffs
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erstellen Sie eine Vertica Eon Mode-Datenbank mit gemeinsamem Speicher"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html">
+        Erstellen Sie eine Vertica Eon Mode-Datenbank mit gemeinsamem Speicher
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/elk-instructions.html">
+        Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/federate-prometheus.html">
+        Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Beispiele für Verfahren und APIs"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Beispiele für Verfahren und APIs</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="S3-Verschlüsselung testen und demonstrieren"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/examples/test-demonstrate-S3-encryption.html">
+        S3-Verschlüsselung testen und demonstrieren
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="S3-Objektsperre testen und demonstrieren"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/examples/test-demonstrate-S3-object-lock.html">
+        S3-Objektsperre testen und demonstrieren
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID-Dokumentation"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/storagegrid-documentation.html">
+        StorageGRID-Dokumentation
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/de-de/storagegrid-enable/images/expand.png" alt="Navigationsbereich erweitern"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/de-de/storagegrid-enable/">How&nbsp;to&nbsp;enable&nbsp;StorageGRID&nbsp;in&nbsp;your&nbsp;environment</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Die deutsche Sprachversion wurde als Serviceleistung für Sie durch maschinelle Übersetzung erstellt. Bei eventuellen Unstimmigkeiten hat die englische Sprachversion Vorrang. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-11-17 06:45:50 +0000">11/17/2022</time>
+    
+  
+
+<span>Beitragende
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="einführung">Einführung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vertica ist eine Software für das Analyse-Datenbankmanagement. Es handelt sich um eine spaltenbasierte Storage-Plattform zur Verarbeitung großer Datenvolumen. Damit ermöglicht sie eine sehr schnelle Abfrage-Performance in einem klassisch intensiven Szenario. Eine Vertica-Datenbank läuft in einem der beiden Modi: Eon oder Enterprise. Beide Modi können sowohl lokal als auch in der Cloud implementiert werden.</p>
+</div>
+<div class="paragraph">
+<p>Eon- und Enterprise-Modi unterscheiden sich hauptsächlich darin, wo sie Daten speichern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Eon-Modus-Datenbanken verwenden einen gemeinsamen Speicher für ihre Daten. Dies wird von Vertica empfohlen.</p>
+</li>
+<li>
+<p>Die Enterprise-Mode-Datenbanken speichern die Daten lokal im Dateisystem der Knoten, aus denen die Datenbank besteht.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="eon-mode-architektur">Eon-Mode-Architektur</h3>
+<div class="paragraph">
+<p>Eon-Modus trennt die Computing-Ressourcen von der gemeinsamen Storage-Schicht der Datenbank, wodurch Computing- und Storage-Ressourcen getrennt skaliert werden können. Vertica im Eon-Modus ist für variable Workloads optimiert und kann durch die Nutzung separater Computing- und Storage-Ressourcen voneinander isoliert werden.</p>
+</div>
+<div class="paragraph">
+<p>Eon-Modus speichert Daten in einem gemeinsam genutzten Objektspeicher, dem sogenannten Communal Storage – einem S3-Bucket, der entweder lokal oder in Amazon S3 gehostet wird.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vertica-eon/sg-vertica-eon-mode-cluster-with-communal-storage.png" alt="Vertica Eon-Mode Cluster mit gemeinsamem Speicher">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gemeinschaftsspeicher">Gemeinschaftsspeicher</h3>
+<div class="paragraph">
+<p>Statt Daten lokal zu speichern, verwendet der Eon-Modus einen einzigen gemeinsamen Speicherort für alle Daten und den Katalog (Metadaten). Der zentrale Speicherort der Datenbank, der von den Datenbank-Nodes gemeinsam genutzt wird, ist die gemeinsame Speicherung.</p>
+</div>
+<div class="paragraph">
+<p>Kommunale Lagerung hat folgende Eigenschaften:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kommunaler Storage in der Cloud oder On-Premises-Objekt-Storage ist ausfallsicherer und anfällig für Datenverluste aufgrund von Storage-Ausfällen als Storage auf Festplatte an individuellen Maschinen.</p>
+</li>
+<li>
+<p>Alle Daten können von jedem Node aus denselben Pfad gelesen werden.</p>
+</li>
+<li>
+<p>Die Kapazität ist nicht durch den Festplattenspeicher auf Nodes begrenzt.</p>
+</li>
+<li>
+<p>Da Daten communal gespeichert werden, können Sie den Cluster flexibel skalieren, um den sich ändernden Anforderungen gerecht zu werden. Falls die Daten lokal auf den Nodes gespeichert wurden, müssten beim Hinzufügen oder Entfernen von Nodes umfangreiche Datenmengen zwischen Nodes verschoben werden, um sie entweder von entfernten Nodes oder auf neu erstellte Nodes zu verschieben.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="das-depot">Das Depot</h3>
+<div class="paragraph">
+<p>Ein Nachteil der kommunalen Lagerung ist seine Geschwindigkeit. Der Zugriff auf Daten von einem gemeinsam genutzten Cloud-Speicherort ist langsamer als das Lesen von einer lokalen Festplatte. Darüber hinaus kann die Verbindung zu kommunalem Storage zu einem Engpass werden, wenn viele Nodes die Daten gleichzeitig lesen. Zur Verbesserung der Zugriffsgeschwindigkeit für Daten führen die Knoten in einer Eon-Modus-Datenbank einen lokalen Festplatten-Cache mit Daten, die als Depot bezeichnet werden. Bei der Ausführung einer Abfrage prüfen die Knoten zunächst, ob sich die erforderlichen Daten im Depot befinden. Ist dies der Fall, wird die Abfrage beendet, indem die lokale Kopie der Daten verwendet wird. Wenn sich die Daten nicht im Depot befindet, ruft der Knoten die Daten aus dem gemeinsamen Lager ab und speichert eine Kopie im Depot.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-storagegrid-empfehlungen">NetApp StorageGRID-Empfehlungen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vertica speichert Datenbankdaten im Objekt-Storage als Tausende (oder Millionen) komprimierter Objekte (die beobachtete Größe beträgt 200 bis 500 MB pro Objekt. Wenn ein Benutzer Datenbankabfragen ausführt, ruft Vertica den ausgewählten Datenbereich aus diesen komprimierten Objekten parallel mit dem GET-Aufruf des Byte-Bereichs ab. Jeder Byte-Bereich HAT ca. 8 KB.</p>
+</div>
+<div class="paragraph">
+<p>Während des 10-TB-Datenbankdepots zur Prüfung von Benutzeranfragen wurden 4,000 bis 10,000 GET-Anforderungen (Byte-Bereich GET) pro Sekunde an das Grid gesendet. Bei diesem Test werden SG6060 Appliances eingesetzt, obwohl die CPU-Auslastung des % pro Appliance-Node niedrig ist (etwa 20 bis 30 %), warten 2/3 der CPU-Zeit auf I/O Bei SGF6024 wird ein sehr kleiner Prozentsatz (0 % bis 0.5 %) des I/O-Wartens beobachtet.</p>
+</div>
+<div class="paragraph">
+<p>Aufgrund der hohen Anforderungen an kleine IOPS mit sehr niedrigen Latenzanforderungen (der Durchschnitt liegt bei weniger als 0.01 Sekunden) empfiehlt NetApp die Verwendung von SFG6024 für Objekt-Storage-Services. Falls das SG6060 für sehr große Datenbanken benötigt wird, sollte der Kunde mit dem Vertica Account-Team zusammenarbeiten, um den aktiv abgefragten Datensatz zu unterstützen.</p>
+</div>
+<div class="paragraph">
+<p>Für den Admin-Node und den API-Gateway-Node kann der Kunde das SG100 oder SG1000 verwenden. Die Wahl hängt von der Anzahl der Abfragen der Benutzer in paralleler und Datenbank-Größe ab. Wenn der Kunde einen Drittanbieter-Load-Balancer einsetzen möchte, empfiehlt NetApp einen dedizierten Load Balancer für Workloads mit hohen Performance-Anforderungen. Informationen zur StorageGRID Dimensionierung erhalten Sie vom NetApp Account Team.</p>
+</div>
+<div class="paragraph">
+<p>Weitere Empfehlungen für die StorageGRID-Konfiguration:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Grid-Topologie</strong>. Kombinieren Sie SGF6024 nicht mit anderen Storage Appliance-Modellen am selben Grid-Standort. Wenn Sie den SG6060 für den langfristigen Archivierungsschutz verwenden möchten, sollten Sie den SGF6024 mit einem dedizierten Grid Load Balancer am eigenen Grid-Standort (entweder am physischen oder logischen Standort) für eine aktive Datenbank aufbewahren, um die Performance zu steigern. Die Kombination verschiedener Appliance-Modelle am selben Standort verringert die Gesamtleistung am Standort.</p>
+</li>
+<li>
+<p><strong>Datenschutz</strong>. Verwenden Sie Replizieren-Kopien für die Sicherheit. Verwenden Sie kein Erasure Coding für eine aktive Datenbank. Der Kunde kann das Verfahren zur Einhaltung von Datenkonsistenz (Erasure Coding) verwenden, um inaktive Datenbanken langfristig zu schützen.</p>
+</li>
+<li>
+<p><strong>Gitterkompression nicht aktivieren</strong>. Vertica komprimiert Objekte, bevor sie in Objekt-Storage gespeichert werden. Durch die Aktivierung der Grid-Komprimierung wird die Storage-Auslastung nicht weiter gesenkt und DIE GET-Performance im Byte-Bereich wird deutlich verringert.</p>
+</li>
+<li>
+<p><strong>HTTP im Vergleich zu HTTPS S3-Endpunktverbindung</strong>. Während des Benchmark-Tests konnten wir bei der Verwendung einer HTTP S3-Verbindung vom Vertica Cluster zum StorageGRID Load Balancer-Endpunkt eine Performance-Steigerung von ca. 5 % feststellen. Diese Auswahl sollte auf den Sicherheitsanforderungen des Kunden basieren.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Empfehlungen für eine Vertica Konfiguration sind:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Die Standardeinstellungen des Vertica Datenbank-Depots sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge</strong>. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.</p>
+</li>
+<li>
+<p><strong>Streaming-Einschränkungen deaktivieren</strong>. Weitere Informationen zur Konfiguration finden Sie im Abschnitt ,Deaktivieren von Streaming-Einschränkungen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation-von-eon-modus-vor-ort-mit-kommunalem-speicher-auf-storagegrid">Installation von Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In den folgenden Abschnitten wird das Verfahren beschrieben, um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren. Das Verfahren zur Konfiguration von S3-kompatiblem Objektspeicher (Simple Storage Service) ähnelt dem Verfahren im Vertica-Leitfaden. <a href="https://www.vertica.com/docs/10.1.x/HTML/Content/Authoring/InstallationGuide/EonOnPrem/InstallingEonOnPremiseWithMinio.htm?tocpath=Installing%20Vertica%7CInstalling%20Vertica%20For%20Eon%20Mode%20on-Premises%7C<em>_</em>2" target="_blank" rel="noopener">"Installation einer On-Premises-Eon-Mode-Datenbank"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Für den Funktionstest wurde folgendes Setup verwendet:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>StorageGRID 11.4.0.4</p>
+</li>
+<li>
+<p>Vertica 10.1.0</p>
+</li>
+<li>
+<p>Drei Virtual Machines (VMs) mit CentOS 7.x OS für Vertica Nodes zu einem Cluster bilden. Dieses Setup gilt nur für den Funktionstest, nicht für das Produktions-Datenbank-Cluster der Vertica.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Diese drei Nodes sind mit einem SSH-Schlüssel (Secure Shell) eingerichtet, um SSH ohne Passwort zwischen den Nodes innerhalb des Clusters zuzulassen.</p>
+</div>
+<div class="sect2">
+<h3 id="erforderliche-informationen-von-netapp-storagegrid">Erforderliche Informationen von NetApp StorageGRID</h3>
+<div class="paragraph">
+<p>Um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren, müssen Sie die folgenden Vorbedingung-Informationen haben.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP-Adresse oder vollständig qualifizierter Domain-Name (FQDN) und Portnummer des StorageGRID S3-Endpunkts. Wenn Sie HTTPS verwenden, verwenden Sie eine CA (Custom Certificate Authority) oder ein selbstsigniertes SSL-Zertifikat, das am StorageGRID S3-Endpunkt implementiert wurde.</p>
+</li>
+<li>
+<p>Bucket-Name Er muss vorexistieren und leer sein.</p>
+</li>
+<li>
+<p>Schlüssel-ID und geheimer Zugriffsschlüssel mit Lese- und Schreibzugriff auf den Bucket</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="erstellen-einer-autorisierungsdatei-für-den-zugriff-auf-den-s3-endpunkt">Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt</h3>
+<div class="paragraph">
+<p>Beim Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt gelten die folgenden Voraussetzungen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vertica ist installiert.</p>
+</li>
+<li>
+<p>Ein Cluster ist für die Datenbankerstellung eingerichtet, konfiguriert und bereit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So erstellen Sie eine Autorisierungsdatei für den Zugriff auf den S3-Endpunkt:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Melden Sie sich beim Vertica-Knoten an, auf dem Sie ausgeführt werden <code>admintools</code> So erstellen Sie die Eon-Modus-Datenbank.</p>
+<div class="paragraph">
+<p>Der Standardbenutzer ist <code>dbadmin</code>, Erstellt während der Vertica Cluster Installation.</p>
+</div>
+</li>
+<li>
+<p>Verwenden Sie einen Texteditor, um eine Datei unter dem zu erstellen <code>/home/dbadmin</code> Verzeichnis. Der Dateiname kann alles sein, was Sie wollen, z. B. <code>sg_auth.conf</code>.</p>
+</li>
+<li>
+<p>Wenn der S3-Endpunkt einen Standard-HTTP-Port 80 oder HTTPS-Port 443 verwendet, überspringen Sie die Portnummer. Um HTTPS zu verwenden, legen Sie die folgenden Werte fest:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>awsenablehttps = 1</code>, Sonst setzen Sie den Wert auf <code>0</code>.</p>
+</li>
+<li>
+<p><code>awsauth = &lt;s3 access key ID&gt;:&lt;secret access key&gt;</code></p>
+</li>
+<li>
+<p><code>awsendpoint = &lt;StorageGRID s3 endpoint&gt;:&lt;port&gt;</code></p>
+<div class="paragraph">
+<p>Um eine benutzerdefinierte CA oder ein selbstsigniertes SSL-Zertifikat für die HTTPS-Verbindung des StorageGRID S3-Endpunkts zu verwenden, geben Sie den vollständigen Dateipfad und den Dateinamen des Zertifikats an. Diese Datei muss sich am selben Speicherort auf jedem Vertica-Knoten befinden und über Leseberechtigung für alle Benutzer verfügen. Überspringen Sie diesen Schritt, wenn das StorageGRID S3 Endpoint SSL-Zertifikat von einer öffentlich bekannten CA signiert wurde.</p>
+</div>
+<div class="paragraph">
+<p><code>− awscafile = &lt;filepath/filename&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Informationen hierzu finden Sie beispielsweise in der folgenden Beispieldatei:</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>awsauth = MNVU4OYFAY2xyz123:03vuO4M4KmdfwffT8nqnBmnMVTr78Gu9wANabcxyz
+awsendpoint = s3.england.connectlab.io:10443
+awsenablehttps = 1
+awscafile = /etc/custom-cert/grid.pem</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+In einer Produktionsumgebung muss der Kunde ein Serverzertifikat implementieren, das von einer öffentlich bekannten CA auf einem StorageGRID S3 Load Balancer-Endpunkt unterzeichnet wurde.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auswählen-eines-depotpfads-auf-allen-vertica-knoten">Auswählen eines Depotpfads auf allen Vertica-Knoten</h3>
+<div class="paragraph">
+<p>Wählen Sie auf jedem Knoten ein Verzeichnis für den Depot-Speicherpfad aus oder erstellen Sie ein Verzeichnis. Das Verzeichnis, das Sie für den Parameter Depot-Speicherpfad bereitstellen, muss Folgendes haben:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Derselbe Pfad auf allen Nodes im Cluster (z. B. <code>/home/dbadmin/depot</code>)</p>
+</li>
+<li>
+<p>Vom dbadmin-Benutzer lesbar und beschreibbar sein</p>
+</li>
+<li>
+<p>Ausreichende Lagerung</p>
+<div class="paragraph">
+<p>Standardmäßig verwendet Vertica 60 % des Dateisystemspeichers, der das Verzeichnis für die Depotspeicherung enthält. Sie können die Größe des Depots mithilfe der begrenzen <code>--depot-size</code> Argument in <code>create_db</code> Befehl. Siehe <a href="https://www.vertica.com/blog/sizing-vertica-cluster-eon-mode-database/" target="_blank" rel="noopener">"Dimensionierung des Vertica Clusters für eine Eon-Mode-Datenbank"</a> Artikel für allgemeine Vertica Größenrichtlinien oder wenden Sie sich an Ihren Vertica Account Manager.</p>
+</div>
+<div class="paragraph">
+<p>Der <code>admintools create_db</code> Das Tool versucht, den Depotpfad für Sie zu erstellen, wenn dieser nicht vorhanden ist.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="erstellen-der-on-premises-datenbank-von-eon">Erstellen der On-Premises-Datenbank von Eon</h3>
+<div class="paragraph">
+<p>So erstellen Sie die On-Premises-Datenbank von Eon:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verwenden Sie zum Erstellen der Datenbank die <code>admintools create_db</code> Werkzeug.</p>
+<div class="paragraph">
+<p>Die folgende Liste enthält eine kurze Erläuterung der Argumente, die in diesem Beispiel verwendet werden. Eine detaillierte Erläuterung aller erforderlichen und optionalen Argumente finden Sie im Dokument Vertica.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-X &lt;Pfad/Dateiname der in erstellten Autorisierungsdatei ,„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“ &gt;.</p>
+<div class="paragraph">
+<p>Die Autorisierungsdetails werden nach erfolgreicher Erstellung in der Datenbank gespeichert. Sie können diese Datei entfernen, um zu vermeiden, dass der S3-Geheimschlüssel offengelegt wird.</p>
+</div>
+</li>
+<li>
+<p>--communal-Storage-location &lt;s3://storagegrid buchname&gt;</p>
+</li>
+<li>
+<p>-S &lt;kommagetrennte Liste der Vertica-Knoten, die für diese Datenbank verwendet werden sollen&gt;</p>
+</li>
+<li>
+<p>-D &lt;Name der zu erstellenden Datenbank&gt;</p>
+</li>
+<li>
+<p>-P &lt;Kennwort für diese neue Datenbank&gt; festlegen. Den folgenden Beispielbefehl können Sie z. B. einsehen:</p>
+<div class="listingblock">
+<div class="content">
+<pre>admintools -t create_db -x sg_auth.conf --communal-storage-location=s3://vertica --depot-path=/home/dbadmin/depot --shard-count=6 -s vertica-vm1,vertica-vm2,vertica-vm3 -d vmart -p '&lt;password&gt;'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das Erstellen einer neuen Datenbank dauert abhängig von der Anzahl der Nodes für die Datenbank mehrere Minuten. Wenn Sie die Datenbank zum ersten Mal erstellen, werden Sie aufgefordert, die Lizenzvereinbarung zu akzeptieren.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Informationen hierzu finden Sie z. B. in der folgenden Beispielautorisierungsdatei und <code>create db</code> Befehl:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[dbadmin@vertica-vm1 ~]$ cat sg_auth.conf
+awsauth = MNVU4OYFAY2CPKVXVxxxx:03vuO4M4KmdfwffT8nqnBmnMVTr78Gu9wAN+xxxx
+awsendpoint = s3.england.connectlab.io:10445
+awsenablehttps = 1
+
+[dbadmin@vertica-vm1 ~]$ admintools -t create_db -x sg_auth.conf --communal-storage-location=s3://vertica --depot-path=/home/dbadmin/depot --shard-count=6 -s vertica-vm1,vertica-vm2,vertica-vm3 -d vmart -p 'xxxxxxxx'
+Default depot size in use
+Distributing changes to cluster.
+    Creating database vmart
+    Starting bootstrap node v_vmart_node0007 (10.45.74.19)
+    Starting nodes:
+        v_vmart_node0007 (10.45.74.19)
+    Starting Vertica on all nodes. Please wait, databases with a large catalog may take a while to initialize.
+    Node Status: v_vmart_node0007: (DOWN)
+    Node Status: v_vmart_node0007: (DOWN)
+    Node Status: v_vmart_node0007: (DOWN)
+    Node Status: v_vmart_node0007: (UP)
+    Creating database nodes
+    Creating node v_vmart_node0008 (host 10.45.74.29)
+    Creating node v_vmart_node0009 (host 10.45.74.39)
+    Generating new configuration information
+    Stopping single node db before adding additional nodes.
+    Database shutdown complete
+    Starting all nodes
+Start hosts = ['10.45.74.19', '10.45.74.29', '10.45.74.39']
+    Starting nodes:
+        v_vmart_node0007 (10.45.74.19)
+        v_vmart_node0008 (10.45.74.29)
+        v_vmart_node0009 (10.45.74.39)
+    Starting Vertica on all nodes. Please wait, databases with a large catalog may take a while to initialize.
+    Node Status: v_vmart_node0007: (DOWN) v_vmart_node0008: (DOWN) v_vmart_node0009: (DOWN)
+    Node Status: v_vmart_node0007: (DOWN) v_vmart_node0008: (DOWN) v_vmart_node0009: (DOWN)
+    Node Status: v_vmart_node0007: (DOWN) v_vmart_node0008: (DOWN) v_vmart_node0009: (DOWN)
+    Node Status: v_vmart_node0007: (DOWN) v_vmart_node0008: (DOWN) v_vmart_node0009: (DOWN)
+    Node Status: v_vmart_node0007: (UP) v_vmart_node0008: (UP) v_vmart_node0009: (UP)
+Creating depot locations for 3 nodes
+Communal storage detected: rebalancing shards
+
+Waiting for rebalance shards. We will wait for at most 36000 seconds.
+Installing AWS package
+    Success: package AWS installed
+Installing ComplexTypes package
+    Success: package ComplexTypes installed
+Installing MachineLearning package
+    Success: package MachineLearning installed
+Installing ParquetExport package
+    Success: package ParquetExport installed
+Installing VFunctions package
+    Success: package VFunctions installed
+Installing approximate package
+    Success: package approximate installed
+Installing flextable package
+    Success: package flextable installed
+Installing kafka package
+    Success: package kafka installed
+Installing logsearch package
+    Success: package logsearch installed
+Installing place package
+    Success: package place installed
+Installing txtindex package
+    Success: package txtindex installed
+Installing voltagesecure package
+    Success: package voltagesecure installed
+Syncing catalog on vmart with 2000 attempts.
+Database creation SQL tasks completed successfully. Database vmart created successfully.</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Objektgröße (Byte)</th>
+<th class="tableblock halign-left valign-top">Bucket/Objektschlüssel vollständiger Pfad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>61</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/051/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a07/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a07_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>145</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/2c4/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a3d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a3d_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>146</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/33c/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a1d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a1d_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>40</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/382/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a31/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a31_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>145</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/42f/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a21/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a21_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>34</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/472/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a25/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a25_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>41</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/476/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a2d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a2d_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>61</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/52a/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a5d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a5d_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>131</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/5d2/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a19/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a19_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>91</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/5f7/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a11/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a11_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>118</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/82d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a15/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a15_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>115</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/9a2/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a61/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a61_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>33</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/acd/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a29/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a29_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>133</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/b98/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a4d/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a4d_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>38</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/db3/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a49/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a49_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>38</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/eba/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a59/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a59_0_0.dfs</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>21521920</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000215e2/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000215e2.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>6865408</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021602/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021602.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>204217344</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021610/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021610.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>16109056</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000217e0/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000217e0.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>12853248</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021800/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021800.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>8937984</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a000000002187a/026d63ae9d4a33237bf0e2c2cf2a794a00a000000002187a.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>56260608</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000218b2/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000218b2.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>53947904</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000219ba/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000219ba.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>44932608</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000219de/026d63ae9d4a33237bf0e2c2cf2a794a00a00000000219de.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>256306688</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a6e/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021a6e.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>8062464</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021e34/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021e34.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>20024832</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/Libraries/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021e70/026d63ae9d4a33237bf0e2c2cf2a794a00a0000000021e70.tar</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>10444</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/cluster_config.json</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>823266</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c13_13/chkpt_1.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>254</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c13_13/completed</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>2958</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c2_2/chkpt_1.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>231</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c2_2/completed</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>822521</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c4_4/chkpt_1.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>231</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c4_4/completed</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>746513</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_14_g14.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>2596</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_3_g3.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>821065</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_4_g4.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>6440</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_5_g5.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>8518</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_8_g8.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0016/Catalog/859703b06a3456d95d0be28575a673/tiered_catalog.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>822922</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0017/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c14_7/chkpt_1.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>232</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0017/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c14_7/completed</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>822930</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0017/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_14_g7.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>755033</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0017/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_15_g8.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0017/Catalog/859703b06a3456d95d0be28575a673/tiered_catalog.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>822922</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0018/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c14_7/chkpt_1.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>232</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0018/Catalog/859703b06a3456d95d0be28575a673/Checkpoints/c14_7/completed</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>822930</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0018/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_14_g7.cat.gz</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>755033</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0018/Catalog/859703b06a3456d95d0be28575a673/Txnlogs/txn_15_g8.cat</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>s3://vertica/metadata/VMart/nodes/v_vmart_node0018/Catalog/859703b06a3456d95d0be28575a673/tiered_catalog.cat</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="deaktivieren-von-streaming-einschränkungen">Deaktivieren von Streaming-Einschränkungen</h3>
+<div class="paragraph">
+<p>Dieses Verfahren basiert auf dem Vertica-Leitfaden für andere On-Premises-Objektspeicher und sollte für StorageGRID angewendet werden.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deaktivieren Sie nach dem Erstellen der Datenbank das <code>AWSStreamingConnectionPercentage</code> Konfigurationsparameter durch Festlegen auf <code>0</code>. Diese Einstellung ist für eine On-Premises-Installation im Eon-Modus mit kommunalem Speicher nicht erforderlich. Dieser Konfigurationsparameter steuert die Anzahl der Verbindungen zu dem Objektspeicher, den Vertica für das Streaming von Lesevorgängen verwendet. In einer Cloud-Umgebung verhindert diese Einstellung, dass aus dem Objektspeicher Daten gestreamt werden, alle verfügbaren Datei-Handles nutzen. Einige Datei-Handles stehen für andere Objektspeichervorgänge zur Verfügung. Aufgrund der niedrigen Latenz von On-Premises-Objektspeichern ist diese Option nicht erforderlich.</p>
+</li>
+<li>
+<p>Verwenden Sie A <code>vsql</code> Anweisung zum Aktualisieren des Parameterwerts. Das Passwort ist das Datenbank-Passwort, das Sie unter „Erstellen der On-Premises-Datenbank von Eon“ festgelegt haben. Informationen hierzu finden Sie z. B. in der folgenden Beispielausgabe:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[dbadmin@vertica-vm1 ~]$ vsql
+Password:
+Welcome to vsql, the Vertica Analytic Database interactive terminal.
+Type:   \h or \? for help with vsql commands
+        \g or terminate with semicolon to execute query
+        \q to quit
+dbadmin=&gt; ALTER DATABASE DEFAULT SET PARAMETER AWSStreamingConnectionPercentage = 0; ALTER DATABASE
+dbadmin=&gt; \q</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="depot-einstellungen-werden-überprüft">Depot-Einstellungen werden überprüft</h3>
+<div class="paragraph">
+<p>Standarddepot-Einstellungen der Vertica-Datenbank sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>vsql -c 'show current all;' | grep -i UseDepot
+DATABASE | UseDepotForReads | 1
+DATABASE | UseDepotForWrites | 1</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="laden-von-probendaten-optional">Laden von Probendaten (optional)</h3>
+<div class="paragraph">
+<p>Wenn diese Datenbank zu Testzwecken bereit ist und entfernt werden wird, können Sie Beispieldaten zu Testzwecken in diese Datenbank laden. Vertica kommt mit Probendatensatz, VMart, gefunden unter <code>/opt/vertica/examples/VMart_Schema/</code> Auf jedem Vertica-Knoten. Weitere Informationen zu diesem Beispieldatensatz finden Sie hier <a href="https://www.vertica.com/docs/10.1.x/HTML/Content/Authoring/GettingStartedGuide/IntroducingVMart/IntroducingVMart.htm?zoom_highlight=VMart" target="_blank" rel="noopener">"Hier"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Führen Sie die folgenden Schritte aus, um die Probendaten zu laden:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Melden Sie sich als dbadmin an einem der Vertica-Knoten an: cd /opt/vertica/examples/VMart_Schema/</p>
+</li>
+<li>
+<p>Laden Sie Beispieldaten in die Datenbank, und geben Sie das Datenbank-Passwort ein, wenn Sie in den Unterschritten c und d aufgefordert werden:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>cd /opt/vertica/examples/VMart_Schema</code></p>
+</li>
+<li>
+<p><code>./vmart_gen</code></p>
+</li>
+<li>
+<p><code>vsql &lt; vmart_define_schema.sql</code></p>
+</li>
+<li>
+<p><code>vsql &lt; vmart_load_data.sql</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Es gibt mehrere vordefinierte SQL-Abfragen. Sie können einige davon ausführen, um zu bestätigen, dass die Testdaten erfolgreich in die Datenbank geladen wurden. Beispiel: <code>vsql &lt; vmart_queries1.sql</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wo-sie-weitere-informationen-finden">Wo Sie weitere Informationen finden</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/sgws-114/index.jsp" target="_blank" rel="noopener">"NetApp StorageGRID 11.4 Produktdokumentation"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/pdf.html?item=/media/7931-ds-3613.pdf" target="_blank" rel="noopener">"Datenblatt zu StorageGRID"</a></p>
+</li>
+<li>
+<p><a href="https://www.vertica.com/documentation/vertica/10-1-x-documentation/" target="_blank" rel="noopener">"Vertica 10.1 Produktdokumentation"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="versionsverlauf">Versionsverlauf</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">Datum</th>
+<th class="tableblock halign-left valign-top">Versionsverlauf des Dokuments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version 1.0</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>September 2021</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Erste Version.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Allgemeine Geschäftsbedingungen</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Richtlinie zu Datenschutz</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Richtlinie zu Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie-Einstellungen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Feedback zu dieser Seite senden</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/prism.js'></script>
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/de-de/storagegrid-enable/js/www-ntap.js'></script>
+    <script src='/de-de/storagegrid-enable/js/tabbed-blocks.js'></script>
+    <script src='/de-de/storagegrid-enable/js/sidebar.js'></script>
+  </body></html>

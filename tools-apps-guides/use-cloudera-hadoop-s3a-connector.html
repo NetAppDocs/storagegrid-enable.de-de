@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head class="at-element-marker">
+  <title>Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" />
+	<meta property="og:description" content="Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen Programmier-Frameworks. Hadoop wurde entwickelt, ..." />
+  <meta property="og:image" content="https://docs.netapp.com/de-de/storagegrid-enable/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen Programmier-Frameworks. Hadoop wurde entwickelt, ...">
+  <meta name="keywords" content=" hadoop, cloudera, s3a"><!-- Icons -->
+  <link rel="icon" href="/de-de/storagegrid-enable/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/de-de/storagegrid-enable/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/de-de/storagegrid-enable/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/de-de/storagegrid-enable/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/de-de/storagegrid-enable/js/na-search.js'></script><script src='/de-de/storagegrid-enable/js/na-pagenav.js'></script><script src='/de-de/storagegrid-enable/js/na-utility.js'></script>
+  <script src='/de-de/storagegrid-enable/js/clouddocs.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/de-de/storagegrid-enable/js/toc.js'></script>
+  <script src='/de-de/storagegrid-enable/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/de-de/storagegrid-enable"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/de-de/storagegrid-enable/js/custom-dropdown.js'></script>
+  <script src='/de-de/storagegrid-enable/js/FileSaver.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jszip-utils.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/jszip.min.js'></script>
+  <script src='/de-de/storagegrid-enable/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/issues/new?body=Page%3A%20[Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID](https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/de-de/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Dokumentationsänderungen beantragen</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/use-cloudera-hadoop-s3a-connector.adoc" class="page-nav-contribute-link" role="button"><img src="/de-de/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />In GitHub bearbeiten</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/de-de/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Leitfaden für Beitragende</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">AUF DIESER SEITE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Produkt und Lösungen</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Support und Schulung</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Kundenberichte</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/de-de/storagegrid-enable/search.html"
+          data-type="widget" 
+          data-placeholder="Dokumentation durchsuchen"
+          data-no-results-found="Keine Ergebnisse für {query} gefunden"
+          data-did-you-mean="Nach {suggestion} suchen."
+          data-no-results-found-did-you-mean="Keine Ergebnisse für {query} gefunden. Meinten Sie {suggestion}?"
+          data-results-found="{hitCount} Ergebnisse gefunden"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Deutsch</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/de-de/storagegrid-enable/images/collapse.png" alt="Navigationsbereich reduzieren"></button>
+      <div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aktivieren von StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/index.html">
+        Aktivieren von StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Was ist neu"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/whats-new.html">
+        Was ist neu
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Validierte Lösungen von Drittanbietern"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Validierte Lösungen von Drittanbietern</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Validierte Drittanbieterlösungen – Übersicht"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/index.html">
+        Überblick
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.6"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/116-3rd-party-list.html">
+        StorageGRID 11.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.5"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/115-3rd-party-list.html">
+        StorageGRID 11.5
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.4"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/114-3rd-party-list.html">
+        StorageGRID 11.4
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/113-3rd-party-list.html">
+        StorageGRID 11.3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.2"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/third-party/112-3rd-party-list.html">
+        StorageGRID 11.2
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Produktfunktionshandbücher"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Produktfunktionshandbücher</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Storage Pool für AWS oder Google Cloud erstellen"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html">
+        Cloud Storage Pool für AWS oder Google Cloud erstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Storage Pool für Azure Blob Storage erstellen"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html">
+        Cloud Storage Pool für Azure Blob Storage erstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verwenden Sie einen Cloud Storage Pool für Backups"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/use-a-cloud-storage-pool-for-backup.html">
+        Verwenden Sie einen Cloud Storage Pool für Backups
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Konfigurieren Sie den Suchintegrationsdienst"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/product-feature-guides/storagegrid-search-integration-service.html">
+        Konfigurieren Sie den Suchintegrationsdienst
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Tool- und Anwendungsleitfäden"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Tool- und Anwendungsleitfäden</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nutzen Sie den Cloudera Hadoop S3A Connector"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html">
+        Nutzen Sie den Cloudera Hadoop S3A Connector
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verwenden Sie S3cmd zum Testen und Demonstrieren des S3-Zugriffs"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html">
+        Verwenden Sie S3cmd zum Testen und Demonstrieren des S3-Zugriffs
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erstellen Sie eine Vertica Eon Mode-Datenbank mit gemeinsamem Speicher"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html">
+        Erstellen Sie eine Vertica Eon Mode-Datenbank mit gemeinsamem Speicher
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/elk-instructions.html">
+        Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/tools-apps-guides/federate-prometheus.html">
+        Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Beispiele für Verfahren und APIs"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Beispiele für Verfahren und APIs</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="S3-Verschlüsselung testen und demonstrieren"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/examples/test-demonstrate-S3-encryption.html">
+        S3-Verschlüsselung testen und demonstrieren
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="S3-Objektsperre testen und demonstrieren"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/examples/test-demonstrate-S3-object-lock.html">
+        S3-Objektsperre testen und demonstrieren
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID-Dokumentation"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-enable/storagegrid-documentation.html">
+        StorageGRID-Dokumentation
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/de-de/storagegrid-enable/images/expand.png" alt="Navigationsbereich erweitern"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/de-de/storagegrid-enable/">How&nbsp;to&nbsp;enable&nbsp;StorageGRID&nbsp;in&nbsp;your&nbsp;environment</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Die deutsche Sprachversion wurde als Serviceleistung für Sie durch maschinelle Übersetzung erstellt. Bei eventuellen Unstimmigkeiten hat die englische Sprachversion Vorrang. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-11-17 06:45:50 +0000">11/17/2022</time>
+    
+  
+
+<span>Beitragende
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Hadoop ist seit einiger Zeit einer der beliebtesten Wissenschaftler von Data Scientist. Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen ProgrammierFrameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, wobei jede Maschine über lokale Computing- und Storage-Ressourcen verfügt.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vorteile-von-s3a-für-hadoop-workflows">Vorteile von S3A für Hadoop Workflows</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mit der Zeit hat das Datenvolumen zugenommen, aber die Nutzung der IT-Infrastruktur mit eigenen Computing- und Storage-Ressourcen ist ineffizient. Durch die lineare Skalierung entstehen Herausforderungen für die effiziente Nutzung von Ressourcen und das Management der Infrastruktur.</p>
+</div>
+<div class="paragraph">
+<p>Zur Bewältigung dieser Herausforderungen bietet der Hadoop S3A-Client hochperformante I/O-Vorgänge im Vergleich zu S3-Objekt-Storage. Durch die Implementierung eines Hadoop Workflows mit S3A können Sie Objekt-Storage als Daten-Repository nutzen und Computing- und Storage-Ressourcen separat voneinander skalieren. Dadurch wiederum können Sie Computing- und Storage-Ressourcen unabhängig voneinander skalieren. Die Abkopplung von Computing und Storage eröffnet Ihnen auch die Möglichkeit, die passende Menge an Ressourcen für Ihre Rechneraufgaben zu beanspruchen und Kapazitäten basierend auf der Größe Ihres Datensatzes zu bereitstellen. Somit lassen sich die Gesamtbetriebskosten für Hadoop Workflows verringern.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s3a-anschluss-für-die-verwendung-von-storagegrid-konfigurieren">S3A-Anschluss für die Verwendung von StorageGRID konfigurieren</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="voraussetzungen">Voraussetzungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Einen StorageGRID S3-Endpunkt-URL, einen S3-Zugriffsschlüssel für Mandanten und einen geheimen Schlüssel für Hadoop S3A-Verbindungstests.</p>
+</li>
+<li>
+<p>Ein Cloudera Cluster und Root- oder sudo-Berechtigung für jeden Host im Cluster, um das Java-Paket zu installieren.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Seit April 2022 wurde Java 11.0.14 mit Cloudera 7.1.7 gegen StorageGRID 11.5 und 11.6 getestet. Die Java-Versionsnummer kann jedoch bei einer neuen Installation unterschiedlich sein.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installieren-sie-das-java-paket">Installieren Sie das Java-Paket</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prüfen Sie die <a href="https://docs.cloudera.com/cdp-private-cloud-upgrade/latest/release-guide/topics/cdpdc-java-requirements.html" target="_blank" rel="noopener">"Cloudera Support-Matrix"</a> Für die unterstützte JDK-Version.</p>
+</li>
+<li>
+<p>Laden Sie die herunter <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener">"Java 11.x-Paket"</a> Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.</p>
+</li>
+<li>
+<p>Melden Sie sich bei jedem Host als Root an oder verwenden Sie ein Konto mit sudo-Berechtigung. Führen Sie für jeden Host folgende Schritte durch:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Installieren Sie das Paket:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo rpm -Uvh jdk-11.0.14_linux-x64_bin.rpm</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Überprüfen Sie, wo Java installiert ist. Wenn mehrere Versionen installiert sind, legen Sie die neu installierte Version als Standard fest:</p>
+<div class="listingblock">
+<div class="content">
+<pre>alternatives --config java
+
+There are 2 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+ +1           /usr/java/jre1.8.0_291-amd64/bin/java
+  2           /usr/java/jdk-11.0.14/bin/java
+
+Enter to keep the current selection[+], or type selection number: 2</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Fügen Sie diese Zeile am Ende von hinzu <code>/etc/profile</code>. Der Pfad sollte dem Pfad der obigen Auswahl entsprechen:</p>
+<div class="listingblock">
+<div class="content">
+<pre>export JAVA_HOME=/usr/java/jdk-11.0.14</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Führen Sie den folgenden Befehl aus, damit das Profil wirksam wird:</p>
+<div class="listingblock">
+<div class="content">
+<pre>source /etc/profile</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="konfiguration-von-cloudera-hdfs-s3a">Konfiguration von Cloudera HDFS S3A</h3>
+<div class="paragraph">
+<p><strong>Schritte</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wählen Sie in der Cloudera Manager GUI Cluster &gt; HDFS aus, und wählen Sie Konfiguration aus.</p>
+</li>
+<li>
+<p>Wählen Sie unter KATEGORIE die Option Erweitert aus, und blättern Sie nach unten, um zu suchen <code>Cluster-wide Advanced Configuration Snippet (Safety Valve) for core-site.xml</code>.</p>
+</li>
+<li>
+<p>Klicken Sie auf das (+)-Zeichen und fügen Sie folgende Wertpaare hinzu.</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.access.key</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>&lt;S3-Zugriffsschlüssel des Mandanten von StorageGRID&gt;</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.secret.key</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>&lt;Mandant s3 geheimen Schlüssel von StorageGRID&gt;</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.connection.ssl.enabled</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>[Wahr oder falsch] (Standardeinstellung: Https, wenn dieser Eintrag fehlt)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.Endpunkt</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>&lt;StorageGRID S3 Endpunkt:Port&gt;</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.mpl</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Org.apache.hadoop.fs.s3a.S3AFileSystem</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fs.s3a.path.style.Access</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>[True oder false] (Standard ist der Stil des virtuellen Hosts, wenn dieser Eintrag fehlt)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Beispiel Screenshot</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/hadoop-s3a/hadoop-s3a-configuration.png" alt="S3A-Konfiguration">
+</div>
+</div>
+</li>
+<li>
+<p>Klicken Sie auf die Schaltfläche Änderungen speichern. Wählen Sie in der HDFS-Menüleiste das Symbol „veraltete Konfiguration“ aus, wählen Sie auf der nächsten Seite „veraltete Dienste neu starten“ und anschließend „Jetzt neu starten“ aus.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/hadoop-s3a/hadoop-restart-stale-service-icon.png" alt="Veraltete Service-Symbol für Hadoop neu starten">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s3a-verbindung-mit-storagegrid-testen">S3A-Verbindung mit StorageGRID testen</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="führen-sie-einen-grundlegenden-verbindungstest-durch">Führen Sie einen grundlegenden Verbindungstest durch</h3>
+<div class="paragraph">
+<p>Melden Sie sich bei einem der Hosts im Cloudera Cluster an, und geben Sie ein <code>hadoop fs -ls s3a://<em>&lt;bucket-name&gt;</em>/</code>.</p>
+</div>
+<div class="paragraph">
+<p>Im folgenden Beispiel wird Pfadsyle mit einem vorhandenen hdfs-Test-Bucket und einem Testobjekt verwendet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[root@ce-n1 ~]# hadoop fs -ls s3a://hdfs-test/
+22/02/15 18:24:37 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/02/15 18:24:37 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/02/15 18:24:37 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/02/15 18:24:37 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+Found 1 items
+-rw-rw-rw-   1 root root       1679 2022-02-14 16:03 s3a://hdfs-test/test
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/02/15 18:24:38 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fehlerbehebung">Fehlerbehebung</h3>
+<div class="sect3">
+<h4 id="szenario-1">Szenario 1</h4>
+<div class="paragraph">
+<p>Verwenden Sie eine HTTPS-Verbindung zu StorageGRID, und holen Sie ein <code>handshake_failure</code> Fehler nach einem Timeout von 15 Minuten.</p>
+</div>
+<div class="paragraph">
+<p><strong>Grund:</strong> alte JRE/JDK-Version mit veralteter oder nicht unterstützter TLS-Chiffre-Suite für die Verbindung zu StorageGRID.</p>
+</div>
+<div class="paragraph">
+<p><strong>Beispiel-Fehlermeldung</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[root@ce-n1 ~]# hadoop fs -ls s3a://hdfs-test/
+22/02/15 18:52:34 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/02/15 18:52:34 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/02/15 18:52:34 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/02/15 18:52:35 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/02/15 19:04:51 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+22/02/15 19:04:51 WARN fs.FileSystem: Failed to initialize fileystem s3a://hdfs-test/: org.apache.hadoop.fs.s3a.AWSClientIOException: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: Received fatal alert: handshake_failure: Unable to execute HTTP request: Received fatal alert: handshake_failure
+ls: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: Received fatal alert: handshake_failure: Unable to execute HTTP request: Received fatal alert: handshake_failure</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Auflösung:</strong> stellen Sie sicher, dass JDK 11.x oder höher installiert ist und auf die Java-Bibliothek eingestellt ist. Siehe  Java package Weitere Informationen finden Sie in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="szenario-2">Szenario 2:</h4>
+<div class="paragraph">
+<p>Fehler beim Herstellen der Verbindung zum StorageGRID mit Fehlermeldung <code>Unable to find valid certification path to requested target</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Grund:</strong> StorageGRID S3-Endpoint-Server-Zertifikat wird nicht von Java-Programm vertrauenswürdig.</p>
+</div>
+<div class="paragraph">
+<p>Beispielfehlermeldung:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[root@hdp6 ~]# hadoop fs -ls s3a://hdfs-test/
+22/03/11 20:58:12 WARN impl.MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+22/03/11 20:58:13 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+22/03/11 20:58:13 INFO impl.MetricsSystemImpl: s3a-file-system metrics system started
+22/03/11 20:58:13 INFO Configuration.deprecation: No unit for fs.s3a.connection.request.timeout(0) assuming SECONDS
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: Stopping s3a-file-system metrics system...
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: s3a-file-system metrics system stopped.
+22/03/11 21:12:25 INFO impl.MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+22/03/11 21:12:25 WARN fs.FileSystem: Failed to initialize fileystem s3a://hdfs-test/: org.apache.hadoop.fs.s3a.AWSClientIOException: doesBucketExistV2 on hdfs: com.amazonaws.SdkClientException: Unable to execute HTTP request: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target: Unable to execute HTTP request: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Auflösung:</strong> NetApp empfiehlt die Verwendung eines Serverzertifikats, das von einer bekannten öffentlichen Zertifizierungsstelle ausgestellt wurde, um die Sicherheit der Authentifizierung sicherzustellen. Alternativ können Sie dem Java Trust Store ein benutzerdefiniertes CA- oder Serverzertifikat hinzufügen.</p>
+</div>
+<div class="paragraph">
+<p>Führen Sie die folgenden Schritte aus, um eine benutzerdefinierte StorageGRID-Zertifizierungsstelle oder ein Serverzertifikat zum Java-Treuhandspeicher hinzuzufügen.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sichern Sie die vorhandene Standard-Java-Cacaerts-Datei.</p>
+<div class="listingblock">
+<div class="content">
+<pre>cp -ap $JAVA_HOME/lib/security/cacerts $JAVA_HOME/lib/security/cacerts.orig</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Importieren Sie das StorageGRID S3-Endpunktcert in den Java-Treuhandspeicher.</p>
+<div class="listingblock">
+<div class="content">
+<pre>keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -noprompt -alias sg-lb -file <em>&lt;StorageGRID CA or server cert in pem format&gt;</em></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tipps-zur-fehlerbehebung">Tipps zur Fehlerbehebung</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Erhöhen sie den hadoop Protokolllevel zum DEBUGGEN.</p>
+<div class="paragraph">
+<p><code>export HADOOP_ROOT_LOGGER=hadoop.root.logger=DEBUG,console</code></p>
+</div>
+</li>
+<li>
+<p>Führen Sie den Befehl aus und leiten Sie die Protokollmeldungen an ERROR.log.</p>
+<div class="paragraph">
+<p><code>hadoop fs -ls s3a://<em>&lt;bucket-name&gt;</em>/ &amp;&gt;error.log</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Allgemeine Geschäftsbedingungen</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Richtlinie zu Datenschutz</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Richtlinie zu Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie-Einstellungen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Feedback zu dieser Seite senden</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/de-de/storagegrid-enable/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/prism.js'></script>
+      <script type="text/javascript" src='/de-de/storagegrid-enable/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/de-de/storagegrid-enable/js/www-ntap.js'></script>
+    <script src='/de-de/storagegrid-enable/js/tabbed-blocks.js'></script>
+    <script src='/de-de/storagegrid-enable/js/sidebar.js'></script>
+  </body></html>
