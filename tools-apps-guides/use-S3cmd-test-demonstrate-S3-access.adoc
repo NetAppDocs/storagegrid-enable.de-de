@@ -39,6 +39,7 @@ Um S3cmd auf einer Workstation oder einem Server zu installieren, laden Sie ihn 
 
 
 
+[]
 ====
 
 NOTE: Wenn Sie in Schritt 4 Host_Base und Host_Bucket angeben, müssen Sie in der CLI keinen Endpunkt mit --Host angeben. Beispiel:

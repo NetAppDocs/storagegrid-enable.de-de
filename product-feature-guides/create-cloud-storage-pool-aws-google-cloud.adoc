@@ -13,7 +13,7 @@ summary: 'Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-O
 [role="lead"]
 Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen S3-Bucket verschieben möchten. Der externe Bucket kann zu Amazon S3 (AWS) oder Google Cloud gehören.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * StorageGRID 11.6 wurde konfiguriert.
 * Sie haben bereits einen externen S3-Bucket auf AWS oder Google Cloud eingerichtet.
 
@@ -48,4 +48,5 @@ Der angegebene Name muss exakt mit dem Namen des S3-Buckets übereinstimmen. And
 . Klicken Sie Auf *Speichern*.
 
 
+.Erwartetes Ergebnis
 Es muss sichergestellt werden, dass ein Cloud-Storage-Pool für Amazon S3 oder Google Cloud erstellt wurde.

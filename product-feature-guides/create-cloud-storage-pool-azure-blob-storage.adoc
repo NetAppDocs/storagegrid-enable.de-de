@@ -13,7 +13,7 @@ summary: Sie können einen Cloud-Storage-Pool verwenden, wenn Sie StorageGRID-Ob
 [role="lead"]
 Sie können einen Cloud Storage Pool verwenden, wenn Sie StorageGRID-Objekte in einen externen Azure Container verschieben möchten.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * StorageGRID 11.6 wurde konfiguriert.
 * Sie haben bereits einen externen Azure-Container eingerichtet.
 
@@ -45,4 +45,5 @@ Der angegebene Name muss exakt mit dem Azure-Containernamen übereinstimmen. And
 . Klicken Sie Auf *Speichern*.
 
 
+.Erwartetes Ergebnis
 Erstellen eines Cloud-Storage-Pools für Azure Blob Storage bestätigen

@@ -78,7 +78,7 @@ Weitere Empfehlungen für die StorageGRID-Konfiguration:
 Empfehlungen für eine Vertica Konfiguration sind:
 
 * *Die Standardeinstellungen des Vertica Datenbank-Depots sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge*. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.
-* *Streaming-Einschränkungen deaktivieren*. Weitere Informationen zur Konfiguration finden Sie im Abschnitt ,Deaktivieren von Streaming-Einschränkungen.
+* *Streaming-Einschränkungen deaktivieren*. Weitere Informationen zur Konfiguration finden Sie im Abschnitt <<Streamlimitations,Deaktivieren von Streaming-Einschränkungen>>.
 
 
 
@@ -182,7 +182,7 @@ So erstellen Sie die On-Premises-Datenbank von Eon:
 Die folgende Liste enthält eine kurze Erläuterung der Argumente, die in diesem Beispiel verwendet werden. Eine detaillierte Erläuterung aller erforderlichen und optionalen Argumente finden Sie im Dokument Vertica.
 
 +
-** -X <Pfad/Dateiname der in erstellten Autorisierungsdatei ,„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“ >.
+** -X <Pfad/Dateiname der in erstellten Autorisierungsdatei <<createauthorization,„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“>> >.
 +
 Die Autorisierungsdetails werden nach erfolgreicher Erstellung in der Datenbank gespeichert. Sie können diese Datei entfernen, um zu vermeiden, dass der S3-Geheimschlüssel offengelegt wird.
 
