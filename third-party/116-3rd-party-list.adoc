@@ -78,4 +78,5 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * OpenText Documentum 21.4
 * Veeam 11
 * Veritas Enterprise Vault 14.2.2
+* Veritas NetBackup 10.1.1 und höher
 

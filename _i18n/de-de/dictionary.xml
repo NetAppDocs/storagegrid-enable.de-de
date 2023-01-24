@@ -777,4 +777,5 @@
   <block id="f4bf6c62a8784f065cebbacf57a1c62c" category="sidebar">S3-Objektsperre testen und demonstrieren</block>
   <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">Was Sie benötigen</block>
   <block id="9db3241b54bebb9425e6b4d63d712bb2" category="paragraph-title">Erwartetes Ergebnis</block>
+  <block id="e3cd39cab4140108c69a9666712a418b" category="list-text">Veritas NetBackup 10.1.1 und höher</block>
 </blocks>
