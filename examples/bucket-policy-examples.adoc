@@ -1,0 +1,120 @@
+---
+permalink: examples/bucket-policy-examples.html 
+sidebar: sidebar 
+keywords: iam, bucket policy, group policy, policy 
+summary: 'Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IAM-Richtlinien).' 
+---
+= Beispiel für Bucket- und Gruppenrichtlinien (IAM)
+:allow-uri-read: 
+
+
+[role="lead"]
+Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IAM-Richtlinien).
+
+
+
+== Gruppenrichtlinien (IAM)
+
+
+
+=== Bucket-Zugriff im Home Directory-Stil
+
+Diese Richtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.
+
+[source, json]
+----
+"Statement": [
+    {
+      "Sid": "AllowListBucketOfASpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::home",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "${aws:username}/*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowUserSpecificActionsOnlyInTheSpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:*Object",
+      "Resource": "arn:aws:s3:::home/?/?/${aws:username}/*"
+    }
+
+  ]
+}
+----
+
+
+=== Erstellung von Bucket-Objektsperrung verweigern
+
+Diese Richtlinie schränkt die Benutzer auf die Erstellung eines Buckets ein, für den die Objektsperre aktiviert ist.
+
+[NOTE]
+====
+Diese Richtlinie wird in der StorageGRID-Benutzeroberfläche nicht durchgesetzt, sie wird nur durch die S3-API durchgesetzt.
+
+====
+[source, json]
+----
+{
+    "Statement": [
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Action": [
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutBucketVersioning"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::*"
+        }
+    ]
+}
+----
+
+
+=== Bucket auf einzelnen Benutzer mit schreibgeschütztem Zugriff beschränken
+
+Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff auf einen Bucket zu haben und explizit allen anderen Benutzern den zugriff zu verweigert. Die Gruppierung der Ablehenserklärungen an der Spitze der Richtlinie ist eine gute Methode für eine schnellere Bewertung.
+
+[source, json]
+----
+{
+    "Statement": [
+        {
+            "Sid": "Deny non user1",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": "urn:sgws:identity::34921514133002833665:user/user1"
+            },
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "urn:sgws:s3:::bucket1",
+                "urn:sgws:s3:::bucket1/*"
+            ]
+        },
+        {
+            "Sid": "Allow user1 read access to bucket bucket1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "urn:sgws:identity::34921514133002833665:user/user1"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "urn:sgws:s3:::bucket1",
+                "urn:sgws:s3:::bucket1/*"
+            ]
+        }
+    ]
+}
+----

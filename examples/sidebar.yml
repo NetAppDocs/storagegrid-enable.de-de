@@ -6,3 +6,5 @@ entries:
   url: "/examples/test-demonstrate-S3-encryption.html"
 - title: S3-Objektsperre testen und demonstrieren
   url: "/examples/test-demonstrate-S3-object-lock.html"
+- title: Beispiele für Bucket und Gruppenrichtlinie
+  url: "/examples/bucket-policy-examples.html"

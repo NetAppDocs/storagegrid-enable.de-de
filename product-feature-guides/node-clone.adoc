@@ -1,0 +1,511 @@
+---
+permalink: product-feature-guides/node-clone.html 
+sidebar: sidebar 
+keywords: node clone, clone, clone performance, performance 
+summary: Performance von Node-Klonen und Best Practices 
+---
+= Node-Klonen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Überlegungen und Performance von Node-Klonen
+
+
+
+== Überlegungen zu Node-Klonen
+
+Node-Klone können eine schnellere Methode zum Austausch vorhandener Appliance-Nodes für eine Technologieaktualisierung sein, die Kapazität erhöhen oder die Performance Ihres StorageGRID Systems steigern. Node-Klon kann auch für die Konvertierung in Node-Verschlüsselung mit einem KMS oder die Änderung eines Storage-Node von DDP8 zu DDP16 nützlich sein.
+
+* Die genutzte Kapazität des Quell-Node ist nicht relevant für die Zeit, die für den Abschluss des Klonprozesses erforderlich ist. Node-Klon ist eine vollständige Kopie des Node, einschließlich freiem Speicherplatz im Node.
+* Quell- und Ziel-Appliances müssen dieselbe PGE-Version aufweisen
+* Der Zielknoten muss immer eine größere Kapazität als die Quelle haben
++
+** Stellen Sie sicher, dass die neue Ziel-Appliance eine größere Laufwerksgröße als die Quelle hat
+** Wenn das Zielgerät über Laufwerke gleicher Größe verfügt und für DDP8 konfiguriert ist, können Sie das Ziel für DDP16 konfigurieren. Wenn die Quelle bereits für DDP16 konfiguriert ist, ist ein Node-Klon nicht möglich.
+** Beachten Sie beim Wechsel von SG5660 oder SG5760 Appliances zu SG6060 Appliances, dass die SG5x60 60 Laufwerke mit Kapazität haben, bei denen die SG6060 nur 58 hat.
+
+
+* Für den Klonprozess eines Node muss der Quell-Node für die Dauer des Klonens offline im Grid sein. Wenn ein zusätzlicher Knoten während dieser Zeit offline geht, sind möglicherweise die Client-Services betroffen.
+* Ein Storage-Node kann nur 15 Tage lang offline sein. Wenn der Klonprozess fast 15 Tage beträgt oder 15 Tage überschreitet, können Sie das Erweiterungs- und Ausmusterung verwenden.
+* Bei einem SG6060 mit Erweiterungs-Shelfs müssen Sie die Zeit für die richtige Shelf-Laufwerksgröße zur Zeit der Basis-Appliance hinzufügen, um die volle Klondauer zu erhalten.
+
+
+
+
+== Schätzungen der Performance von Node-Klonen
+
+Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node-Klonen. Die Bedingungen variieren, sodass Einträge in *BOLD* das 15-Tage-Limit für einen Knoten nach unten überschreiten können.
+
+
+
+=== DDP8
+
+
+
+==== SG5612 -> beliebig
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+1 Tag
+ a| 
+2 Tage
+ a| 
+2.5 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+1 Tag
+ a| 
+2 Tage
+ a| 
+2.5 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+
+|===
+
+
+==== SG5712 -> beliebig
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+1 Tag
+ a| 
+2 Tage
+ a| 
+2.5 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+1 Tag
+ a| 
+2 Tage
+ a| 
+2.5 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+
+|===
+
+
+==== SG5660 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+3 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+8.5 Tage
+ a| 
+11.5 Tage
+ a| 
+*13 Tage*
+
+
+
+ a| 
+25 GB
+ a| 
+3 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+8.5 Tage
+ a| 
+11.5 Tage
+ a| 
+*13 Tage*
+
+|===
+
+
+==== SG5660 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+2.5 Tage
+ a| 
+4.5 Tage
+ a| 
+5.5 Tage
+ a| 
+6.5 Tage
+ a| 
+9 Tage
+ a| 
+10 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+2 Tage
+ a| 
+4 Tage
+ a| 
+5 Tage
+ a| 
+6 Tage
+ a| 
+8 Tage
+ a| 
+9 Tage
+
+|===
+
+
+==== SG5760 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+3 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+8.5 Tage
+ a| 
+11.5 Tage
+ a| 
+*13 Tage*
+
+
+
+ a| 
+25 GB
+ a| 
+3 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+8.5 Tage
+ a| 
+11.5 Tage
+ a| 
+*13 Tage*
+
+|===
+
+
+==== SG5760 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+2.5 Tage
+ a| 
+4.5 Tage
+ a| 
+5.5 Tage
+ a| 
+6.5 Tage
+ a| 
+9 Tage
+ a| 
+10 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+1.5 Tage
+ a| 
+3 Tage
+ a| 
+3.5 Tage
+ a| 
+4.5 Tage
+ a| 
+6 Tage
+ a| 
+6.5 Tage
+
+|===
+
+
+==== SG6060 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+2.5 Tage
+ a| 
+4.5 Tage
+ a| 
+5.5 Tage
+ a| 
+6.5 Tage
+ a| 
+8.5 Tage
+ a| 
+9.5 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+1.5 Tage
+ a| 
+3 Tage
+ a| 
+3.5 Tage
+ a| 
+4 Tage
+ a| 
+5.5 Tage
+ a| 
+6 Tage
+
+|===
+
+
+=== DDP16
+
+
+
+==== SG5760 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+3.5 Tage
+ a| 
+6.5 Tage
+ a| 
+8 Tage
+ a| 
+9.5 Tage
+ a| 
+12.5 Tage
+ a| 
+*14 Tage*
+
+
+
+ a| 
+25 GB
+ a| 
+3.5 Tage
+ a| 
+6.5 Tage
+ a| 
+8 Tage
+ a| 
+9.5 Tage
+ a| 
+12.5 Tage
+ a| 
+*14 Tage*
+
+|===
+
+
+==== SG5760 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+2.5 Tage
+ a| 
+5 Tage
+ a| 
+6 Tage
+ a| 
+7.5 Tage
+ a| 
+10 Tage
+ a| 
+11 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+2 Tage
+ a| 
+3.5 Tage
+ a| 
+4 Tage
+ a| 
+5 Tage
+ a| 
+6.5 Tage
+ a| 
+7 Tage
+
+|===
+
+
+==== SG6060 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+3.5 Tage
+ a| 
+5 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+9.5 Tage
+ a| 
+10.5 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+2 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+
+|===
+
+
+==== Erweiterungs-Shelf (oberhalb von SG6060 für jedes Shelf in der Quell-Appliance hinzufügen)
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Geschwindigkeit der Netzwerkschnittstelle | Größe des 4-TB-Laufwerks | 8-TB-Laufwerke | 10-TB-Laufwerkgröße | 12-TB-Laufwerksgröße | 16-TB-Laufwerkgröße | 18 TB Laufwerksgröße 
+
+
+ a| 
+10 GBIT
+ a| 
+3.5 Tage
+ a| 
+5 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+ a| 
+9.5 Tage
+ a| 
+10.5 Tage
+
+
+
+ a| 
+25 GB
+ a| 
+2 Tage
+ a| 
+3 Tage
+ a| 
+4 Tage
+ a| 
+4.5 Tage
+ a| 
+6 Tage
+ a| 
+7 Tage
+
+|===

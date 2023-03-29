@@ -50,6 +50,10 @@ homepage:
       url: "/product-feature-guides/use-a-cloud-storage-pool-for-backup.html"
     - title: Konfigurieren Sie den Suchintegrationsdienst
       url: "/product-feature-guides/storagegrid-search-integration-service.html"
+    - title: Überlegungen und Performance von Node-Klonen
+      url: "/product-feature-guides/node-clone.html"
+    - title: So verwenden Sie die Port-Neuzuordnung
+      url: "/product-feature-guides/port-remap.html"
   - title: Tool- und Anwendungsleitfäden
     links:
     - title: Nutzen Sie den Cloudera Hadoop S3A Connector
@@ -63,12 +67,17 @@ homepage:
     - title: Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen
         erweitern
       url: "/tools-apps-guides/federate-prometheus.html"
+    - title: Konfigurieren Sie Datadog, um StorageGRID-snmp-Metriken und Traps zu
+        erfassen
+      url: "/tools-apps-guides/use-datadog-snmp.html"
   - title: Beispiele für Verfahren und APIs
     links:
     - title: S3-Verschlüsselung testen und demonstrieren
       url: "/examples/test-demonstrate-S3-encryption.html"
     - title: S3 Object Lock testen und demonstrieren
       url: "/examples/test-demonstrate-S3-object-lock.html"
+    - title: Beispiele für Bucket und Gruppenrichtlinie
+      url: "/examples/bucket-policy-examples.html"
   - title: Demos Tutorials
     links:
     - title: StorageGRID-Videobibliothek
