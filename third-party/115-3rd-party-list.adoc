@@ -39,7 +39,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Punkt Storage Manager 6.4
 * Primestream
 * Quantum StorNext 5.4.0.1
-* Rubrik CDM 5.0.1 p1-1342
+* Rubrik CDM
 * Signiant
 * Splunk Smartstore
 * Lack Enterprise 6.0.4
