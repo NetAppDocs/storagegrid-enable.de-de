@@ -6,9 +6,9 @@ summary: Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des
 ---
 = Konfigurieren Sie den Integrationsservice für die StorageGRID Suche
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+_Angela Cheng_
 
 [role="lead"]
 Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des NetApp StorageGRID 11.6 Suchintegrationsservice mit Amazon OpenSearch Service oder On-Premises-Elasticsearch.

@@ -8,6 +8,8 @@ summary: 'Mit der StorageGRID 11.6 Syslog Forward-Funktion können Sie einen ext
 :allow-uri-read: 
 
 
+_Angela Cheng_
+
 [role="lead"]
 Mit der Funktion StorageGRID 11.6 syslog Forward können Sie einen externen Syslog-Server konfigurieren, um StorageGRID-Protokollmeldungen zu erfassen und zu analysieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Sehen Sie sich an https://www.netapp.tv/details/29396["StorageGRID-Protokollanalyse mit ELK-Video"] Zeigt eine ELK-Beispielkonfiguration an und wie sie verwendet werden kann, um fehlerhafte S3-Anforderungen zu identifizieren und zu beheben. Dieser Artikel enthält Beispieldateien der Logstash-Konfiguration, Kibana-Abfragen, Diagramme und Dashboard, die Ihnen einen schnellen Einstieg in die StorageGRID-Protokollverwaltung und -Analyse ermöglichen.
 

@@ -8,6 +8,8 @@ summary: Konfigurieren Sie Datadog HQ, um StorageGRID-snmp-Metriken und -Traps z
 :allow-uri-read: 
 
 
+_Aron Klein_
+
 [role="lead"]
 Konfigurieren Sie Datadog, um StorageGRID-snmp-Metriken und Traps zu erfassen.
 

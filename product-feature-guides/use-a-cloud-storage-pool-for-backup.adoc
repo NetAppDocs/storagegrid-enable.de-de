@@ -6,9 +6,9 @@ summary: Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen 
 ---
 = Verwenden Sie einen Cloud Storage Pool für Backups
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+_Jonathan Wong_
 
 [role="lead"]
 Sie können eine ILM-Regel erstellen, um Objekte für Backups in einen Cloud Storage-Pool zu verschieben.

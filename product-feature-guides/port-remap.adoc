@@ -6,9 +6,9 @@ summary: So verwenden Sie die Port-Neuzuordnung.
 ---
 = So verwenden Sie die Port-Neuzuordnung
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+_Aron Klein_
 
 [role="lead"]
 Möglicherweise müssen Sie einen eingehenden oder ausgehenden Port aus mehreren Gründen neu zuordnen. Möglicherweise wechseln Sie vom älteren CLB Load Balancer-Dienst zum aktuellen nginx Service Load Balancer-Endpunkt und behalten denselben Port bei, um die Auswirkungen auf Clients zu reduzieren. Sie möchten Port 443 für Client S3 in einem Client-Netzwerk des Admin-Knotens oder für Firewall-Einschränkungen verwenden.

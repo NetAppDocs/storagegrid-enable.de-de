@@ -6,9 +6,9 @@ summary: Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben
 ---
 = S3-Objektsperre auf StorageGRID testen und demonstrieren
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+_Aron Klein_
 
 [role="lead"]
 Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten.

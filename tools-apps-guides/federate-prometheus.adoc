@@ -8,6 +8,8 @@ summary: Dieser technische Bericht enthält detaillierte Anweisungen zur Konfigu
 :allow-uri-read: 
 
 
+_Aron Klein_
+
 [role="lead"]
 Dieser technische Bericht enthält detaillierte Anweisungen zur Konfiguration von NetApp StorageGRID 11.6 mit externen Services Prometheus und Grafana.
 

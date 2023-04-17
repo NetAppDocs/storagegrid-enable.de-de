@@ -6,9 +6,9 @@ summary: Performance von Node-Klonen und Best Practices
 ---
 = Node-Klonen
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+_Aron Klein_
 
 [role="lead"]
 Überlegungen und Performance von Node-Klonen

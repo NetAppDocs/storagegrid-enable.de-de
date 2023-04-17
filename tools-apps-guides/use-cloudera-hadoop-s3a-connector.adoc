@@ -8,6 +8,8 @@ summary: Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über
 :allow-uri-read: 
 
 
+_Angela Cheng_
+
 [role="lead"]
 Hadoop ist seit einiger Zeit einer der beliebtesten Wissenschaftler von Data Scientist. Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen ProgrammierFrameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, wobei jede Maschine über lokale Computing- und Storage-Ressourcen verfügt.
 
