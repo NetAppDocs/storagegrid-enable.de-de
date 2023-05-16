@@ -9,7 +9,7 @@ summary: Für StorageGRID 11.7 validierte Lösungen von Drittanbietern
 
 
 [role="lead"]
-Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.6 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.
+Die folgenden Drittanbieterlösungen wurden für die Verwendung mit StorageGRID 11.7 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.
 
 
 
