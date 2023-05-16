@@ -11,7 +11,7 @@ summary: 'Mit der StorageGRID 11.6 Syslog Forward-Funktion können Sie einen ext
 _Angela Cheng_
 
 [role="lead"]
-Mit der Funktion StorageGRID 11.6 syslog Forward können Sie einen externen Syslog-Server konfigurieren, um StorageGRID-Protokollmeldungen zu erfassen und zu analysieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Sehen Sie sich an https://www.netapp.tv/details/29396["StorageGRID-Protokollanalyse mit ELK-Video"] Zeigt eine ELK-Beispielkonfiguration an und wie sie verwendet werden kann, um fehlerhafte S3-Anforderungen zu identifizieren und zu beheben. Dieser Artikel enthält Beispieldateien der Logstash-Konfiguration, Kibana-Abfragen, Diagramme und Dashboard, die Ihnen einen schnellen Einstieg in die StorageGRID-Protokollverwaltung und -Analyse ermöglichen.
+Mit der Funktion StorageGRID 11.6 syslog Forward können Sie einen externen Syslog-Server konfigurieren, um StorageGRID-Protokollmeldungen zu erfassen und zu analysieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Sehen Sie sich an https://["StorageGRID-Protokollanalyse mit ELK-Video"] Zeigt eine ELK-Beispielkonfiguration an und wie sie verwendet werden kann, um fehlerhafte S3-Anforderungen zu identifizieren und zu beheben. Dieser Artikel enthält Beispieldateien der Logstash-Konfiguration, Kibana-Abfragen, Diagramme und Dashboard, die Ihnen einen schnellen Einstieg in die StorageGRID-Protokollverwaltung und -Analyse ermöglichen.
 
 
 
@@ -87,7 +87,7 @@ config.reload.interval: 5s
 netstat -ntpa | grep 5000
 tcp6       0      0 :::5000                 :::*                    LISTEN      25744/java
 ----
-. Konfigurieren Sie über die StorageGRID Manager-GUI einen externen Syslog-Server, um Protokollmeldungen an Logstash zu senden. Siehe https://www.netapp.tv/details/29396["Demovideo"] Entsprechende Details.
+. Konfigurieren Sie über die StorageGRID Manager-GUI einen externen Syslog-Server, um Protokollmeldungen an Logstash zu senden. Siehe https://["Demovideo"] Entsprechende Details.
 . Sie müssen die Firewall auf dem Logstash-Server konfigurieren oder deaktivieren, damit StorageGRID-Knoten eine Verbindung zum definierten TCP-Port herstellen können.
 . Wählen Sie in der Kibana GUI die Option Management -> Dev Tools. Führen Sie auf der Konsolenseite diesen BEFEHL GET aus, um zu bestätigen, dass neue Indizes auf Elasticsearch erstellt werden.
 +
@@ -117,11 +117,11 @@ Sie können nun die StorageGRID-Protokollanalyse mit Kibana durchführen.
 
 == Weitere Ressourcen
 
-* https://coralogix.com/blog/syslog-101-everything-you-need-to-know-to-get-started/["Syslog101"]
-* https://www.elastic.co/what-is/elk-stack["Was ist der ELK-Stack"]
-* https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns["Liste der Tülenmuster"]
-* https://logz.io/blog/logstash-grok/["Ein Anfängerführer zum Logstash: Grok"]
-* https://coralogix.com/blog/a-practical-guide-to-logstash-syslog-deep-dive/["Eine praktische Anleitung zum Logstash: Syslog Deep Dive"]
-* https://www.elastic.co/guide/en/kibana/master/document-explorer.html["Kibana Guide – Erkunden Sie das Dokument"]
-* https://docs.netapp.com/us-en/storagegrid-116/audit/index.html["Referenz für StorageGRID-Prüfprotokolle"]
+* https://["Syslog101"]
+* https://["Was ist der ELK-Stack"]
+* https://["Liste der Tülenmuster"]
+* https://["Ein Anfängerführer zum Logstash: Grok"]
+* https://["Eine praktische Anleitung zum Logstash: Syslog Deep Dive"]
+* https://["Kibana Guide – Erkunden Sie das Dokument"]
+* https://["Referenz für StorageGRID-Prüfprotokolle"]
 

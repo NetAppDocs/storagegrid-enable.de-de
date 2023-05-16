@@ -25,7 +25,7 @@ Datadog ist eine Überwachungslösung, die Metriken, Visualisierungen und Warnme
 
 Datadog bietet eine Methode zum Konvertieren von Produkt-MIB-Dateien in Datadog-Referenzdateien, die für die Zuordnung der SNMP-Meldungen erforderlich sind.
 
-Diese StorageGRID-yaml-Datei für die Datadog-Trap-Auflösungszuordnung wurde nach der gefundenen Anweisung erstellt https://docs.datadoghq.com/network_monitoring/devices/snmp_traps/?tab=yaml["Hier"^]. + Platzieren Sie diese Datei in /etc/datadog-Agent/conf.d/snmp.d/Traps_db/ +
+Diese StorageGRID-yaml-Datei für die Datadog-Trap-Auflösungszuordnung wurde nach der gefundenen Anweisung erstellt https://["Hier"^]. + Platzieren Sie diese Datei in /etc/datadog-Agent/conf.d/snmp.d/Traps_db/ +
 
 * link:../media/datadog/NETAPP-STORAGEGRID-MIB.yml["Laden Sie die Trap yaml-Datei herunter"] +
 +
@@ -35,7 +35,7 @@ Diese StorageGRID-yaml-Datei für die Datadog-Trap-Auflösungszuordnung wurde na
 
 
 
-Diese yaml-Datei für das StorageGRID-Profil für die Datadog-Metrikzuordnung wurde nach der gefundenen Anweisung generiert https://datadoghq.dev/integrations-core/tutorials/snmp/introduction/["Hier"^]. + Platzieren Sie diese Datei in /etc/datadog-Agent/conf.d/snmp.d/profiles/ +
+Diese yaml-Datei für das StorageGRID-Profil für die Datadog-Metrikzuordnung wurde nach der gefundenen Anweisung generiert https://["Hier"^]. + Platzieren Sie diese Datei in /etc/datadog-Agent/conf.d/snmp.d/profiles/ +
 
 * link:../media/datadog/netapp-storagegrid.yaml["Laden Sie die Profil-yaml-Datei herunter"] +
 +

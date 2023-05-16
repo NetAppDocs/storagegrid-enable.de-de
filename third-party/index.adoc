@@ -12,4 +12,4 @@ summary: In Zusammenarbeit mit unseren Partnern hat NetApp diese Lösungen zur V
 
 In Zusammenarbeit mit unseren Partnern hat NetApp diese Lösungen zur Verwendung mit StorageGRID validiert. Lesen Sie die Informationen in diesem Abschnitt, um zu erfahren, welche Lösungen validiert wurden, und um weitere Anweisungen, falls zutreffend, zu erhalten.
 
-Im Team mit NetApp erweitern Sie Ihr Portfolio schneller, erzielen einen höheren Bekanntheitsgrad und generieren Umsätze, indem Sie getestete, erstklassige NetApp Lösungen entwickeln. https://www.netapp.com/partners/#become["Werden Sie noch heute Alliance-Partner"^].
+Im Team mit NetApp erweitern Sie Ihr Portfolio schneller, erzielen einen höheren Bekanntheitsgrad und generieren Umsätze, indem Sie getestete, erstklassige NetApp Lösungen entwickeln. https://["Werden Sie noch heute Alliance-Partner"^].

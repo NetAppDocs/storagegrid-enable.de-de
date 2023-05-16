@@ -17,7 +17,7 @@ Rclone ist ein kostenloses Kommandozeilen-Tool und Client für S3-Vorgänge. Sie
 
 == Installieren und Konfigurieren von rclone
 
-Um rclone auf einer Workstation oder einem Server zu installieren, laden Sie es von herunter https://rclone.org/downloads/["rclone.org"^].
+Um rclone auf einer Workstation oder einem Server zu installieren, laden Sie es von herunter https://["rclone.org"^].
 
 
 

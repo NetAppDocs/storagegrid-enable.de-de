@@ -39,8 +39,8 @@ Seit April 2022 wurde Java 11.0.14 mit Cloudera 7.1.7 gegen StorageGRID 11.5 und
 
 === Installieren Sie das Java-Paket
 
-. Prüfen Sie die https://docs.cloudera.com/cdp-private-cloud-upgrade/latest/release-guide/topics/cdpdc-java-requirements.html["Cloudera Support-Matrix"^] Für die unterstützte JDK-Version.
-. Laden Sie die herunter https://www.oracle.com/java/technologies/downloads/["Java 11.x-Paket"^] Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.
+. Prüfen Sie die https://["Cloudera Support-Matrix"^] Für die unterstützte JDK-Version.
+. Laden Sie die herunter https://["Java 11.x-Paket"^] Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.
 . Melden Sie sich bei jedem Host als Root an oder verwenden Sie ein Konto mit sudo-Berechtigung. Führen Sie für jeden Host folgende Schritte durch:
 +
 .. Installieren Sie das Paket:
