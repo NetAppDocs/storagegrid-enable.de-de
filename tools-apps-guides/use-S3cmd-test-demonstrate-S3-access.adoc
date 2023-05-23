@@ -17,7 +17,7 @@ S3cmd ist ein kostenloses Befehlszeilen-Tool und Client für S3-Vorgänge. Sie k
 
 == S3cmd installieren und konfigurieren
 
-Um S3cmd auf einer Workstation oder einem Server zu installieren, laden Sie ihn von herunter https://["Kommandozeile S3-Client"^]. S3cmd ist vorinstalliert auf jedem StorageGRID-Knoten als Tool zur Unterstützung der Fehlerbehebung.
+Um S3cmd auf einer Workstation oder einem Server zu installieren, laden Sie ihn von herunter https://s3tools.org/s3cmd["Kommandozeile S3-Client"^]. S3cmd ist vorinstalliert auf jedem StorageGRID-Knoten als Tool zur Unterstützung der Fehlerbehebung.
 
 
 

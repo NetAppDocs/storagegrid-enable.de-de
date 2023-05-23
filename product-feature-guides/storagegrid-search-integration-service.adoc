@@ -24,9 +24,9 @@ StorageGRID unterstützt drei Arten von Plattform-Services.
 * *Integrationsservice suchen*. Senden von einfachen Storage Service (S3) Objektmetadaten in einen angegebenen Elasticsearch-Index, wo Sie die Metadaten mithilfe des externen Service durchsuchen oder analysieren können.
 
 
-Plattform-Services werden vom S3-Mandanten über die Mandanten-Manager-UI konfiguriert. Weitere Informationen finden Sie unter https://["Überlegungen bei der Verwendung von Plattform-Services"^].
+Plattform-Services werden vom S3-Mandanten über die Mandanten-Manager-UI konfiguriert. Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/storagegrid-116/tenant/considerations-for-using-platform-services.html["Überlegungen bei der Verwendung von Plattform-Services"^].
 
-Dieses Dokument dient als Ergänzung zum https://["StorageGRID 11.6 Mandantenleitfaden"^] Und enthält Schritt-für-Schritt-Anleitungen und Beispiele für die Endpunkt- und Bucket-Konfiguration für Suchintegrations-Services. Die hier enthaltene Anleitung zur Einrichtung von Amazon Web Services (AWS) oder lokalen Elasticsearch-Services dienen nur zu Test- oder Demonstrationszwecken.
+Dieses Dokument dient als Ergänzung zum https://docs.netapp.com/us-en/storagegrid-116/tenant/index.html["StorageGRID 11.6 Mandantenleitfaden"^] Und enthält Schritt-für-Schritt-Anleitungen und Beispiele für die Endpunkt- und Bucket-Konfiguration für Suchintegrations-Services. Die hier enthaltene Anleitung zur Einrichtung von Amazon Web Services (AWS) oder lokalen Elasticsearch-Services dienen nur zu Test- oder Demonstrationszwecken.
 
 Zielgruppen sollten mit Grid Manager, Mandanten-Manager vertraut sein und über den S3-Browser Zugang verfügen, um grundlegende Vorgänge zum Hochladen (PUT) und Herunterladen (GET) für StorageGRID-Suchintegrationstests durchzuführen.
 
@@ -68,7 +68,7 @@ NOTE: Sie müssen über eine gültige Anmeldung für die AWS-Konsole, einen Zugr
 +
 *** Ersetzen Sie den hervorgehobenen Text durch Ihre eigene AWS IAM-ID (Identity and Access Management) und Ihren Benutzernamen.
 *** Ersetzen Sie den markierten Text (die IP-Adresse) durch die öffentliche IP-Adresse Ihres lokalen Computers, über den Sie auf die AWS-Konsole zugreifen.
-*** Öffnen Sie eine Browserregisterkarte für https://["https://checkip.amazonaws.com"^] Um Ihre öffentliche IP zu finden.
+*** Öffnen Sie eine Browserregisterkarte für https://checkip.amazonaws.com/["https://checkip.amazonaws.com"^] Um Ihre öffentliche IP zu finden.
 +
 [source, json]
 ----
@@ -321,6 +321,6 @@ image::../media/storagegrid-search-integration-service/sg-sis-query-two-sample.p
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* https://["Was sind Plattform-Services"^]
-* https://["StorageGRID 11.6-Dokumentation"^]
+* https://docs.netapp.com/us-en/storagegrid-116/tenant/what-platform-services-are.html["Was sind Plattform-Services"^]
+* https://docs.netapp.com/us-en/storagegrid-116/index.html["StorageGRID 11.6-Dokumentation"^]
 
