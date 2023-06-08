@@ -18,6 +18,7 @@ Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.4 
 Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 * Actifio
+* Bridgestor
 * Cantemo
 * Citrix Content Collaboration
 * Commvault 11
@@ -47,4 +48,29 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Veritas NetBackup 8.0
 * Vertica 10.x
 * Vidispine
+
+
+
+
+== Von StorageGRID unterstützte Lösungen von Drittanbietern
+
+Diese Lösungen wurden getestet.
+
+* Archiware
+* Axis Communications
+* Kongruation360
+* DataFrameworks
+* EcoDigital DIVA-Plattform
+* Encoding.com
+* Fujifilm Object Archive
+* GE Centricity Enterprise Archive
+* Hyland Acuo
+* IBM Aspera
+* Milestone Systems
+* OnSSI
+* Schubmotor
+* SilverTrak
+* SoftNAS
+* QStar
+* Velasea
 
