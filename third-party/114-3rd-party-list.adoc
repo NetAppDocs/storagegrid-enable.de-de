@@ -24,6 +24,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Commvault 11
 * Ctera Portal 6
 * Dalet
+* Datadobi
 * Data Dynamics StorageX
 * DefendX
 * Interica
