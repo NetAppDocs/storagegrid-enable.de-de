@@ -995,9 +995,7 @@
   <block id="3f2327c90ede247dca9387ef500bf746" category="doc">Beispiel für Bucket- und Gruppenrichtlinien (IAM)</block>
   <block id="640ca9533a2fd150e7d3ed390e2aae66" category="section-title">Gruppenrichtlinien (IAM)</block>
   <block id="06c73db3763c74cabb8ece8e96fe7c5d" category="section-title">Bucket-Zugriff im Home Directory-Stil</block>
-  <block id="0a86daa722ca043525363e55dce2f201" category="paragraph">Diese Richtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.</block>
   <block id="8569c05df75ec9b148a67ed5998ad8b0" category="section-title">Erstellung von Bucket-Objektsperrung verweigern</block>
-  <block id="9cea9229d238df9d490e17e9c09f43d4" category="paragraph">Diese Richtlinie schränkt die Benutzer auf die Erstellung eines Buckets ein, für den die Objektsperre aktiviert ist.</block>
   <block id="01a232853896677ed5b2f61bbd35128f" category="paragraph">Diese Richtlinie wird in der StorageGRID-Benutzeroberfläche nicht durchgesetzt, sie wird nur durch die S3-API durchgesetzt.</block>
   <block id="6d16e4029056ceaf0b44cac8903e3f2e" category="section-title">Bucket auf einzelnen Benutzer mit schreibgeschütztem Zugriff beschränken</block>
   <block id="c49b1c74a2176733b070d19773700eb6" category="paragraph">Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff auf einen Bucket zu haben und explizit allen anderen Benutzern den zugriff zu verweigert. Die Gruppierung der Ablehenserklärungen an der Spitze der Richtlinie ist eine gute Methode für eine schnellere Bewertung.</block>
@@ -1134,4 +1132,11 @@
   <block id="29007b92e2b6688072358d8f25529d24" category="paragraph"><block ref="29007b92e2b6688072358d8f25529d24" category="inline-link-rx"></block></block>
   <block id="d31ba7e4c6f469a6c88f05aac3e0e91c" category="list-text">Datadobi</block>
   <block id="8727881150b0ace8b598a648cdfcd4e1" category="sidebar">NetApp StorageGRID ist eine Suite für softwaredefinierten Objekt-Storage, die eine Vielzahl von Anwendungsfällen in Public-, Private- und Hybrid-Multi-Cloud-Umgebungen unterstützt. StorageGRID bietet nicht nur nativen Support für die Amazon S3-API, sondern auch branchenführende Innovationen wie automatisiertes Lifecycle Management. Damit können Sie unstrukturierte Daten kostengünstig über längere Zeiträume hinweg speichern, sichern, schützen und aufbewahren.</block>
+  <block id="a88f9b6efeacfebaca582083cb9bd819" category="paragraph">Diese Gruppenrichtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.</block>
+  <block id="a16b735f7d349dcc23b45a7a101460f3" category="paragraph">Diese Gruppenrichtlinie schränkt Benutzer am Erstellen eines Buckets ein, für den die Objektsperre für den Bucket aktiviert ist.</block>
+  <block id="5ccd1d9b602b536952729ea6084688f1" category="section-title">Aufbewahrungslimit für Objektsperre</block>
+  <block id="e2fc2c3ef79779a5164b3961924241c1" category="paragraph">Diese Bucket-Richtlinie beschränkt die Aufbewahrungsdauer der Objektsperre auf maximal 10 Tage</block>
+  <block id="578c6a63b7f6efe56f08f3f9c3c5a690" category="section-title">Benutzer daran hindern, Objekte mit VersionID zu löschen</block>
+  <block id="151d6c6a5174c6a3f739cdb8ec8d1ce5" category="paragraph">Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach VersionID zu löschen</block>
+  <block id="d5c59b735ec0b06ade2e2d7c842dfe9e" category="paragraph">Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID</block>
 </blocks>

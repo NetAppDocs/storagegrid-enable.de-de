@@ -19,7 +19,7 @@ Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IAM-Richtlin
 
 === Bucket-Zugriff im Home Directory-Stil
 
-Diese Richtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.
+Diese Gruppenrichtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.
 
 [source, json]
 ----
@@ -49,7 +49,7 @@ Diese Richtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem
 
 === Erstellung von Bucket-Objektsperrung verweigern
 
-Diese Richtlinie schränkt die Benutzer auf die Erstellung eines Buckets ein, für den die Objektsperre aktiviert ist.
+Diese Gruppenrichtlinie schränkt Benutzer am Erstellen eines Buckets ein, für den die Objektsperre für den Bucket aktiviert ist.
 
 [NOTE]
 ====
@@ -74,6 +74,91 @@ Diese Richtlinie wird in der StorageGRID-Benutzeroberfläche nicht durchgesetzt,
             "Resource": "arn:aws:s3:::*"
         }
     ]
+}
+----
+
+
+=== Aufbewahrungslimit für Objektsperre
+
+Diese Bucket-Richtlinie beschränkt die Aufbewahrungsdauer der Objektsperre auf maximal 10 Tage
+
+[source, json]
+----
+{
+ "Version":"2012-10-17",
+ "Id":"CustSetRetentionLimits",
+ "Statement": [
+   {
+    "Sid":"CustSetRetentionPeriod",
+    "Effect":"Deny",
+    "Principal":"*",
+    "Action": [
+      "s3:PutObjectRetention"
+    ],
+    "Resource":"arn:aws:s3:::testlock-01/*",
+    "Condition": {
+      "NumericGreaterThan": {
+        "s3:object-lock-remaining-retention-days":"10"
+      }
+    }
+   }
+  ]
+}
+----
+
+
+=== Benutzer daran hindern, Objekte mit VersionID zu löschen
+
+Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach VersionID zu löschen
+
+[source, json]
+----
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:DeleteObjectVersion"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::*"
+        }
+    ]
+}
+----
+Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID
+
+[source, json]
+----
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:DeleteObjectVersion"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    },
+    {
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    }
+  ]
 }
 ----
 
