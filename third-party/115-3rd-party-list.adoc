@@ -18,6 +18,7 @@ Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.5 
 Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 * Actifio
+* Alluxio
 * Bridgestor
 * Cantemo
 * Citrix Content Collaboration
@@ -42,8 +43,10 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Primestream
 * Quantum StorNext 5.4.0.1
 * Rubrik CDM
+* s3a
 * Signiant
 * Splunk Smartstore
+* Trino
 * Lack Enterprise 6.0.4
 * Veeam 11
 * Veritas Enterprise Vault 11

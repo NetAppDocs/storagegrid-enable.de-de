@@ -18,6 +18,7 @@ Die folgenden Drittanbieterlösungen wurden für die Verwendung mit StorageGRID 
 Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 * Actifio
+* Alluxio
 * Apache Kafka
 * Bridgestor
 * Cantemo
@@ -55,10 +56,12 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Quantum StorNext 5.4.0.1
 * Reveille v10 Build 220706 oder höher
 * Rubrik CDM
+* s3a
 * Signiant
 * Schneeflocke
 * Splunk Smartstore
 * Storage Leicht Gemacht
+* Trino
 * Lack Enterprise 6.0.4
 * Veeam 12
 * Veritas Enterprise Vault 14
