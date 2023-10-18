@@ -59,6 +59,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * s3a
 * Signiant
 * Schneeflocke
+* Spectra Logic On-Prem Glacier
 * Splunk Smartstore
 * Storage Leicht Gemacht
 * Trino
