@@ -56,6 +56,8 @@ indexpage:
     - title: Mit rclone können Sie Objekte auf StorageGRID migrieren, VERSCHIEBEN
         und LÖSCHEN
       url: "/tools-apps-guides/use-rclone-migrate-delete.html"
+    - title: Veeam Backup & Replication mit StorageGRID
+      url: "/tools-apps-guides/veeam-br.html"
   - title: Beispiele für Verfahren und APIs
     links:
     - title: S3-Verschlüsselung testen und demonstrieren

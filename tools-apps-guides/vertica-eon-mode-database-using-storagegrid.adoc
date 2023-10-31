@@ -692,7 +692,7 @@ Führen Sie die folgenden Schritte aus, um die Probendaten zu laden:
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* link:https://docs.netapp.com/sgws-114/index.jsp["NetApp StorageGRID 11.4 Produktdokumentation"^]
+* link:https://docs.netapp.com/us-en/storagegrid-117/["NetApp StorageGRID 11.7 Produktdokumentation"^]
 * link:https://www.netapp.com/pdf.html?item=/media/7931-ds-3613.pdf["Datenblatt zu StorageGRID"^]
 * link:https://www.vertica.com/documentation/vertica/10-1-x-documentation/["Vertica 10.1 Produktdokumentation"^]
 
