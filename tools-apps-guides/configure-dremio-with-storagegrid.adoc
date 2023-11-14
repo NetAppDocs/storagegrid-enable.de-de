@@ -1,0 +1,94 @@
+---
+permalink: tools-apps-guides/configure-Dremio-StorageGRID.html 
+sidebar: sidebar 
+keywords: Dremio, StorageGRID, lakehouse, object storage, s3 
+summary: Dremio Datenquelle mit StorageGRID konfigurieren 
+---
+= Dremio Datenquelle mit StorageGRID konfigurieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+:firstname:  Angela
+:authorinitials:  C
+:lastname: Cheng 
+:author:  Angela Cheng 
+:authors:  Angela Cheng 
+
+
+[role="lead"]
+Dremio unterstützt eine Vielzahl von Datenquellen, einschließlich Cloud-basiertem oder lokalem Objektspeicher.  Sie können Dremio so konfigurieren, dass StorageGRID als Objektspeicher-Datenquelle verwendet wird.
+
+
+
+== Dremio-Datenquelle konfigurieren
+
+
+
+=== Voraussetzungen
+
+* Eine StorageGRID S3-Endpunkt-URL, eine s3-Zugriffsschlüssel-ID des Mandanten und ein geheimer Zugriffsschlüssel.
+* StorageGRID-Konfigurationsempfehlung: Deaktivieren Sie die Komprimierung (standardmäßig deaktiviert).  +
+Dremio verwendet Byte-Bereich GET, um während der Abfrage verschiedene Byte-Bereiche aus demselben Objekt gleichzeitig abzurufen.  Die typische Größe für Anforderungen im Byte-Bereich beträgt 1 MB. Komprimiertes Objekt beeinträchtigt die GET-Performance im Byte-Bereich.
+
+
+
+
+=== Dremio-Führer
+
+https://docs.dremio.com/current/sonar/data-sources/object/s3/["Connecting to Amazon S3 - Configuring S3-Compatible Storage"^].
+
+
+
+== Anweisung
+
+. Klicken Sie auf der Seite Dremio Datasets auf + signieren, um eine Quelle hinzuzufügen, und wählen Sie „Amazon S3“.
+. Geben Sie einen Namen für diese neue Datenquelle ein: StorageGRID S3-Mandanten-Zugriffsschlüssel-ID und geheimer Zugriffsschlüssel.
+. Aktivieren Sie das Kontrollkästchen „Verbindung verschlüsseln“, wenn HTTPS für die Verbindung zum StorageGRID S3-Endpunkt verwendet wird. +
+Wenn Sie ein selbstsigniertes CA-Zertifikat für diesen s3-Endpunkt verwenden, folgen Sie der Dremio-Anleitung, um dieses CA-Zertifikat in den <JAVA_HOME>/jre/lib/Security + des Dremio-Servers hinzuzufügen
+*Beispiel Screenshot*
++
+image::../media/dremio/dremio-add-source-general.png[Neue Quelle - Allgemein]
+
+. Klicken Sie auf „Erweiterte Optionen“, und aktivieren Sie „Kompatibilitätsmodus aktivieren“.
+. Klicken Sie unter Verbindungseigenschaften auf + Eigenschaften hinzufügen, und fügen Sie diese s3a-Eigenschaften hinzu.
+. fs.s3a.Connection.die Standardeinstellung ist 100.  Wenn Ihre s3-Datensätze große Parkett-Dateien mit 100 oder mehr Spalten enthalten, muss ein Wert größer als 100 eingegeben werden.  Diese Einstellung finden Sie im Dremio-Handbuch.
++
+[cols="2a,3a"]
+|===
+| Name | Wert 
+
+
+ a| 
+fs.s3a.Endpunkt
+ a| 
+_<StorageGRID S3 Endpunkt:Port>_
+
+
+
+ a| 
+fs.s3a.path.style.Access
+ a| 
+Richtig
+
+
+
+ a| 
+fs.s3a.Verbindung.Maximum
+ a| 
+_<ein Wert größer als 100>_
+
+|===
++
+*Beispiel Screenshot*
+
++
+image::../media/dremio/dremio-add-source-advanced.png[New Source – Erweiterte Optionen]
+
+. Konfigurieren Sie andere Dremio-Optionen gemäß Ihren Unternehmens- oder Anwendungsanforderungen.
+. Klicken Sie auf die Schaltfläche Speichern, um diese neue Datenquelle zu erstellen.
+. Sobald die StorageGRID-Datenquelle erfolgreich hinzugefügt wurde, wird im linken Bereich eine Liste der Buckets angezeigt. +
+*Beispiel Screenshot*
++
+image::../media/dremio/dremio-source-added.png[Neue Datenquelle hinzugefügt]
+
+
