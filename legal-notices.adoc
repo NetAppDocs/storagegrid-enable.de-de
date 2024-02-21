@@ -5,6 +5,7 @@ keywords:
 summary:  
 ---
 = Rechtliche Hinweise
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

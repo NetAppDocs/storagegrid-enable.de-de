@@ -5,10 +5,11 @@ keywords: port remap, port redirect, port, remap, redirect
 summary: So verwenden Sie die Port-Neuzuordnung. 
 ---
 = So verwenden Sie die Port-Neuzuordnung
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 Möglicherweise müssen Sie einen eingehenden oder ausgehenden Port aus mehreren Gründen neu zuordnen. Möglicherweise wechseln Sie vom älteren CLB Load Balancer-Dienst zum aktuellen nginx Service Load Balancer-Endpunkt und behalten denselben Port bei, um die Auswirkungen auf Clients zu reduzieren. Sie möchten Port 443 für Client S3 in einem Client-Netzwerk des Admin-Knotens oder für Firewall-Einschränkungen verwenden.
@@ -72,27 +73,27 @@ Gehen Sie wie folgt vor, um den Ersatz-Gateway-Node bereitzustellen:
 
 . Nachdem die VM bereitgestellt wurde, wählen Sie sie aus der Liste der VMs aus und wählen Sie die Registerkarte Konfigurieren vApp Options aus.
 +
-image:port-remap/vapp_options.png["Registerkarte „vApp-Optionen“"]
+image::port-remap/vapp_options.png[Registerkarte „vApp-Optionen“]
 
 . Blättern Sie nach unten zum Abschnitt Eigenschaften, und wählen Sie die Eigenschaft PORT_REMAP_INBOUND aus
 +
-image:port-remap/remap_inbound.png["Port-Neuzuordnung eingehend"]
+image::port-remap/remap_inbound.png[Port-Neuzuordnung eingehend]
 
 . Blättern Sie nach oben in der Liste Eigenschaften, und klicken Sie auf Bearbeiten
 +
-image:port-remap/edit_button.png["Schaltfläche „Bearbeiten“"]
+image::port-remap/edit_button.png[Schaltfläche „Bearbeiten“]
 
 . Wählen Sie die Registerkarte Typ aus, bestätigen Sie, dass das Kontrollkästchen Benutzerkonfigurierbar aktiviert ist, und klicken Sie dann auf Speichern.
 +
-image:port-remap/type_tab.png["Registerkarte „Typ“"]
+image::port-remap/type_tab.png[Registerkarte „Typ“]
 
 . Klicken Sie oben in der Liste Eigenschaften, wenn die Eigenschaft „PORT_REMAP_INBOUND“ noch ausgewählt ist, auf Wert festlegen.
 +
-image:port-remap/edit_button.png["Schaltfläche Wert einstellen"]
+image::port-remap/edit_button.png[Schaltfläche Wert einstellen]
 
 . Geben Sie im Feld Eigenschaftswert das Netzwerk (Grid, admin oder Client), TCP, den ursprünglichen Port (8082) und den neuen Port (10443) mit „/“ zwischen den einzelnen Werten ein, wie nachfolgend dargestellt.
 +
-image:port-remap/value.png["Eigenschaftswert"]
+image::port-remap/value.png[Eigenschaftswert]
 
 . Wenn Sie mehrere Netzwerke verwenden, trennen Sie die Netzwerkzeichenfolgen mit einem Komma (,), z. B. GRID/tcp/8082/10443,admin/tcp/8082/10443,Client/tcp/8082/10443
 
@@ -105,11 +106,11 @@ Gehen Sie wie folgt vor, um den Gateway-Node wiederherzustellen:
 
 . Navigieren Sie zum Abschnitt Wartung/Wiederherstellung der Grid Management-Benutzeroberfläche.
 +
-image:port-remap/maint_menu.png["Menü „Wartung“"]
+image::port-remap/maint_menu.png[Menü „Wartung“]
 
 . Schalten Sie den VM-Knoten ein, und warten Sie, bis der Knoten im Abschnitt Wartung/Wiederherstellung ausstehender Knoten der Grid Management-Benutzeroberfläche angezeigt wird.
 +
-image:port-remap/recover_pend.png["Recovery ausstehend"]
+image::port-remap/recover_pend.png[Recovery ausstehend]
 
 +
 [NOTE]
@@ -283,7 +284,7 @@ Initiating a reboot to trigger the StorageGRID Webscale appliance installation w
 . Nach einiger Zeit wird die Appliance neu gestartet, und Sie können auf die Knoten-PGE-Benutzeroberfläche zugreifen.
 . Navigieren Sie zum Fenster Netzwerk konfigurieren
 +
-image:port-remap/remap_link.png["Wählen Sie Ports neu zuordnen"]
+image::port-remap/remap_link.png[Wählen Sie Ports neu zuordnen]
 
 . Wählen Sie das gewünschte Netzwerk, Protokoll, Richtung und Ports aus, und klicken Sie dann auf die Schaltfläche Regel hinzufügen.
 +
@@ -291,7 +292,7 @@ image:port-remap/remap_link.png["Wählen Sie Ports neu zuordnen"]
 NOTE: Die Neuzuordnung von eingehendem Port 443 auf dem GRID-Netzwerk bricht die Installation und die Erweiterungsverfahren ab. Es wird nicht empfohlen, Port 443 im NETZNETZWERK neu zuzuordnen.
 
 +
-image:port-remap/app_remap.png["Port-Neuzuordnung zu Netzwerken hinzufügen"]
+image::port-remap/app_remap.png[Port-Neuzuordnung zu Netzwerken hinzufügen]
 
 . Eine der gewünschten Port-Neuzuordnungen wurde hinzugefügt. Sie können zur Registerkarte „Home“ zurückkehren und auf die Schaltfläche „Installation starten“ klicken.
 
@@ -382,3 +383,5 @@ NOTE: Das Kopieren der Prometheus-Datenbank dauert möglicherweise ein Stunde od
 . Stellen Sie die mysql-Datenbank aus dem Datenbank-Dump wieder her: `mysql -u _username_ -p _password_ -A mi < /var/local/tmp/mysql-mi.sql`
 . Starten Sie alle anderen Dienste neu `service servermanager start`
 
+
+_Von Aron Klein_

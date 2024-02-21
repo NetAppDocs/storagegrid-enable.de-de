@@ -5,10 +5,11 @@ keywords: ELK, log analytics, log analysis, StorageGRID troubleshooting
 summary: 'Mit der StorageGRID 11.6 Syslog Forward-Funktion können Sie einen externen Syslog-Server zum Erfassen und Analysieren von StorageGRID-Protokollmeldungen konfigurieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Dieser Artikel enthält eine Logstash-Konfigurationsprobe zum Filtern und Definieren von Protokollmeldungsmustern, Kibana-Abfrage, Diagrammen und Dashboard-Beispiel, um Ihnen einen schnellen Start für die StorageGRID-Protokollverwaltung und -Analyse zu ermöglichen.' 
 ---
 = StorageGRID-Protokollanalyse mit ELK-Stack
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/elk-config/
 
-
-_Angela Cheng_
 
 [role="lead"]
 Mit der Funktion StorageGRID 11.6 syslog Forward können Sie einen externen Syslog-Server konfigurieren, um StorageGRID-Protokollmeldungen zu erfassen und zu analysieren. ELK (Elasticsearch, Logstash, Kibana) hat sich zu einer der beliebtesten Log-Analytics-Lösungen entwickelt. Sehen Sie sich an https://www.netapp.tv/details/29396["StorageGRID-Protokollanalyse mit ELK-Video"] Zeigt eine ELK-Beispielkonfiguration an und wie sie verwendet werden kann, um fehlerhafte S3-Anforderungen zu identifizieren und zu beheben. Dieser Artikel enthält Beispieldateien der Logstash-Konfiguration, Kibana-Abfragen, Diagramme und Dashboard, die Ihnen einen schnellen Einstieg in die StorageGRID-Protokollverwaltung und -Analyse ermöglichen.
@@ -47,11 +48,11 @@ match => {"message" => '<%{POSINT:syslog_pri}>%{SYSLOGBASE} %{GREEDYDATA:msg-det
 ----
 *Logstash 7.17 Beispiel*
 
-image::../media/elk-config/logstash-7.17.fields-sample.png[Logstash 7.17 Beispiel]
+image::logstash-7.17.fields-sample.png[Logstash 7.17 Beispiel]
 
 *Logstash 8.23 Beispiel*
 
-image::../media/elk-config/logstash-8.x.fields-sample.png[Logstash 8.23 Beispiel]
+image::logstash-8.x.fields-sample.png[Logstash 8.23 Beispiel]
 
 *Schritte*
 
@@ -98,13 +99,13 @@ GET /_cat/indices/*?v=true&s=index
 . Erstellen Sie in der Kibana GUI Indexmuster (ELK 7.x) oder Datenansicht (ELK 8.x).
 . Geben Sie in der Kibana GUI in das Suchfeld, das sich in der oberen Mitte befindet, „abgetackte Objekte“ ein. + Wählen Sie auf der Seite gespeicherte Objekte die Option Importieren. Wählen Sie unter „Importoptionen“ die Option „Aktion für Konflikt anfordern“ aus.
 +
-image::../media/elk-config/kibana-import-options.png[Kibana-Importoptionen]
+image::kibana-import-options.png[Kibana-Importoptionen]
 
 +
 Importieren Sie elk<Version>-query-Chart-sample.ndjson. + Wählen Sie bei Aufforderung zur Lösung des Konflikts das in Schritt 8 erstellte Indexmuster oder die Datenansicht aus.
 
 +
-image::../media/elk-config/kibana-import-conflict.png[Kibana-Konflikt]
+image::kibana-import-conflict.png[Kibana-Konflikt]
 
 +
 Die folgenden Kibana-Objekte werden importiert: + *Query* + * Audit-msg-s3rq-orlm + * bycast Log s3 bezogene Nachrichten + * Loglevel Warnung oder höher + * fehlgeschlagenes Sicherheitsereignis + *Diagramm* + * s3 Anfragen zählen auf Basis von bycast.log + * HTTP-Statuscode + * Audit msg Aufschlüsselung nach Typ + * durchschnittliche s3-Antwort Time + *Dashboard* + * S3-Request-Dashboard mit den oben genannten Diagrammen.
@@ -125,3 +126,5 @@ Sie können nun die StorageGRID-Protokollanalyse mit Kibana durchführen.
 * https://www.elastic.co/guide/en/kibana/master/document-explorer.html["Kibana Guide – Erkunden Sie das Dokument"]
 * https://docs.netapp.com/us-en/storagegrid-116/audit/index.html["Referenz für StorageGRID-Prüfprotokolle"]
 
+
+_Von Angela Cheng_

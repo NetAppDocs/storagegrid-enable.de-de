@@ -5,10 +5,11 @@ keywords: cli, aws, S3, encryption, SSE, SSE-C, SSE-S3, api
 summary: StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand. 
 ---
 = Testen und Demonstrieren der S3 Verschlüsselungsoptionen auf StorageGRID
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 StorageGRID und die S3-API bieten verschiedene Methoden zur Verschlüsselung von Daten im Ruhezustand. Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/storagegrid-116/admin/reviewing-storagegrid-encryption-methods.html["Prüfen Sie die StorageGRID Verschlüsselungsmethoden"^].
@@ -185,3 +186,5 @@ aws s3api head-object --bucket <bucket> --key <file> --endpoint-url https://s3.e
 aws s3api get-object --bucket <bucket>  --key <file> <file> --endpoint-url https://s3.example.com
 ----
 
+
+_Von Aron Klein_

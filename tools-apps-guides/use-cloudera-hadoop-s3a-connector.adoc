@@ -5,10 +5,11 @@ keywords: hadoop, cloudera, s3a
 summary: Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen Programmier-Frameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, auf denen jede Maschine ihre lokalen Computing- und Storage-Ressourcen bot. 
 ---
 = Nutzen Sie Hadoop S3A-Connector von Cloudera mit StorageGRID
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/hadoop-s3a/
 
-
-_Angela Cheng_
 
 [role="lead"]
 Hadoop ist seit einiger Zeit einer der beliebtesten Wissenschaftler von Data Scientist. Hadoop ermöglicht die verteilte Verarbeitung großer Datensätze über Computer-Cluster mithilfe von einfachen ProgrammierFrameworks. Hadoop wurde entwickelt, um von einzelnen Servern auf Tausende von Machines zu skalieren, wobei jede Maschine über lokale Computing- und Storage-Ressourcen verfügt.
@@ -140,11 +141,11 @@ fs.s3a.path.style.Access
 *Beispiel Screenshot*
 
 +
-image::../media/hadoop-s3a/hadoop-s3a-configuration.png[S3A-Konfiguration]
+image::hadoop-s3a-configuration.png[S3A-Konfiguration]
 
 . Klicken Sie auf die Schaltfläche Änderungen speichern. Wählen Sie in der HDFS-Menüleiste das Symbol „veraltete Konfiguration“ aus, wählen Sie auf der nächsten Seite „veraltete Dienste neu starten“ und anschließend „Jetzt neu starten“ aus.
 +
-image::../media/hadoop-s3a/hadoop-restart-stale-service-icon.png[Veraltete Service-Symbol für Hadoop neu starten]
+image::hadoop-restart-stale-service-icon.png[Veraltete Service-Symbol für Hadoop neu starten]
 
 
 
@@ -255,3 +256,5 @@ keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -storepa
 `hadoop fs -ls s3a://_<bucket-name>_/ &>error.log`
 
 
+
+_Von Angela Cheng_

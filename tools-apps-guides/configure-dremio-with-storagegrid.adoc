@@ -5,14 +5,10 @@ keywords: Dremio, StorageGRID, lakehouse, object storage, s3
 summary: Dremio Datenquelle mit StorageGRID konfigurieren 
 ---
 = Dremio Datenquelle mit StorageGRID konfigurieren
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
-:firstname:  Angela
-:authorinitials:  C
-:lastname: Cheng 
-:author:  Angela Cheng 
-:authors:  Angela Cheng 
+:imagesdir: ../media/dremio/
 
 
 [role="lead"]
@@ -47,7 +43,7 @@ https://docs.dremio.com/current/sonar/data-sources/object/s3/["Connecting to Ama
 Wenn Sie ein selbstsigniertes CA-Zertifikat für diesen s3-Endpunkt verwenden, folgen Sie der Dremio-Anleitung, um dieses CA-Zertifikat in den <JAVA_HOME>/jre/lib/Security + des Dremio-Servers hinzuzufügen
 *Beispiel Screenshot*
 +
-image::../media/dremio/dremio-add-source-general.png[Neue Quelle - Allgemein]
+image::dremio-add-source-general.png[Neue Quelle - Allgemein]
 
 . Klicken Sie auf „Erweiterte Optionen“, und aktivieren Sie „Kompatibilitätsmodus aktivieren“.
 . Klicken Sie unter Verbindungseigenschaften auf + Eigenschaften hinzufügen, und fügen Sie diese s3a-Eigenschaften hinzu.
@@ -82,13 +78,15 @@ _<ein Wert größer als 100>_
 *Beispiel Screenshot*
 
 +
-image::../media/dremio/dremio-add-source-advanced.png[New Source – Erweiterte Optionen]
+image::dremio-add-source-advanced.png[New Source – Erweiterte Optionen]
 
 . Konfigurieren Sie andere Dremio-Optionen gemäß Ihren Unternehmens- oder Anwendungsanforderungen.
 . Klicken Sie auf die Schaltfläche Speichern, um diese neue Datenquelle zu erstellen.
 . Sobald die StorageGRID-Datenquelle erfolgreich hinzugefügt wurde, wird im linken Bereich eine Liste der Buckets angezeigt. +
 *Beispiel Screenshot*
 +
-image::../media/dremio/dremio-source-added.png[Neue Datenquelle hinzugefügt]
+image::dremio-source-added.png[Neue Datenquelle hinzugefügt]
 
 
+
+_Von Angela Cheng_

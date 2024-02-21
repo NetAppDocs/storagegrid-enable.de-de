@@ -5,10 +5,11 @@ keywords: node clone, clone, clone performance, performance
 summary: Performance von Node-Klonen und Best Practices 
 ---
 = Node-Klonen
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 Überlegungen und Performance von Node-Klonen
@@ -509,3 +510,4 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 7 Tage
 
 |===
+_Von Aron Klein_

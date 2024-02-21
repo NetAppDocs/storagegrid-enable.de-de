@@ -5,10 +5,11 @@ keywords: Vertica Eon Mode database
 summary: In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben. 
 ---
 = Vertica Eon-Modus-Datenbank mit NetApp StorageGRID als gemeinschaftliche Storage-Lösung
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/vertica-eon/
 
-
-_Angela Cheng_
 
 [role="lead"]
 In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben.
@@ -33,7 +34,7 @@ Eon-Modus trennt die Computing-Ressourcen von der gemeinsamen Storage-Schicht de
 
 Eon-Modus speichert Daten in einem gemeinsam genutzten Objektspeicher, dem sogenannten Communal Storage – einem S3-Bucket, der entweder lokal oder in Amazon S3 gehostet wird.
 
-image::../media/vertica-eon/sg-vertica-eon-mode-cluster-with-communal-storage.png[Vertica Eon-Mode Cluster mit gemeinsamem Speicher]
+image::sg-vertica-eon-mode-cluster-with-communal-storage.png[Vertica Eon-Mode Cluster mit gemeinsamem Speicher]
 
 
 
@@ -714,3 +715,4 @@ September 2021
 Erste Version.
 
 |===
+_Von Angela Cheng_
