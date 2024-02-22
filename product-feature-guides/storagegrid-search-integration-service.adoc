@@ -8,7 +8,7 @@ summary: Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/storagegrid-search-integration-service/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -38,7 +38,7 @@ Zielgruppen sollten mit Grid Manager, Mandanten-Manager vertraut sein und über 
 . Erstellen Sie einen S3-Mandanten mithilfe von Grid Manager, geben Sie einen Anzeigenamen ein und wählen Sie das S3-Protokoll aus.
 . Wählen Sie auf der Berechtigungsseite die Option Plattformdienste zulassen. Wählen Sie ggf. andere Berechtigungen aus.
 +
-image::sg-sis-select-permissions.png[Wählen Sie Screenshot mit Berechtigungen aus]
+image::storagegrid-search-integration-service/sg-sis-select-permissions.png[Wählen Sie Screenshot mit Berechtigungen aus]
 
 . Richten Sie das ursprüngliche Kennwort des Mandanten-Root-Benutzers ein, oder wählen Sie, falls im Raster der Identifikationsverbund aktiviert ist, welche föderierte Gruppe Root-Zugriffsberechtigungen hat, um das Mandantenkonto zu konfigurieren.
 . Klicken Sie auf als Stamm anmelden und wählen Sie Bucket: Erstellen und verwalten.
@@ -102,7 +102,7 @@ NOTE: Sie müssen über eine gültige Anmeldung für die AWS-Konsole, einen Zugr
 }
 ----
 +
-image::sg-sis-search-integration-amazon-opensearch.png[Screenshot zur Integration durchsuchen]
+image::storagegrid-search-integration-service/sg-sis-search-integration-amazon-opensearch.png[Screenshot zur Integration durchsuchen]
 
 
 
@@ -110,17 +110,17 @@ image::sg-sis-search-integration-amazon-opensearch.png[Screenshot zur Integratio
 
 . Warten Sie 15 bis 20 Minuten, bis die Domain aktiv ist.
 +
-image::sg-sis-activating-domain.png[Domain-Screenshot wird aktiviert]
+image::storagegrid-search-integration-service/sg-sis-activating-domain.png[Domain-Screenshot wird aktiviert]
 
 . Klicken Sie auf OpenSearch Dashboards URL, um die Domäne in einer neuen Registerkarte zu öffnen, um auf das Dashboard zuzugreifen. Wenn ein Fehler beim Zugriff verweigert wird, überprüfen Sie, ob die Quell-IP-Adresse der Zugriffsrichtlinie korrekt auf Ihre öffentliche IP-Adresse des Computers eingestellt ist, um den Zugriff auf das Domain-Dashboard zu ermöglichen.
 . Wählen Sie auf der Willkommensseite des Dashboards „Explore“ auf eigene Faust aus. Wählen Sie im Menü „Management -> Entwicklungstools“
 . Geben Sie unter Dev Tools -> Console ein `PUT <index>` Wo Sie den Index zum Speichern von StorageGRID-Objektmetadaten verwenden. Im folgenden Beispiel verwenden wir den Indexnamen 'sgmetadaten'. Klicken Sie auf das kleine Dreieck-Symbol, um den PUT-Befehl auszuführen. Das erwartete Ergebnis wird im rechten Bereich angezeigt, wie im folgenden Beispiel Screenshot dargestellt.
 +
-image::sg-sis-using-put-command-for-index.png[Mit Put-Befehl für Index-Screenshot]
+image::storagegrid-search-integration-service/sg-sis-using-put-command-for-index.png[Mit Put-Befehl für Index-Screenshot]
 
 . Überprüfen Sie, ob der Index über die Benutzeroberfläche von Amazon OpenSearch unter sgdomain > Indizes sichtbar ist.
 +
-image::sg-sis-verifying-the-index.png[Verifying-the-Index Screenshot]
+image::storagegrid-search-integration-service/sg-sis-verifying-the-index.png[Verifying-the-Index Screenshot]
 
 
 
@@ -140,17 +140,17 @@ Gehen Sie wie folgt vor, um die Endpunkte der Plattformservices zu konfigurieren
 In diesem Beispiel wird URN `arn:aws:es:us-east-1:211234567890:domain/sgdemo /sgmedata/_doc`.
 
 +
-image::sg-sis-enter-end-points-details.png[Screenshot mit Details zu Endpunkten]
+image::storagegrid-search-integration-service/sg-sis-enter-end-points-details.png[Screenshot mit Details zu Endpunkten]
 
 
 
 . Um auf die Amazon OpenSearch sgdomain zuzugreifen, wählen Sie als Authentifizierungstyp den Zugriffsschlüssel aus, und geben Sie dann den Amazon S3-Zugriffsschlüssel und den geheimen Schlüssel ein. Um zur nächsten Seite zu gelangen, klicken Sie auf Weiter.
 +
-image::sg-sis-authenticate-connections-to-endpoints.png[Authentifizierung von Verbindungen zum Screenshot von Endpunkten]
+image::storagegrid-search-integration-service/sg-sis-authenticate-connections-to-endpoints.png[Authentifizierung von Verbindungen zum Screenshot von Endpunkten]
 
 . Um den Endpunkt zu überprüfen, wählen Sie Operating System CA Certificate und Test and Create Endpoint aus. Wenn die Überprüfung erfolgreich ist, wird ein Endpunkt-Bildschirm angezeigt, der der folgenden Abbildung entspricht. Wenn die Überprüfung fehlschlägt, überprüfen Sie, ob der URN umfasst `/<index>/_doc` Am Ende des Pfads und der AWS Zugriffsschlüssel und der Geheimschlüssel sind korrekt.
 +
-image::sg-sis-platform-service-endpoints.png[Screenshot der Plattform-Service-Endpunkte]
+image::storagegrid-search-integration-service/sg-sis-platform-service-endpoints.png[Screenshot der Plattform-Service-Endpunkte]
 
 
 
@@ -198,14 +198,14 @@ sudo systemctl start docker
 TIP: Beachten Sie den Benutzernamen/das Kennwort und das Token, das Elasticsearch erstellt hat. Sie müssen diese zum Starten der Kibana UI und der StorageGRID-Plattform-Endpunktauthentifizierung verwenden.
 
 +
-image::sg-sis-search-integration-elasticsearch.png[Suche Integration Elasticsearch Screenshot]
+image::storagegrid-search-integration-service/sg-sis-search-integration-elasticsearch.png[Suche Integration Elasticsearch Screenshot]
 
 . Nachdem der Kibana-Docker-Container gestartet wurde, wird der URL-Link aufgerufen `\https://0.0.0.0:5601` Wird in der Konsole angezeigt. Ersetzen Sie 0.0.0.0 durch die Server-IP-Adresse in der URL.
 . Melden Sie sich mit dem Benutzernamen bei der Kibana-Benutzeroberfläche an `elastic` Und das Passwort, das im vorherigen Schritt von Elastic generiert wurde.
 . Wenn Sie sich zum ersten Mal anmelden möchten, wählen Sie auf der Begrüßungsseite „Explore“. Wählen Sie im Menü Verwaltung > Entwicklungstools.
 . Geben Sie auf dem Bildschirm Dev Tools Console die Eingabe ein `PUT <index>` Dort, wo Sie diesen Index zum Speichern von StorageGRID-Objektmetadaten verwenden. Wir verwenden den Indexnamen `sgmetadata` In diesem Beispiel. Klicken Sie auf das kleine Dreieck-Symbol, um den PUT-Befehl auszuführen. Das erwartete Ergebnis wird im rechten Bereich angezeigt, wie im folgenden Beispiel Screenshot dargestellt.
 +
-image::sg-sis-execute-put-command.png[Ausführen von Put-Befehl-Screenshot]
+image::storagegrid-search-integration-service/sg-sis-execute-put-command.png[Ausführen von Put-Befehl-Screenshot]
 
 
 
@@ -222,17 +222,17 @@ Gehen Sie wie folgt vor, um Endpunkte für Plattformservices zu konfigurieren:
 ** URI: `\https://<elasticsearch-server-ip or hostname>:9200`
 ** URNE: `urn:<something>:es:::<some-unique-text>/<index-name>/_doc` Wobei der Indexname der Name ist, den Sie auf der Kibana-Konsole verwendet haben. Beispiel: `urn:local:es:::sgmd/sgmetadata/_doc`
 +
-image::sg-sis-platform-service-endpoint-details.png[Screenshot mit Details zu Plattform-Service-Endpunkten]
+image::storagegrid-search-integration-service/sg-sis-platform-service-endpoint-details.png[Screenshot mit Details zu Plattform-Service-Endpunkten]
 
 
 
 . Wählen Sie Basic HTTP als Authentifizierungstyp, geben Sie den Benutzernamen ein `elastic` Und das durch den Elasticsearch-Installationsprozess generierte Passwort. Um zur nächsten Seite zu gelangen, klicken Sie auf Weiter.
 +
-image::sg-sis-platform-service-endpoint-authentication-type.png[Screenshot zur Authentifizierung des Plattform-Service-Endpunkts]
+image::storagegrid-search-integration-service/sg-sis-platform-service-endpoint-authentication-type.png[Screenshot zur Authentifizierung des Plattform-Service-Endpunkts]
 
 . Wählen Sie Zertifikat nicht überprüfen und Endpunkt erstellen und testen, um den Endpunkt zu überprüfen. Wenn die Überprüfung erfolgreich ist, wird ein Endpunkt-Bildschirm angezeigt, der dem folgenden Screenshot ähnelt. Wenn die Überprüfung fehlschlägt, überprüfen Sie, ob die Einträge für URN, URI und Benutzername/Passwort korrekt sind.
 +
-image::sg-sis-successfully-verified-endpoint.png[Endpunkt erfolgreich verifiziert]
+image::storagegrid-search-integration-service/sg-sis-successfully-verified-endpoint.png[Endpunkt erfolgreich verifiziert]
 
 
 
@@ -271,7 +271,7 @@ In diesem Beispiel haben wir kein Präfix verwendet, was bedeutet, dass die Meta
 ----
 . Verwenden Sie S3-Browser, um eine Verbindung zu StorageGRID mit dem Mandantenzugriff/geheimen Schlüssel herzustellen und Testobjekte in hochzuladen `sgmetadata-test` Bucket und fügen Sie Tags oder benutzerdefinierte Metadaten zu Objekten hinzu.
 +
-image::sg-sis-upload-test-objects.png[Screenshot der Testobjekte hochladen]
+image::storagegrid-search-integration-service/sg-sis-upload-test-objects.png[Screenshot der Testobjekte hochladen]
 
 . Verwenden Sie die Kibana UI, um zu überprüfen, ob die Objektmetadaten in den Index der sgmetadaten geladen wurden.
 +
@@ -291,7 +291,7 @@ GET sgmetadata/_search
 }
 ----
 +
-image::sg-sis-query1-sample-result.png[Abfrage 1 Beispiel-Screenshot]
+image::storagegrid-search-integration-service/sg-sis-query1-sample-result.png[Abfrage 1 Beispiel-Screenshot]
 
 +
 Das Beispielergebnis für Abfrage 2 im folgenden Screenshot zeigt zwei Datensätze mit Tag-Typ jpg.
@@ -310,7 +310,7 @@ GET sgmetadata/_search
 }
 ----
 +
-image::sg-sis-query-two-sample.png[Probe 2 abfragen]
+image::storagegrid-search-integration-service/sg-sis-query-two-sample.png[Probe 2 abfragen]
 
 
 

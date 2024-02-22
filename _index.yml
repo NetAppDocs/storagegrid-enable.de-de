@@ -61,7 +61,7 @@ indexpage:
     - title: Veeam Backup & Replication mit StorageGRID
       url: "/tools-apps-guides/veeam-br.html"
     - title: Dremio mit StorageGRID konfigurieren
-      url: "/tools-apps-guides/configure-Dremio-StorageGRID.html"
+      url: "/tools-apps-guides/configure-dremio-storagegrid.html"
   - title: Beispiele für Verfahren und APIs
     links:
     - title: S3-Verschlüsselung testen und demonstrieren

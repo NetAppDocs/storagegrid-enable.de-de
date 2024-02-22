@@ -8,7 +8,7 @@ summary: Konfigurieren Sie Datadog HQ, um StorageGRID-snmp-Metriken und -Traps z
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/datadog/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -121,6 +121,6 @@ network_devices:
 
 Der SNMP-Agent in Ihrem StorageGRID-System befindet sich auf der Registerkarte Konfiguration in der Spalte Überwachung. Aktivieren Sie SNMP und geben Sie die gewünschten Informationen ein. Wenn Sie Traps konfigurieren möchten, wählen Sie „Traps-Ziele“ und erstellen Sie ein Ziel für den Datadog-Agent-Host, der die Trap-Konfiguration enthält.
 
-image::sg_snmp_conf.png[StorageGRID-SNMP-Konfiguration]
+image::datadog/sg_snmp_conf.png[StorageGRID-SNMP-Konfiguration]
 
 _Von Aron Klein_

@@ -8,7 +8,7 @@ summary: 'Mit der StorageGRID 11.6 Syslog Forward-Funktion können Sie einen ext
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/elk-config/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -48,11 +48,11 @@ match => {"message" => '<%{POSINT:syslog_pri}>%{SYSLOGBASE} %{GREEDYDATA:msg-det
 ----
 *Logstash 7.17 Beispiel*
 
-image::logstash-7.17.fields-sample.png[Logstash 7.17 Beispiel]
+image::elk-config/logstash-7.17.fields-sample.png[Logstash 7.17 Beispiel]
 
 *Logstash 8.23 Beispiel*
 
-image::logstash-8.x.fields-sample.png[Logstash 8.23 Beispiel]
+image::elk-config/logstash-8.x.fields-sample.png[Logstash 8.23 Beispiel]
 
 *Schritte*
 
@@ -99,13 +99,13 @@ GET /_cat/indices/*?v=true&s=index
 . Erstellen Sie in der Kibana GUI Indexmuster (ELK 7.x) oder Datenansicht (ELK 8.x).
 . Geben Sie in der Kibana GUI in das Suchfeld, das sich in der oberen Mitte befindet, „abgetackte Objekte“ ein. + Wählen Sie auf der Seite gespeicherte Objekte die Option Importieren. Wählen Sie unter „Importoptionen“ die Option „Aktion für Konflikt anfordern“ aus.
 +
-image::kibana-import-options.png[Kibana-Importoptionen]
+image::elk-config/kibana-import-options.png[Kibana-Importoptionen]
 
 +
 Importieren Sie elk<Version>-query-Chart-sample.ndjson. + Wählen Sie bei Aufforderung zur Lösung des Konflikts das in Schritt 8 erstellte Indexmuster oder die Datenansicht aus.
 
 +
-image::kibana-import-conflict.png[Kibana-Konflikt]
+image::elk-config/kibana-import-conflict.png[Kibana-Konflikt]
 
 +
 Die folgenden Kibana-Objekte werden importiert: + *Query* + * Audit-msg-s3rq-orlm + * bycast Log s3 bezogene Nachrichten + * Loglevel Warnung oder höher + * fehlgeschlagenes Sicherheitsereignis + *Diagramm* + * s3 Anfragen zählen auf Basis von bycast.log + * HTTP-Statuscode + * Audit msg Aufschlüsselung nach Typ + * durchschnittliche s3-Antwort Time + *Dashboard* + * S3-Request-Dashboard mit den oben genannten Diagrammen.

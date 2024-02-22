@@ -8,7 +8,7 @@ summary: In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eo
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/vertica-eon/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Eon-Modus trennt die Computing-Ressourcen von der gemeinsamen Storage-Schicht de
 
 Eon-Modus speichert Daten in einem gemeinsam genutzten Objektspeicher, dem sogenannten Communal Storage – einem S3-Bucket, der entweder lokal oder in Amazon S3 gehostet wird.
 
-image::sg-vertica-eon-mode-cluster-with-communal-storage.png[Vertica Eon-Mode Cluster mit gemeinsamem Speicher]
+image::vertica-eon/sg-vertica-eon-mode-cluster-with-communal-storage.png[Vertica Eon-Mode Cluster mit gemeinsamem Speicher]
 
 
 

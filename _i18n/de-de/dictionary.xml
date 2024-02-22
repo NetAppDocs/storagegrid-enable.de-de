@@ -1262,8 +1262,8 @@ Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte
   <block id="f1b702f1ec8f237dcd7b5c954b6d27b8" category="paragraph">_Von Angela Cheng_</block>
   <block id="3ffee984625220881b57c95936a54d55" category="paragraph">_Von Siegfried Hepp und Aron Klein_</block>
   <block id="f2c634ca704e26f96be1723db6dda32a" category="image-alt">Ein Screenshot einer Computerbeschreibung wird automatisch generiert</block>
-  <block id="54887fd2fb284c696f5a78f49abeb0b0" category="paragraph">Bei Blick auf die S3-Raten und aktiven Anfragen sehen Sie, wie viel von der Last die einzelnen Nodes verarbeiten, und wie viele Anfragen insgesamt nach Typ verarbeitet werden.
-Image::s3_over_Rates.png[S3 Overview Rates]</block>
   <block id="de8e421137ae87b94e3b716c2ac38854" category="paragraph">_Von Oliver Haensel und Aron Klein_</block>
   <block id="9224315283279b10c8f6eac37416df31" category="paragraph">_Von Jonathan Wong_</block>
+  <block id="8cd84a7eff267a91caead66f5ac5a7d2" category="paragraph">Bei Blick auf die S3-Raten und aktiven Anfragen sehen Sie, wie viel von der Last die einzelnen Nodes verarbeiten, und wie viele Anfragen insgesamt nach Typ verarbeitet werden.
+Bild::veeam-bp/s3_over_Rates.png[S3 Overview Rates]</block>
 </blocks>

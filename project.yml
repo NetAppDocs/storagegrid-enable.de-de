@@ -20,3 +20,5 @@ sidebar:
     url: "/blogs.html"
   - title: StorageGRID-Dokumentation
     url: "/storagegrid-documentation.html"
+  - title: Rechtliche Hinweise
+    url: "/legal-notices.html"

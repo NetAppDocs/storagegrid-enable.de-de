@@ -8,7 +8,7 @@ summary: Dieser technische Bericht enthält detaillierte Anweisungen zur Konfigu
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/prometheus/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -40,11 +40,11 @@ Um Zugriff auf gespeicherte prometheus-Kennzahlen zu StorageGRIDs zu erhalten, m
 . Wählen Sie auf der Seite Zertifikate die Registerkarte „Client“ aus und klicken Sie auf die Schaltfläche „Add“.
 . Geben Sie einen Namen für den Client an, dem Zugriff gewährt wird, und verwenden Sie dieses Zertifikat. Klicken Sie auf das Feld unter „Berechtigungen“ vor „Prometheus zulassen“ und klicken Sie auf die Schaltfläche „Weiter“.
 +
-image::cert_name.png[Zertifikatname]
+image::prometheus/cert_name.png[Zertifikatname]
 
 . Wenn Sie ein CA-signiertes Zertifikat haben, können Sie das Optionsfeld für "Zertifikat hochladen" wählen, aber in unserem Fall werden wir StorageGRID das Client-Zertifikat generieren lassen, indem Sie das Optionsfeld für "Zertifikat generieren". Die Pflichtfelder werden angezeigt, in die ausgefüllt werden soll. Geben Sie den FQDN für den Client-Server, die IP des Servers, den Betreff und die gültigen Tage ein. Dann klicken Sie auf die Schaltfläche „Erzeugen“.
 +
-image::cert_detail.png[Zertifikatdetail]
+image::prometheus/cert_detail.png[Zertifikatdetail]
 
 
 
@@ -54,7 +54,7 @@ image::cert_detail.png[Zertifikatdetail]
 ====
 . Laden Sie die Pem-Datei des Zertifikats und die Pem-Datei des privaten Schlüssels herunter.
 +
-image::cert_download.png[Zertifikat-Download]
+image::prometheus/cert_download.png[Zertifikat-Download]
 
 
 
@@ -254,18 +254,18 @@ Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z call
 ----
 . Sie sollten nun in der Lage sein, auf die Benutzeroberfläche Ihres prometheus-Servers zu navigieren http://Prometheus-server:9090[] Und siehe UI
 +
-image::prometheus_ui.png[prometheus UI-Seite]
+image::prometheus/prometheus_ui.png[prometheus UI-Seite]
 
 . Unter "Status" Targets sehen Sie den Status des StorageGRID Endpunkts, den wir in prometheus.yml konfiguriert haben
 +
-image::prometheus_targets.png[prometheus Statusmenü]
+image::prometheus/prometheus_targets.png[prometheus Statusmenü]
 
 +
-image::prometheus_target_status.png[seite prometheus Targets]
+image::prometheus/prometheus_target_status.png[seite prometheus Targets]
 
 . Auf der Seite Diagramm können Sie eine Testabfrage ausführen und überprüfen, ob die Daten erfolgreich abgefangen wurden. Geben Sie beispielsweise „storagegrid_Node_cpu_Utiltiy_percenty“ in die Abfrageleiste ein und klicken Sie auf die Schaltfläche Ausführen.
 +
-image::prometheus_execute.png[prometheus Abfrage ausführen]
+image::prometheus/prometheus_execute.png[prometheus Abfrage ausführen]
 
 
 
@@ -322,14 +322,14 @@ Mit der Installation und dem Betrieb von Grafana und Prometheus ist es jetzt an 
 . Prometheus wird eine der wichtigsten Datenquellen zur Auswahl sein. Wenn nicht, dann verwenden Sie die Suchleiste zu finden "Prometheus"
 . Konfigurieren Sie die Prometheus-Quelle, indem Sie die URL der prometheus-Instanz und das Scrape-Intervall eingeben, um das Prometheus-Intervall zu entsprechen. Ich habe auch den Abschnitt „Warnungen“ deaktiviert, da ich den Alarmmanager auf prometheus nicht konfiguriert habe.
 +
-image::grafana_prometheus_conf.png[konfiguration von grafana prometheus]
+image::prometheus/grafana_prometheus_conf.png[konfiguration von grafana prometheus]
 
 . Blättern Sie nach unten, und klicken Sie auf „Speichern & Testen“, wenn Sie die gewünschten Einstellungen eingegeben haben.
 . Nachdem der Konfigurationstest erfolgreich abgeschlossen wurde, klicken Sie auf die Schaltfläche Explore.
 +
 .. Im Erkundungs-Fenster können Sie die gleiche Metrik verwenden, die wir Prometheus mit „storagegrid_Node_cpu_Utifficienty_percenty“ getestet haben, und auf die Schaltfläche „Run query“ klicken
 +
-image::grafana_source_explore.png[grafana prometheus metrische Erkundung]
+image::prometheus/grafana_source_explore.png[grafana prometheus metrische Erkundung]
 
 
 
@@ -339,7 +339,7 @@ image::grafana_source_explore.png[grafana prometheus metrische Erkundung]
 .. Wählen Sie „Neues Bedienfeld hinzufügen“ aus.
 .. Konfigurieren Sie das neue Panel durch Auswahl einer Metrik, wieder werde ich "storagegrid_Node_cpu_Utilement_percenty" verwenden, einen Titel für das Panel eingeben, unten "Optionen" erweitern und für Legende ändern zu Custom und geben Sie "{{instance}}" ein, um die Knotennamen zu definieren, und im rechten Fensterbereich unter "Standardoptionen" setzen "Einheit" auf "Misc/Prozent(0-100)". Klicken Sie dann auf „Übernehmen“, um das Panel im Dashboard zu speichern.
 +
-image::grafana_panel_conf.png[Konfigurieren des grafana-Panels]
+image::prometheus/grafana_panel_conf.png[Konfigurieren des grafana-Panels]
 
 
 
@@ -348,31 +348,31 @@ image::grafana_panel_conf.png[Konfigurieren des grafana-Panels]
 .. Wählen Sie im linken Fensterbereich der StorageGRID-Managementoberfläche „Support“ und klicken Sie unten in der Spalte „Tools“ auf „Metriken“.
 .. Innerhalb von Kennzahlen wähle ich den Link „Grid“ oben in der mittleren Spalte aus.
 +
-image::storagegrid_metrics.png[StorageGRID-Kennzahlen]
+image::prometheus/storagegrid_metrics.png[StorageGRID-Kennzahlen]
 
 .. Wählen Sie im Grid-Dashboard den Bereich „Storage Used - Object Metadata“ aus. Klicken Sie auf den kleinen Pfeil nach unten und auf das Ende des Bedienfeldtitels, um ein Menü zu öffnen. Wählen Sie in diesem Menü „Inspect“ und „Panel JSON“ aus.
 +
-image::storagegrid_dashboard_insp.png[StorageGRID Dashboard]
+image::prometheus/storagegrid_dashboard_insp.png[StorageGRID Dashboard]
 
 .. Kopieren Sie den JSON-Code und schließen Sie das Fenster.
 +
-image::storagegrid_panel_inspect.png[StorageGRID JSON]
+image::prometheus/storagegrid_panel_inspect.png[StorageGRID JSON]
 
 .. Klicken Sie in unserem neuen Dashboard auf das Symbol, um ein neues Panel hinzuzufügen.
 +
-image::grafana_add_panel.png[grafana Add Panel]
+image::prometheus/grafana_add_panel.png[grafana Add Panel]
 
 .. Wenden Sie das neue Bedienfeld an, ohne Änderungen vorzunehmen
 .. Wie bei dem StorageGRID-Panel sollten Sie auch die JSON überprüfen. Entfernen Sie den gesamten JSON-Code, und ersetzen Sie ihn durch den kopierten Code aus dem StorageGRID-Fenster.
 +
-image::grafana_panel_inspect.png[grafana inspect Panel]
+image::prometheus/grafana_panel_inspect.png[grafana inspect Panel]
 
 .. Bearbeiten Sie das neue Bedienfeld, und auf der rechten Seite sehen Sie eine Migrationsmeldung mit einem "Migrate"-Button. Klicken Sie auf die Schaltfläche und dann auf die Schaltfläche „Übernehmen“.
 +
-image::grafana_panel_edit_menu.png[Menü des bearbeitungsanfelds grafana]
+image::prometheus/grafana_panel_edit_menu.png[Menü des bearbeitungsanfelds grafana]
 
 +
-image::grafana_panel_edit.png[grafana-Bearbeitungsfenster]
+image::prometheus/grafana_panel_edit.png[grafana-Bearbeitungsfenster]
 
 
 
