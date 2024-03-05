@@ -115,25 +115,25 @@ StorageGRID unterstützt Replizierung und Erasure Coding für eine Sicherung auf
 
 Stellen Sie sicher, dass die Objektsperre auf dem StorageGRID System aktiviert ist, falls eine Unveränderlichkeit erforderlich ist. Suchen Sie die Option in der Management-UI unter Configuration/S3 Object Lock.
 
-image::veeam-bp/obj_lock_en.png[Grid Wide Object Lock aktivieren]
+image:veeam-bp/obj_lock_en.png["Grid Wide Object Lock aktivieren"]
 
 Wählen Sie bei der Erstellung des Buckets die Option „S3 Object Lock aktivieren“ aus, wenn dieser Bucket zur Unveränderlichkeit von Backups verwendet werden soll. Dadurch wird die Bucket-Versionierung automatisch aktiviert. Die Standardaufbewahrung bleibt deaktiviert, da Veeam die Objektaufbewahrung explizit festlegt. Versionierung und S3 Object Lock sollten nicht ausgewählt werden, wenn Veeam keine unveränderlichen Backups erstellt.
 
-image::veeam-bp/obj_lock_bucket.png[Objektsperre auf dem Bucket aktivieren]
+image:veeam-bp/obj_lock_bucket.png["Objektsperre auf dem Bucket aktivieren"]
 
 Sobald der Bucket erstellt wurde, gehen Sie zur Detailseite des erstellten Buckets. Wählen Sie die Konsistenzstufe aus.
 
-image::veeam-bp/bucket_consist_1.png[Bucket-Optionen]
+image:veeam-bp/bucket_consist_1.png["Bucket-Optionen"]
 
 Veeam erfordert eine hohe Konsistenz für S3-Buckets. Wenn also Implementierungen an mehreren Standorten implementiert werden, bei denen Veeam von diversen Standorten auf die Daten zugreifen kann, wählen Sie „Strong Global“. Wenn Veeam-Backups und -Restores nur an einem einzigen Standort durchgeführt werden, sollte das Konsistenzniveau auf „Strong-Site“ gesetzt werden. Speichern Sie die Änderungen.
 
-image::veeam-bp/bucket_consist_2.png[Bucket-Konsistenz]
+image:veeam-bp/bucket_consist_2.png["Bucket-Konsistenz"]
 
 StorageGRID bietet einen integrierten Load Balancer auf jedem Admin-Node und dedizierten Gateway-Nodes. Einer der vielen Vorteile dieser Load Balancer ist die Möglichkeit zur Konfiguration von Richtlinien zur Traffic-Klassifizierung (QoS). Diese dienen hauptsächlich der Beschränkung der Auswirkungen von Applikationen auf andere Client-Workloads oder der Priorisierung von Workloads gegenüber anderen. Sie bieten jedoch auch einen Bonus bei der Erfassung zusätzlicher Metriken zur Unterstützung des Monitorings.
 
 Wählen Sie auf der Registerkarte „Konfiguration“ die Option „Traffic Classification“ aus, und erstellen Sie eine neue Richtlinie. Benennen Sie die Regel, und wählen Sie entweder den/die Bucket(s) oder den Mandanten als Typ aus. Geben Sie die Namen der Bucket(s) oder Tenant ein. Falls QoS erforderlich ist, legen Sie eine Grenze fest. Bei den meisten Implementierungen jedoch möchten wir nur die Monitoring-Vorteile hinzufügen, damit Sie keine Obergrenze festlegen können.
 
-image::veeam-bp/tc_policy.png[TC-Richtlinie erstellen]
+image:veeam-bp/tc_policy.png["TC-Richtlinie erstellen"]
 
 
 
@@ -141,15 +141,15 @@ image::veeam-bp/tc_policy.png[TC-Richtlinie erstellen]
 
 Je nach Modell und Anzahl der StorageGRID Appliances kann es erforderlich sein, eine Begrenzung der Anzahl gleichzeitiger Operationen auf dem Bucket auszuwählen und zu konfigurieren.
 
-image::veeam-bp/veeam_concur_limit.png[Limit für gleichzeitige Veeam-Aufgaben]
+image:veeam-bp/veeam_concur_limit.png["Limit für gleichzeitige Veeam-Aufgaben"]
 
 Folgen Sie der Veeam Dokumentation zur Konfiguration des Backup-Jobs in der Veeam Konsole, um den Assistenten zu starten. Wählen Sie nach dem Hinzufügen von VMs das SOBR-Repository aus.
 
-image::veeam-bp/veeam_1.png[Sicherungsauftrag]
+image:veeam-bp/veeam_1.png["Sicherungsauftrag"]
 
 Klicken Sie auf Erweiterte Einstellungen, und ändern Sie die Einstellungen für die Speicheroptimierung auf 4 MB oder mehr. Komprimierung und Deduplizierung sollen aktiviert werden. Ändern Sie die Gasteinstellungen entsprechend Ihren Anforderungen und konfigurieren Sie den Zeitplan für den Backupjob.
 
-image::veeam-bp/veeam_blk_sz.png[Ein Screenshot einer Computerbeschreibung wird automatisch generiert,320,375]
+image:veeam-bp/veeam_blk_sz.png["Ein Screenshot eines Computers Beschreibung automatisch generiert,width=320,height=375"]
 
 
 
@@ -160,25 +160,25 @@ Um sich ein vollständiges Bild davon zu machen, wie Veeam und StorageGRID zusam
 StorageGRID bietet bequeme Diagramme zur Überwachung des Betriebs des Systems auf der Registerkarte „Support“ auf der Seite „Kennzahlen“. Sie sehen sich primär die S3 Übersicht, ILM und die Richtlinie zur Klassifizierung von Datenverkehr an, wenn eine Richtlinie erstellt wurde. Im S3-Übersichts-Dashboard erhalten Sie Informationen zu den S3-Betriebsraten, Latenzen und Anfragenreaktionen.
 
 Bei Blick auf die S3-Raten und aktiven Anfragen sehen Sie, wie viel von der Last die einzelnen Nodes verarbeiten, und wie viele Anfragen insgesamt nach Typ verarbeitet werden.
-Bild::veeam-bp/s3_over_Rates.png[S3 Overview Rates]
+image:veeam-bp/s3_over_rates.png["S3 Übersichtsraten"]
 
 Im Diagramm „Durchschnittliche Dauer“ wird die durchschnittliche Zeit angezeigt, die jeder Knoten für jeden Anforderungstyp einnimmt. Dies ist die durchschnittliche Latenz der Anfrage und kann ein guter Indikator dafür sein, dass möglicherweise zusätzliche Anpassungen erforderlich sind, oder dass das StorageGRID-System mehr Last aufnehmen kann.
 
-image::veeam-bp/s3_over_duration.png[S3-Überblickdauer]
+image:veeam-bp/s3_over_duration.png["S3-Überblickdauer"]
 
 Im Diagramm „abgeschlossene Anforderungen gesamt“ werden die Anforderungen nach Typ und Antwortcodes angezeigt. Wenn Sie andere Antworten als 200 (OK) für die Antworten sehen, kann dies auf ein Problem hinweisen, wie das StorageGRID-System wird stark geladen Senden 503 (Slow Down) Antworten und einige zusätzliche Tuning erforderlich sein, oder die Zeit ist gekommen, um das System für die erhöhte Last zu erweitern.
 
-image::veeam-bp/s3_over_requests.png[S3 Übersichtsanforderungen]
+image:veeam-bp/s3_over_requests.png["S3 Übersichtsanforderungen"]
 
 Im ILM Dashboard können Sie die Performance beim Löschen des StorageGRID Systems überwachen. StorageGRID verwendet eine Kombination aus synchronen und asynchronen Löschungen auf jedem Node, um die Gesamtleistung für alle Anforderungen zu optimieren.
 
-image::veeam-bp/ilm_delete.png[ILM löscht]
+image:veeam-bp/ilm_delete.png["ILM löscht"]
 
 Mithilfe einer Richtlinie zur Traffic-Klassifizierung können wir Kennzahlen zum Load Balancer Anforderungsdurchsatz, zu Raten, zur Dauer sowie zu den Objektgrößen anzeigen, die Veeam sendet und empfängt.
 
-image::veeam-bp/tc_1.png[Kennzahlen für die Richtlinie zur Traffic-Klassifizierung]
+image:veeam-bp/tc_1.png["Kennzahlen für die Richtlinie zur Traffic-Klassifizierung"]
 
-image::veeam-bp/tc_2.png[Kennzahlen für die Richtlinie zur Traffic-Klassifizierung]
+image:veeam-bp/tc_2.png["Kennzahlen für die Richtlinie zur Traffic-Klassifizierung"]
 
 
 
