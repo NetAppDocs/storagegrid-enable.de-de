@@ -1,0 +1,147 @@
+---
+permalink: technical-reports/datalake-analytics.html 
+sidebar: sidebar 
+keywords: data lake, on-premises, analytics, storagegrid, object 
+summary: Dieser Bericht behandelt Big Data Analytics zu StorageGRID. 
+---
+= NetApp StorageGRID und Big Data Analytics
+:allow-uri-read: 
+
+
+
+
+== Anwendungsfälle für NetApp StorageGRID
+
+Die NetApp StorageGRID Objekt-Storage-Lösung bietet Skalierbarkeit, Datenverfügbarkeit, Sicherheit und hohe Performance. Unternehmen jeder Größe und Branche nutzen StorageGRID S3 für zahlreiche Anwendungsfälle. Sehen wir uns einige typische Szenarien an:
+
+*Big Data Analytics:* StorageGRID S3 wird häufig als Data Lake verwendet, wo Unternehmen mit Tools wie Apache Spark, Splunk SmartStore und Dremio große Mengen an strukturierten und unstrukturierten Daten für Analysen speichern.
+
+*Daten-Tiering:* NetApp Kunden nutzen die FabricPool Funktion von ONTAP, um Daten automatisch zwischen einem hochperformanten lokalen Tier zu StorageGRID zu verschieben. Durch Tiering wird teurer Flash-Storage für häufig abgerufene Daten frei. Kalte Daten werden auf kostengünstigem Objekt-Storage bereitgehalten. Dadurch werden Performance und Einsparungen maximiert.
+
+*Daten-Backup und Disaster Recovery:* Unternehmen können StorageGRID S3 als zuverlässige und kostengünstige Lösung für Backup und Recovery kritischer Daten im Notfall einsetzen.
+
+*Datenspeicher für Anwendungen:* StorageGRID S3 kann als Speicher-Backend für Anwendungen verwendet werden, so dass Entwickler Dateien, Bilder, Videos und andere Arten von Daten einfach speichern und abrufen können.
+
+*Inhaltsbereitstellung:* StorageGRID S3 kann verwendet werden, um statische Website-Inhalte, Mediendateien und Software-Downloads für Benutzer auf der ganzen Welt zu speichern und bereitzustellen. Dabei wird die geografische Distribution und der globale Namespace von StorageGRID für eine schnelle und zuverlässige Content-Bereitstellung genutzt.
+
+*Daten-Tiering:* NetApp-Kunden nutzen die ONTAP FabricPool-Funktion, um Daten automatisch zwischen einem leistungsstarken lokalen Tier zu StorageGRID zu verschieben. Durch Tiering wird teurer Flash-Storage für heiße Daten frei, während weniger oft benötigte Daten von kostengünstigem Objekt-Storage verfügbar bleiben. Dadurch werden Performance und Einsparungen maximiert.
+
+*Datenarchiv:* StorageGRID bietet verschiedene Speichertypen und unterstützt Tiering zu öffentlichen, langfristigen und kostengünstigen Speicheroptionen. Damit ist es eine ideale Lösung für die Archivierung und langfristige Aufbewahrung von Daten, die für Compliance- oder historische Zwecke aufbewahrt werden müssen.
+
+*Anwendungsfälle für Objekt-Storage*
+
+image:../media/datalake-analytics/image1.png["StorageGRID Falldiagramm, Breite=396, Höhe=394"]
+
+Zu den oben genannten Fällen gehört Big-Data-Analysen zu den häufigsten Nutzungsfällen und die Nutzung dieser Daten ist mit einem Aufwärtstrend verbunden.
+
+
+
+== Warum StorageGRID für Data Lakes?
+
+* Verstärkte Zusammenarbeit: Enorme, gemeinsam genutzte Mandantenfähigkeit mit branchenüblicher API-Zugriff
+* Niedrigere Betriebskosten: Einfacher Betrieb in einer einzelnen, automatisierten Scale-out-Architektur mit Selbstreparatur
+* Skalierbarkeit – im Gegensatz zu herkömmlichen Hadoop- und Data-Warehouse-Lösungen entkoppelt der StorageGRID S3 Objekt-Storage den Storage von Computing und Daten. So können Unternehmen ihre Storage-Anforderungen mit wachsendem Bedarf skalieren.
+* Langlebigkeit und Zuverlässigkeit: StorageGRID bietet eine Lebensdauer von 99.999999999 %, was bedeutet, dass die gespeicherten Daten sehr resistent gegen Datenverlust sind. Darüber hinaus ist Hochverfügbarkeit gewährleistet, sodass die Daten jederzeit abrufbar sind.
+* Sicherheit – StorageGRID bietet verschiedene Sicherheitsfunktionen, darunter Verschlüsselung, Zugriffssteuerungsrichtlinien, Daten-Lifecycle-Management, Objektsperre und Versionierung zum Schutz der in S3 Buckets gespeicherten Daten
+
+
+*StorageGRID S3 Data Lakes*
+
+image:../media/datalake-analytics/image2.png["StorageGRID-Datenbeispiel, Breite=614, Höhe=345"]
+
+
+
+== Welches Data Warehouse oder Data Lake eignet sich am besten für S3 Objekt-Storage
+
+NetApp benchmarked StorageGRID mit drei Data Warehouse/Lake House Ökosysteme - Hive, Delta Lake und Dremio. https://www.dremio.com/wp-content/uploads/2023/02/apache-iceberg-TDG_ER1.pdf?aliId=eyJpIjoieDRUYjFKN2ZMbXhTRnFRWCIsInQiOiJIUUw0djJsWnlJa21iNUsyQURRalNnPT0ifQ%253D%253D["Apache Iceberg: Der Endgültige Führer"] Enthält eine kurze Einführung in Data Warehouse und Data Lake House sowie vor- und Nachteile dieser beiden Architekturen.
+
+* Benchmark-Tool - TPC-DS - https://www.tpc.org/tpcds/[]
+* Big-Data-Ecosysteme
++
+** Cluster mit 5 VMs, jeweils mit 128 GB RAM und 24 vCPUs, SSD-Storage für Systemfestplatte
+** Hadoop 3.3.5 mit Hive 3.1.3 (1 Name Node + 4 Daten-Nodes)
+** Delta Lake mit Spark 3.2.0 (1 Master + 4 Workers) und Hadoop 3.3.5
+** Dremio v23 (1 Master + 4 Ausführende)
+
+
+* Objekt-Storage
++
+** NetApp^®^ StorageGRID^®^ 11.6 mit 3 SG6060 + 1 SG1000 Load Balancer
+** Objektschutz - 2 Kopien
+
+
+* Datenbankgröße 1.000 GB
+* Cache in allen 3 Ökosystemen deaktiviert, um für jeden Abfragetest ein konsistentes Ergebnis zu erhalten.
+
+
+TPC-DS verfügt über 99 komplexe SQL-Abfragen für das Abfrage-Benchmarking. Wir haben die Gesamtzahl der Minuten gemessen, um alle 99 Abfragen zu beantworten, und wir sind tiefer in die Tiefe gegangen, indem wir die Art und Anzahl der S3-Anfragen für die Analyse des Ergebnisses aufteilen. Die erste Tabelle unten zeigt die Gesamtdauer aller 99 Abfragen und die zweite Tabelle fasst die Anzahl und die Typen der S3-Anforderungen zusammen, die jedes Ökosystem an StorageGRID sendet.
+
+*TPC-DS Abfrageergebnis*
+
+[cols="35%,20%,23%,22%"]
+|===
+| Ecosystem | Hive | Delta Lake | Dremio 
+
+
+| Storage-Ebene | NetApp^®^ StorageGRID^®^ | NetApp^®^ StorageGRID^®^ | NetApp^®^ StorageGRID^®^ 
+
+
+| Laufwerkstyp | HDD | HDD | HDD 
+
+
+| Tabellenformat | Parkett | Parkett | Parkett ^1^ 
+
+
+| Datenbankgröße | 1000 G | 1000 G | 1000 G 
+
+
+| TPCDS 99 Abfragen +
+Minuten gesamt | 1084 ^2^ | 55 | 47 
+|===
+^1^ getestet sowohl Parkett- als auch Iceberg-Tischformat, Ergebnis ist ähnlich.
+
+^2^ Hive konnte die Abfragenummer 72 nicht abschließen.
+
+*TPC-DS Abfragen - S3 fordert Aufschlüsselung* an
+
+[cols="24%,24%,27%,25%"]
+|===
+| S3-Anfragen | Hive | Delta Lake | Dremio 
+
+
+| GET | 1,117,184 | 2,074,610 | 4,414,227 
+
+
+| Beobachtung: +
+Alle Reichweite ERHALTEN | 80% Bereich von 2 KB bis 2 MB von 32 MB Objekten, 50 - 100 Anfragen/Sek. | 73% Bereich unter 100 KB von 32-MB-Objekten, 1000 - 1400 Anforderungen/Sek. | 90 % 1 MB-Bereich von Objekten mit 256 MB, 2000 bis 2300 Anforderungen/Sek. 
+
+
+| Objekte auflisten | 312,053 | 24,158 | 240 
+
+
+| KOPF +
+(Nicht vorhandenes Objekt) | 156,027 | 12,103 | 192 
+
+
+| KOPF +
+(Vorhandenes Objekt) | 982,126 | 922,732 | 1,845 
+
+
+| Gesamtanforderungen | 2,567,390 | 3,033,603 | 4,416,504 
+|===
+Vom ersten Tisch aus sehen wir Delta Lake und Dremio sind viel schneller als Hive. Aus der zweiten Tabelle geht hervor, dass Hive viele Anfragen zu S3 Listenobjekten gesendet hat, die in der Regel auf allen Objekt-Storage-Plattformen langsam sind, insbesondere dann, wenn es um einen Bucket mit vielen Objekten geht. Dies erhöht die gesamte Abfragedauer deutlich. Eine weitere Beobachtung ist, dass Dremio in der Lage war, eine hohe Anzahl von GET-Anfragen parallel zu senden, 2,000 bis 2,300 Anfragen pro Sekunde gegenüber 50 bis 100 Anfragen pro Sekunde in Hive. Hive und Hadoop S3A imitieren das Standarddateisystem und tragen zur Hive-Langsamkeit auf S3-Objekt-Storage bei.
+
+Bei der Nutzung von Hadoop (entweder auf HDFS oder S3 Objekt-Storage) mit Hive oder Spark sind umfassende Kenntnisse zu Hadoop und Hive/Spark sowie die Interaktion der Einstellungen der einzelnen Services erforderlich – zusammen verfügen diese über mehr als 1000 Einstellungen. Sehr oft sind die Einstellungen miteinander verknüpft und können nicht allein geändert werden. Es erfordert enorm viel Zeit und Aufwand, um die optimale Kombination von Einstellungen und Werten zu finden.
+
+Dremio ist eine Data-Lake-Engine, die mithilfe von End-to-End-Apache Arrow die Abfrage-Performance drastisch steigert. Apache Arrow bietet ein standardisiertes spaltenbasierte Speicherformat für effizientes Daten-Sharing und schnelle Analysen. Arrow verwendet einen sprachunabhängigen Ansatz, der die Notwendigkeit einer Datenserialisierung und -Deserialisierung eliminiert und die Performance und Interoperabilität zwischen komplexen Datenprozessen und -Systemen verbessert.
+
+Die Leistung von Dremio wird hauptsächlich durch die Rechenleistung des Dremio Clusters angetrieben. Obwohl Dremio für die S3-Objektspeicher-Verbindung den S3A-Connector von Hadoop verwendet, ist Hadoop nicht erforderlich und die meisten der fs.s3a-Einstellungen von Hadoop werden von Dremio nicht verwendet. Damit ist die Optimierung der Leistung von Dremio ganz einfach, ohne Zeit zum Erlernen und Testen verschiedener Hadoop s3a-Einstellungen zu benötigen.
+
+Aus diesem Benchmark-Ergebnis können wir schließen, dass Big-Data-Analysesysteme mit Optimierung für S3-basierte Workloads zu einem wesentlichen Performance-Faktor werden. Dremio optimiert die Abfrageausführung, verwendet Metadaten effizient und bietet nahtlosen Zugriff auf S3-Daten. Dies ermöglicht eine bessere Performance im Vergleich zu Hive bei der Arbeit mit S3-Storage. Weitere Informationen finden Sie hier https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/configure-dremio-storagegrid.html["Seite"] Zur Konfiguration der Dremio S3 Datenquelle mit StorageGRID.
+
+Unter den folgenden Links erfahren Sie mehr darüber, wie StorageGRID und Dremio gemeinsam eine moderne und effiziente Data-Lake-Infrastruktur bereitstellen und wie NetApp von Hive + HDFS auf Dremio + StorageGRID migrierte, um die Analyseeffizienz von Big Data drastisch zu steigern.
+
+* https://www.netapp.tv/details/31426?mcid=02148179640195118863901007338453703701["Mehr Performance für Big Data mit NetApp StorageGRID"]
+* https://www.netapp.com/media/80932-SB-4236-StorageGRID-Dremio.pdf["Moderne, leistungsstarke und effiziente Data-Lake-Infrastruktur mit StorageGRID und Dremio"]
+* https://youtu.be/Y57Gyj4De2I?si=nwVG5ohCj93TggKS["Wie NetApp die Kundenerfahrung mit Produktanalysen neu definiert"]
+
