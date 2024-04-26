@@ -1528,4 +1528,54 @@ Alle Reichweite ERHALTEN</block>
   <block id="0ad1cadfe97c5910e1b3ce75c8b0ff1f" category="sidebar">NetApp StorageGRID und Big Data Analytics</block>
   <block id="6407baffaf35e5f51c2e06e83659fcae" category="sidebar">Hadoop S3A Tuning Best Practices</block>
   <block id="34d8c979f20e6e946fc25898c9b703b0" category="sidebar">Hadoop S3A-Tuning</block>
+  <block id="23e421cbf9f56a23426fd9d29746a636" category="summary">Dieser Leitfaden beschreibt die Vorbereitung und das Verfahren für den Standortwechsel in einem Grid mit mehreren Standorten von StorageGRID.</block>
+  <block id="8295ab4dfd6c34f8b3da70a8bfaaada3" category="doc">Standortverlagerung von Grid-Standorten und standortweites Netzwerkänderungsverfahren</block>
+  <block id="a7b0b12fd572901946be0ed19cb6a438" category="paragraph">Dieser Leitfaden beschreibt die Vorbereitung und das Verfahren für den Standortwechsel in einem Grid mit mehreren Standorten von StorageGRID. Sie sollten über ein vollständiges Verständnis dieser Vorgehensweise verfügen und im Voraus planen, um einen reibungslosen Prozess zu gewährleisten und Unterbrechungen für Kunden zu minimieren.</block>
+  <block id="731561f650e3a36691bae029b4547c66" category="inline-link-macro">Ändern Sie die IP-Adressen für alle Nodes im Grid</block>
+  <block id="e16a17e0f04937786448505101cf5703" category="paragraph">Informationen zum Ändern des Grid-Netzwerks des gesamten Grid finden Sie unter
+<block ref="25fe4ea07c9ed2c1ea3e524430970ba9" category="inline-link-macro-rx"></block>.</block>
+  <block id="d62541926508b7fc98152bdd26f6b28c" category="section-title">Überlegungen vor Standortverlagerung</block>
+  <block id="adb2a3f1ce6044cca831a1c3e1fcc38c" category="inline-link-macro">Stellen Sie Storage Node länger als 15 Tage wieder her</block>
+  <block id="79286dd19701572b9607fd1b47f14c5f" category="list-text">Die Standortverschiebungen sollten abgeschlossen sein und alle Nodes innerhalb von 15 Tagen online sein, um eine Wiederherstellung der Cassandra-Datenbank zu vermeiden.
+<block ref="fb2aa662be1b0eb04ce42e59fa10d995" category="inline-link-macro-rx"></block></block>
+  <block id="d81093eaf5709c0a3ae4db45ea962851" category="list-text">Wenn eine ILM-Regel in der aktiven Richtlinie striktes Aufnahmeverhalten verwendet, sollten Sie sie in Erwägung ziehen, um einen Ausgleich oder eine doppelte Provisionierung zu erreichen, wenn der Kunde weiterhin Objekte im Grid bei der Standortverlagerung ABLEGEN möchte.</block>
+  <block id="5fcd60bee26dbdd38058786d89d30945" category="list-text">Bei Storage Appliances mit 60 oder mehr Laufwerken: Verschieben Sie das Shelf niemals bei installierten Festplatten.  Beschriften Sie die einzelnen Laufwerke, und entfernen Sie sie vor dem Verpacken/Verschieben aus dem Speichergehäuse.</block>
+  <block id="3bf27243eed945ae028b0d83a672aafd" category="list-text">Ändern der StorageGRID-Appliance Grid-Netzwerk-VLAN kann Remote über das Admin-Netzwerk oder das Client-Netzwerk durchgeführt werden.  Oder planen Sie, vor Ort zu sein, um die Änderung vor oder nach dem Umzug durchzuführen.</block>
+  <block id="fc1ade2120cd035ae884b4c776a06e08" category="list-text">Prüfen Sie, ob die Kundenanwendung vor dem PUT ein Objekt vom TYP HEAD oder GET Nonexistent verwendet. Wenn ja, ändern Sie die Bucket-Konsistenz in strong-site, um HTTP 500-Fehler zu vermeiden.  Wenn Sie sich nicht sicher sind, überprüfen Sie die S3-Übersicht Grafana-Diagramme *Grid-Manager &gt; Support &gt; Metriken*, bewegen Sie die Maus über das Diagramm 'gesamte abgeschlossene Anfrage'.  Wenn eine sehr hohe Anzahl von 404 get Object oder 404 Head Objects vorhanden ist, verwenden wahrscheinlich eine oder mehrere Anwendungen Head oder Get Nonexistence Objects. Die Zählung wird akkumuliert, Maus über verschiedene Zeitachse, um den Unterschied zu sehen.</block>
+  <block id="61bce3e94387d562e70e4344c21875a9" category="inline-image-macro">S3 Übersicht Grafana-Diagramm Beispiel</block>
+  <block id="c8d25296b6242f878bcc65b3463a9213" category="paragraph"><block ref="c8d25296b6242f878bcc65b3463a9213" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="91ecbe84c3a3b51ceb6c3c1c46fe828e" category="section-title">Verfahren zum Ändern der Grid-IP-Adresse vor Standortverlagerung</block>
+  <block id="7ce3d8dcf98150ca295b4e8b4a175d28" category="inline-link-macro">Fügen Sie das Subnetz der Subnetzliste des Netznetzes hinzu</block>
+  <block id="ef79c64bf374a8f7d8f11ddac8bac6ea" category="list-text">Wenn das neue Netznetz-Subnetz am neuen Standort verwendet wird,
+<block ref="a48adf12485e7e1fabf51f229ceb57fd" category="inline-link-macro-rx"></block></block>
+  <block id="a27c73113b9f8b1c8936231a5c6b72db" category="list-text">Melden Sie sich beim primären Admin-Knoten an, verwenden Sie Change-IP, um Grid IP-Änderungen vorzunehmen, müssen Sie die Änderung * inszenieren*, bevor Sie den Knoten für die Verlagerung herunterfahren.</block>
+  <block id="e8ebed2710314532bd7421c291775f7a" category="list-text">Wählen Sie 2 und dann 1 für Grid IP-Änderung</block>
+  <block id="f246621acb182eca202eb998d35a0a71" category="paragraph"><block ref="f246621acb182eca202eb998d35a0a71" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0fc35f100f57d71f3d04d75f8e34db7a" category="list-text">Wählen Sie 5, um die Änderungen anzuzeigen</block>
+  <block id="51db02a440736bec001c7d690821ec49" category="paragraph"><block ref="51db02a440736bec001c7d690821ec49" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0db10ef124f48bf74646e51d511e42e7" category="list-text">Wählen Sie 10, um die Änderung zu validieren und anzuwenden.</block>
+  <block id="ecf8b3b84403afdd8f30ff4ca92df4d0" category="paragraph"><block ref="ecf8b3b84403afdd8f30ff4ca92df4d0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b535a2204d1cc298ac5c3b36cc8a9249" category="list-text">In diesem Schritt muss *Stufe* ausgewählt werden.</block>
+  <block id="a8c78f88b73dcaf8b7082c7d8bab4356" category="paragraph"><block ref="a8c78f88b73dcaf8b7082c7d8bab4356" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23e28a352f23f6051ecbe97b0516b42f" category="list-text">Wenn der primäre Admin-Knoten in der obigen Änderung enthalten ist, geben Sie *'a' ein, um den primären Admin-Knoten manuell neu zu starten*</block>
+  <block id="6cfd9d702fc475a31c16db4299ee31a0" category="paragraph"><block ref="6cfd9d702fc475a31c16db4299ee31a0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="355ec7ab5ee5e52899a8a48528d82b93" category="list-text">Drücken Sie ENTER, um zum vorherigen Menü zurückzukehren und die Change-ip-Schnittstelle zu verlassen.</block>
+  <block id="34efad53185ba8366fcb774fe4502175" category="paragraph"><block ref="34efad53185ba8366fcb774fe4502175" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6a713acf175fd861bbb563ab540a06fe" category="list-text">Laden Sie das neue Wiederherstellungspaket vom Grid Manager herunter. *Grid-Manager* &gt; *Wartung* &gt; *Recovery-Paket*</block>
+  <block id="96557217b00ac75f863bec84c65347bf" category="list-text">Wenn eine VLAN-Änderung auf der StorageGRID-Appliance erforderlich ist, lesen Sie den Abschnitt <block ref="f1c1d143229526a165bf49ac775d4ecd" category="inline-xref-macro-rx"></block>.</block>
+  <block id="26afb12dd81518887c60c85ae47dab08" category="list-text">Fahren Sie alle Knoten und/oder Geräte am Standort herunter, kennzeichnen/entfernen Sie ggf. Festplattenlaufwerke, und entfernen Sie sie aus dem Rack, packen Sie sie aus, und verschieben Sie sie.</block>
+  <block id="850fa0cd526764089644bd18997fcf0b" category="list-text">Wenn Sie die ip-Adresse des Admin-Netzwerks und/oder des Client-VLAN und der ip-Adresse ändern möchten, können Sie die Änderung nach der Verlagerung vornehmen.</block>
+  <block id="28b10382e67e37853ae45379b731cfaf" category="section-title">VLAN-Änderung der Appliance</block>
+  <block id="a65d2c0e652207280c57973442478f26" category="paragraph">Bei der folgenden Vorgehensweise wird davon ausgegangen, dass Sie Remote-Zugriff auf das Admin- oder Client-Netzwerk der StorageGRID Appliance haben, um die Änderung Remote durchzuführen.</block>
+  <block id="840a6c754184c6fbce872458dcf35141" category="inline-link-macro">Stellen Sie das Gerät in den Wartungsmodus</block>
+  <block id="5b8e4de8e50ebe10173b2539d1612010" category="list-text">Vor dem Herunterfahren des Geräts
+<block ref="1d36a7361466de3adde00ce864c41474" category="inline-link-macro-rx"></block>.</block>
+  <block id="24377316ae141b63c8170119bbfe4239" category="list-text">Verwenden eines Browsers für den Zugriff auf die StorageGRID-Appliance-Installer-GUI mit<block ref="41c0f2506f64eaa17788753cf29de6aa" category="inline-link-rx"></block>.  Grid IP kann nicht verwendet werden, da die neue Grid-IP bereits vorhanden ist, sobald die Appliance im Wartungsmodus gestartet wird.</block>
+  <block id="fe21d31242c56f4eee91182bd1268a5a" category="list-text">Ändern Sie das VLAN für das Grid-Netzwerk.  Wenn Sie über das Client-Netzwerk auf die Appliance zugreifen, können Sie das Client-VLAN derzeit nicht ändern. Sie können es nach dem Umzug ändern.</block>
+  <block id="293c5807e9e9ab4b268fd617e8e5a56d" category="list-text">ssh zur Appliance und Herunterfahren des Node mit 'shutdoown -h now'</block>
+  <block id="1c33a8d84128bb59ae10a50b662e3a98" category="list-text">Sobald die Appliances an einem neuen Standort bereit sind, können Sie über die Benutzeroberfläche des StorageGRID-Appliance-Installationsprogramms auf zugreifen<block ref="fba5b5bfbff166288edb187e140418b2" category="inline-link-rx"></block>.  Überprüfen Sie mithilfe der Ping/nmap-Tools in der GUI, ob sich der Speicher im optimalen Zustand und der Netzwerkverbindung zu anderen Grid-Nodes befindet.</block>
+  <block id="786f3a0a71ff6ad9513f86143e55c1ce" category="list-text">Wenn Sie planen, die Client-Netzwerk-IP zu ändern, können Sie das Client-VLAN zu diesem Zeitpunkt ändern.  Das Client-Netzwerk ist erst bereit, wenn Sie die Client-Netzwerk-ip-Adresse mit dem Change-ip-Tool in einem späteren Schritt aktualisieren.</block>
+  <block id="fff8d22924e491405ba3026b24555fa6" category="list-text">Beenden Sie den Wartungsmodus. Wählen Sie im Installationsprogramm der StorageGRID-Appliance die Option *Erweitert* &gt; *Controller neu starten* aus, und wählen Sie dann *Neustart in StorageGRID* aus.</block>
+  <block id="6668d4dfafe68f86bfe1db4386e9ce7b" category="list-text">Wenn alle Nodes eingeschaltet sind und Grid kein Verbindungsproblem zeigt, aktualisieren Sie ggf. das Admin-Netzwerk und das Client-Netzwerk der Appliance mithilfe von Change-ip.</block>
+  <block id="bae75f6502d7126b5a2837bf5628cab3" category="sidebar">Standortwechsel und Netzwerkwechsel</block>
 </blocks>

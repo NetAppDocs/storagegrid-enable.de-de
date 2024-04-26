@@ -45,6 +45,8 @@ indexpage:
       url: "/product-feature-guides/node-clone.html"
     - title: So verwenden Sie die Port-Neuzuordnung
       url: "/product-feature-guides/port-remap.html"
+    - title: Standortwechsel und Netzwerkwechsel
+      url: "/product-feature-guides/site-relocation-and-network-change.html"
   - title: Tool- und Anwendungsleitfäden
     links:
     - title: Nutzen Sie den Cloudera Hadoop S3A Connector
