@@ -5,7 +5,10 @@ keywords: data lake, on-premises, analytics, storagegrid, object
 summary: Dieser Bericht behandelt Big Data Analytics zu StorageGRID. 
 ---
 = NetApp StorageGRID und Big Data Analytics
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 
@@ -30,7 +33,7 @@ Die NetApp StorageGRID Objekt-Storage-Lösung bietet Skalierbarkeit, Datenverfü
 
 *Anwendungsfälle für Objekt-Storage*
 
-image:../media/datalake-analytics/image1.png["StorageGRID Falldiagramm, Breite=396, Höhe=394"]
+image:datalake-analytics/image1.png["StorageGRID Falldiagramm, Breite=396, Höhe=394"]
 
 Zu den oben genannten Fällen gehört Big-Data-Analysen zu den häufigsten Nutzungsfällen und die Nutzung dieser Daten ist mit einem Aufwärtstrend verbunden.
 
@@ -47,7 +50,7 @@ Zu den oben genannten Fällen gehört Big-Data-Analysen zu den häufigsten Nutzu
 
 *StorageGRID S3 Data Lakes*
 
-image:../media/datalake-analytics/image2.png["StorageGRID-Datenbeispiel, Breite=614, Höhe=345"]
+image:datalake-analytics/image2.png["StorageGRID-Datenbeispiel, Breite=614, Höhe=345"]
 
 
 

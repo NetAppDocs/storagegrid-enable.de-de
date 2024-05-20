@@ -5,9 +5,13 @@ keywords: data lake, on-premises, analytics, storagegrid, object, hadoop
 summary: Dieser Bericht behandelt die Abstimmung von S3A für StorageGRID. 
 ---
 = Hadoop S3A-Tuning
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
 Der Hadoop S3A Connector ermöglicht die nahtlose Interaktion zwischen Hadoop-basierten Applikationen und S3 Objektspeicher. Um die Performance bei der Arbeit mit S3-Objektspeicher zu optimieren, ist die Anpassung des Hadoop S3A Connector unerlässlich. Bevor wir uns mit der Feinabstimmung befassen, wollen wir zunächst ein grundlegendes Verständnis von Hadoop und seinen Komponenten haben.
 
 
@@ -73,7 +77,7 @@ Experimentieren Sie mit beiden, um zu ermitteln, welche Lösung am besten zu Ihr
 
 Zusammenfassend stellen die S3A Committers eine Lösung für die grundlegende Herausforderung dar, die ein konsistentes, leistungsstarkes und zuverlässiges Leistungsengagement für S3 darstellt. Das interne Design gewährleistet einen effizienten Datentransfer bei gleichzeitiger Wahrung der Datenintegrität.
 
-image:../media/s3a-tuning/image1.png["S3A Optionstabelle"]
+image:s3a-tuning/image1.png["S3A Optionstabelle"]
 
 *3. Thread, Größe des Verbindungspools und Blockgröße*
 
@@ -83,7 +87,7 @@ image:../media/s3a-tuning/image1.png["S3A Optionstabelle"]
 * Größere Blockgrößen verbessern die Performance beim Hochladen großer Daten, da sich der Managementaufwand für mehrteilige Teile während des Uploads verringert. Der empfohlene Wert ist 256 MB oder höher für große Datensätze.
 
 
-image:../media/s3a-tuning/image2.png["S3A Optionstabelle"]
+image:s3a-tuning/image2.png["S3A Optionstabelle"]
 
 *4. Mehrteiliges Hochladen*
 
@@ -122,12 +126,12 @@ Ein mehrteiliges Hochladen ist ein https://docs.aws.amazon.com/AmazonS3/latest/d
 
 Wenn die Anfrage zum vollständigen Hochladen mehrerer Teile nicht erfolgreich gesendet wird, bleiben die Teile in StorageGRID und erstellen kein Objekt. Dies geschieht, wenn Jobs unterbrochen, fehlgeschlagen oder abgebrochen werden. Die Teile verbleiben im Raster, bis der Upload mehrerer Teile abgeschlossen ist oder abgebrochen wird oder StorageGRID diese Teile löscht, wenn 15 Tage nach dem Upload vergangen sind. Wenn sich viele (einige Hunderttausend bis Millionen) mehrteilige Uploads in einem Bucket befinden und Hadoop ‘list-Multipart-Uploads’ sendet (diese Anfrage filtert nicht nach Upload-id), kann die Bearbeitung der Anfrage sehr viel Zeit in Anspruch nehmen oder eventuell eine bestimmte Zeit in Anspruch nehmen. Sie können die Einstellung fs.s3a.mutlipart.purge mit dem entsprechenden Wert fs.s3a.Multipart.purge.age (z. B. 5 bis 7 Tage, verwenden Sie den Standardwert 86400, d. h. 1 Tag) auf true setzen. Oder wenden Sie sich an den NetApp Support, um die Situation zu untersuchen.
 
-image:../media/s3a-tuning/image3.png["S3A Optionstabelle"]
+image:s3a-tuning/image3.png["S3A Optionstabelle"]
 
 *5. Pufferschreibdaten im Speicher*
 
 Zur Verbesserung der Performance können Sie Schreibdaten vor dem Hochladen in S3 zwischenspeichern. Dies kann die Anzahl kleiner Schreibvorgänge reduzieren und die Effizienz verbessern.
 
-image:../media/s3a-tuning/image4.png["S3A Optionstabelle"]
+image:s3a-tuning/image4.png["S3A Optionstabelle"]
 
 S3 und HDFS funktionieren jedoch auf unterschiedliche Weise. Um die S3-Ressourcen optimal zu nutzen, sind sorgfältiges Tuning/Test/Experiment nötig.
