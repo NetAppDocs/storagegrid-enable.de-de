@@ -31,7 +31,7 @@ Node-Klone können eine schnellere Methode zum Austausch vorhandener Appliance-N
 
 * Für den Klonprozess eines Node muss der Quell-Node für die Dauer des Klonens offline im Grid sein. Wenn ein zusätzlicher Knoten während dieser Zeit offline geht, sind möglicherweise die Client-Services betroffen.
 * Ein Storage-Node kann nur 15 Tage lang offline sein. Wenn der Klonprozess fast 15 Tage beträgt oder 15 Tage überschreitet, können Sie das Erweiterungs- und Ausmusterung verwenden.
-* Bei einem SG6060 mit Erweiterungs-Shelfs müssen Sie die Zeit für die richtige Shelf-Laufwerksgröße zur Zeit der Basis-Appliance hinzufügen, um die volle Klondauer zu erhalten.
+* Bei einem SG6060 oder SG6160 mit Erweiterungs-Shelfs müssen Sie die Zeit für die richtige Shelf-Laufwerksgröße zur Zeit der Basis-Appliance hinzufügen, um die volle Klondauer zu erhalten.
 * Die Anzahl der Volumes in einer Ziel-Storage-Appliance muss größer oder gleich der Anzahl der Volumes im Quell-Node sein. Sie können einen Quell-Node mit 16 Objektspeicher-Volumes (rangedb) nicht auf einer Ziel-Storage-Appliance mit 12 Objektspeicher-Volumes klonen, selbst wenn die Ziel-Appliance über eine größere Kapazität als der Quell-Node verfügt. Die meisten Storage Appliances verfügen über 16 Objektspeicher-Volumes, außer der SGF6112 Storage Appliance mit nur 12 Objektspeicher-Volumes. Sie können beispielsweise nicht von einem SG5760 in ein SGF6112 klonen.
 
 
@@ -89,7 +89,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5712 -> beliebig
+==== SG5712/SG5812 -> beliebig
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -131,7 +131,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5660 -> SG5760
+==== SG5660 -> SG5760/SG5860
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -173,7 +173,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5660 -> SG6060
+==== SG5660 -> SG6060/SG6160
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -215,7 +215,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5760 -> SG5760
+==== SG5760/SG5860 -> SG5760/SG5860
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -257,7 +257,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5760 -> SG6060
+==== SG5760/SG5860 -> SG6060/SG6160
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -299,7 +299,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG6060 -> SG6060
+==== SG6060/SG6160 -> SG6060/SG6160
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -345,7 +345,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 
 
 
-==== SG5760 -> SG5760
+==== SG5760/SG5860 -> SG5760/SG5860
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -387,7 +387,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG5760 -> SG6060
+==== SG5760/SG5860 -> SG6060/SG6160
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -429,7 +429,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== SG6060 -> SG6060
+==== SG6060/SG6160 -> SG6060/SG6160
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
@@ -471,7 +471,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
-==== Erweiterungs-Shelf (oberhalb von SG6060 für jedes Shelf in der Quell-Appliance hinzufügen)
+==== Erweiterungs-Shelf (oberhalb von SG6060/SG6160 für jedes Shelf auf der Quell-Appliance hinzufügen)
 
 [cols="2a,1a,1a,1a,1a,1a,1a"]
 |===
