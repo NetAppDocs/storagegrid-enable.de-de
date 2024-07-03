@@ -1,0 +1,94 @@
+---
+permalink: technical-reports/veritas/configure-storagegrid-enterprise-vault.html 
+sidebar: sidebar 
+keywords: storagegrid, enterprise vault, configure 
+summary: Erfahren Sie, wie Sie grundlegende Konfigurationen für StorageGRID 11.5 und Veritas Enterprise Vault 14.1 implementieren. 
+---
+= Konfigurieren Sie StorageGRID und Veritas Enterprise Vault
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie grundlegende Konfigurationen für StorageGRID 11.5 oder höher und Veritas Enterprise Vault 14.1 oder höher implementieren.
+
+Dieser Konfigurationsleitfaden basiert auf StorageGRID 11.5 und Enterprise Vault 14.1. Für WORM-Modus (Write Once, Read Many) wurde Storage mit S3 Object Lock, StorageGRID 11.6 und Enterprise Vault 14.2.2 verwendet. Weitere Details zu diesen Richtlinien finden Sie auf der https://docs.netapp.com/us-en/storagegrid-118/["StorageGRID-Dokumentation"^] Seite oder bei einem StorageGRID Experten.
+
+
+
+== Voraussetzungen für die Konfiguration von StorageGRID und Veritas Enterprise Vault
+
+* Bevor Sie StorageGRID mit Veritas Enterprise Vault konfigurieren, überprüfen Sie die folgenden Voraussetzungen:
+
+
+
+NOTE: Für WORM Storage (Objektsperre) ist StorageGRID 11.6 oder höher erforderlich.
+
+* Veritas Enterprise Vault 14.1 oder höher ist installiert.
+
+
+
+NOTE: Für WORM Storage (Object Lock) ist Enterprise Vault ab Version 14.2.2 erforderlich.
+
+* Vault-Speichergruppen und ein Vault-Speicher wurden erstellt. Weitere Informationen finden Sie im Veritas Enterprise Vault Administration Guide.
+* Ein StorageGRID-Mandant, Zugriffsschlüssel, geheimer Schlüssel und Bucket wurden erstellt.
+* Ein StorageGRID-Load-Balancer-Endpunkt wurde erstellt (entweder HTTP oder HTTPS).
+* Wenn Sie ein selbstsigniertes Zertifikat verwenden, fügen Sie das selbstsignierte StorageGRID-CA-Zertifikat zu den Enterprise Vault-Servern hinzu. Weitere Informationen finden Sie in diesem https://www.veritas.com/support/en_US/article.100049744["Artikel der Veritas Knowledge Base"^].
+* Aktualisieren Sie die aktuelle Enterprise Vault-Konfigurationsdatei, und wenden Sie sie an, um unterstützte Speicherlösungen wie NetApp StorageGRID zu ermöglichen. Weitere Informationen finden Sie in diesem https://www.veritas.com/content/support/en_US/article.100039174["Artikel der Veritas Knowledge Base"^].
+
+
+
+
+== Konfigurieren Sie StorageGRID mit Veritas Enterprise Vault
+
+So konfigurieren Sie StorageGRID mit Veritas Enterprise Vault:
+
+.Schritte
+. Starten Sie die Enterprise Vault Administration-Konsole.
++
+image:third-party-enterprise-vault.png["Medien/Drittanbieter-Enterprise-Vault"]
+
+. Erstellen Sie eine neue Vault-Speicherpartition im entsprechenden Vault-Speicher. Erweitern Sie den Ordner Vault Store Groups und anschließend den entsprechenden Vault-Speicher. Klicken Sie mit der rechten Maustaste auf Partition, und wählen Sie MENU:New[Partition].
++
+image:third-party-enterprise-vault-2.png["Medien/Drittanbieter-Enterprise-Vault-2"]
+
+. Folgen Sie dem Assistenten zum Erstellen neuer Partitionen. Wählen Sie aus dem Dropdown-Menü Speichertyp die Option NetApp StorageGRID (S3) aus. Klicken Sie Auf Weiter.
++
+image:third-party-new-partition.png["Drittanbieter-neue-Partition"]
+
+. Lassen Sie die Option Daten im WORM-Modus mit S3 Objektsperre speichern deaktiviert. Klicken Sie Auf Weiter.
++
+image:third-party-new-partition-2.png["Drittanbieter-New-Partition-2"]
+
+. Geben Sie auf der Seite Verbindungseinstellungen folgende Informationen ein:
++
+** Zugriffsschlüssel-ID
+** Geheimer Zugriffsschlüssel
+** Service-Host-Name: Stellen Sie sicher, dass der in StorageGRID konfigurierte Load Balancer-Endpunkt (LBE)-Port (z. B. \https://<hostname>:<LBE_port>) einbezogen wird.
+** Bucket-Name: Name des bereits erstellten Ziel-Buckets. Veritas Enterprise Vault erstellt den Bucket nicht.
+** Bucket-Region: `us-east-1` Ist der Standardwert.
++
+image:third-party-new-partition-3.png["Drittanbieter-New-Partition-3"]
+
+
+
+. Um die Verbindung zum StorageGRID-Bucket zu überprüfen, klicken Sie auf Test. Überprüfen Sie, ob der Verbindungstest erfolgreich war. Klicken Sie auf OK und dann auf Weiter.
++
+image:third-party-new-partition-4.png["Drittanbieter-New-Partition-4"]
+
+. StorageGRID unterstützt den S3-Replizierungsparameter nicht. Zum Schutz Ihrer Objekte verwendet StorageGRID Regeln für Information Lifecycle Management (ILM), um Datensicherungsschemata festzulegen – mehrere Kopien oder Erasure Coding. Wählen Sie die Option Wenn archivierte Dateien im Speicher vorhanden sind aus, und klicken Sie auf Weiter.
++
+image:third-party-new-partition-5.png["Drittanbieter-New-Partition-5"]
+
+. Überprüfen Sie die Informationen auf der Übersichtsseite, und klicken Sie auf Fertig stellen.
++
+image:third-party-new-partition-6.png["Drittanbieter-New-Partition-6"]
+
+. Nachdem die neue Vault-Speicherpartition erfolgreich erstellt wurde, können Sie Daten in Enterprise Vault mit StorageGRID als primärem Speicher archivieren, wiederherstellen und suchen.
++
+image:third-party-new-partition-7.png["Drittanbieter-New-Partition-7"]
+
+

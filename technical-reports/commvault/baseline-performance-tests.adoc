@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/commvault/baseline-performance-tests.html 
+keywords: Backup, on-premises, commvault, storagegrid, object, S3, WORM 
+summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden. 
+---
+= Performance-Tests der Baseline prüfen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices im https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] technischen Bericht.
+
+Die Tests wurden mit 100 VMs und 1000 VMs durchgeführt, wobei beide Tests mit einer Kombination aus Windows und CentOS VMs 50/50 durchgeführt wurden. Die folgende Tabelle enthält die Ergebnisse unserer grundlegenden Performance-Tests:
+
+[cols="1a,1a,1a"]
+|===
+| Betrieb | Backup-Geschwindigkeit | Wiederherstellungsgeschwindigkeit 
+
+
+ a| 
+Aux-Kopie
+ a| 
+2 TB/Stunde
+ a| 
+1.27 TB/Stunde
+
+
+
+ a| 
+Direkt zum und vom Objekt (Deduplizierung ein)
+ a| 
+2.2 TB/Stunde
+ a| 
+1.22 TB/Stunde
+
+|===
+Um eine Performance-Steigerung zu testen, wurden 2.5 Millionen Objekte gelöscht. Wie in den Abbildungen 2 und 3 dargestellt, wurde die Löschung in weniger als 3 Stunden abgeschlossen und mehr als 80 TB an Speicherplatz freigegeben. Der Löschvorgang begann um 10:30 UHR.
+
+.Abbildung 1: Löschung von 2.5 Millionen (80 TB) Objekten in weniger als 3 Stunden
+image:commvault/obj-time.png["Objekte im Laufe der Zeit"]
+
+.Abbildung 2: Freigabe von bis zu 80 TB Storage in weniger als 3 Stunden
+image:commvault/storage-time.png["Langfristig gespeichert werden"]

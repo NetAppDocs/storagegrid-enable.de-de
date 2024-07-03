@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/data-security/object-metadata-security.html 
+keywords: object metadata security, storagegrid 
+summary: Entdecken Sie die Sicherheitsfunktionen für Objekte und Metadaten in StorageGRID. 
+---
+= Sicherheit von Objekten und Metadaten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Entdecken Sie die Sicherheitsfunktionen für Objekte und Metadaten in StorageGRID.
+
+[cols="20,30a,30,20"]
+|===
+| Funktion | Funktion | Auswirkungen | Einhaltung gesetzlicher Vorschriften 
+
+
+| Advanced Encryption Standard (AES) Server-seitige Objektverschlüsselung  a| 
+StorageGRID bietet serverseitige Objektverschlüsselung nach AES 128 und AES 256. Grid-Administratoren können die Verschlüsselung als globale Standardeinstellung aktivieren. StorageGRID unterstützt außerdem den S3 x-amz-Server-seitigen Verschlüsselungsheader, um die Verschlüsselung für einzelne Objekte zu aktivieren oder zu deaktivieren. Wenn diese Option aktiviert ist, werden die Objekte bei der Speicherung bzw. Übertragung zwischen den Grid-Nodes verschlüsselt.
+| Unterstützt die sichere Speicherung und Übertragung von Objekten, unabhängig von der zugrunde liegenden Storage-Hardware. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Integriertes Verschlüsselungsmanagement  a| 
+Bei aktivierter Verschlüsselung wird jedes Objekt mit einem zufällig generierten eindeutigen symmetrischen Schlüssel verschlüsselt, der ohne externen Zugriff in StorageGRID gespeichert wird.
+| Ermöglicht die Verschlüsselung von Objekten ohne externes Verschlüsselungsmanagement |  
+
+
+| FIPS 140-2-2-konforme Verschlüsselungsfestplatten (Federal Information Processing Standard  a| 
+Die StorageGRID Appliances SG5712, SG5760, SG6060 und SGF6024 bieten die Möglichkeit, FIPS 140-2-2-konforme Verschlüsselungsfestplatten anzubieten. Die Schlüssel für die Festplatten können optional von einem externen KMIP-Server gemanagt werden.
+| Ermöglicht sichere Speicherung von Systemdaten, Metadaten und Objekten StorageGRID bietet außerdem softwarebasierte Objektverschlüsselung, die die Storage und die Übertragung von Objekten sichert. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Hintergrundintegritätsprüfung und Selbstheilung  a| 
+StorageGRID nutzt einen Verriegelungsmechanismus aus Hashes, Prüfsummen und zyklischen Redundanzprüfungen (Cyclic Redundancy Checks, CRCs) auf Objekt- und Unterobjektebene, um sich sowohl im Storage- als auch auf der Übertragungsstrecke vor Dateninkonsistenz, Manipulation oder Änderung zu schützen. StorageGRID erkennt beschädigte und manipulierte Objekte automatisch und ersetzt sie. Gleichzeitig werden die geänderten Daten in Quarantäne verschoben und der Administrator benachrichtigt.
+| Grid-Administratoren können SLAs, Vorschriften und andere Verpflichtungen hinsichtlich der Datenaufbewahrung erfüllen. Unterstützt Kunden dabei, Ransomware oder Viren zu erkennen, die versuchen, Daten zu verschlüsseln, zu manipulieren oder zu ändern. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Richtlinienbasierte Objektplatzierung und -Aufbewahrung  a| 
+Mit StorageGRID können Grid-Administratoren ILM-Regeln konfigurieren, die die Objektaufbewahrung, -Platzierung, -Sicherung, -Übertragung und -Verfallsdaten festlegen. Grid-Administratoren können StorageGRID konfigurieren, um Objekte nach Metadaten zu filtern und Regeln auf verschiedenen Granularitätsebenen anzuwenden, einschließlich Grid-weiter, Mandant, Bucket, Schlüsselpräfix, und benutzerdefinierte Metadaten-Schlüssel-Wert-Paare. StorageGRID hilft sicherzustellen, dass Objekte während ihrer gesamten Lebenszyklen gemäß den ILM-Regeln gespeichert werden, es sei denn, sie werden vom Client ausdrücklich gelöscht.
+| Hilft bei der Durchsetzung von Datenablage, Datensicherheit und Datenhaltung. Unterstützt Kunden bei der Einhaltung von SLAs für Langlebigkeit, Verfügbarkeit und Performance. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Metadaten werden im Hintergrund gescannt  a| 
+StorageGRID scannt regelmäßig Objektmetadaten im Hintergrund, um Änderungen an der Platzierung oder Sicherung von Objektdaten gemäß ILM anzuwenden.
+| Hilft bei der Erkennung beschädigter Objekte. |  
+
+
+| Abstimmbare Konsistenz  a| 
+Mandanten können Konsistenzstufen auf Bucket-Ebene auswählen, um sicherzustellen, dass Ressourcen wie standortübergreifende Konnektivität verfügbar sind.
+| Bietet die Möglichkeit, Schreibvorgänge nur dann in das Grid zu übertragen, wenn eine erforderliche Anzahl von Standorten oder Ressourcen verfügbar ist. |  
+|===

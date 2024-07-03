@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal/dns-server-storagegrid.html 
+keywords: dns server, storagegrid 
+summary: Erfahren Sie, wie Sie den DNS-Server für StorageGRID konfigurieren. 
+---
+= Geben Sie Details zum DNS-Server für StorageGRID an
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie den DNS-Server für StorageGRID konfigurieren.
+
+Sie müssen die DNS-Informationen für Ihr StorageGRID-System angeben, damit Sie mithilfe von Hostnamen anstelle von IP-Adressen auf externe Server zugreifen können.
+
+Durch die Angabe von DNS-Serverinformationen können Sie vollständig qualifizierte Domänennamen (FQDN) statt IP-Adressen für E-Mail-Benachrichtigungen und NetApp AutoSupport®-Nachrichten verwenden. NetApp empfiehlt die Angabe von mindestens zwei DNS-Servern.
+
+
+CAUTION: Wählen Sie DNS-Server aus, auf die jeder Standort lokal zugreifen kann, wenn das Netzwerk landet.
+
+Führen Sie die folgenden Schritte aus, um DNS-Serverinformationen anzugeben:
+
+.Schritte
+. Geben Sie im Textfeld Server 1 die IP-Adresse für einen DNS-Server an.
+. Klicken Sie bei Bedarf auf das Pluszeichen neben dem letzten Eintrag, um weitere Server hinzuzufügen.
++
+image:bare-metal-add-more-servers-2.png["Bare-Metal-add-more-Server-2"]
+
+. Klicken Sie Auf Weiter.
+

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/global-load-balancing-design.html 
+keywords: global load balancing, storagegrid 
+summary: Informieren Sie sich über die Designüberlegungen und Anforderungen für den globalen Lastausgleich in StorageGRID. 
+---
+= Informationen zu den globalen Lastausgleichsanforderungen für StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Informieren Sie sich über die Designüberlegungen und Anforderungen für den globalen Lastausgleich in StorageGRID.
+
+Globaler Lastausgleich erfordert die Integration in DNS, um intelligentes Routing über mehrere StorageGRID-Standorte hinweg zu ermöglichen. Diese Funktion fällt nicht in die StorageGRID-Domäne und muss von einer Drittanbieterlösung bereitgestellt werden, z. B. den bereits erläuterten Load Balancer-Produkten und/oder einer DNS-Lösung zur Traffic-Kontrolle wie Infoblox. Dieser Lastenausgleich der obersten Ebene bietet intelligentes Routing zum nächsten Zielstandort im Namespace sowie Ausfallerkennung und Umleitung zum nächsten Standort im Namespace. Eine typische GSLB-Implementierung besteht aus dem GSLB der obersten Ebene mit Standortpools mit standortlokalen Load Balancern. Die Standortlastverteiler enthalten Pools der lokalen Speicher-Nodes am Standort. Dies kann eine Kombination aus Load Balancern von Drittanbietern für GSLB-Funktionen und StorageGRID für den lokalen Lastausgleich oder eine Kombination aus Drittanbietern sein. Oder viele der zuvor besprochenen Drittanbieter bieten sowohl GSLB als auch einen standortweiten lokalen Lastausgleich.
+
+image:load-balancer-generic-gslb.png["Generisch-gslb"]

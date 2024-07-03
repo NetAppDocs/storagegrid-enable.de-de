@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/third-party-load-balancer-configuration.html 
+keywords: third-party load balancer, storagegrid 
+summary: Erfahren Sie, wie Sie einen vertrauenswürdigen Drittanbieter-Load Balancer in StorageGRID konfigurieren. 
+---
+= Konfigurieren Sie den Load Balancer eines vertrauenswürdigen Drittanbieters in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie einen vertrauenswürdigen Drittanbieter-Load Balancer in StorageGRID konfigurieren.
+
+Wenn Sie einen oder mehrere externe Layer-7-Load-Balancer und IP-basierte S3-Bucket oder Gruppenrichtlinien verwenden, muss StorageGRID die IP-Adresse des tatsächlichen Absenders ermitteln. Dies geschieht durch einen Blick auf den X-Forwarded-for (XFF) Header, der vom Load Balancer in die Anfrage eingefügt wird. Da der XFF-Header einfach in Anfragen gespoooofing werden kann, die direkt an die Speicherknoten gesendet werden, muss StorageGRID bestätigen, dass jede Anforderung von einem vertrauenswürdigen Layer 7-Load-Balancer weitergeleitet wird. Wenn StorageGRID der Quelle der Anforderung nicht vertrauen kann, ignoriert er den XFF-Header. Es gibt eine Grid-Management-API, über die eine Liste vertrauenswürdiger externer Load Balancer der Ebene 7 konfiguriert werden kann. Diese neue API ist privat und kann sich bei zukünftigen StorageGRID Versionen ändern. Die aktuellsten Informationen finden Sie im KB-Artikel, https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_StorageGRID_to_work_with_third-party_Layer_7_load_balancers["So konfigurieren Sie StorageGRID für die Verwendung mit Layer-7-Load-Balancern von Drittanbietern"^].

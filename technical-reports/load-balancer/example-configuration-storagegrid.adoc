@@ -1,0 +1,113 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/example-configuration-storagegrid.html 
+keywords: example configuration, use cases, storagegrid 
+summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden. 
+---
+= Lernen Sie einige Anwendungsfälle für StorageGRID Konfigurationen kennen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden.
+
+Die folgenden Beispiele veranschaulichen die Konfigurationen, die von StorageGRID Kunden, einschließlich NetApp IT, implementiert wurden.
+
+
+
+== Systemzustandsüberwachung von F5 BIG-IP Local Traffic Manager für S3 Bucket
+
+Gehen Sie wie folgt vor, um die Integritätsprüfung für den F5 BIG-IP Local Traffic Manager zu konfigurieren:
+
+.Schritte
+. Erstellen Sie einen neuen Monitor.
++
+.. Geben Sie im Feld Typ `HTTPS`.
+.. Konfigurieren Sie das Intervall und die Zeitüberschreitung nach Bedarf.
+.. Geben Sie im Feld Send String \r\n sind Wagenrückläufe ein `OPTIONS / HTTP/1.1\r\n\r\n.` ; verschiedene Versionen der BIG-IP-Software erfordern Null, einen oder zwei Sätze von \r\n Sequenzen. Weitere Informationen finden Sie unter https://support.f5.com/csp/article/K10655[].
+.. Geben Sie im Feld Empfangszeichenfolge Folgendes ein: `HTTP/1.1 200 OK`.
++
+image:load-balancer-monitor-configuration-page.png["Konfigurationsseite überwachen"]
+
+
+
+. Erstellen Sie in Create Pool für jeden erforderlichen Port einen Pool.
++
+.. Weisen Sie die im vorherigen Schritt erstellte Systemzustandsüberwachung zu.
+.. Wählen Sie eine Lastausgleichsmethode aus.
+.. Wählen Sie Service Port: 18082 (S3).
+.. Nodes hinzufügen.
+
+
+
+
+
+
+== Citrix NetScaler
+
+Citrix NetScaler erstellt einen virtuellen Server für den Speicherendpunkt und verweist auf StorageGRID-Speicherknoten als Anwendungsserver, die dann in Dienste gruppiert werden.
+
+Verwenden Sie die HTTPS-ECV-Integritätsprüfung, um einen benutzerdefinierten Monitor zu erstellen, der die empfohlene Integritätsprüfung mithilfe der OPTIONSANFRAGE und des Empfangs durchführt `200`. HTTP-ECV ist mit einem Sendestring konfiguriert und validiert eine Empfangszeichenfolge.
+
+Weitere Informationen finden Sie in der Citrix-Dokumentation, https://docs.citrix.com/en-us/citrix-adc/current-release/load-balancing/load-balancing-builtin-monitors/monitor-ssl-services.html#sample-configuration-for-https-ecv-health-check-monitor["Beispielkonfiguration für HTTP-ECV-Integritätsprüfung"^].
+
+image:load-balancer-citrix-netscaler-configuration-page.png["Citrix NetScaler Monitor-Konfigurationsseite"]
+
+image:load-balancer-configure-monitor.png["Configure-monitor.png"]
+
+
+
+== Loadbalancer.org
+
+Loadbalancer.org hat eigene Integrationstests mit StorageGRID durchgeführt und hat einen umfassenden Konfigurationsleitfaden: https://pdfs.loadbalancer.org/NetApp_StorageGRID_Deployment_Guide.pdf[].
+
+
+
+== Kemp
+
+Kemp hat eigene Integrationstests mit StorageGRID durchgeführt und verfügt über einen umfassenden Konfigurationsleitfaden: https://kemptechnologies.com/solutions/netapp/[].
+
+
+
+== HAProxy
+
+Konfigurieren Sie HAProxy so, dass die OPTIONS-Anfrage verwendet wird, und prüfen Sie auf eine 200-Statusantwort für die Integritätsprüfung in haproxy.cfg. Sie können den Bind-Port am Front-End in einen anderen Port ändern, z. B. 443.
+
+Im Folgenden finden Sie ein Beispiel für die SSL-Terminierung auf HAProxy:
+
+[listing]
+----
+frontend s3
+       bind *:443 crt /etc/ssl/server.pem ssl
+       default_backend s3-serve
+rs
+backend s3-servers
+       balance leastconn
+       option httpchk
+       http-check expect status 200
+       server dc1-s1 10.63.174.71:18082 ssl verify none check inter 3000
+       server dc1-s2 10.63.174.72:18082 ssl verify none check inter 3000
+       server dc1-s3 10.63.174.73:18082 ssl verify none check inter 3000
+----
+Im Folgenden ein Beispiel für SSL-Passthrough:
+
+[listing]
+----
+frontend s3
+       mode tcp
+       bind *:443
+       default_backend s3-servers
+backend s3-servers
+       balance leastconn
+       option httpchk
+       http-check expect status 200
+       server dc1-s1 10.63.174.71:18082 check-ssl verify none inter 3000
+       server dc1-s2 10.63.174.72:18082 check-ssl verify none inter 3000
+       server dc1-s3 10.63.174.73:18082 check-ssl verify none inter 3000
+----
+Vollständige Beispiele für Konfigurationen für StorageGRID finden Sie unter https://github.com/NetApp-StorageGRID/HAProxy-Configuration["Beispiele für die HAProxy-Konfiguration"^] auf GitHub.

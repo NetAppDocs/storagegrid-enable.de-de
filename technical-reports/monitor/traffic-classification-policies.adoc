@@ -1,0 +1,44 @@
+---
+permalink: technical-reports/monitor/traffic-classification-policies.html 
+sidebar: sidebar 
+keywords: traffic classification policies, storagegrid 
+summary: Erfahren Sie, wie Sie in StorageGRID 11.4 Richtlinien zur Klassifizierung von Datenverkehr einrichten und überwachen – für effizientes Datenverkehrsmanagement und Optimierung der Netzwerkbandbreite. 
+---
+= Verwenden Sie Richtlinien zur Verkehrsklassifizierung im StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie Richtlinien zur Verkehrsklassifizierung einrichten und konfigurieren, um den Netzwerkverkehr in StorageGRID zu managen und zu optimieren.
+
+Richtlinien zur Traffic-Klassifizierung bieten eine Methode zur Überwachung und/oder Begrenzung des Datenverkehrs auf der Grundlage eines bestimmten Mandanten, Buckets, IP-Subnetzes oder Load-Balancer-Endpunkts. Netzwerkkonnektivität und Bandbreite sind besonders wichtige Kenngrößen für StorageGRID.
+
+Gehen Sie wie folgt vor, um eine Richtlinie zur Traffic-Klassifizierung zu konfigurieren:
+
+.Schritte
+. Navigieren Sie im GMI zu MENU:Configuration[System Settings > Traffic Classification].
+. Klicken Sie Auf Erstellen +
+. Geben Sie einen Namen und eine Beschreibung für Ihre Richtlinie ein.
+. Erstellen Sie eine übereinstimmende Regel.
++
+image:monitor-matching-rule.png["Monitor-Matching-Regel"]
+
+. Legen Sie eine Grenze fest (optional).
++
+image:monitor-limit.png["Monitorgrenze"]
+
+. Speichern Sie Ihre Richtlinie
++
+image:monitor-traffic-policy.png["Überwachung der Richtlinie für den Datenverkehr"]
+
++
+Um die Metriken anzuzeigen, die Ihrer Richtlinie zur Traffic-Klassifizierung zugeordnet sind, wählen Sie Ihre Richtlinie aus, und klicken Sie auf Kennzahlen. Es wird ein Grafana Dashboard mit Informationen wie Load Balancer Request Traffic und Average Request Duration erstellt.
+
++
+image:monitor-dashboard-showing-metrics.png["Monitoring-Dashboard-Showing-metrics"]
+
+

@@ -1,0 +1,32 @@
+---
+permalink: technical-reports/monitor/grafana-dashboard.html 
+sidebar: sidebar 
+keywords: grafana dashboard, storagegrid 
+summary: Grafana kann für die Visualisierung von Kennzahlen in NetApp StorageGRID eingesetzt werden und bietet Zugriff auf vordefinierte Dashboards für Monitoring und Fehlerbehebung. 
+---
+= Anzeigen von Kennzahlen über das Grafana-Dashboard in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie mit der Grafana-Schnittstelle Ihre StorageGRID-Daten visualisieren und überwachen.
+
+Grafana ist eine Open-Source-Software für die metrische Visualisierung. Wir verfügen standardmäßig über vorgefertigte Dashboards mit nützlichen und aussagekräftigen Informationen zu Ihrem StorageGRID System.
+
+Diese vorgefertigten Dashboards sind nicht nur für die Überwachung, sondern auch für die Fehlerbehebung bei einem Problem nützlich. Einige sind für den technischen Support bestimmt. Um z. B. die Metriken eines Storage-Nodes anzuzeigen, führen Sie die folgenden Schritte aus.
+
+.Schritte
+. Im GMI Menü:Support[Metriken].
+. Wählen Sie im Abschnitt Grafana das Knoten-Dashboard aus.
++
+image:monitor-node-dashboard.png["Monitoring-Node-Dashboard"]
+
+. Legen Sie in Grafana den Host auf den Node fest, für den Sie Metriken anzeigen möchten. In diesem Fall ist ein Storage-Node ausgewählt. Es werden mehr Informationen bereitgestellt als die folgenden Screenshot-Aufnahmen.
++
+image:monitor-grafana-metrics.png["Monitor-grafana-Kennzahlen"]
+
+

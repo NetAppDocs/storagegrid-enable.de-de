@@ -1,0 +1,64 @@
+---
+permalink: technical-reports/veritas/configure-storagegrid-s3-object-lock.html 
+sidebar: sidebar 
+keywords: object lock, s3, configure, storagegrid 
+summary: Erfahren Sie, wie Sie StorageGRID für WORM-Storage mit S3 Object Lock konfigurieren. 
+---
+= Konfigurieren Sie die StorageGRID S3 Objektsperre für WORM Storage
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie StorageGRID für WORM-Storage mit S3 Object Lock konfigurieren.
+
+
+
+== Voraussetzungen für die Konfiguration von StorageGRID für WORM Storage
+
+Bei WORM-Storage verwendet StorageGRID S3 Objektsperre, um Objekte zwecks Compliance aufzubewahren. Dies erfordert StorageGRID 11.6 oder höher. Dabei wurde die standardmäßige S3 Object Lock Bucket-Aufbewahrung eingeführt. Enterprise Vault erfordert außerdem Version 14.2.2 oder höher.
+
+
+
+== Konfigurieren Sie die standardmäßige Bucket-Aufbewahrung von StorageGRID S3 Object Lock
+
+Führen Sie die folgenden Schritte aus, um die standardmäßige Bucket-Aufbewahrung von StorageGRID S3 Object Lock zu konfigurieren:
+
+.Schritte
+. Erstellen Sie in StorageGRID-Mandantenmanager einen Bucket, und klicken Sie auf Fortfahren
++
+image:third-party-create-bucket.png["third-party-create-bucket.png"]
+
+. Wählen Sie die Option S3-Objektsperre aktivieren aus, und klicken Sie auf Bucket erstellen.
++
+image:third-party-create-bucket-2.png["third-party-create-bucket-2.png"]
+
+. Nachdem der Bucket erstellt wurde, wählen Sie den Bucket aus, um die Bucket-Optionen anzuzeigen. Erweitern Sie die Dropdown-Option S3 Object Lock.
++
+image:third-party-overview.png["third-party-overview.png"]
+
+. Wählen Sie unter Standardaufbewahrung die Option Aktivieren aus, und legen Sie eine Standardaufbewahrungsfrist von 1 Tag fest. Klicken Sie Auf Änderungen Speichern.
++
+image:third-party-s3-object-lock.png["Drittanbieter-s3-Objektsperre"]
+
++
+Der Bucket kann jetzt von Enterprise Vault zur Speicherung von WORM-Daten verwendet werden.
+
+
+
+
+
+== Enterprise Vault Konfigurieren
+
+Gehen Sie wie folgt vor, um Enterprise Vault zu konfigurieren:
+
+.Schritte
+. Wiederholen Sie die Schritte 1-3 im link:configure-storagegrid-s3-object-lock.html#configure-storagegrid-s3-object-lock-default-bucket-retention["Basiskonfiguration"] Abschnitt, wählen Sie jedoch diesmal die Option Daten im WORM-Modus mit S3 Objektsperre speichern. Klicken Sie Auf Weiter.
++
+image:third-party-new-partition-8.png["Drittanbieter-New-Partition-8"]
+
+. Stellen Sie bei der Eingabe der S3 Bucket-Verbindungseinstellungen sicher, dass Sie den Namen eines S3-Buckets eingeben, für den die S3 Object Lock Default Retention aktiviert ist.
+. Testen Sie die Verbindung, um die Einstellungen zu überprüfen.
+

@@ -1,0 +1,47 @@
+---
+permalink: technical-reports/monitor/index.html 
+sidebar: sidebar 
+keywords: monitoring, storagegrid 
+summary: Hier erfahren Sie mehr über NetApp StorageGRID, die Fehlerbedingungen und die effiziente Überwachung mit externen Applikationen wie Splunk. 
+---
+= Einführung in das StorageGRID-Monitoring
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie Ihr StorageGRID System mit externen Applikationen wie Splunk überwachen.
+
+Durch die effektive Überwachung des objektbasierten Storage von NetApp StorageGRID können Administratoren umgehend auf dringende Probleme reagieren und Ressourcen proaktiv hinzufügen, um wachsende Workloads zu bewältigen. Dieser Bericht bietet allgemeine Hinweise zur Überwachung wichtiger Kennzahlen und zur Nutzung externer Überwachungsanwendungen. Es soll das bestehende Handbuch zur Überwachung und Fehlerbehebung ergänzen.
+
+Eine NetApp StorageGRID-Implementierung besteht in der Regel aus mehreren Standorten und mehreren Nodes, die ein verteiltes und fehlertolerantes Objekt-Storage-System erzeugen. In einem verteilten und robusten Storage-System wie StorageGRID existieren Fehlerbedingungen, während das Grid weiterhin normal arbeitet. Die Herausforderung für Sie als Administrator besteht darin, die Schwelle zu verstehen, bei der Fehlerbedingungen (z. B. Knoten ausgefallen) ein Problem darstellen, das sofort behoben werden sollte, und Informationen, die analysiert werden sollten. Durch die Analyse der von StorageGRID gespeicherten Daten können Sie einen besseren Überblick über Ihren Workload haben und fundierte Entscheidungen treffen, beispielsweise wenn Sie zusätzliche Ressourcen hinzufügen möchten.
+
+StorageGRID bietet eine exzellente Dokumentation, die tief in das Thema Monitoring eintaucht. In diesem Bericht wird vorausgesetzt, dass Sie mit StorageGRID vertraut sind und die Dokumentation darüber geprüft haben. Anstatt diese Informationen zu wiederholen, beziehen wir uns in der Produktdokumentation in diesem Handbuch. Die Produktdokumentation von StorageGRID ist online und als PDF verfügbar.
+
+Ziel dieses Dokuments ist die Ergänzung der Produktdokumentation und die Erläuterung der Überwachung Ihres StorageGRID Systems mit externen Applikationen wie Splunk.
+
+
+
+== Datenquellen
+
+Für die erfolgreiche Überwachung von NetApp StorageGRID ist es wichtig zu wissen, wo Daten über den Zustand und die Vorgänge Ihres StorageGRID Systems erfasst werden müssen.
+
+* *Web UI und Dashboard.* Der StorageGRID-Grid-Manager bietet eine Ansicht der wichtigsten Informationen, die Sie als Administrator in einer logischen Präsentation anzeigen müssen. Als Administrator können Sie sich außerdem tiefer mit Service-Level-Informationen für die Fehlerbehebung und Protokollsammlung befassen.
+* *Prüfprotokolle.* StorageGRID speichert granulare Prüfprotokolle von Mandantenaktionen wie PUT, GET und DELETE. Sie können auch den Lebenszyklus eines Objekts von der Aufnahme bis zur Anwendung der Datenmanagement-Regeln nachverfolgen.
+* *Metrics API.* Dem StorageGRID GMI liegen offene APIs zugrunde, da die Benutzeroberfläche API-basiert ist. Dieser Ansatz ermöglicht es Ihnen, Daten mithilfe externer Überwachungs- und Analysetools zu extrahieren.
+
+
+
+
+== Wo Sie weitere Informationen finden
+
+Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
+
+* NetApp StorageGRID Dokumentationszentrum https://docs.netapp.com/us-en/storagegrid-118/[]
+* NetApp StorageGRID Enablement https://docs.netapp.com/us-en/storagegrid-enable/[]
+* StorageGRID Dokumentations-Ressourcen https://www.netapp.com/data-storage/storagegrid/documentation/[]
+* NetApp Produktdokumentation https://www.netapp.com/support-and-training/documentation/[]
+* NetApp StorageGRID App für Splunk https://splunkbase.splunk.com/app/3898/#/details[]
+

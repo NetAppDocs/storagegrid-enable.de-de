@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/ssl-certificates-storagegrid.html 
+keywords: ssl certificates, storagegrid 
+summary: Verstehen Sie die Wichtigkeit und die Schritte zur Implementierung von SSL-Zertifikaten in StorageGRID. 
+---
+= Erfahren Sie, wie Sie SSL-Zertifikate für HTTPS in StorageGRID implementieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Verstehen Sie die Wichtigkeit und die Schritte zur Implementierung von SSL-Zertifikaten in StorageGRID.
+
+Wenn Sie HTTPS verwenden, müssen Sie über ein SSL-Zertifikat (Secure Sockets Layer) verfügen. Das SSL-Protokoll identifiziert die Clients und Endpunkte und validiert sie als vertrauenswürdig. SSL bietet auch die Verschlüsselung des Datenverkehrs. Das SSL-Zertifikat muss von den Clients vertrauenswürdig sein. Dazu kann das SSL-Zertifikat von einer global vertrauenswürdigen Zertifizierungsstelle (CA) wie DigiCert, einer privaten Zertifizierungsstelle, die in Ihrer Infrastruktur ausgeführt wird, oder einem vom Host generierten selbstsignierten Zertifikat stammen.
+
+Die Verwendung eines global vertrauenswürdigen Zertifizierungsstellenzertifikats ist die bevorzugte Methode, da keine zusätzlichen clientseitigen Aktionen erforderlich sind. Das Zertifikat wird in den Load Balancer oder StorageGRID geladen, und die Clients vertrauen dem Endpunkt und stellen eine Verbindung her.
+
+Für die Verwendung einer privaten Zertifizierungsstelle muss der Stammverzeichnis und alle untergeordneten Zertifikate zum Client hinzugefügt werden. Der Prozess zum Vertrauen auf ein privates CA-Zertifikat kann je nach Client-Betriebssystem und -Anwendungen variieren. Beispielsweise müssen Sie in ONTAP für FabricPool jedes Zertifikat in der Kette einzeln (Stammzertifikat, untergeordnetes Zertifikat, Endpunktzertifikat) auf das ONTAP-Cluster hochladen.
+
+Bei Verwendung eines selbstsignierten Zertifikats muss der Client dem bereitgestellten Zertifikat vertrauen, ohne dass eine Zertifizierungsstelle die Authentizität überprüft. Einige Anwendungen akzeptieren möglicherweise keine selbstsignierten Zertifikate und können die Überprüfung nicht ignorieren.
+
+Die Platzierung des SSL-Zertifikats im StorageGRID-Pfad des Client Load Balancer hängt davon ab, wo Sie die SSL-Terminierung benötigen. Sie können einen Load Balancer als Abschlussendpunkt für den Client konfigurieren und dann erneut verschlüsseln oder mit einem neuen SSL-Zertifikat für den Load Balancer zur StorageGRID-Verbindung verschlüsseln. Sie können auch den Datenverkehr passieren und StorageGRID als Endpunkt für die SSL-Terminierung verwenden. Wenn der Load Balancer der SSL-Abschlussendpunkt ist, wird das Zertifikat auf dem Load Balancer installiert und enthält den Betreffnamen für den DNS-Namen/die DNS-URL sowie alle alternativen URL-/DNS-Namen, für die ein Client für die Verbindung mit dem StorageGRID-Ziel über den Load Balancer konfiguriert ist. einschließlich aller Platzhalternamen. Wenn der Load Balancer für Passthrough konfiguriert ist, muss das SSL-Zertifikat in StorageGRID installiert werden. Auch hier muss das Zertifikat den Subject-Namen für den DNS-Namen/die URL sowie alle alternativen URL-/DNS-Namen enthalten, für die ein Client konfiguriert ist, um über den Load Balancer eine Verbindung zum StorageGRID-Ziel herzustellen, einschließlich aller Platzhalternamen. Einzelne Storage-Node-Namen müssen nicht im Zertifikat enthalten sein, sondern nur die Endpunkt-URLs.
+
+image:load-balancer-certificate-example.png["Beispiel für ein Zertifikat, wie in StorageGRID geladen"]

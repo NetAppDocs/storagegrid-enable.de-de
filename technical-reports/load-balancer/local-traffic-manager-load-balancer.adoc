@@ -1,0 +1,167 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/local-traffic-manager-load-balancer.html 
+keywords: local traffic manager, load balancer 
+summary: Informieren Sie sich über die Richtlinien für den Lastenausgleich von lokalen Traffic-Managern und ermitteln Sie die optimale Konfiguration. 
+---
+= Informieren Sie sich über Load Balancer für lokale Traffic Manager
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Informieren Sie sich über die Richtlinien für den Lastenausgleich von lokalen Traffic-Managern und ermitteln Sie die optimale Konfiguration.
+
+Die folgenden Informationen werden als allgemeine Anleitung für die Konfiguration von Load Balancern von Drittanbietern dargestellt. Ermitteln Sie zusammen mit dem Load Balancer-Administrator die optimale Konfiguration für Ihre Umgebung.
+
+
+
+== Erstellen Sie eine Ressourcengruppe von Storage-Nodes
+
+Gruppieren Sie StorageGRID-Speicherknoten in einen Ressourcen-Pool oder eine Dienstgruppe (die Terminologie kann sich von bestimmten Load Balancern unterscheiden). StorageGRID-Storage-Nodes stellen die S3-API auf den folgenden Ports zur Verfügung:
+
+* S3 HTTPS: 18082
+* S3 HTTP: 18084
+
+
+Die meisten Kunden entscheiden sich dafür, die APIs auf dem virtuellen Server über die standardmäßigen HTTPS- und HTTP-Ports (443 und 80) bereitzustellen.
+
+
+NOTE: Für jeden StorageGRID-Standort sind standardmäßig drei Storage-Nodes erforderlich, von denen zwei ordnungsgemäß sein müssen.
+
+
+
+== Zustandsprüfung
+
+Load Balancer von Drittanbietern erfordern eine Methode, um den Zustand der einzelnen Nodes und ihre Eignung für den Empfang von Traffic zu bestimmen. NetApp empfiehlt zur Durchführung der Integritätsprüfung die HTTP- `OPTIONS` Methode. Der Load Balancer sendet HTTP- `OPTIONS` Anforderungen an jeden einzelnen Speicher-Node und erwartet eine `200` Statusantwort.
+
+Wenn ein Speicher-Node keine Antwort bereitstellt, kann dieser Node keine `200` Speicheranforderungen bearbeiten. Ihre Anwendungs- und Geschäftsanforderungen sollten das Zeitlimit für diese Prüfungen und die Maßnahmen bestimmen, die Ihr Load Balancer ergreift.
+
+Wenn beispielsweise drei von vier Storage-Nodes in Datacenter 1 ausgefallen sind, können Sie den gesamten Datenverkehr an Datacenter 2 leiten.
+
+Das empfohlene Abfrageintervall beträgt einmal pro Sekunde und markiert den Knoten nach drei fehlgeschlagenen Überprüfungen offline.
+
+
+
+=== Beispiel für S3-Integritätsprüfung
+
+Im folgenden Beispiel senden wir `OPTIONS` und überprüfen nach `200 OK`. Wir verwenden `OPTIONS` , da Amazon S3) nicht autorisierte Anfragen unterstützt.
+
+[listing, subs="verbatim,quotes"]
+----
+##curl -X OPTIONS https://10.63.174.75:18082 --verbose --insecure##
+* Rebuilt URL to: https://10.63.174.75:18082/
+*   Trying 10.63.174.75...
+* TCP_NODELAY set
+* Connected to 10.63.174.75 (10.63.174.75) port 18082 (#0)
+* TLS 1.2 connection using TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* Server certificate: webscale.stl.netapp.com
+* Server certificate: NetApp Corp Issuing CA 1
+* Server certificate: NetApp Corp Root CA
+> OPTIONS / HTTP/1.1
+> Host: 10.63.174.75:18082
+> User-Agent: curl/7.51.0
+> Accept: */*
+>
+< HTTP/1.1 ##200 OK##
+< Date: Mon, 22 May 2017 15:17:30 GMT
+< Connection: KEEP-ALIVE
+< Server: StorageGRID/10.4.0
+< x-amz-request-id: 3023514741
+----
+
+
+=== Zustandsprüfungen für Dateien oder Inhalte
+
+Im Allgemeinen werden von NetApp keine dateibasierten Zustandsprüfungen empfohlen. In der Regel wird eine kleine Datei —`healthcheck.htm`z. B. in einem Bucket mit einer schreibgeschützten Richtlinie erstellt. Diese Datei wird dann vom Load Balancer abgerufen und ausgewertet. Dieser Ansatz hat mehrere Nachteile:
+
+* *Abhängig von einem einzigen Konto.* Wenn das Konto, dem die Datei gehört, deaktiviert ist, schlägt die Integritätsprüfung fehl und es werden keine Speicheranforderungen verarbeitet.
+* *Datenschutzregeln.* Das standardmäßige Datensicherungsschema hat einen Ansatz mit zwei Kopien. Wenn in diesem Szenario die beiden Speicherknoten, auf denen die Zustandspeckdatei gehostet wird, nicht verfügbar sind, schlägt die Integritätsprüfung fehl, und Speicheranforderungen werden nicht an funktionstüchtige Speicherknoten gesendet, wodurch das Grid offline geschaltet wird.
+* *Audit Log Bloat.* Der Load Balancer ruft die Datei alle X Minuten von jedem Storage-Node ab und erstellt so viele Audit-Log-Einträge.
+* *Ressourcenintensiv.* Das Abrufen der Zustandspeckdatei von jedem Node alle paar Sekunden verbraucht Grid- und Netzwerkressourcen.
+
+
+Wenn eine inhaltsbasierte Zustandsprüfung erforderlich ist, verwenden Sie einen dedizierten Mandanten mit einem dedizierten S3-Bucket.
+
+
+
+=== Persistenz der Sitzung
+
+Sitzungspersistence oder Stickiness bezieht sich auf den Zeitpunkt, zu dem eine bestimmte HTTP-Sitzung bestehen darf. Standardmäßig werden Sitzungen von Storage-Nodes nach 10 Minuten getrennt. Längere Persistenz kann zu besserer Performance führen, da die Applikationen nicht für jede Aktion neu Sitzungen erstellen müssen. Offen zu halten, verbraucht jedoch Ressourcen. Wenn Sie feststellen, dass Ihr Workload von Vorteil ist, können Sie die Persistenz der Sitzung bei einem Load Balancer eines Drittanbieters verringern.
+
+
+
+== Virtuelle Hosted-Style-Adressierung
+
+Virtual Hosted-Style ist jetzt die Standardmethode für AWS S3. Während StorageGRID und viele Applikationen weiterhin Pfadstil unterstützen, empfiehlt es sich, Unterstützung im Virtual Hosted-Stil zu implementieren. Virtuelle Anforderungen im gehosteten Stil enthalten den Bucket als Teil des Host-Namens.
+
+Gehen Sie wie folgt vor, um Virtual Hosted-Style zu unterstützen:
+
+* Unterstützung von Wildcard-DNS-Suchvorgängen: *.s3.company.com
+* Verwenden Sie ein SSL-Zertifikat mit Subject alt-Namen, um Wildcard zu unterstützen: *.s3.company.com einige Kunden haben Sicherheitsbedenken bezüglich der Verwendung von Wildcard-Zertifikaten geäußert. StorageGRID unterstützt wie wichtige Applikationen wie FabricPool weiterhin den Zugriff auf Pfadstil. Allerdings schlagen bestimmte S3-API-Aufrufe fehl oder verhalten sich ohne virtuelle gehostete Unterstützung nicht ordnungsgemäß.
+
+
+
+
+== SSL-Terminierung
+
+Die SSL-Terminierung bei Load Balancern von Drittanbietern bietet Sicherheitsvorteile. Wenn der Load Balancer beschädigt ist, wird das Grid unterteilt.
+
+Es gibt drei unterstützte Konfigurationen:
+
+* *SSL-Passthrough.* Das SSL-Zertifikat wird auf StorageGRID als benutzerdefiniertes Serverzertifikat installiert.
+* *SSL-Terminierung und Re-Verschlüsselung (empfohlen).* Dies könnte von Vorteil sein, wenn Sie bereits die SSL-Zertifikatsverwaltung auf dem Load Balancer ausführen, anstatt das SSL-Zertifikat auf StorageGRID zu installieren. Diese Konfiguration bietet den zusätzlichen Sicherheitsvorteil, wenn die Angriffsfläche auf den Load Balancer begrenzt wird.
+* *SSL-Terminierung mit HTTP.* In dieser Konfiguration wird SSL auf dem Load Balancer des Drittanbieters beendet und die Kommunikation vom Load Balancer zu StorageGRID ist unverschlüsselt, um die Vorteile von SSL-Off-Load zu nutzen (bei SSL-Bibliotheken, die in moderne Prozessoren integriert sind, ist dies nur ein begrenzter Vorteil).
+
+
+
+
+== Konfiguration durchlaufen
+
+Wenn Sie den Load Balancer für Passthrough konfigurieren möchten, müssen Sie das Zertifikat auf StorageGRID installieren. Gehen Sie zum Menü:Konfiguration[Serverzertifikate > Object Storage API Service Endpoints Server Certificate].
+
+
+
+== IP-Sichtbarkeit des Quell-Clients
+
+Mit StorageGRID 11.4 wurde das Konzept eines vertrauenswürdigen Load Balancers eines Drittanbieters eingeführt. Um die Client-Anwendungs-IP an StorageGRID weiterzuleiten, müssen Sie diese Funktion konfigurieren. Weitere Informationen finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_StorageGRID_to_work_with_third-party_Layer_7_load_balancers["So konfigurieren Sie StorageGRID für die Verwendung mit Layer-7-Load-Balancern von Drittanbietern."^]
+
+So aktivieren Sie den XFF-Header, um die IP-Adresse der Client-Anwendung anzuzeigen:
+
+.Schritte
+. Notieren Sie die Client-IP im Überwachungsprotokoll.
+. Verwendung von `aws:SourceIp` S3-Bucket oder Gruppenrichtlinien
+
+
+
+
+=== Strategien für die Lastverteilung
+
+Die meisten Lastausgleichslösungen bieten mehrere Strategien für den Lastausgleich. Es folgen gängige Strategien:
+
+* * Rundrobin.* Universelle Passform, jedoch mit wenigen Knoten und großen Transfers, die einzelne Knoten verstopfen
+* *Geringste Verbindung.* Eignet sich für kleine und gemischte Objekt-Workloads, sodass die Verbindungen auf alle Nodes gleichmäßig verteilt werden.
+
+
+Die Auswahl des Algorithmus wird mit einer wachsenden Anzahl von Storage-Nodes weniger wichtig.
+
+
+
+=== Datenpfad
+
+Alle Daten fließen über den Lastenausgleich des lokalen Traffic Managers. StorageGRID unterstützt kein direktes Server-Routing (DSR).
+
+
+
+==== Überprüfen der Verteilung der Verbindungen
+
+Um zu überprüfen, ob Ihre Methode die Last gleichmäßig auf die Storage-Nodes verteilt, überprüfen Sie die festgelegten Sitzungen auf jedem Node an einem bestimmten Standort:
+
+* *UI-Methode.* Gehen Sie zum Menü:Support[Kennzahlen > S3-Übersicht > LDR HTTP-Sitzungen]
+* *Metrics API.* Verwenden `storagegrid_http_sessions_incoming_currently_established`
+

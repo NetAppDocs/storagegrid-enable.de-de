@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal/install-docker-storagegrid.html 
+keywords: install docker, storagegrid 
+summary: Erfahren Sie, wie Sie Docker für StorageGRID installieren. 
+---
+= Installieren Sie Docker für StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie Docker für StorageGRID installieren.
+
+Gehen Sie wie folgt vor, um Docker zu installieren:
+
+.Schritte
+. Konfigurieren Sie den yum repo für Docker.
++
+[listing]
+----
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo \ https://download.docker.com/linux/rhel/docker-ce.repo
+----
+. Installieren Sie die benötigten Pakete.
++
+[listing]
+----
+sudo yum install docker-ce docker-ce-cli containerd.io
+----
+. Starten Sie Docker.
++
+[listing]
+----
+sudo systemctl start docker
+----
+. Docker Testen.
++
+[listing]
+----
+sudo docker run hello-world
+----
+. Stellen Sie sicher, dass Docker beim Systemstart ausgeführt wird.
++
+[listing]
+----
+sudo systemctl enable docker
+----
+

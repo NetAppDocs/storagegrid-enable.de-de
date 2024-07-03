@@ -1,0 +1,127 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/commvault/sizing.html 
+keywords: Backup, on-premises, commvault, storagegrid, object, S3, WORM 
+summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden. 
+---
+= Leitfaden zur StorageGRID Dimensionierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Wenden Sie sich an Ihre NetApp Datenschutzexperten, um Informationen zur spezifischen Dimensionierung für Ihre Umgebung zu erhalten. NetApp-Spezialisten können mit dem CommVault Total Backup Storage Calculator die Anforderungen an die Backup-Infrastruktur einschätzen. Für das Tool ist der Zugriff auf das CommVault Partner Portal erforderlich. Melden Sie sich bei Bedarf an, um darauf zuzugreifen.
+
+
+
+== Eingaben zur CommVault-Größenbestimmung
+
+Die folgenden Aufgaben können zur Durchführung einer Bestandsaufnahme für die Dimensionierung der Datensicherheitslösung verwendet werden:
+
+* Identifizieren Sie die System- oder Applikations-/Datenbank-Workloads und die entsprechende Front-End-Kapazität (in Terabyte [TB]), die geschützt werden muss.
+* Identifizieren Sie den VM-/Datei-Workload und ähnliche Front-End-Kapazität (TB), die geschützt werden muss.
+* Identifizieren Sie Anforderungen für die kurzfristige und langfristige Datenaufbewahrung.
+* Ermittlung der täglichen prozentualen Änderungsrate für die ermittelten Datensätze/Workloads
+* Ermittlung des prognostizierten Datenwachstums in den nächsten 12, 24 und 36 Monaten
+* Definieren Sie RTO und RPO für Datensicherung/Recovery entsprechend den geschäftlichen Anforderungen.
+
+
+Wenn diese Informationen verfügbar sind, kann die Dimensionierung der Backup-Infrastruktur vorgenommen werden, was zu einer Aufschlüsselung der benötigten Speicherkapazitäten führt.
+
+
+
+== Leitfaden zur StorageGRID Dimensionierung
+
+Bevor Sie die NetApp StorageGRID Dimensionierung durchführen, sollten Sie die folgenden Aspekte für Ihre Workloads berücksichtigen:
+
+* Nutzbare Kapazität
+* Worm-Modus
+* Durchschnittliche Objektgröße
+* Performance-Anforderungen erfüllt
+* ILM-Richtlinie angewendet
+
+
+Die nutzbare Kapazität muss der Größe des Backup-Workloads entsprechen, den Sie in StorageGRID gestaffelt haben, sowie dem Aufbewahrungszeitplan.
+
+Wird der WORM-Modus aktiviert oder nicht? Wenn WORM in CommVault aktiviert ist, wird dadurch die Objektsperre auf StorageGRID konfiguriert. Dadurch wird die erforderliche Objektspeicher-Kapazität erhöht. Die erforderliche Kapazität variiert basierend auf der Aufbewahrungsdauer und der Anzahl der Objektänderungen bei jedem Backup.
+
+Die durchschnittliche Objektgröße ist ein Eingabeparameter, der bei der Dimensionierung für die Performance in einer StorageGRID Umgebung hilft. Die durchschnittliche Objektgröße, die für einen CommVault-Workload verwendet wird, hängt vom Backup-Typ ab.
+
+In der folgenden Tabelle sind die durchschnittlichen Objektgrößen nach Backup-Typ aufgeführt und die Lesevorgänge aus dem Objektspeicher werden durch den Wiederherstellungsprozess beschrieben:
+
+[cols="1a,1a,1a"]
+|===
+| Backup-Typ | Durchschnittliche Objektgröße | Wiederherstellungsverhalten 
+
+
+ a| 
+Erstellen Sie eine Zusatzkopie in StorageGRID
+ a| 
+32 MB
+ a| 
+Vollständiger Lesezugriff auf ein 32-MB-Objekt
+
+
+
+ a| 
+Leiten des Backups auf StorageGRID (Deduplizierung aktiviert)
+ a| 
+8 MB
+ a| 
+1 MB zufälliger Lesebereich
+
+
+
+ a| 
+Leiten Sie das Backup auf StorageGRID (Deduplizierung deaktiviert)
+ a| 
+32 MB
+ a| 
+Vollständiger Lesezugriff auf ein 32-MB-Objekt
+
+|===
+Darüber hinaus sind Sie über die Performance-Anforderungen für vollständige Backups und inkrementelle Backups in der Lage, die Dimensionierung für die StorageGRID Storage-Nodes zu bestimmen. StorageGRID Richtlinie für Information Lifecycle Management (ILM) Datensicherungsmethoden bestimmen die zur Speicherung von CommVault Backups benötigte Kapazität und wirken sich auf die Grid-Größe aus.
+
+StorageGRID ILM-Replizierung ist einer von zwei Mechanismen, die StorageGRID zum Speichern von Objektdaten verwendet. Wenn StorageGRID einer ILM-Regel Objekte zuweist, die Daten repliziert, erstellt das System exakte Kopien der Objektdaten und speichert die Kopien auf Storage-Nodes.
+
+Das Verfahren zur Einhaltung von Datenkonsistenz ist die zweite Methode, die von StorageGRID zum Speichern von Objektdaten verwendet wird. Wenn StorageGRID einer ILM-Regel Objekte zuweist, die für die Erstellung von Kopien, die nach Erasure codiert wurden, konfiguriert wird, werden Objektdaten in Datenfragmente unterteilt. Danach werden zusätzliche Paritätsfragmente berechnet und jedes Fragment auf einem anderen Storage Node gespeichert. Wenn auf ein Objekt zugegriffen wird, wird es anhand der gespeicherten Fragmente neu zusammengesetzt. Wenn ein Datenfragment oder ein Paritätsfragment beschädigt wird oder verloren geht, kann der Algorithmus zur Fehlerkorrektur ein neues Fragment unter Verwendung einer Untergruppe der verbleibenden Daten- und Paritätsfragmente erstellen.
+
+Die beiden Mechanismen erfordern unterschiedliche Mengen an Storage, wie die folgenden Beispiele zeigen:
+
+* Wenn Sie zwei replizierte Kopien speichern, verdoppelt sich Ihr Storage-Overhead.
+* Wenn Sie eine 2 Kopie, die nach der Datenlöschung codiert wurde, speichern, erhöht sich Ihr Storage-Overhead um das 1.5-Fache.
+
+
+Für die getestete Lösung wurde eine Entry-Level StorageGRID Implementierung an einem einzelnen Standort genutzt:
+
+* Admin-Node: VMware Virtual Machine (VM)
+* Load Balancer: VMware VM
+* Storage-Nodes: 4 x SG5712 mit 4-TB-Laufwerken
+* Primärer Admin-Node und Gateway-Node: VMware VMs mit den Mindestanforderungen für Produktions-Workloads
+
+
+[NOTE]
+====
+StorageGRID unterstützt auch Load Balancer von Drittanbietern.
+
+====
+StorageGRID wird in der Regel an zwei oder mehr Standorten mit Datensicherungsrichtlinien implementiert, die Daten replizieren, um vor Ausfällen auf Node- und Site-Ebene zu schützen. Wenn Sie Ihre Daten in StorageGRID sichern, sind Ihre Daten durch mehrere Kopien oder durch Erasure Coding geschützt, durch das Daten zuverlässig durch einen Algorithmus getrennt und neu zusammengestellt werden.
+
+Sie können das Sizing-Tool verwenden https://fusion.netapp.com["Fusion"] Zur Größenbeaufstellung des Rasters.
+
+
+
+== Skalierbarkeit
+
+Ein NetApp StorageGRID System lässt sich mit weiteren Storage-Nodes erweitern, einem vorhandenen Standort neue Grid-Nodes hinzufügen oder ein neues Datacenter hinzufügen. Eine Erweiterung kann vorgenommen werden, ohne den Betrieb des aktuellen Systems zu unterbrechen.
+StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance für die Storage-Nodes oder der physischen Appliance mit dem Load Balancer und den Admin-Nodes oder durch einfaches Hinzufügen weiterer Nodes.
+
+[NOTE]
+====
+Weitere Informationen zum erweitern des StorageGRID-Systems finden Sie unter https://docs.netapp.com/us-en/storagegrid-118/landing-expand/index.html["StorageGRID 11.8 Erweiterungsleitfaden"].
+
+====
