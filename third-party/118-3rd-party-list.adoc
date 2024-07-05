@@ -118,3 +118,25 @@ Diese Lösungen wurden getestet.
 * QStar
 * Velasea
 
+
+
+
+== Auf StorageGRID unterstützte Schlüsselmanager
+
+Diese Lösungen wurden getestet.
+
+* Vertrauen Sie KeyControl 10.2 an
+* Hashicorp Vault 1.15.0
+* Thales CipherTrust Manager 2.0
+* Thales CipherTrust Manager 2.1
+* Thales CipherTrust Manager 2.2
+* Thales CipherTrust Manager 2.3
+* Thales CipherTrust Manager 2.4
+* Thales CipherTrust Manager 2.8
+* Thales CipherTrust Manager 2.9
+* Thales CipherTrust Manager 2.10
+* Thales CipherTrust Manager 2.11
+* Thales CipherTrust Manager 2.12
+* Thales CipherTrust Manager 2.13
+* Thales CipherTrust Manager 2.14
+
