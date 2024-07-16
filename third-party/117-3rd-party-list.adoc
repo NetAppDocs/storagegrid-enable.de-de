@@ -87,6 +87,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Commvault 11, Feature Release 26
 * IBM FileNet
 * OpenText Documentum 21.4
+* Rubrik
 * Veeam 12
 * Veritas Enterprise Vault 14.2.2
 * Veritas NetBackup 10.1.1 und höher
