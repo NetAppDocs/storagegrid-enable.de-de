@@ -1,0 +1,57 @@
+---
+permalink: evaluation-software.html 
+sidebar: sidebar 
+keywords: eval, StorageGRID, S3, software, download 
+summary: Schritte zum Zugriff auf die StorageGRID Evaluierungssoftware für einen potenziellen Kunden 
+---
+= Schritte, um auf die StorageGRID Evaluierungssoftware zuzugreifen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese Schulung richtet sich an NetApp Vertriebsmitarbeiter, Partner und potenzielle Kunden, die mit NetApp zusammenarbeiten.
+
+
+
+== Für ein Konto registrieren
+
+. Registrieren Sie sich für ein Konto auf der https://mysupport.netapp.com/site/user/registration["NetApp Support Website"] mit Ihrer geschäftlichen E-Mail-Adresse.
++
+.. Wenn Sie bereits über ein Konto verfügen, fahren Sie mit dem nächsten Schritt fort.
+
+
+. Melden Sie sich mit dem erstellten Konto an.
+. Erstellen Sie einen nicht-technischen Support-Fall, um die Zugriffsebenen auf „Interessenten“ zu erhöhen. Klicken Sie dazu auf den "https://mysupport.netapp.com/site/help?relevanturl=%2Fuser%2Fregistration["Problem melden"]Link „ in der Fußzeile der Website.
+. Wählen Sie als Feedback-Kategorie „Registrierungsproblem“ aus.
+. Schreiben Sie im Kommentarbereich: "Ich möchte Interessenten Zugang zum Download der StorageGRID Evaluierungssoftware erhalten."
++
+.. Nennen Sie den Namen der internen Person von NetApp, die den Antrag auf Zugang für einen potenziellen Kunden vorgeschlagen hat.
+
+
+
+
+
+
+== Laden Sie StorageGRID herunter
+
+. Nachdem Ihr Support-Fall geprüft und genehmigt wurde, werden Sie vom NetApp Support per E-Mail darüber informiert, dass Ihr Konto potenziellen Kunden Zugang gewährt wurde.
+. Laden Sie die herunter https://mysupport.netapp.com/site/downloads/evaluation/storagegrid["StorageGRID Evaluierungssoftware"].
+
+
+[NOTE]
+====
+Die Evaluierungslizenzdatei befindet sich in der ZIP-Datei. Es handelt sich um StorageGRID-Webscale-<version>, die nach der ZIP-Datei\vsphere\NLF000000.txt verwendet wurde.
+
+====
+[NOTE]
+====
+Beim Herunterladen der Software handelt es sich um einen Prozess, der Maßnahmen zur Einhaltung der gesetzlichen Vorschriften beinhaltet. Um die Compliance sicherzustellen, müssen Benutzer ein Konto erstellen und einen Support-Fall eröffnen, bevor sie Zugang erhalten. Dieser Prozess hilft uns dabei, die Kontrolle und Dokumentation aufrechtzuerhalten und Interessenten die für die Produktion benötigte Software zur Verfügung zu stellen.
+
+Wir stellen die „produktionsbereite“ Version von StorageGRID bereit, die weder eine Open Source noch eine alternative Version ist. Es ist wichtig zu beachten, dass *Support nicht zur Verfügung gestellt wird* es sei denn, der potenzielle Kunde aktualisiert auf eine Produktionslizenz.
+
+Bitte wenden Sie sich an StorageGRID.Feedback@netapp.com, wenn Sie Probleme mit den oben genannten Schritten haben.
+
+====

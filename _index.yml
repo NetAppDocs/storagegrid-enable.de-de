@@ -13,6 +13,10 @@ indexpage:
     Damit können Sie unstrukturierte Daten kostengünstig über längere Zeiträume hinweg
     speichern, sichern, schützen und aufbewahren.
   tiles:
+  - title: StorageGRID testen
+    links:
+    - title: StorageGRID Evaluierungssoftware
+      url: "/evaluation-software.html"
   - title: Validierte Lösungen von Drittanbietern
     links:
     - title: Überblick
