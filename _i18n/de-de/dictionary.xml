@@ -1768,7 +1768,6 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="bc2966582cc91a73dfce86d847e8e569" category="inline-image-macro">Zusammenfassung Des Jobs</block>
   <block id="ce8f9b25ff69c679a10481c883fed679" category="paragraph"><block ref="ce8f9b25ff69c679a10481c883fed679" category="inline-image-macro-rx" type="image"></block></block>
   <block id="23571a6157715a68dbc83017094ddb4f" category="section-title">Performance-Baseline-Tests</block>
-  <block id="6e861ca3d49a3946d380c959a4a035f6" category="paragraph">Tabelle 7 enthält die Ergebnisse unserer grundlegenden Performance-Tests. Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices in der<block ref="03ce17f8b5e1206a493f3bd56ef5953d" category="inline-link-rx"></block> Technischer Bericht.</block>
   <block id="225de55f95e8814ef869602a34589cd7" category="paragraph">Die Tests wurden mit 100 VMs und 1000 VMs durchgeführt, wobei beide Tests mit einer Kombination aus Windows und CentOS VMs 50/50 durchgeführt wurden.</block>
   <block id="229f4b7ae2ae04662d95b14f93a7ebe0" category="section-title">Tabelle 7) Baseline-Performance-Tests.</block>
   <block id="2a78ed76450c3cb42320882b3e055b31" category="cell">Betrieb</block>
@@ -2928,4 +2927,6 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="c4adfd76b7112414ec7a702816418613" category="paragraph">Wir stellen die „produktionsbereite“ Version von StorageGRID bereit, die weder eine Open Source noch eine alternative Version ist. Es ist wichtig zu beachten, dass *Support nicht zur Verfügung gestellt wird* es sei denn, der potenzielle Kunde aktualisiert auf eine Produktionslizenz.</block>
   <block id="f20e94f5bb986812208034209609d5f1" category="paragraph">Bitte wenden Sie sich an StorageGRID.Feedback@netapp.com, wenn Sie Probleme mit den oben genannten Schritten haben.</block>
   <block id="2988dc07d3c7f2675b337739e6a81ff7" category="sidebar">StorageGRID testen</block>
+  <block id="af628eae5a4bda33fe7f98b90dfd07ad" category="paragraph">Technische Details zu dieser Testumgebung finden Sie im Abschnitt Solution Design and Best Practices im technischen Bericht.<block ref="42208ea06469332a89cb87f688663202" category="inline-link-rx"></block></block>
+  <block id="d448077c68c161f782d3bf423a865381" category="paragraph">Tabelle 7 enthält die Ergebnisse unserer grundlegenden Performance-Tests. Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices im<block ref="42208ea06469332a89cb87f688663202" category="inline-link-rx"></block> technischen Bericht.</block>
 </blocks>

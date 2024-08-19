@@ -140,7 +140,7 @@ Doppelte Provisionierung
 |===
 Die Standardregel für ILM 2 Kopien ist. Für diesen Test wurde die Regel Erasure Coding 2+1 auf jedes Objekt mit mindestens 200 KB angewendet. Die Standardregel wurde auf Objekte angewendet, die kleiner als 200 KB sind. Die Anwendung der Regeln auf diese Weise ist eine StorageGRID Best Practice.
 
-Technische Details zu dieser Testumgebung finden Sie im Abschnitt Solution Design and Best Practices in der https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] Technischer Bericht.
+Technische Details zu dieser Testumgebung finden Sie im Abschnitt Solution Design and Best Practices im technischen Bericht. https://www.netapp.com/pdf.html?item=/media/19372-tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"^]
 
 
 
@@ -511,7 +511,7 @@ image:commvault/job-summary.png["Zusammenfassung Des Jobs"]
 
 === Performance-Baseline-Tests
 
-Tabelle 7 enthält die Ergebnisse unserer grundlegenden Performance-Tests. Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices in der https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] Technischer Bericht.
+Tabelle 7 enthält die Ergebnisse unserer grundlegenden Performance-Tests. Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices im https://www.netapp.com/pdf.html?item=/media/19372-tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"^] technischen Bericht.
 
 Die Tests wurden mit 100 VMs und 1000 VMs durchgeführt, wobei beide Tests mit einer Kombination aus Windows und CentOS VMs 50/50 durchgeführt wurden.
 
