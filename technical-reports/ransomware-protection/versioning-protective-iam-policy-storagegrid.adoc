@@ -20,7 +20,7 @@ Eine Methode zum Schutz Ihrer Daten ohne Objektsperre oder Replikation besteht d
 
 In StorageGRID 11.7 wurde eine neue S3-Gruppenrichtlinienoption zur Risikominimierung eingeführt, um die Implementierung dieser Lösung zu vereinfachen. Beim Erstellen einer Benutzergruppe im Mandanten wird nach Auswahl der Gruppenberechtigungen diese neue optionale Richtlinie angezeigt.
 
-image:ransomware-protection-create-group.png["ransomware-Schutz-create-Group"]
+image:ransomware/ransomware-protection-create-group.png["ransomware-Schutz-create-Group"]
 
 Im Folgenden finden Sie den Inhalt der Gruppenrichtlinie, die die meisten verfügbaren Vorgänge explizit erlaubt und das erforderliche Minimum abgelehnt enthält.
 

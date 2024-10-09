@@ -51,6 +51,8 @@ indexpage:
       url: "/product-feature-guides/port-remap.html"
     - title: Standortwechsel und Netzwerkwechsel
       url: "/product-feature-guides/site-relocation-and-network-change.html"
+    - title: Migration von objektbasiertem Storage von ONTAP S3 zu StorageGRID
+      url: "/product-feature-guides/ontap-migrate/index.html"
   - title: Tool- und Anwendungsleitfäden
     links:
     - title: Nutzen Sie den Cloudera Hadoop S3A Connector
@@ -92,7 +94,7 @@ indexpage:
       url: "/technical-reports/monitor/index.html"
     - title: 'TR-4882: Installation eines StorageGRID Bare-Metal Grid'
       url: "/technical-reports/bare-metal/index.html"
-    - title: 'TR-4907: Konfigurieren Sie StorageGRID mit Veritas Enterprise Vault'
+    - title: 'TR-4907: Konfigurieren Sie StorageGRID mit veritas Enterprise Vault'
       url: "/technical-reports/veritas/index.html"
   - title: Beispiele für Verfahren und APIs
     links:

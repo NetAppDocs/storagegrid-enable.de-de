@@ -32,7 +32,7 @@ Gehen Sie wie folgt vor, um die Integritätsprüfung für den F5 BIG-IP Local Tr
 .. Geben Sie im Feld Send String \r\n sind Wagenrückläufe ein `OPTIONS / HTTP/1.1\r\n\r\n.` ; verschiedene Versionen der BIG-IP-Software erfordern Null, einen oder zwei Sätze von \r\n Sequenzen. Weitere Informationen finden Sie unter https://support.f5.com/csp/article/K10655[].
 .. Geben Sie im Feld Empfangszeichenfolge Folgendes ein: `HTTP/1.1 200 OK`.
 +
-image:load-balancer-monitor-configuration-page.png["Konfigurationsseite überwachen"]
+image:load-balancer/load-balancer-monitor-configuration-page.png["Konfigurationsseite überwachen"]
 
 
 
@@ -56,9 +56,9 @@ Verwenden Sie die HTTPS-ECV-Integritätsprüfung, um einen benutzerdefinierten M
 
 Weitere Informationen finden Sie in der Citrix-Dokumentation, https://docs.citrix.com/en-us/citrix-adc/current-release/load-balancing/load-balancing-builtin-monitors/monitor-ssl-services.html#sample-configuration-for-https-ecv-health-check-monitor["Beispielkonfiguration für HTTP-ECV-Integritätsprüfung"^].
 
-image:load-balancer-citrix-netscaler-configuration-page.png["Citrix NetScaler Monitor-Konfigurationsseite"]
+image:load-balancer/load-balancer-citrix-netscaler-configuration-page.png["Citrix NetScaler Monitor-Konfigurationsseite"]
 
-image:load-balancer-configure-monitor.png["Configure-monitor.png"]
+image:load-balancer/load-balancer-configure-monitor.png["Configure-monitor.png"]
 
 
 

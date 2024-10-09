@@ -21,7 +21,7 @@ Um sicherzustellen, dass die Installation erfolgreich abgeschlossen wird, überp
 .Schritte
 . Zeigen Sie die Übersichtsseite an.
 +
-image:bare-metal-summary-page.png["Bare-Metal-Summary-Page"]
+image:bare-metal/bare-metal-summary-page.png["Bare-Metal-Summary-Page"]
 
 . Vergewissern Sie sich, dass alle Informationen zur Grid-Konfiguration korrekt sind. Verwenden Sie die Links zum Ändern auf der Seite Zusammenfassung, um zurück zu gehen und Fehler zu beheben.
 . Klicken Sie Auf Installieren.
@@ -42,13 +42,13 @@ CAUTION: Die Recovery Package-Datei muss gesichert sein, weil sie Verschlüsselu
 
 . Wählen Sie die Option Ich habe die Wiederherstellungspaket-Datei erfolgreich heruntergeladen und verifiziert, und klicken Sie dann auf Weiter.
 +
-image:bare-metal-download-recovery-package.png["Bare-Metal-Download-Recovery-Paket"]
+image:bare-metal/bare-metal-download-recovery-package.png["Bare-Metal-Download-Recovery-Paket"]
 
 +
 Wenn die Installation noch läuft, wird die Seite Installationsstatus geöffnet. Auf dieser Seite wird der Installationsfortschritt für jeden Grid-Knoten angezeigt.
 
 +
-image:bare-metal-installation-status.png["Bare-Metal-Installationsstatus"]
+image:bare-metal/bare-metal-installation-status.png["Bare-Metal-Installationsstatus"]
 
 +
 Wenn die komplette Phase für alle Grid-Knoten erreicht ist, wird die Anmeldeseite für Grid Manager geöffnet.

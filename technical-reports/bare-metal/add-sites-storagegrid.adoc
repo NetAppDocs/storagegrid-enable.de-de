@@ -24,7 +24,7 @@ So fügen Sie Sites hinzu:
 . Geben Sie auf der Seite Sites den Standortnamen ein.
 . Um weitere Sites hinzuzufügen, klicken Sie auf das Pluszeichen neben dem letzten Standorteintrag, und geben Sie den Namen in das Textfeld „Neuer Standortname“ ein. Fügen Sie so viele zusätzliche Standorte wie für Ihre Grid-Topologie hinzu. Sie können bis zu 16 Standorte hinzufügen.
 +
-image:bare-metal-add-sites.png["Bare-Metal-Add-Sites"]
+image:bare-metal/bare-metal-add-sites.png["Bare-Metal-Add-Sites"]
 
 . Klicken Sie Auf Weiter.
 

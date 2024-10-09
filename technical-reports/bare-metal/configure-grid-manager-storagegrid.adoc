@@ -64,4 +64,4 @@ https://primary_admin_node_ip:8443
 . Klicken Sie auf StorageGRID-System installieren. Die Seite, die zum Konfigurieren eines StorageGRID-Rasters verwendet wird, wird angezeigt.
 
 
-image:bare-metal-configure-storagegrid-grid.png["Bare-Metal-Konfiguration-storagegrid-Grid"]
+image:bare-metal/bare-metal-configure-storagegrid-grid.png["Bare-Metal-Konfiguration-storagegrid-Grid"]

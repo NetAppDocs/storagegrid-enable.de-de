@@ -23,10 +23,10 @@ Diese vorgefertigten Dashboards sind nicht nur für die Überwachung, sondern au
 . Im GMI Menü:Support[Metriken].
 . Wählen Sie im Abschnitt Grafana das Knoten-Dashboard aus.
 +
-image:monitor-node-dashboard.png["Monitoring-Node-Dashboard"]
+image:monitor/monitor-node-dashboard.png["Monitoring-Node-Dashboard"]
 
 . Legen Sie in Grafana den Host auf den Node fest, für den Sie Metriken anzeigen möchten. In diesem Fall ist ein Storage-Node ausgewählt. Es werden mehr Informationen bereitgestellt als die folgenden Screenshot-Aufnahmen.
 +
-image:monitor-grafana-metrics.png["Monitor-grafana-Kennzahlen"]
+image:monitor/monitor-grafana-metrics.png["Monitor-grafana-Kennzahlen"]
 
 

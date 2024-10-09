@@ -25,20 +25,20 @@ Gehen Sie wie folgt vor, um eine Richtlinie zur Traffic-Klassifizierung zu konfi
 . Geben Sie einen Namen und eine Beschreibung für Ihre Richtlinie ein.
 . Erstellen Sie eine übereinstimmende Regel.
 +
-image:monitor-matching-rule.png["Monitor-Matching-Regel"]
+image:monitor/monitor-matching-rule.png["Monitor-Matching-Regel"]
 
 . Legen Sie eine Grenze fest (optional).
 +
-image:monitor-limit.png["Monitorgrenze"]
+image:monitor/monitor-limit.png["Monitorgrenze"]
 
 . Speichern Sie Ihre Richtlinie
 +
-image:monitor-traffic-policy.png["Überwachung der Richtlinie für den Datenverkehr"]
+image:monitor/monitor-traffic-policy.png["Überwachung der Richtlinie für den Datenverkehr"]
 
 +
 Um die Metriken anzuzeigen, die Ihrer Richtlinie zur Traffic-Klassifizierung zugeordnet sind, wählen Sie Ihre Richtlinie aus, und klicken Sie auf Kennzahlen. Es wird ein Grafana Dashboard mit Informationen wie Load Balancer Request Traffic und Average Request Duration erstellt.
 
 +
-image:monitor-dashboard-showing-metrics.png["Monitoring-Dashboard-Showing-metrics"]
+image:monitor/monitor-dashboard-showing-metrics.png["Monitoring-Dashboard-Showing-metrics"]
 
 

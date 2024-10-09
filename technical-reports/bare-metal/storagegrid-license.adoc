@@ -28,7 +28,7 @@ Gehen Sie wie folgt vor, um die StorageGRID-Lizenzinformationen anzugeben:
 NOTE: Das StorageGRID Installationsarchiv enthält eine kostenlose Lizenz, die keinen Support-Anspruch auf das Produkt bietet. Sie können nach der Installation auf eine Lizenz aktualisieren, die Support bietet.
 
 +
-image:bare-metal-update-license.png["Bare-Metal-Update-Lizenz"]
+image:bare-metal/bare-metal-update-license.png["Bare-Metal-Update-Lizenz"]
 
 . Klicken Sie Auf Weiter.
 

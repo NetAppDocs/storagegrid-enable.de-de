@@ -21,7 +21,7 @@ Um diesen Vorgang auszuführen, müssen Sie zunächst ein Autorisierungs-Token a
 . Wählen Sie im GMI die Option MENU:Help[API Documentation].
 . Blättern Sie nach unten zu Auth, um nach Vorgängen für die Autorisierung zu suchen. Der folgende Screenshot zeigt die Parameter für die POST-Methode.
 +
-image:monitor-post-method.png["Monitor-Post-Methode"]
+image:monitor/monitor-post-method.png["Monitor-Post-Methode"]
 
 . Klicken Sie auf Try IT Out, und bearbeiten Sie den Text mit Ihrem GMI-Benutzernamen und -Kennwort.
 . Klicken Sie Auf Ausführen.

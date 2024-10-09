@@ -14,11 +14,11 @@ summary: Erfahren Sie, wie Sie ein StorageGRID-Standort-Failover in einem Disast
 [role="lead"]
 Erfahren Sie, wie Sie ein StorageGRID-Standort-Failover in einem Disaster-Recovery-Szenario konfigurieren.
 
-Eine Implementierung einer StorageGRID-Architektur hat gemein mehrere Standorte. Standorte können entweder aktiv/aktiv oder aktiv/Passiv für DR sein. Stellen Sie in einem DR-Szenario sicher, dass Veritas Enterprise Vault die Verbindung zu seinem primären Speicher (StorageGRID) aufrechterhalten kann und bei einem Standortausfall weiterhin Daten aufnehmen und abrufen kann. Dieser Abschnitt enthält allgemeine Konfigurationsanleitungen für eine aktiv/Passiv-Bereitstellung an zwei Standorten. Detaillierte Informationen zu diesen Richtlinien finden Sie auf der link:https://docs.netapp.com/us-en/storagegrid-118/["StorageGRID-Dokumentation"] Seite oder bei einem StorageGRID Experten.
+Eine Implementierung einer StorageGRID-Architektur hat gemein mehrere Standorte. Standorte können entweder aktiv/aktiv oder aktiv/Passiv für DR sein. Stellen Sie in einem DR-Szenario sicher, dass veritas Enterprise Vault die Verbindung zu seinem primären Speicher (StorageGRID) aufrechterhalten kann und bei einem Standortausfall weiterhin Daten aufnehmen und abrufen kann. Dieser Abschnitt enthält allgemeine Konfigurationsanleitungen für eine aktiv/Passiv-Bereitstellung an zwei Standorten. Detaillierte Informationen zu diesen Richtlinien finden Sie auf der link:https://docs.netapp.com/us-en/storagegrid-118/["StorageGRID-Dokumentation"] Seite oder bei einem StorageGRID Experten.
 
 
 
-== Voraussetzungen für die Konfiguration von StorageGRID mit Veritas Enterprise Vault
+== Voraussetzungen für die Konfiguration von StorageGRID mit veritas Enterprise Vault
 
 Überprüfen Sie vor dem Konfigurieren des StorageGRID-Standort-Failover die folgenden Voraussetzungen:
 
@@ -36,13 +36,13 @@ Führen Sie zum Konfigurieren des StorageGRID-Standort-Failover die folgenden Sc
 .Schritte
 . Konfigurieren Sie eine HA-Gruppe (High Availability, Hochverfügbarkeit), um die Verbindung zu StorageGRID bei Standortausfällen sicherzustellen. Klicken Sie in der StorageGRID-Grid-Manager-Oberfläche (GMI) auf Konfiguration, Hochverfügbarkeitsgruppen und + Erstellen.
 +
-image:third-party-create-high-availability-group.png["Drittanbieter-create-High-Availability-Gruppe"]
+image:vertias/veritas-create-high-availability-group.png["Vertias/veritas-create-High-Availability-Group"]
 
 . Geben Sie die erforderlichen Informationen ein. Klicken Sie auf Schnittstellen auswählen und schließen Sie sowohl die Netzwerkschnittstellen von SITE 1 als auch von SITE2 ein, wobei SITE 1 (der primäre Standort) der bevorzugte Master ist. Weisen Sie eine virtuelle IP-Adresse innerhalb desselben Subnetzes zu. Klicken Sie auf Speichern .
 +
-image:third-party-edit-high-availability-group.png["Drittanbieter-edit-High-Availability-Gruppe"]
+image:veritas/veritas-edit-high-availability-group.png["Vertias/veritas-edit-High-Availability-Group"]
 
-. Diese virtuelle IP (VIP)-Adresse sollte dem S3-Hostnamen zugeordnet werden, der während der Partitionskonfiguration von Veritas Enterprise Vault verwendet wird. Die VIP-Adresse löst Datenverkehr an STANDORT 1 auf. Während STANDORT 1-Fehler leitet die VIP-Adresse den Datenverkehr transparent an STANDORT 2 um.
+. Diese virtuelle IP (VIP)-Adresse sollte dem S3-Hostnamen zugeordnet werden, der während der Partitionskonfiguration von veritas Enterprise Vault verwendet wird. Die VIP-Adresse löst Datenverkehr an STANDORT 1 auf. Während STANDORT 1-Fehler leitet die VIP-Adresse den Datenverkehr transparent an STANDORT 2 um.
 . Stellen Sie sicher, dass die Daten sowohl an STANDORT 1 als auch an STANDORT 2 repliziert werden. So sind die Objektdaten auch bei Ausfall von STANDORT 1 von SITE2 aus verfügbar. Dazu müssen zunächst die Speicherpools konfiguriert werden.
 +
 Klicken Sie in StorageGRID GMI auf ILM, Speicherpools und dann auf Erstellen. Folgen Sie dem Assistenten, um zwei Speicherpools zu erstellen: Einen für STANDORT 1 und einen anderen für STANDORT 2.
@@ -51,14 +51,14 @@ Klicken Sie in StorageGRID GMI auf ILM, Speicherpools und dann auf Erstellen. Fo
 Storage-Pools sind logische Gruppen von Nodes, die zur Definition der Objektplatzierung verwendet werden
 
 +
-image:third-party-storage-pool-details-site-1.png["Drittanbieter-Storage-Pool-Details-site-1"]
+image:veritas/veritas-storage-pool-details-site-1.png["Vertias/veritas-Storage-Pool-Details-site-1"]
 
 +
-image:third-party-storage-pool-details-site-2.png["Drittanbieter-Storage-Pool-Details-site-2"]
+image:veritas/veritas-storage-pool-details-site-2.png["Vertias/veritas-Storage-Pool-Details-site-2"]
 
 . Klicken Sie in StorageGRID GMI auf ILM, Regeln und dann auf + Erstellen. Befolgen Sie den Assistenten, um eine ILM-Regel zu erstellen, die eine Kopie angibt, die pro Standort mit einem ausgewogenen Aufnahmeverhalten gespeichert werden soll.
 +
-image:third-party-storage-pool-details-site-3.png["Drittanbieter-Storage-Pool-Details-site-3"]
+image:veritas/veritas-storage-pool-details-site-3.png["Vertias/veritas-Storage-Pool-Details-site-3"]
 
 . Fügen Sie die ILM-Regel einer ILM-Richtlinie hinzu und aktivieren Sie die Richtlinie.
 
@@ -66,8 +66,8 @@ image:third-party-storage-pool-details-site-3.png["Drittanbieter-Storage-Pool-De
 Diese Konfiguration hat das folgende Ergebnis:
 
 * Eine virtuelle S3-Endpunkt-IP, wobei STANDORT 1 der primäre und STANDORT 2 der sekundäre Endpunkt ist. Wenn STANDORT 1 ausfällt, erfolgt ein Failover der VIP auf STANDORT 2.
-* Wenn archivierte Daten von Veritas Enterprise Vault gesendet werden, stellt StorageGRID sicher, dass eine Kopie auf SITE 1 gespeichert wird und eine andere DR-Kopie in SITE2 gespeichert wird. Wenn STANDORT 1 ausfällt, wird Enterprise Vault weiterhin von STANDORT 2 aufgenommen und abgerufen.
+* Wenn archivierte Daten von veritas Enterprise Vault gesendet werden, stellt StorageGRID sicher, dass eine Kopie auf SITE 1 gespeichert wird und eine andere DR-Kopie in SITE2 gespeichert wird. Wenn STANDORT 1 ausfällt, wird Enterprise Vault weiterhin von STANDORT 2 aufgenommen und abgerufen.
 
 
 
-NOTE: Beide Konfigurationen sind für Veritas Enterprise Vault transparent. Der S3-Endpunkt, der Bucket-Name, die Zugriffsschlüssel usw. sind identisch. Es ist nicht notwendig, die S3-Verbindungseinstellungen auf der Veritas Enterprise Vault-Partition neu zu konfigurieren.
+NOTE: Beide Konfigurationen sind für veritas Enterprise Vault transparent. Der S3-Endpunkt, der Bucket-Name, die Zugriffsschlüssel usw. sind identisch. Es ist nicht notwendig, die S3-Verbindungseinstellungen auf der veritas Enterprise Vault-Partition neu zu konfigurieren.

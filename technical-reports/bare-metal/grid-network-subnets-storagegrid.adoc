@@ -28,7 +28,7 @@ Führen Sie die folgenden Schritte aus, um Subnetze für das Grid-Netzwerk anzug
 . Geben Sie im Textfeld Subnetz 1 die CIDR-Netzwerkadresse für mindestens ein Grid-Netzwerk an.
 . Klicken Sie auf das Pluszeichen neben dem letzten Eintrag, um einen zusätzlichen Netzwerkeintrag hinzuzufügen. Wenn Sie bereits mindestens einen Knoten bereitgestellt haben, klicken Sie auf Subnetze von Grid Networks ermitteln, um die Subnetzliste des Grid-Netzwerks automatisch mit den Subnetzen zu füllen, die von Grid-Nodes gemeldet wurden, die bei Grid Manager registriert sind.
 +
-image:bare-metal-subnets-grid-network.png["Bare-Metal-Subnetze-Grid-Netzwerk"]
+image:bare-metal/bare-metal-subnets-grid-network.png["Bare-Metal-Subnetze-Grid-Netzwerk"]
 
 . Klicken Sie Auf Weiter.
 

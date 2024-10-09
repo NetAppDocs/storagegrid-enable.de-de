@@ -29,7 +29,7 @@ Führen Sie die folgenden Schritte aus, um DNS-Serverinformationen anzugeben:
 . Geben Sie im Textfeld Server 1 die IP-Adresse für einen DNS-Server an.
 . Klicken Sie bei Bedarf auf das Pluszeichen neben dem letzten Eintrag, um weitere Server hinzuzufügen.
 +
-image:bare-metal-add-more-servers-2.png["Bare-Metal-add-more-Server-2"]
+image:bare-metal/bare-metal-add-more-servers-2.png["Bare-Metal-add-more-Server-2"]
 
 . Klicken Sie Auf Weiter.
 

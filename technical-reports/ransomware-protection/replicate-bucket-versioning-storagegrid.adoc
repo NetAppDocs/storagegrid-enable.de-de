@@ -22,7 +22,7 @@ Nachdem die Quell- und Ziel-Buckets erstellt und das Ziel mit Versionierung konf
 .Schritte
 . Erstellen Sie zum Konfigurieren von CloudMirror einen Plattformservices-Endpunkt für das S3-Ziel.
 +
-image:ransomware-protection-create-endpoint.png["ransomware-Schutz – Erstellung von Endpunkten"]
+image:ransomware/ransomware-protection-create-endpoint.png["ransomware-Schutz – Erstellung von Endpunkten"]
 
 . Konfigurieren Sie auf dem Quell-Bucket die Replikation zur Verwendung des konfigurierten Endpunkts.
 +
@@ -42,10 +42,10 @@ image:ransomware-protection-create-endpoint.png["ransomware-Schutz – Erstellun
 ----
 . Erstellen Sie ILM-Regeln, um die Storage-Platzierung und das Versionsspeicherzeitmanagement zu managen. In diesem Beispiel werden die nicht aktuellen Versionen der zu speichernden Objekte konfiguriert.
 +
-image:ransomware-protection-create-ilm-rule.png["Erstellung einer ilm-Regel für ransomware-Schutz"]
+image:ransomware/ransomware-protection-create-ilm-rule.png["Erstellung einer ilm-Regel für ransomware-Schutz"]
 
 +
-image:ransomware-protection-create-ilm-rule-step-2.png["ransomware-Protection-create-ilm-rule-Step-2"]
+image:ransomware/ransomware-protection-create-ilm-rule-step-2.png["ransomware-Protection-create-ilm-rule-Step-2"]
 
 +
 An Standort 1 sind 30 Tage lang zwei Kopien vorhanden. Sie konfigurieren außerdem die Regeln für die aktuelle Version der Objekte basierend auf der Verwendung der Aufnahmezeit als Referenzzeit in der ILM-Regel, um der Speicherdauer des Quell-Buckets anzupassen. Die Storage-Platzierung für die Objektversionen kann Erasure Coded oder repliziert werden.

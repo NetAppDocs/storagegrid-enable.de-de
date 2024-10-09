@@ -32,12 +32,12 @@ NOTE: Wenn ein Grid-Node fehlt, bestätigen Sie, dass er erfolgreich bereitgeste
 
 . Klicken Sie auf das Optionsfeld neben einem ausstehenden Knoten, den Sie genehmigen möchten.
 +
-image:bare-metal-approve-configure-grid-nodes.png["Media/Bare-Metal-approve-configure-Grid-Nodes"]
+image:bare-metal/bare-metal-approve-configure-grid-nodes.png["Media/Bare-Metal-approve-configure-Grid-Nodes"]
 
 . Klicken Sie Auf Genehmigen.
 . Ändern Sie unter Allgemeine Einstellungen die Einstellungen für die folgenden Eigenschaften nach Bedarf.
 +
-image:bare-metal-admin-node-configuration.png["Bare-Metal-Administrator-Node-Konfiguration"]
+image:bare-metal/bare-metal-admin-node-configuration.png["Bare-Metal-Administrator-Node-Konfiguration"]
 
 +
 -- *Standort*: Der Systemname des Standorts für diesen Grid-Knoten.
@@ -109,9 +109,9 @@ NOTE: Wenn Sie für die Netzwerkkonfiguration für den Admin DHCP ausgewählt ha
 
 . Klicken Sie auf Speichern . Der Eintrag des Rasterknoten wird in die Liste der genehmigten Knoten verschoben.
 +
-image:bare-metal-approved-node-list.png["Bare-Metal-genehmigte Node-Liste"]
+image:bare-metal/bare-metal-approved-node-list.png["Bare-Metal-genehmigte Node-Liste"]
 
-. Wiederholen Sie die Schritte 1 bis 8 für jeden ausstehenden Rasterknoten, den Sie genehmigen möchten.
+. Wiederholen Sie die Schritte 1-8 für jeden ausstehenden Rasterknoten, den Sie genehmigen möchten.
 +
 Sie müssen alle Knoten genehmigen, die Sie im Raster benötigen. Sie können jedoch jederzeit zu dieser Seite zurückkehren, bevor Sie auf der Seite Zusammenfassung auf Installieren klicken. Um die Eigenschaften eines genehmigten Gitterknotens zu ändern, klicken Sie auf das entsprechende Optionsfeld und anschließend auf Bearbeiten.
 

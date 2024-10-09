@@ -30,7 +30,7 @@ Load Balancer sind eine wesentliche Komponente von Objekt-Storage-Systemen der E
 
 In der folgenden Abbildung wird der Beispiel-URL/ Fully Qualified Domain Name (FQDN) „s3.company.com” verwendet. Der Load Balancer erstellt eine virtuelle IP (VIP), die über DNS in den FQDN aufgelöst wird und leitet dann alle Anforderungen von Anwendungen an einen Pool von StorageGRID-Knoten weiter. Der Load Balancer führt eine Integritätsprüfung für jeden Node durch und stellt nur Verbindungen zu funktionstüchtigen Nodes her.
 
-image:load-balancer-local-traffic-manager-load-balancer.png["Load Balancer des lokalen Traffic Managers"]
+image:load-balancer/load-balancer-local-traffic-manager-load-balancer.png["Load Balancer des lokalen Traffic Managers"]
 
 Die Abbildung zeigt den von StorageGRID bereitgestellten Load Balancer, das Konzept ist jedoch dasselbe bei Load Balancern von Drittanbietern. Anwendungen richten eine HTTP-Sitzung mithilfe der VIP auf dem Load Balancer ein und der Datenverkehr wird über den Load Balancer zu den Speicher-Nodes geleitet. Standardmäßig wird der gesamte Datenverkehr von der Anwendung zum Load Balancer und vom Load Balancer zum Speicher-Node über HTTPS verschlüsselt. HTTP ist eine unterstützte Option.
 

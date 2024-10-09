@@ -16,7 +16,7 @@ Das StorageGRID Grid Management Interface (GMI) Dashboard bietet eine zentrale A
 
 Verwenden Sie das GMI-Dashboard, um jede Kernkomponente des Rasters zu untersuchen.
 
-image:monitor-storagegrid-gmi-dashboard.png["Monitor-storagegrid-gmi-Dashboard"]
+image:monitor/monitor-storagegrid-gmi-dashboard.png["Monitor-storagegrid-gmi-Dashboard"]
 
 
 

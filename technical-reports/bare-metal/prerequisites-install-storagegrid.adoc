@@ -172,7 +172,7 @@ Wenn Sie die in der obigen Tabelle aufgeführten Computing- und Netzwerkanforder
 
 Wie in der folgenden Abbildung dargestellt, hosten diese Server sechs Docker Container, zwei pro Host. Der RAM wird mithilfe von 24 GB pro Container und 16 GB für das Host-Betriebssystem selbst berechnet.
 
-image:bare-metal-layout-for-three-hosts.png["Beispiellayout für drei Hosts"]
+image:bare-metal/bare-metal-layout-for-three-hosts.png["Beispiellayout für drei Hosts"]
 
 Der gesamte pro physischem Host (oder VM) erforderliche RAM beträgt 24 x 2 + 16 = 64 GB. In der folgenden Tabelle ist der erforderliche Festplattenspeicher für die Hosts 1, 2 und 3 aufgeführt.
 

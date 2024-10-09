@@ -32,7 +32,7 @@ Führen Sie die folgenden Schritte aus, um NTP-Serverinformationen anzugeben:
 . Geben Sie in den Textfeldern Server 1 bis Server 4 die IP-Adressen für mindestens vier NTP-Server an.
 . Klicken Sie bei Bedarf auf das Pluszeichen neben dem letzten Eintrag, um weitere Servereinträge hinzuzufügen.
 +
-image:bare-metal-add-server-entries.png["Bare-Metal-add-Server-Einträge"]
+image:bare-metal/bare-metal-add-server-entries.png["Bare-Metal-add-Server-Einträge"]
 
 . Klicken Sie Auf Weiter.
 
