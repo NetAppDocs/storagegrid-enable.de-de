@@ -186,7 +186,7 @@ image:veeam-bp/tc_2.png["Kennzahlen für die Richtlinie zur Traffic-Klassifizier
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* link:https://docs.netapp.com/us-en/storagegrid-118/["NetApp StorageGRID 11.8 Produktdokumentation"^]
+* link:https://docs.netapp.com/us-en/storagegrid-119/["NetApp StorageGRID 11.9 Produktdokumentation"^]
 * link:https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Veeam Backup und Replication"^]
 
 

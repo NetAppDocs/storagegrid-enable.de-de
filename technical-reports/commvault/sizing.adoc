@@ -122,6 +122,6 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
 
 [NOTE]
 ====
-Weitere Informationen zum erweitern des StorageGRID-Systems finden Sie unter https://docs.netapp.com/us-en/storagegrid-118/landing-expand/index.html["StorageGRID 11.8 Erweiterungsleitfaden"].
+Weitere Informationen zur Erweiterung des StorageGRID-Systems finden Sie unter https://docs.netapp.com/us-en/storagegrid-119/landing-expand/index.html["StorageGRID 11.9 Erweiterungsleitfaden"].
 
 ====

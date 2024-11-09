@@ -32,7 +32,7 @@ Bei aktivierter Verschlüsselung wird jedes Objekt mit einem zufällig generiert
 
 
 | FIPS 140-2-2-konforme Verschlüsselungsfestplatten (Federal Information Processing Standard  a| 
-Die StorageGRID Appliances SG5712, SG5760, SG6060 und SGF6024 bieten die Möglichkeit, FIPS 140-2-2-konforme Verschlüsselungsfestplatten anzubieten. Die Schlüssel für die Festplatten können optional von einem externen KMIP-Server gemanagt werden.
+Die StorageGRID Appliances SG5812, SG5860, SG6160 und SGF6024 bieten die Möglichkeit, FIPS 140-2-2-konforme Verschlüsselungsfestplatten anzubieten. Die Schlüssel für die Festplatten können optional von einem externen KMIP-Server gemanagt werden.
 | Ermöglicht sichere Speicherung von Systemdaten, Metadaten und Objekten StorageGRID bietet außerdem softwarebasierte Objektverschlüsselung, die die Storage und die Übertragung von Objekten sichert. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
 
 
