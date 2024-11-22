@@ -12,7 +12,7 @@ summary: Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des
 
 
 [role="lead"]
-Dieses Handbuch enthält detaillierte Anweisungen zur Konfiguration des NetApp StorageGRID 11.6 Suchintegrationsservice mit Amazon OpenSearch Service oder On-Premises-Elasticsearch.
+Dieser Leitfaden enthält detaillierte Anweisungen zum Konfigurieren des NetApp StorageGRID Suchintegrationsservices mit Amazon OpenSearch Service oder On-Premises Elasticsearch.
 
 
 

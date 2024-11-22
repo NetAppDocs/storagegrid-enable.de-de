@@ -12,6 +12,8 @@ summary: Dremio Datenquelle mit StorageGRID konfigurieren
 
 
 [role="lead"]
+_Von Angela Cheng_
+
 Dremio unterstützt eine Vielzahl von Datenquellen, einschließlich Cloud-basiertem oder lokalem Objektspeicher.  Sie können Dremio so konfigurieren, dass StorageGRID als Objektspeicher-Datenquelle verwendet wird.
 
 
@@ -88,5 +90,3 @@ image:dremio/dremio-add-source-advanced.png["New Source – Erweiterte Optionen"
 image:dremio/dremio-source-added.png["Neue Datenquelle hinzugefügt"]
 
 
-
-_Von Angela Cheng_

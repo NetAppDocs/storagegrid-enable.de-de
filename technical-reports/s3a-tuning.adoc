@@ -12,6 +12,8 @@ summary: Dieser Bericht behandelt die Abstimmung von S3A für StorageGRID.
 
 
 [role="lead"]
+_Von Angela Cheng_
+
 Der Hadoop S3A Connector ermöglicht die nahtlose Interaktion zwischen Hadoop-basierten Applikationen und S3 Objektspeicher. Um die Performance bei der Arbeit mit S3-Objektspeicher zu optimieren, ist die Anpassung des Hadoop S3A Connector unerlässlich. Bevor wir uns mit der Feinabstimmung befassen, wollen wir zunächst ein grundlegendes Verständnis von Hadoop und seinen Komponenten haben.
 
 

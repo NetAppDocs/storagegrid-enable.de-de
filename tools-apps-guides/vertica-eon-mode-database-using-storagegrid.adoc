@@ -12,6 +12,8 @@ summary: In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eo
 
 
 [role="lead"]
+_Von Angela Cheng_
+
 In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-Datenbank mit gemeinsamem Speicher auf NetApp StorageGRID beschrieben.
 
 

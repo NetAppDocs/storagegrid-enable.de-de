@@ -12,6 +12,8 @@ summary: Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben
 
 
 [role="lead"]
+_Von Aron Klein_
+
 Object Lock bietet ein WORM-Modell, um das Löschen oder Überschreiben von Objekten zu verhindern. Die StorageGRID Implementierung von Objektsperrung wird auf Cohasset überprüft, um gesetzliche Vorgaben einzuhalten, den gesetzlichen Aufbewahrungs- und Compliance-Modus für Objektspeicherung zu unterstützen und standardmäßige Bucket-Aufbewahrungsrichtlinien einzuhalten.
 
 In diesem Handbuch wird die S3-Objekt-Lock-API demonstriert.
@@ -221,5 +223,3 @@ aws s3api delete-object  --bucket <bucket> --key <file> --version-id "<VersionId
 An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied
 ----
 
-
-_Von Aron Klein_

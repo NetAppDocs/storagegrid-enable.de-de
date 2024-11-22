@@ -12,6 +12,8 @@ summary: S3cmd ist ein kostenloses Befehlszeilen-Tool und Client für S3-Vorgän
 
 
 [role="lead"]
+_Von Aron Klein_
+
 S3cmd ist ein kostenloses Befehlszeilen-Tool und Client für S3-Vorgänge. Sie können s3cmd verwenden, um den s3-Zugriff auf StorageGRID zu testen und zu demonstrieren.
 
 
@@ -88,5 +90,3 @@ NOTE: Wenn Sie in Schritt 4 Host_Base und Host_Bucket angeben, müssen Sie in de
 `s3cmd del s3://<bucket>/<object> --host=<endpoint>:<port> --no-check-certificate`
 
 
-
-_Von Aron Klein_

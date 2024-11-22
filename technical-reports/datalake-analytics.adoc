@@ -11,6 +11,9 @@ summary: Dieser Bericht behandelt Big Data Analytics zu StorageGRID.
 :imagesdir: ../media/
 
 
+[role="lead"]
+_Von Angela Cheng_
+
 
 
 == Anwendungsfälle für NetApp StorageGRID
