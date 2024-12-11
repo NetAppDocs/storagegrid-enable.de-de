@@ -30,8 +30,6 @@ Die NetApp StorageGRID Objekt-Storage-Lösung bietet Skalierbarkeit, Datenverfü
 
 *Inhaltsbereitstellung:* StorageGRID S3 kann verwendet werden, um statische Website-Inhalte, Mediendateien und Software-Downloads für Benutzer auf der ganzen Welt zu speichern und bereitzustellen. Dabei wird die geografische Distribution und der globale Namespace von StorageGRID für eine schnelle und zuverlässige Content-Bereitstellung genutzt.
 
-*Daten-Tiering:* NetApp-Kunden nutzen die ONTAP FabricPool-Funktion, um Daten automatisch zwischen einem leistungsstarken lokalen Tier zu StorageGRID zu verschieben. Durch Tiering wird teurer Flash-Storage für heiße Daten frei, während weniger oft benötigte Daten von kostengünstigem Objekt-Storage verfügbar bleiben. Dadurch werden Performance und Einsparungen maximiert.
-
 *Datenarchiv:* StorageGRID bietet verschiedene Speichertypen und unterstützt Tiering zu öffentlichen, langfristigen und kostengünstigen Speicheroptionen. Damit ist es eine ideale Lösung für die Archivierung und langfristige Aufbewahrung von Daten, die für Compliance- oder historische Zwecke aufbewahrt werden müssen.
 
 *Anwendungsfälle für Objekt-Storage*
@@ -132,7 +130,7 @@ Alle Reichweite ERHALTEN | 80% Bereich von 2 KB bis 2 MB von 32 MB Objekten, 50 
 | TPCDS 99 Abfragen + Summe Minuten (Cache deaktiviert) | 30 | 28 | 22 
 
 
-| TPCDS 99 Abfragen + Gesamtminuten (Cache aktiviert) | 22 | 28 | 21,5 
+| TPCDS 99 Abfragen + Gesamtzahl Minuten ^2^ (Cache aktiviert) | 22 | 28 | 21,5 
 
 
  a| 
@@ -163,6 +161,8 @@ Alle Reichweite ERHALTEN | Bereich GET size: 67% 1 MB, 15% 100 KB, 10% 500 KB, 3
 
 | Anfragen gesamt (Cache deaktiviert) | 2.156.578 | 939.148 | 932.071 
 |===
+^2^ die Performance von Trino/Starburst wird durch Computing-Ressourcen in Engpässe gebracht. Durch Hinzufügen von zusätzlichem RAM zum Cluster wird die gesamte Abfragezeit verringert.
+
 Wie in der ersten Tabelle gezeigt, ist Hive deutlich langsamer als andere moderne Data-Lakehouse-Ökosysteme. Wir beobachteten, dass Hive eine große Anzahl von S3-Listenobjektanfragen gesendet hat, die in der Regel auf allen Objekt-Storage-Plattformen langsam sind, insbesondere bei Buckets, die zahlreiche Objekte enthalten. Dadurch erhöht sich die gesamte Abfragedauer deutlich. Zusätzlich können moderne Lakehouse-Ökosysteme eine hohe Anzahl von GET-Anfragen parallel senden, die von 2,000 bis 5,000 Anfragen pro Sekunde reichen, verglichen mit Hive’s 50 bis 100 Anfragen pro Sekunde. Die Standard-Filesystem-Mimikry von Hive und Hadoop S3A trägt zur Langsamkeit von Hive bei der Interaktion mit S3-Objektspeicher bei.
 
 Bei der Nutzung von Hadoop (entweder auf HDFS oder S3 Objekt-Storage) mit Hive oder Spark sind umfassende Kenntnisse sowohl zu Hadoop als auch zu Hive/Spark erforderlich. Außerdem müssen Sie sich mit den Einstellungen der einzelnen Services vertraut machen. Zusammen haben sie über 1,000 Einstellungen, von denen viele miteinander verknüpft sind und nicht unabhängig voneinander geändert werden können. Die optimale Kombination von Einstellungen und Werten zu finden, erfordert viel Zeit und Aufwand.
