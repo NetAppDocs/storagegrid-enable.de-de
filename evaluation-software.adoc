@@ -8,7 +8,7 @@ summary: Schritte zum Zugriff auf die StorageGRID Evaluierungssoftware für eine
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

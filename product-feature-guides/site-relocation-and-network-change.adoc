@@ -43,27 +43,27 @@ link:https://docs.netapp.com/us-en/storagegrid-118/expand/updating-subnets-for-g
 +
 .. Wählen Sie 2 und dann 1 für Grid IP-Änderung
 +
-image:site-relocation/ip-change-1.png[""]
+image:site-relocation/ip-change-1.png["Change-ip-Bearbeitung"]
 
 .. Wählen Sie 5, um die Änderungen anzuzeigen
 +
-image:site-relocation/ip-change-2.png[""]
+image:site-relocation/ip-change-2.png["Validieren"]
 
 .. Wählen Sie 10, um die Änderung zu validieren und anzuwenden.
 +
-image:site-relocation/ip-change-3.png[""]
+image:site-relocation/ip-change-3.png["Stuppenänderungen"]
 
 .. In diesem Schritt muss *Stufe* ausgewählt werden.
 +
-image:site-relocation/ip-change-4.png[""]
+image:site-relocation/ip-change-4.png["Administrator manuell neu starten"]
 
 .. Wenn der primäre Admin-Knoten in der obigen Änderung enthalten ist, geben Sie *'a' ein, um den primären Admin-Knoten manuell neu zu starten*
 +
-image:site-relocation/ip-change-5.png[""]
+image:site-relocation/ip-change-5.png["Vorheriges Menü"]
 
 .. Drücken Sie ENTER, um zum vorherigen Menü zurückzukehren und die Change-ip-Schnittstelle zu verlassen.
 +
-image:site-relocation/ip-change-6.png[""]
+image:site-relocation/ip-change-6.png["Weiter"]
 
 
 
