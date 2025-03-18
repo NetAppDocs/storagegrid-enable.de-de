@@ -42,6 +42,5 @@ Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die i
 
 * NetApp StorageGRID Dokumentationszentrum https://docs.netapp.com/us-en/storagegrid-118/[]
 * NetApp StorageGRID Enablement https://docs.netapp.com/us-en/storagegrid-enable/[]
-* StorageGRID Dokumentations-Ressourcen https://www.netapp.com/data-storage/storagegrid/documentation/[]
 * NetApp Produktdokumentation https://www.netapp.com/support-and-training/documentation/[]
 
