@@ -20,13 +20,13 @@ Diese Schulung richtet sich an NetApp Vertriebsmitarbeiter, Partner und potenzie
 
 . Registrieren Sie sich für ein Konto auf der https://mysupport.netapp.com/site/user/registration["NetApp Support Website"] mit Ihrer geschäftlichen E-Mail-Adresse.
 +
-.. Wenn Sie bereits über ein Konto verfügen, fahren Sie mit dem nächsten Schritt fort.
+.. Stellen Sie sicher, dass Sie nicht mit dem neu erstellten Konto angemeldet sind.
+.. Wenn Sie bereits über ein Konto verfügen, stellen Sie sicher, dass Sie nicht angemeldet sind, und fahren Sie mit dem nächsten Schritt fort.
 
 
-. Melden Sie sich mit dem erstellten Konto an.
 . Erstellen Sie einen nicht-technischen Support-Fall, um die Zugriffsebenen auf „Interessenten“ zu erhöhen. Klicken Sie dazu auf den "https://mysupport.netapp.com/site/help?relevanturl=%2Fuser%2Fregistration["Problem melden"]Link „ in der Fußzeile der Website.
 . Wählen Sie als Feedback-Kategorie „Registrierungsproblem“ aus.
-. Schreiben Sie im Kommentarbereich: "Ich möchte Interessenten Zugang zum Download der StorageGRID Evaluierungssoftware erhalten."
+. Schreiben Sie im Kommentarbereich: "Meine Konto-E-Mail-Adresse ist _Your-Email-Adresse_. Ich möchte potenziellen Kunden Zugang erhalten, um die StorageGRID Evaluierungssoftware herunterzuladen.“
 +
 .. Nennen Sie den Namen der internen Person von NetApp, die den Antrag auf Zugang für einen potenziellen Kunden vorgeschlagen hat.
 
