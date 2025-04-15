@@ -2,7 +2,7 @@
 permalink: examples/bucket-policy-examples.html 
 sidebar: sidebar 
 keywords: iam, bucket policy, group policy, policy 
-summary: 'Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IAM-Richtlinien).' 
+summary: Hier sind Beispielrichtlinien und Berechtigungen in StorageGRID S3. 
 ---
 = Beispiel für Bucket- und Gruppenrichtlinien (IAM)
 :hardbreaks:
@@ -12,8 +12,183 @@ summary: 'Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IA
 
 
 [role="lead"]
-Hier sind Beispiele für Bucket-Richtlinien und Gruppenrichtlinien (IAM-Richtlinien).
+Hier sind Beispielrichtlinien und Berechtigungen in StorageGRID S3.
 
+
+
+== Die Struktur einer Richtlinie
+
+In StorageGRID sind die Gruppenrichtlinien mit den S3 Service-Richtlinien für AWS Benutzer (IAM) identisch.
+
+Gruppenrichtlinien sind in StorageGRID erforderlich. Ein Benutzer mit S3-Zugriffsschlüsseln, aber keiner Benutzergruppe zugewiesen oder einer Gruppe ohne Richtlinie zugewiesen, die einige Berechtigungen erteilt, kann auf keine Daten zugreifen.
+
+Bucket- und Gruppenrichtlinien verwenden die meisten Elemente gemeinsam. Richtlinien werden im json-Format erstellt und können mit dem erstellt werden https://awspolicygen.s3.amazonaws.com/policygen.html["AWS-Richtliniengenerator"]
+
+Alle Richtlinien definieren den Effekt, die Aktion(en) und die Ressource(en). In Bucket-Richtlinien wird auch ein Principal definiert.
+
+Der *Effekt* wird entweder sein, die Anfrage zuzulassen oder abzulehnen. Der *Principal* ist der/die Account(s)/User(s), dem/den die Fähigkeiten gewährt oder verweigert werden. Dies kann als Wildcard „++*+“ oder als lokaler oder föderierter Benutzer oder Gruppe innerhalb des Mandanten definiert werden, in dem sich der Bucket befindet, oder als ein anderer Mandant im Grid. Der Benutzer oder die Gruppe kann anhand des Namens oder der ID-Zeichenfolge identifiziert werden. Die *Aktion* ist der Satz von S3-Operationen, die dem/den Benutzer(n) gewährt oder verweigert werden.
+
+
+NOTE: Die zulässige Aktion s3:ListBucket ist erforderlich, damit Benutzer alle S3-Aktionen ausführen können.
+
+Die *Ressource* ist der Eimer oder Eimer, dem die Principals die Fähigkeit zur Ausführung der Aktionen gewährt oder verweigert werden. Optional kann es eine *Bedingung* geben, wenn die Richtlinienaktion gültig ist.
+
+Das Format der JSON-Polizei sieht wie folgt aus:
+
+[source, json]
+----
+{
+  "Statement": [
+    {
+      "Sid": "Custom name for this permission",
+      "Effect": "Allow or Deny",
+      "Principal": {
+        "AWS": "arn:aws:iam::Tenant_ID:federated-group/Group_Name",
+        "AWS": "arn:aws:iam::Tenant_ID:group/Group_Name",
+        "AWS": "arn:aws:iam::Tenant_ID::federated-user/User_Name",
+        "AWS": "User_Name"
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:Other_Action"
+      ],
+      "Resource": [
+        "arn:aws:s3:::Example_Bucket",
+        "arn:aws:s3:::Example_Bucket/*"
+      ],
+    }
+  ]
+}
+----
+
+
+== Verwenden des AWS-Richtliniengenerators
+
+Der AWS Richtlinien-Generator ist ein großartiges Werkzeug, um den json-Code mit dem richtigen Format und den Informationen zu erhalten, die Sie zu implementieren versuchen.
+
+So generieren Sie die Berechtigungen für eine StorageGRID-Gruppenrichtlinie: * Wählen Sie die IAM-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Deny-Berechtigungen zu starten und dann die Allow-Berechtigungen * in das Dropdown-Menü Actions hinzuzufügen. Klicken Sie auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld „All Actions“ aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3:::examplebucket“
+
+image:policy/group-generic.png["Erstellen Sie eine Gruppenrichtlinie"]
+
+So generieren Sie die Berechtigungen für eine Bucket-Richtlinie: * Wählen Sie die S3-Bucket-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Berechtigungen „verweigern“ zu starten und anschließend den Typ „Berechtigungen zulassen“ * in die Benutzer- oder Gruppeninformationen für den Prinzipal einzufügen. * Klicken Sie in der Dropdown-Liste Aktionen auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld "Alle Aktionen" aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3:::examplebucket“
+
+image:policy/bucket-generic.png["Generieren einer Bucket-Richtlinie"]
+
+Wenn Sie beispielsweise eine Bucket-Richtlinie erstellen möchten, die allen Benutzern die Ausführung von GetObject-Operationen für alle Objekte im Bucket ermöglicht, während nur Benutzern, die der Gruppe „Marketing“ im angegebenen Konto angehören, Vollzugriff gewährt wird.
+
+* Wählen Sie als Richtlinientyp S3-Bucket-Richtlinie aus.
+* Wählen Sie den Zulassen-Effekt
+* Geben Sie die Informationen der Marketinggruppe ein - arn:aws:iam::95390887230002558202:Federated-Group/Marketing
+* Klicken Sie auf das Feld für „Alle Aktionen“.
+* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::examplebucket,arn:aws:s3:::examplebucket/*
+
+
+image:policy/example-bucket1.png["Generieren Sie die erste Berechtigung in der Richtlinie"]
+
+* Klicken Sie auf die Schaltfläche „Anweisung hinzufügen“
+
+
+image:policy/permission1.png["Erste Berechtigung in der eingegebenen Richtlinie"]
+
+* Wählen Sie den Zulassen-Effekt
+* Geben Sie das Sternchen ++*+ für alle ein
+* Klicken Sie auf das Feld neben GetObject und ListBucket Actions“
+
+
+image:policy/getobject.png["Wählen Sie GetObject"] image:policy/listbucket.png["Wählen Sie ListBucket"]
+
+* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::examplebucket,arn:aws:s3:::examplebucket/*
+
+
+image:policy/example-bucket2.png["Generieren Sie die zweite Berechtigung in der Richtlinie"]
+
+* Klicken Sie auf die Schaltfläche „Anweisung hinzufügen“
+
+
+image:policy/permission3.png["Zweite Erlaubnis in der Richtlinie"]
+
+* Klicken Sie auf die Schaltfläche „Richtlinie generieren“. Daraufhin wird ein Popup-Fenster mit der erstellten Richtlinie angezeigt.
+
+
+image:policy/example-output.png["Die endgültige Ausgabe"]
+
+* Kopieren Sie den vollständigen json-Text, der wie folgt aussehen sollte:
+
+
+[source, json]
+----
+{
+  "Id": "Policy1744399292233",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1744399152830",
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::examplebucket",
+        "arn:aws:s3:::examplebucket/*"
+      ],
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::95390887230002558202:federated-group/Marketing"
+        ]
+      }
+    },
+    {
+      "Sid": "Stmt1744399280838",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::examplebucket",
+        "arn:aws:s3:::examplebucket/*"
+      ],
+      "Principal": "*"
+    }
+  ]
+}
+----
+Dieser json kann wie sie ist verwendet werden, oder Sie können die ID- und Versionszeilen über der Zeile "Anweisung" entfernen und Sie können die Sid für jede Berechtigung mit einem aussagekräftigeren Titel für jede Berechtigung anpassen oder diese können auch entfernt werden.
+
+Beispiel:
+
+[source, json]
+----
+{
+  "Statement": [
+    {
+      "Sid": "MarketingAllowFull",
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::examplebucket",
+        "arn:aws:s3:::examplebucket/*"
+      ],
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::95390887230002558202:federated-group/Marketing"
+        ]
+      }
+    },
+    {
+      "Sid": "EveryoneReadOnly",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::examplebucket",
+        "arn:aws:s3:::examplebucket/*"
+      ],
+      "Principal": "*"
+    }
+  ]
+}
+----
 
 
 == Gruppenrichtlinien (IAM)
@@ -26,6 +201,7 @@ Diese Gruppenrichtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket 
 
 [source, json]
 ----
+{
 "Statement": [
     {
       "Sid": "AllowListBucketOfASpecificUserPrefix",
@@ -133,6 +309,14 @@ Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach V
     ]
 }
 ----
+
+
+== Bucket-Richtlinien
+
+
+
+=== Beschränken Sie das Löschen versionierter Objekte in einem Bucket
+
 Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID
 
 [source, json]
@@ -178,29 +362,29 @@ Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff a
             "Sid": "Deny non user1",
             "Effect": "Deny",
             "NotPrincipal": {
-                "AWS": "urn:sgws:identity::34921514133002833665:user/user1"
+                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
             },
             "Action": [
                 "s3:*"
             ],
             "Resource": [
-                "urn:sgws:s3:::bucket1",
-                "urn:sgws:s3:::bucket1/*"
+                "arn:aws:s3:::bucket1",
+                "arn:aws:s3:::bucket1/*"
             ]
         },
         {
             "Sid": "Allow user1 read access to bucket bucket1",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "urn:sgws:identity::34921514133002833665:user/user1"
+                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
             },
             "Action": [
                 "s3:GetObject",
                 "s3:ListBucket"
             ],
             "Resource": [
-                "urn:sgws:s3:::bucket1",
-                "urn:sgws:s3:::bucket1/*"
+                "arn:aws:s3:::bucket1",
+                "arn:aws:s3:::bucket1/*"
             ]
         }
     ]
