@@ -33,7 +33,7 @@ NOTE: Die zulässige Aktion s3:ListBucket ist erforderlich, damit Benutzer alle 
 
 Die *Ressource* ist der Eimer oder Eimer, dem die Principals die Fähigkeit zur Ausführung der Aktionen gewährt oder verweigert werden. Optional kann es eine *Bedingung* geben, wenn die Richtlinienaktion gültig ist.
 
-Das Format der JSON-Polizei sieht wie folgt aus:
+Das Format der JSON-Richtlinie sieht wie folgt aus:
 
 [source, json]
 ----
@@ -66,11 +66,11 @@ Das Format der JSON-Polizei sieht wie folgt aus:
 
 Der AWS Richtlinien-Generator ist ein großartiges Werkzeug, um den json-Code mit dem richtigen Format und den Informationen zu erhalten, die Sie zu implementieren versuchen.
 
-So generieren Sie die Berechtigungen für eine StorageGRID-Gruppenrichtlinie: * Wählen Sie die IAM-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Deny-Berechtigungen zu starten und dann die Allow-Berechtigungen * in das Dropdown-Menü Actions hinzuzufügen. Klicken Sie auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld „All Actions“ aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3:::examplebucket“
+So generieren Sie die Berechtigungen für eine StorageGRID-Gruppenrichtlinie: * Wählen Sie die IAM-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Deny-Berechtigungen zu starten und dann die Allow-Berechtigungen * in das Dropdown-Menü Actions hinzuzufügen. Klicken Sie auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld „All Actions“ aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3::example_bucket“
 
 image:policy/group-generic.png["Erstellen Sie eine Gruppenrichtlinie"]
 
-So generieren Sie die Berechtigungen für eine Bucket-Richtlinie: * Wählen Sie die S3-Bucket-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Berechtigungen „verweigern“ zu starten und anschließend den Typ „Berechtigungen zulassen“ * in die Benutzer- oder Gruppeninformationen für den Prinzipal einzufügen. * Klicken Sie in der Dropdown-Liste Aktionen auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld "Alle Aktionen" aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3:::examplebucket“
+So generieren Sie die Berechtigungen für eine Bucket-Richtlinie: * Wählen Sie die S3-Bucket-Richtlinie für den Typ der Richtlinie aus. * Wählen Sie die Schaltfläche für den gewünschten Effekt - Zulassen oder verweigern. Es empfiehlt sich, Ihre Richtlinien mit den Berechtigungen „verweigern“ zu starten und anschließend den Typ „Berechtigungen zulassen“ * in die Benutzer- oder Gruppeninformationen für den Prinzipal einzufügen. * Klicken Sie in der Dropdown-Liste Aktionen auf das Feld neben so vielen S3-Aktionen, die Sie in diese Berechtigung oder das Feld "Alle Aktionen" aufnehmen möchten. * Geben Sie die Bucket-Pfade in das Feld Amazon Resource Name (ARN) ein. Fügen Sie vor dem Bucket-Namen „arn:aws:s3:::“ ein. Beispiel: „arn:aws:s3::example_bucket“
 
 image:policy/bucket-generic.png["Generieren einer Bucket-Richtlinie"]
 
@@ -80,7 +80,7 @@ Wenn Sie beispielsweise eine Bucket-Richtlinie erstellen möchten, die allen Ben
 * Wählen Sie den Zulassen-Effekt
 * Geben Sie die Informationen der Marketinggruppe ein - arn:aws:iam::95390887230002558202:Federated-Group/Marketing
 * Klicken Sie auf das Feld für „Alle Aktionen“.
-* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::examplebucket,arn:aws:s3:::examplebucket/*
+* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::example_bucket,arn:aws:s3:::example_bucket/*
 
 
 image:policy/example-bucket1.png["Generieren Sie die erste Berechtigung in der Richtlinie"]
@@ -97,7 +97,7 @@ image:policy/permission1.png["Erste Berechtigung in der eingegebenen Richtlinie"
 
 image:policy/getobject.png["Wählen Sie GetObject"] image:policy/listbucket.png["Wählen Sie ListBucket"]
 
-* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::examplebucket,arn:aws:s3:::examplebucket/*
+* Geben Sie die Bucket-Informationen ein - arn:aws:s3:::example_bucket,arn:aws:s3:::example_bucket/*
 
 
 image:policy/example-bucket2.png["Generieren Sie die zweite Berechtigung in der Richtlinie"]
@@ -105,7 +105,7 @@ image:policy/example-bucket2.png["Generieren Sie die zweite Berechtigung in der 
 * Klicken Sie auf die Schaltfläche „Anweisung hinzufügen“
 
 
-image:policy/permission3.png["Zweite Erlaubnis in der Richtlinie"]
+image:policy/permission2.png["Zweite Erlaubnis in der Richtlinie"]
 
 * Klicken Sie auf die Schaltfläche „Richtlinie generieren“. Daraufhin wird ein Popup-Fenster mit der erstellten Richtlinie angezeigt.
 
@@ -126,8 +126,8 @@ image:policy/example-output.png["Die endgültige Ausgabe"]
       "Action": "s3:*",
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": {
         "AWS": [
@@ -143,8 +143,8 @@ image:policy/example-output.png["Die endgültige Ausgabe"]
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": "*"
     }
@@ -164,8 +164,8 @@ Beispiel:
       "Action": "s3:*",
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": {
         "AWS": [
@@ -181,8 +181,8 @@ Beispiel:
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": "*"
     }
