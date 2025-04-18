@@ -26,10 +26,61 @@ Bucket- und Gruppenrichtlinien verwenden die meisten Elemente gemeinsam. Richtli
 
 Alle Richtlinien definieren den Effekt, die Aktion(en) und die Ressource(en). In Bucket-Richtlinien wird auch ein Principal definiert.
 
-Der *Effekt* wird entweder sein, die Anfrage zuzulassen oder abzulehnen. Der *Principal* ist der/die Account(s)/User(s), dem/den die Fähigkeiten gewährt oder verweigert werden. Dies kann als Wildcard „++*+“ oder als lokaler oder föderierter Benutzer oder Gruppe innerhalb des Mandanten definiert werden, in dem sich der Bucket befindet, oder als ein anderer Mandant im Grid. Der Benutzer oder die Gruppe kann anhand des Namens oder der ID-Zeichenfolge identifiziert werden. Die *Aktion* ist der Satz von S3-Operationen, die dem/den Benutzer(n) gewährt oder verweigert werden.
+Der *Effekt* wird entweder sein, die Anfrage zuzulassen oder abzulehnen.
+
+Der * Principal*
+
+* Gilt nur für Bucket-Richtlinien.
+* Der Hauptbenutzer ist der/die Konto(e)/Benutzer, dem/den die Berechtigungen gewährt oder verweigert werden.
+* Kann definiert werden als:
++
+** Ein Platzhalter „++*+“
++
+[listing]
+----
+"Principal":"*"
+----
++
+[listing]
+----
+"Principal":{"AWS":"*"}
+----
+** Eine Mandanten-ID für alle Benutzer in einem Mandanten (entspricht AWS-Konto)
++
+[listing]
+----
+"Principal": { "AWS": "27233906934684427525" }
+----
+** Ein Benutzer (lokal oder föderiert aus dem Mandanten, der sich im Bucket befindet, oder ein anderer Mandant im Grid)
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::76233906934699427431:user/tenant1user1" }
+----
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::27233906934684427525:federated-user/tenant2user1" }
+----
+** Eine Gruppe (lokal oder föderiert aus dem Mandanten, der sich im Bucket befindet, oder ein anderer Mandant im Grid).
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::76233906934699427431:group/DevOps"  }
+----
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::27233906934684427525:federated-group/Managers"  }
+----
 
 
-NOTE: Die zulässige Aktion s3:ListBucket ist erforderlich, damit Benutzer alle S3-Aktionen ausführen können.
+
+
+Die *Aktion* ist der Satz von S3-Operationen, die dem/den Benutzer(n) gewährt oder verweigert werden.
+
+
+NOTE: Für Gruppenrichtlinien ist die zulässige Aktion s3:ListBucket erforderlich, damit Benutzer alle S3-Aktionen ausführen können.
 
 Die *Ressource* ist der Eimer oder Eimer, dem die Principals die Fähigkeit zur Ausführung der Aktionen gewährt oder verweigert werden. Optional kann es eine *Bedingung* geben, wenn die Richtlinienaktion gültig ist.
 
@@ -43,10 +94,13 @@ Das Format der JSON-Richtlinie sieht wie folgt aus:
       "Sid": "Custom name for this permission",
       "Effect": "Allow or Deny",
       "Principal": {
-        "AWS": "arn:aws:iam::Tenant_ID:federated-group/Group_Name",
-        "AWS": "arn:aws:iam::Tenant_ID:group/Group_Name",
-        "AWS": "arn:aws:iam::Tenant_ID::federated-user/User_Name",
-        "AWS": "User_Name"
+        "AWS": [
+          "arn:aws:iam::tenant_ID::user/User_Name",
+          "arn:aws:iam::tenant_ID::federated-user/User_Name",
+          "arn:aws:iam::tenant_ID:group/Group_Name",
+          "arn:aws:iam::tenant_ID:federated-group/Group_Name",
+          "tenant_ID"
+        ]
       },
       "Action": [
         "s3:ListBucket",
@@ -311,87 +365,6 @@ Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach V
 ----
 
 
-== Bucket-Richtlinien
-
-
-
-=== Beschränken Sie das Löschen versionierter Objekte in einem Bucket
-
-Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID
-
-[source, json]
-----
-{
-  "Statement": [
-    {
-      "Action": [
-        "s3:DeleteObjectVersion"
-      ],
-      "Effect": "Deny",
-      "Resource": "arn:aws:s3:::verdeny/*",
-      "Principal": {
-        "AWS": [
-          "56622399308951294926"
-        ]
-      }
-    },
-    {
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::verdeny/*",
-      "Principal": {
-        "AWS": [
-          "56622399308951294926"
-        ]
-      }
-    }
-  ]
-}
-----
-
-
-=== Bucket auf einzelnen Benutzer mit schreibgeschütztem Zugriff beschränken
-
-Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff auf einen Bucket zu haben und explizit allen anderen Benutzern den zugriff zu verweigert. Die Gruppierung der Ablehenserklärungen an der Spitze der Richtlinie ist eine gute Methode für eine schnellere Bewertung.
-
-[source, json]
-----
-{
-    "Statement": [
-        {
-            "Sid": "Deny non user1",
-            "Effect": "Deny",
-            "NotPrincipal": {
-                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
-            },
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucket1",
-                "arn:aws:s3:::bucket1/*"
-            ]
-        },
-        {
-            "Sid": "Allow user1 read access to bucket bucket1",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
-            },
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucket1",
-                "arn:aws:s3:::bucket1/*"
-            ]
-        }
-    ]
-}
-----
-
-
 === Beschränken Sie eine Gruppe auf ein einzelnes Unterverzeichnis (Präfix) mit Lesezugriff
 
 Diese Richtlinie ermöglicht Mitgliedern der Gruppe schreibgeschützten Zugriff auf ein Unterverzeichnis (Präfix) innerhalb eines Buckets. Der Bucket-Name lautet „Study“ und das Unterverzeichnis lautet „study01“.
@@ -459,5 +432,135 @@ Diese Richtlinie ermöglicht Mitgliedern der Gruppe schreibgeschützten Zugriff 
             ]
         }
     ]
+}
+----
+
+
+== Bucket-Richtlinien
+
+
+
+=== Bucket auf einzelnen Benutzer mit schreibgeschütztem Zugriff beschränken
+
+Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff auf einen Bucket zu haben und explizit allen anderen Benutzern den zugriff zu verweigert. Die Gruppierung der Ablehenserklärungen an der Spitze der Richtlinie ist eine gute Methode für eine schnellere Bewertung.
+
+[source, json]
+----
+{
+    "Statement": [
+        {
+            "Sid": "Deny non user1",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
+            },
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket1",
+                "arn:aws:s3:::bucket1/*"
+            ]
+        },
+        {
+            "Sid": "Allow user1 read access to bucket bucket1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::34921514133002833665:user/user1"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket1",
+                "arn:aws:s3:::bucket1/*"
+            ]
+        }
+    ]
+}
+----
+
+
+=== Beschränken Sie einen Bucket auf einige Benutzer mit schreibgeschütztem Zugriff.
+
+[source, json]
+----
+{
+    "Statement": [
+      {
+        "Sid": "Deny all S3 actions to employees 002-005",
+        "Effect": "deny",
+        "Principal": {
+          "AWS": [
+            "arn:aws:iam::46521514133002703882:user/employee-002",
+            "arn:aws:iam::46521514133002703882:user/employee-003",
+            "arn:aws:iam::46521514133002703882:user/employee-004",
+            "arn:aws:iam::46521514133002703882:user/employee-005"
+          ]
+        },
+        "Action": "*",
+        "Resource": [
+          "arn:aws:s3:::databucket1",
+          "arn:aws:s3:::databucket1/*"
+        ]
+      },
+      {
+        "Sid": "Allow read-only access for employees 002-005",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": [
+            "arn:aws:iam::46521514133002703882:user/employee-002",
+            "arn:aws:iam::46521514133002703882:user/employee-003",
+            "arn:aws:iam::46521514133002703882:user/employee-004",
+            "arn:aws:iam::46521514133002703882:user/employee-005"
+          ]
+        },
+        "Action": [
+          "s3:GetObject",
+          "s3:GetObjectTagging",
+          "s3:GetObjectVersion"
+        ],
+        "Resource": [
+          "arn:aws:s3:::databucket1",
+          "arn:aws:s3:::databucket1/*"
+        ]
+      }
+    ]
+}
+----
+
+
+=== Beschränken Sie das Löschen versionierter Objekte in einem Bucket
+
+Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID
+
+[source, json]
+----
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:DeleteObjectVersion"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    },
+    {
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    }
+  ]
 }
 ----
