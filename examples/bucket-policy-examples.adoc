@@ -2,9 +2,9 @@
 permalink: examples/bucket-policy-examples.html 
 sidebar: sidebar 
 keywords: iam, bucket policy, group policy, policy 
-summary: Hier sind Beispielrichtlinien und Berechtigungen in StorageGRID S3. 
+summary: Richtlinien und Berechtigungen in StorageGRID . 
 ---
-= Beispiel für Bucket- und Gruppenrichtlinien (IAM)
+= Richtlinien und Berechtigungen in StorageGRID
 :hardbreaks:
 :allow-uri-read: 
 :icons: font

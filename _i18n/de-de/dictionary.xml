@@ -71,7 +71,6 @@
   <block id="0147e507e7b15a9ed1a38c66a279beb6" category="doc">StorageGRID 11.3 validierte Drittanbieterlösungen</block>
   <block id="7190c305424285fe4256ab8cdf614311" category="paragraph">Die folgenden Drittanbieterlösungen wurden zur Verwendung mit StorageGRID 11.3 validiert. + Wenn die von Ihnen gesuchte Lösung nicht aufgeführt ist, wenden Sie sich bitte an Ihren NetApp Ansprechpartner.</block>
   <block id="a1224e8e1d42e54574d1b861a3df5f2f" category="summary">NetApp StorageGRID ist eine softwaredefinierte Objekt-Storage-Suite, die eine Vielzahl von Anwendungsfällen in Public-, Private- und Hybrid-Multi-Cloud-Umgebungen unterstützt. StorageGRID nutzt branchenführende Innovationen wie automatisiertes Lifecycle Management für die Speicherung, Sicherung, Sicherung und Aufbewahrung unstrukturierter Daten für den Einsatz in mehreren Zwecke über lange Zeiträume.</block>
-  <block id="696ea9ebe2a9f57bb062aba5c1d58b10" category="doc">StorageGRID in Ihrer Umgebung aktivieren</block>
   <block id="5acb44ecb8d9d7e55b00e2a97ca3c4f5" category="summary">Die vollständige Dokumentation zu jeder NetApp StorageGRID Version finden Sie hier.</block>
   <block id="d55a0f29052225dac98466ee9b92f4a1" category="doc">NetApp StorageGRID-Dokumentation</block>
   <block id="22c5de521c44ad2015e5ce711b46bebf" category="paragraph">Die vollständige Dokumentation zu jeder NetApp StorageGRID Version finden Sie hier:</block>
@@ -733,7 +732,6 @@
   <block id="ad0b6652f18f25a574f9f4900521e06b" category="cell">Was sich geändert hat</block>
   <block id="36552b079970ffb2dd1314115af76c4b" category="paragraph">11.6</block>
   <block id="b8c1c014b9752469294df284a3fc13cc" category="paragraph">Erste Version. Enthält Leitfäden und validierte Lösungen von Drittanbietern für StorageGRID Versionen 11.2-11.6.</block>
-  <block id="c27ce751e131719af380702f6711a49d" category="sidebar">Aktivieren von StorageGRID</block>
   <block id="7b99b0e0bb2f7f24ff67fbcc39f899f1" category="sidebar">Validierte Lösungen von Drittanbietern</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Überblick</block>
   <block id="bc7a074f94cb3e6b09ba943468b03bd0" category="sidebar">Produktfunktionshandbücher</block>
@@ -955,7 +953,6 @@
   <block id="383aea8468a529b339b755e27b1d4668" category="paragraph">7.5 Tage</block>
   <block id="9ff416b798a88ec4bfb30f4f045aada5" category="paragraph">11 Tage</block>
   <block id="ed01ec12331788a408398b059da47a39" category="paragraph">10.5 Tage</block>
-  <block id="3f2327c90ede247dca9387ef500bf746" category="doc">Beispiel für Bucket- und Gruppenrichtlinien (IAM)</block>
   <block id="640ca9533a2fd150e7d3ed390e2aae66" category="section-title">Gruppenrichtlinien (IAM)</block>
   <block id="06c73db3763c74cabb8ece8e96fe7c5d" category="section-title">Bucket-Zugriff im Home Directory-Stil</block>
   <block id="8569c05df75ec9b148a67ed5998ad8b0" category="section-title">Erstellung von Bucket-Objektsperrung verweigern</block>
@@ -3321,7 +3318,6 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="6031311f84eb0fc4006dba6fd47125b4" category="paragraph">Gruppenrichtlinien sind in StorageGRID erforderlich. Ein Benutzer mit S3-Zugriffsschlüsseln, aber keiner Benutzergruppe zugewiesen oder einer Gruppe ohne Richtlinie zugewiesen, die einige Berechtigungen erteilt, kann auf keine Daten zugreifen.</block>
   <block id="8a4af1af804f24fc5095bcb2f05db9c4" category="inline-link">AWS-Richtliniengenerator</block>
   <block id="2bf2ec7dad10916c7d2bbb85d22b8113" category="paragraph">Bucket- und Gruppenrichtlinien verwenden die meisten Elemente gemeinsam. Richtlinien werden im json-Format erstellt und können mit dem erstellt werden<block ref="b825d77c880bca33764ff404def2b41e" category="inline-link-rx"></block></block>
-  <block id="8efdfc962f00530ec94e00c5411f744c" category="paragraph">Alle Richtlinien definieren den Effekt, die Aktion(en) und die Ressource(en). In Bucket-Richtlinien wird auch ein Principal definiert.</block>
   <block id="2dc7323af24c93e28f62e0e080730041" category="paragraph">Die *Ressource* ist der Eimer oder Eimer, dem die Principals die Fähigkeit zur Ausführung der Aktionen gewährt oder verweigert werden. Optional kann es eine *Bedingung* geben, wenn die Richtlinienaktion gültig ist.</block>
   <block id="98d8787db8134942993742f28e6e638e" category="section-title">Verwenden des AWS-Richtliniengenerators</block>
   <block id="7fd5fa9d1e888f7d962c6930557d8e36" category="paragraph">Der AWS Richtlinien-Generator ist ein großartiges Werkzeug, um den json-Code mit dem richtigen Format und den Informationen zu erhalten, die Sie zu implementieren versuchen.</block>
@@ -3372,4 +3368,8 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="1fb97d2f8d3ea337eb88de35459a8dfa" category="paragraph">Die *Aktion* ist der Satz von S3-Operationen, die dem/den Benutzer(n) gewährt oder verweigert werden.</block>
   <block id="c4b3b18f1ab46adb439794c3e45b0a5a" category="admonition">Für Gruppenrichtlinien ist die zulässige Aktion s3:ListBucket erforderlich, damit Benutzer alle S3-Aktionen ausführen können.</block>
   <block id="21e1d6809aa3d238b83ad7b2536121ce" category="section-title">Beschränken Sie einen Bucket auf einige Benutzer mit schreibgeschütztem Zugriff.</block>
+  <block id="bbecdd1fb824778996b46ad8016ff963" category="summary">Richtlinien und Berechtigungen in StorageGRID .</block>
+  <block id="0e2086a4669036b8a4cdc547c6b73dcf" category="doc">Richtlinien und Berechtigungen in StorageGRID</block>
+  <block id="71c2cd8c732de893ca91cb987baa1b5c" category="paragraph">Alle Richtlinien definieren den Effekt, die Aktion(en) und die Ressource(en). In Bucket-Richtlinien wird auch ein Principal definiert.</block>
+  <block id="4acae57d3119f0b81d2bfd14c9585f13" category="sidebar">StorageGRID Lösungen und Ressourcen</block>
 </blocks>
