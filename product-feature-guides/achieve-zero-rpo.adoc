@@ -20,9 +20,9 @@ Dieser technische Bericht enthält einen umfassenden Leitfaden zur Implementieru
 
 NetApp StorageGRID ist ein objektbasiertes Storage-System, das die branchenübliche API Amazon Simple Storage Service (Amazon S3) unterstützt.
 
-StorageGRID bietet einen Single Namespace über mehrere Standorte mit variablen Service-Leveln basierend auf Information Lifecycle Management-Richtlinien (ILM). Mit diesen Lifecycle-Richtlinien können Sie den Speicherort Ihrer Daten während ihres gesamten Lebenszyklus optimieren.
+StorageGRID bietet einen Single Namespace über mehrere Standorte mit variablen Service-Leveln basierend auf Information Lifecycle Management-Richtlinien (ILM). Mit diesen Lebenszyklusrichtlinien können Sie den Speicherort Ihrer Daten während ihres gesamten Lebenszyklus optimieren.
 
-StorageGRID ermöglicht die konfigurierbare Aufbewahrung und Verfügbarkeit Ihrer Daten in lokalen und geografisch verteilten Lösungen. Unabhängig davon, ob sich Ihre Daten vor Ort oder in einer Public Cloud befinden – mit integrierten Hybrid-Cloud-Workflows können Sie Cloud-Services wie Amazon Simple Notification Service (Amazon SNS), Google Cloud, Microsoft Azure Blob, Amazon S3 Glacier, Elasticsearch und andere nutzen.
+StorageGRID ermöglicht die konfigurierbare Aufbewahrung und Verfügbarkeit Ihrer Daten in lokalen und geografisch verteilten Lösungen. Unabhängig davon, ob sich Ihre Daten vor Ort oder in einer öffentlichen Cloud befinden, ermöglichen integrierte Hybrid-Cloud-Workflows Ihrem Unternehmen die Nutzung von Cloud-Diensten wie Amazon Simple Notification Service (Amazon SNS), Google Cloud, Microsoft Azure Blob, Amazon S3 Glacier, Elasticsearch und mehr.
 
 
 
@@ -30,7 +30,14 @@ StorageGRID ermöglicht die konfigurierbare Aufbewahrung und Verfügbarkeit Ihre
 
 StorageGRID kann mit nur 3 Storage-Nodes implementiert werden und ein einzelnes Grid kann auf bis zu 200 Nodes erweitert werden. Ein einzelnes Grid kann entweder als einzelner Standort oder bis zu 16 Standorte implementiert werden. Ein minimales Grid besteht aus einem Administrator-Node und 3 Storage-Nodes an einem einzelnen Standort. Der Admin-Node enthält die Managementoberfläche, einen zentralen Punkt für die Kennzahlen und die Protokollierung, und behält die Konfiguration der StorageGRID-Komponenten bei. Der Admin-Node enthält außerdem einen integrierten Load Balancer für den S3-API-Zugriff. StorageGRID kann als rein softwarebasierte Lösung, als VMware Virtual Machine Appliances oder als speziell entwickelte Appliances implementiert werden.
 
-Ein StorageGRID Node kann als Metadatenknoten implementiert werden, um die Objektanzahl zu maximieren, ein rein Objekt-Storage-Node zur Maximierung des Objektspeichers oder ein kombinierter Metadaten- und Objekt-Storage-Node, der sowohl die Objektanzahl als auch den Objektspeicherplatz hinzufügt. Jeder Storage-Node kann auf eine Kapazität von mehreren Petabyte für Objekt-Storage skaliert werden, sodass es sich um einen einzigen Namespace in Hunderten Petabyte handelt. StorageGRID bietet außerdem einen integrierten Load Balancer für S3-API-Vorgänge, der als Gateway-Node bezeichnet wird.
+Ein StorageGRID-Knoten kann wie folgt bereitgestellt werden:
+
+* Ein reiner Metadatenknoten, der die Objektanzahl maximiert
+* Ein reiner Objektspeicherknoten, der den Objektspeicherplatz maximiert
+* Ein kombinierter Metadaten- und Objektspeicherknoten, der sowohl die Objektanzahl als auch den Objektspeicherplatz hinzufügt
+
+
+Jeder Storage-Node kann auf eine Kapazität von mehreren Petabyte für Objekt-Storage skaliert werden, sodass es sich um einen einzigen Namespace in Hunderten Petabyte handelt. StorageGRID bietet außerdem einen integrierten Load Balancer für S3-API-Vorgänge, der als Gateway-Node bezeichnet wird.
 
 image:zero-rpo/delivery-paths.png["Implementierungsoptionen von StorageGRID"]
 
@@ -64,7 +71,7 @@ StorageGRID verwendet Objektmetadaten, um die Standorte aller Objekte im Grid zu
 
 Objektmetadaten enthalten Informationen wie die folgenden:
 
-* Systemmetadaten, einschließlich einer eindeutigen ID für jedes Objekt (UUID), des Objektnamens, des Namens des S3-Buckets, des Namens oder der ID des Mandantenkontos, der logischen Größe des Objekts, des Datums und der Uhrzeit, zu der das Objekt zum ersten Mal erstellt wurde sowie des Datums und der Uhrzeit, zu der das Objekt zuletzt geändert wurde.
+* Systemmetadaten, einschließlich einer eindeutigen ID für jedes Objekt, des Objektnamens, des Namens des S3-Buckets, des Mandantenkontonamens oder der ID, der logischen Größe des Objekts, des Datums und der Uhrzeit der ersten Erstellung des Objekts sowie des Datums und der Uhrzeit der letzten Änderung des Objekts.
 * Der aktuelle Speicherort der einzelnen Objektreplikate oder Erasure-Coded-Fragmente.
 * Alle mit dem Objekt verknüpften Schlüssel-Wert-Paare für benutzerdefinierte Benutzer-Metadaten.
 * Bei S3-Objekten sind alle dem Objekt zugeordneten Objekt-Tag-Schlüssel-Wert-Paare vorhanden

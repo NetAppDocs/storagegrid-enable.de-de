@@ -1,0 +1,296 @@
+---
+permalink: examples/bucket-lifecycle-examples.html 
+sidebar: sidebar 
+keywords: iam, bucket policy, lifecycle policy, policy, bucket 
+summary: Bucket-Lebenszyklus in StorageGRID. 
+---
+= Bucket-Lebenszyklus in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine S3-Lebenszyklukonfiguration erstellen, um zu steuern, wann bestimmte Objekte aus dem StorageGRID System gelöscht werden.
+
+
+
+== Was ist eine Lebenszykluskonfiguration?
+
+Eine Lifecycle-Konfiguration ist ein Satz von Regeln, die auf die Objekte in bestimmten S3-Buckets angewendet werden. Jede Regel gibt an, welche Objekte betroffen sind und wann diese Objekte ablaufen (an einem bestimmten Datum oder nach einigen Tagen).
+
+Jedes Objekt folgt den Aufbewahrungseinstellungen eines S3 Bucket-Lebenszyklus oder einer ILM-Richtlinie. Wenn ein S3-Bucket-Lebenszyklus konfiguriert ist, überschreiben die Lifecycle-Ablaufaktionen die ILM-Richtlinie für Objekte, die mit dem Bucket-Lifecycle-Filter übereinstimmen. Objekte, die nicht mit dem Bucket-Lebenszyklusfilter übereinstimmen, verwenden die Aufbewahrungseinstellungen der ILM-Richtlinie. Wenn ein Objekt mit einem Bucket-Lebenszyklusfilter übereinstimmt und keine Ablaufaktionen explizit angegeben werden, werden die Aufbewahrungseinstellungen der ILM-Richtlinie nicht verwendet, und es wird impliziert, dass Objektversionen für immer aufbewahrt werden.
+
+Aus diesem Grund kann ein Objekt aus dem Grid entfernt werden, obwohl die Speicheranweisungen in einer ILM-Regel noch auf das Objekt gelten. Oder ein Objekt kann auf dem Raster verbleiben, selbst wenn alle ILM-Platzierungsanweisungen für das Objekt abgelaufen sind.
+
+StorageGRID unterstützt in einer Lebenszykluskonfiguration bis zu 1,000 Lebenszyklusregeln. Jede Regel kann die folgenden XML-Elemente enthalten:
+
+* Ablauf: Löschen eines Objekts, wenn ein bestimmtes Datum erreicht wird oder wenn eine bestimmte Anzahl von Tagen erreicht wird, beginnend mit dem Zeitpunkt der Aufnahme des Objekts.
+* NoncurrentVersionExpiration: Löschen Sie ein Objekt, wenn eine bestimmte Anzahl von Tagen erreicht wird, beginnend ab dem Zeitpunkt, an dem das Objekt nicht mehr aktuell wurde.
+* Filter (Präfix, Tag)
+* Status *ID
+
+
+StorageGRID unterstützt den Einsatz der folgenden Bucket-Operationen zum Management der Lebenszykluskonfigurationen:
+
+* DeleteBucketLifecycle
+* GetBucketLifecycleKonfiguration
+* PutBucketLifecycleKonfiguration
+
+
+
+
+== Aufbau einer Lifecycle-Policy
+
+Als erster Schritt beim Erstellen einer Lebenszykluskonfiguration erstellen Sie eine JSON-Datei mit einem oder mehreren Regeln. Diese JSON-Datei enthält beispielsweise drei Regeln:
+
+. *Regel 1* gilt nur für Objekte, die dem Präfix „category1/“ entsprechen und den Wert „key2“ von „tag2“ haben. Der Parameter „Expiration“ gibt an, dass Objekte, die dem Filter entsprechen, am 22. August 2020 um Mitternacht ablaufen.
+. *Regel 2* gilt nur für Objekte, die dem Präfix „category2/“ entsprechen. Der Parameter „Expiration“ gibt an, dass Objekte, die dem Filter entsprechen, 100 Tage nach ihrer Aufnahme ablaufen.
++
+
+CAUTION: Regeln, die eine Anzahl von Tagen angeben, sind relativ zu dem Zeitpunkt, an dem das Objekt aufgenommen wurde. Wenn das aktuelle Datum das Aufnahmedatum plus die Anzahl der Tage überschreitet, werden einige Objekte möglicherweise aus dem Bucket entfernt, sobald die Lebenszykluskonfiguration angewendet wird.
+
+. *Regel 3* gilt nur für Objekte mit dem Präfix „category3/“. Der Parameter „Expiration“ gibt an, dass alle nicht aktuellen Versionen übereinstimmender Objekte 50 Tage nach ihrer Nicht-Aktualisierung ablaufen.
+
+
+[source, json]
+----
+{
+	"Rules": [
+        {
+		    "ID": "rule1",
+			"Filter": {
+                "And": {
+                    "Prefix": "category1/",
+                    "Tags": [
+                        {
+                            "Key": "key2",
+							"Value": "tag2"
+                        }
+                    ]
+                }
+            },
+			"Expiration": {
+                "Date": "2020-08-22T00:00:00Z"
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule2",
+			"Filter": {
+                "Prefix": "category2/"
+            },
+			"Expiration": {
+                "Days": 100
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule3",
+			"Filter": {
+                "Prefix": "category3/"
+            },
+			"NoncurrentVersionExpiration": {
+                "NoncurrentDays": 50
+            },
+            "Status": "Enabled"
+        }
+    ]
+}
+----
+
+
+== Lifecycle-Konfiguration auf Bucket anwenden
+
+Nachdem Sie die Lebenszykluskonfigurationsdatei erstellt haben, wenden Sie sie auf einen Bucket an, indem Sie eine Anforderung von PutkBucketLifecycleConfiguration ausgeben.
+
+Diese Anforderung wendet die Lebenszykluskonfiguration in der Beispieldatei auf Objekte in einem Bucket mit dem Namen `testbucket`an.
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> put-bucket-lifecycle-configuration
+--bucket testbucket --lifecycle-configuration file://bktjson.json
+----
+Um zu überprüfen, ob eine Lebenszykluskonfiguration erfolgreich auf den Bucket angewendet wurde, geben Sie eine GetBucketLifecycleConfiguration-Anforderung aus. Beispiel:
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configuration
+ --bucket testbucket
+----
+
+
+== Beispiel-Lebenszyklusrichtlinien für Standard-Buckets (ohne Versionsangabe)
+
+
+
+=== Objekte nach 90 Tagen löschen
+
+Anwendungsfall: Diese Richtlinie eignet sich ideal für die Verwaltung zeitlich begrenzt relevanter Daten, wie z. B. temporäre Dateien, Protokolle oder Zwischenverarbeitungsdaten. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket.
+
+[source, json]
+----
+{
+	"Rules": [
+	  {
+		"ID": "Delete after 90 day rule",
+		"Filter": {},
+		"Status": "Enabled"，
+		  "Expiration": {
+			  "Days": 90
+	    }
+	  }
+	]
+}
+----
+
+
+== Beispiel-Lebenszyklusrichtlinien für versionierte Buckets
+
+
+
+=== Nicht aktuelle Versionen nach 10 Tagen löschen
+
+Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Speicherung veralteter Versionsobjekte, die sich im Laufe der Zeit ansammeln und viel Speicherplatz beanspruchen können. Vorteil: Optimieren Sie die Speichernutzung, indem Sie nur die neueste Version speichern.
+
+[source, json]
+----
+{
+	"Rules": [
+	        {
+		"ID": "NoncurrentVersionExpiration 10 day rule",
+		"Filter": {},
+		"Status": "Enabled"，
+		  "NoncurrentVersionExpiration": {
+			  "NoncurrentDays": 10
+	   	}
+    }
+	]
+}
+----
+
+
+=== Behalten Sie 5 nicht aktuelle Versionen
+
+Anwendungsfall: Nützlich, wenn Sie eine begrenzte Anzahl früherer Versionen zu Wiederherstellungs- oder Prüfzwecken behalten möchten. Vorteil: Behalten Sie genügend nicht aktuelle Versionen, um ausreichend Verlauf und Wiederherstellungspunkte sicherzustellen.
+
+[source, json]
+----
+{
+	"Rules": [
+	  {
+		"ID": "NewerNoncurrentVersions 5 version rule",
+		"Filter": {},
+		"Status": "Enabled"，
+		"NoncurrentVersionExpiration": {
+		  	"NewerNoncurrentVersions": 5
+	    }
+    }
+	]
+}
+----
+
+
+=== Löschmarkierungen entfernen, wenn keine anderen Versionen vorhanden sind
+
+Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Löschmarkierungen, die nach dem Entfernen aller nicht aktuellen Versionen übrig bleiben und sich im Laufe der Zeit ansammeln können. Vorteil: Reduzierung unnötiger Unordnung.
+
+[source, json]
+----
+{
+	"Rules": [
+    {
+		"ID": "Delete marker cleanup rule",
+		"Filter": {},
+		"Status": "Enabled"，
+		"Expiration": {
+        "ExpiredObjectDeleteMarker": true
+	  	}
+    }
+	]
+}
+----
+
+
+=== Löschen Sie aktuelle Versionen nach 30 Tagen, löschen Sie nicht aktuelle Versionen nach 60 Tagen und entfernen Sie die Löschmarkierungen, die durch das Löschen der aktuellen Version erstellt wurden, sobald keine anderen Versionen mehr vorhanden sind.
+
+Anwendungsfall: Bereitstellung eines vollständigen Lebenszyklus für aktuelle und nicht aktuelle Versionen inklusive Löschmarkierungen. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket, während ausreichend Wiederherstellungspunkte und Verlauf erhalten bleiben.
+
+[source, json]
+----
+{
+  "Rules": [
+    {
+      "ID": "Delete current version",
+      "Status": "Enabled",
+      "Expiration": {
+        "Days": 30
+      },
+    },
+    {
+      "ID": "noncurrent version retention",
+      "Status": "Enabled",
+      "NoncurrentVersionExpiration": {
+        "NoncurrentDays": 60
+      }
+    },
+    {
+      "ID": "Markers",
+      "Status": "Enabled",
+      "Expiration": {
+        "ExpiredObjectDeleteMarker": true
+      }
+    }
+  ]
+}
+----
+
+
+=== Entfernen Sie Löschmarkierungen, die keine anderen Versionen haben und seit 5 Tagen vorhanden sind. Behalten Sie 4 nicht aktuelle Versionen und mindestens 30 Tage Verlauf für Objekte mit dem Präfix „accounts_“ und behalten Sie 2 Versionen und mindestens 10 Tage Verlauf für alle anderen Objektversionen.
+
+Anwendungsfall: Definieren Sie eindeutige Regeln für bestimmte Objekte neben anderen Objekten, um den gesamten Lebenszyklus aktueller und nicht aktueller Versionen inklusive Löschmarkierungen zu verwalten. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket. Gleichzeitig bleiben ausreichend Wiederherstellungspunkte und Verlaufsdaten erhalten, um verschiedene Kundenanforderungen zu erfüllen.
+
+[source, json]
+----
+{
+  "Rules": [
+    {
+      "ID": "Markers",
+      "Status": "Enabled",
+      "Expiration": {
+        "Days": 5,
+        "ExpiredObjectDeleteMarker": true
+      },
+    },
+    {
+      "ID": "accounts version retention",
+      "Status": "Enabled",
+      "NoncurrentVersionExpiration": {
+        "NewerNoncurrentVersions": 4,
+        "NoncurrentDays": 30
+      },
+      "Filter": {
+          "Prefix":"account_"
+      }
+    },
+    {
+      "ID": "noncurrent version retention",
+      "Status": "Enabled",
+      "NoncurrentVersionExpiration": {
+        "NewerNoncurrentVersions": 2,
+        "NoncurrentDays": 10
+      }
+    }
+  ]
+}
+----
+
+
+== Schlussfolgerung
+
+* Überprüfen und aktualisieren Sie Lebenszyklusrichtlinien regelmäßig und richten Sie sie an den ILM- und Datenverwaltungszielen aus.
+* Testen Sie Richtlinien in einer Nicht-Produktionsumgebung oder einem Bucket, bevor Sie sie allgemein anwenden, um sicherzustellen, dass sie wie vorgesehen funktionieren.
+* Verwenden Sie beschreibende IDs für Regeln, um sie intuitiver zu gestalten, da die logische Struktur komplex werden kann
+* Überwachen Sie die Auswirkungen dieser Bucket-Lebenszyklusrichtlinien auf die Speichernutzung und Leistung, um die erforderlichen Anpassungen vorzunehmen.
+
