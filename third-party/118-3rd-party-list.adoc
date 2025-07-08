@@ -42,7 +42,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 * Fujifilm Object Archive
 * GitHub Enterprise Server
 * IBM FileNet
-* IBM Spectrum Protect Plus
+* IBM Storage Protect
 * Interica
 * Komprise
 * Microsoft SQL Server Big Data-Cluster
@@ -89,6 +89,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 * Commvault 11, Feature Release 26
 * IBM FileNet
+* IBM Storage Protect
 * OpenText Documentum 21.4
 * Rubrik
 * Veeam 12
