@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/data-security-data-access-security.html 
+keywords: data access security, storagegrid 
+summary: Erfahren Sie mehr über die Sicherheitsfunktionen für den Datenzugriff in StorageGRID. 
+---
+= Sicherheitsfunktionen für den Datenzugriff
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie mehr über die Sicherheitsfunktionen für den Datenzugriff in StorageGRID.
+
+[cols="20,30a,30,20"]
+|===
+| Funktion | Funktion | Auswirkungen | Einhaltung gesetzlicher Vorschriften 
+
+
+| Konfigurierbare TLS (Transport Layer Security)  a| 
+TLS erstellt ein Handshake-Protokoll für die Kommunikation zwischen einem Client und einem StorageGRID-Gateway-Node, Speicher-Node oder Load Balancer-Endpunkt.
+
+StorageGRID unterstützt die folgenden Verschlüsselungssuites für TLS:
+
+* TLS_AES_256_GCM_SHA384
+* TLS_AES_128_GCM_SHA256
+* ECDHE-ECDSA-AES256-GCM-SHA384
+* ECDHE-RSA-AES256-GCM-SHA384
+* ECDHE-ECDSA-AES128-GCM-SHA256
+* ECDHE-RSA-AES128-GCM-SHA256
+* TLS_AES_256_GCM_SHA384
+* DHE-RSA-AES128-GCM-SHA256
+* DHE-RSA-AES256-GCM-SHA384
+* AES256-GCM-SHA384
+* AES128-GCM-SHA256
+* TLS_CHACHA20_POLY1305_SHA256
+* ECDHE-ECDSA-CHACHA20-POLY1305
+* ECDHE-RSA-CHACHA20-POLY1305
+
+
+TLS v1.2 und 1.3 unterstützt.
+
+SSLv3, TLS v1.1 und frühere Versionen werden nicht mehr unterstützt.
+| Ein Client und ein StorageGRID können sich gegenseitig identifizieren und authentifizieren und mit Vertraulichkeit und Datenintegrität kommunizieren. Stellt die Verwendung einer aktuellen TLS-Version sicher. Die Chiffren können jetzt unter den Konfigurations-/Sicherheitseinstellungen konfiguriert werden | -- 
+
+
+| Konfigurierbares Serverzertifikat (Load Balancer Endpoint)  a| 
+Grid-Administratoren können Load-Balancer-Endpunkte konfigurieren, um ein Serverzertifikat zu erstellen oder zu verwenden.
+| Ermöglicht die Verwendung von digitalen Zertifikaten, die von ihrer standardmäßigen vertrauenswürdigen Zertifizierungsstelle (CA) signiert wurden, um Objekt-API-Vorgänge zwischen Grid und Client pro Load Balancer-Endpunkt zu authentifizieren. | -- 
+
+
+| Konfigurierbares Serverzertifikat (API-Endpunkt)  a| 
+Grid-Administratoren können alle StorageGRID-API-Endpunkte zentral so konfigurieren, dass ein von der vertrauenswürdigen CA ihres Unternehmens signiertes Serverzertifikat verwendet wird.
+| Ermöglicht die Verwendung von digitalen Zertifikaten, die von ihrer standardmäßigen vertrauenswürdigen Zertifizierungsstelle signiert wurden, um Objekt-API-Vorgänge zwischen einem Client und dem Grid zu authentifizieren. | -- 
+
+
+| Mandantenfähigkeit  a| 
+StorageGRID unterstützt mehrere Mandanten pro Grid, wobei jeder Mandant einen eigenen Namespace besitzt. Ein Mandant stellt ein S3-Protokoll bereit. Standardmäßig ist der Zugriff auf Buckets/Container und Objekte auf Benutzer in dem Konto beschränkt. Mandanten können einen Benutzer (z. B. eine Unternehmensimplementierung, bei der jeder Benutzer ein eigenes Konto hat) oder mehrere Benutzer (z. B. eine Service-Provider-Implementierung, bei der jedes Konto ein Unternehmen und ein Kunde des Service-Providers ist) aufweisen. Benutzer können lokal oder föderiert sein; föderierte Benutzer werden durch Active Directory oder Lightweight Directory Access Protocol (LDAP) definiert. StorageGRID bietet ein mandantenfähiges Dashboard, in dem sich Benutzer mit ihren lokalen oder föderierten Kontoinformationen anmelden können. Benutzer können auf visualisierte Berichte zur Mandantennutzung anhand des vom Grid-Administrator zugewiesenen Kontingents zugreifen, einschließlich Nutzungsinformationen in Daten und Objekten, die von Buckets gespeichert sind. Benutzer mit Administratorrechten können Systemadministrationsaufgaben auf Mandantenebene durchführen, wie zum Beispiel Benutzer und Gruppen und Zugriffsschlüssel managen.
+| StorageGRID-Administratoren können Daten von mehreren Mandanten hosten, dabei den Mandantenzugriff isolieren und die Benutzeridentität festlegen, indem Benutzer mit einem externen Identitätsanbieter wie Active Directory oder LDAP verknüpft werden. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Nichtabstreitbarkeit der Zugangsdaten  a| 
+Jeder S3-Vorgang wird mit einem eindeutigen Mandantenkonto, einem eindeutigen Benutzer und einem Zugriffsschlüssel identifiziert und protokolliert.
+| Ermöglicht Grid-Administratoren festzulegen, welche API-Aktionen von welchen Personen ausgeführt werden. | -- 
+
+
+| Anonymer Zugriff deaktiviert  a| 
+Standardmäßig ist der anonyme Zugriff für S3-Konten deaktiviert. Ein Anforderer muss über gültige Zugangsdaten für einen gültigen Benutzer im Mandantenkonto verfügen, um auf Buckets, Container oder Objekte innerhalb des Kontos zugreifen zu können. Anonymer Zugriff auf S3-Buckets oder -Objekte kann mit einer expliziten IAM-Richtlinie aktiviert werden.
+| Ermöglicht Grid-Administratoren, den anonymen Zugriff auf Buckets/Container und Objekte zu deaktivieren oder zu steuern. | -- 
+
+
+| Compliance-WORM  a| 
+Entwickelt, um die Anforderungen der SEC Rule 17a-4(f) zu erfüllen und von Cohasset validiert. Kunden können Compliance auf Bucket-Ebene aktivieren. Die Aufbewahrung kann erweitert, aber nie reduziert werden. Regeln für Information Lifecycle Management (ILM) setzen minimale Datensicherungsstufen fest.
+| Mandanten mit gesetzlichen Datenaufbewahrungsanforderungen ermöglichen WORM-Schutz bei gespeicherten Objekten und Objektmetadaten. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| WORM  a| 
+Grid-Administratoren können den WORM für das gesamte Grid aktivieren, indem sie die Option Client-Änderung deaktivieren aktivieren, die verhindert, dass Clients Objekte oder Objektmetadaten in allen Mandantenkonten überschreiben oder löschen.
+
+S3-Mandantenadministratoren können WORM auch nach Mandant, Bucket oder Objektpräfix durch Angabe der IAM-Richtlinie aktivieren, die die benutzerdefinierte S3: PutOverwriteObject-Berechtigung für Objekt- und Metadatenüberschreibungen umfasst.
+| Grid-Administratoren und Mandantenadministratoren können die WORM-Sicherung von gespeicherten Objekten und Objektmetadaten steuern. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| KMS-Host-Server-Verschlüsselungsschlüsselverwaltung  a| 
+Grid-Administratoren können einen oder mehrere externe KMS (Key Management Server) im Grid Manager konfigurieren, um Verschlüsselungen für StorageGRID Services und Storage Appliances bereitzustellen. Jeder KMS-Hostserver oder KMS-Hostserver-Cluster verwendet das Key Management Interoperability Protocol (KMIP), um einen Verschlüsselungsschlüssel für die Appliance-Nodes am zugehörigen StorageGRID-Standort bereitzustellen.
+| Die Verschlüsselung ruhender Daten wird erreicht. Nachdem die Appliance-Volumes verschlüsselt wurden, können Sie nur auf Daten auf der Appliance zugreifen, wenn der Node mit dem KMS-Hostserver kommunizieren kann. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Automatisiertes Failover  a| 
+StorageGRID bietet integrierte Redundanz und automatisiertes Failover. Der Zugriff auf Mandantenkonten, Buckets und Objekte kann auch bei diversen Ausfällen – von Festplatten oder Nodes bis hin zu ganzen Standorten – fortgesetzt werden. StorageGRID erkennt Ressourcen und leitet Anfragen automatisch an verfügbare Nodes und Datenspeicherorte um. StorageGRID Standorte können sogar im Inselmodus betrieben werden. Wenn ein WAN-Ausfall die Verbindung eines Standorts zum restlichen System trennt, können Lese- und Schreibvorgänge mit den lokalen Ressourcen fortgesetzt werden, und die Replizierung wird automatisch wieder aufgenommen, sobald das WAN wiederhergestellt ist.
+| Ermöglicht Grid-Administratoren, Uptime, SLA und andere vertragliche Verpflichtungen zu erfüllen und Business-Continuity-Pläne zu implementieren. | -- 
+
+
+ a| 
+*S3-spezifische Datenzugriffssicherheitsfunktionen*
+
+
+
+| AWS Signature Version 2 und Version 4  a| 
+Das Signieren von API-Anforderungen bietet eine Authentifizierung für S3-API-Vorgänge. Amazon unterstützt zwei Versionen von Signature Version 2 und Version 4. Beim Signaturprozess wird die Identität des Anforderers überprüft, die Daten während der Übertragung geschützt und vor potenziellen Replay-Angriffen geschützt.
+| Entspricht der AWS-Empfehlung für Signature Version 4 und ermöglicht Abwärtskompatibilität mit älteren Anwendungen mit Signature Version 2. | -- 
+
+
+| S3-Objektsperre  a| 
+Die S3-Objektsperrfunktion in StorageGRID ist eine Objektschutzlösung, die S3-Objektsperrung in Amazon S3 entspricht.
+| Ermöglicht Mandanten, Buckets mit aktivierter S3 Object Lock zu erstellen, um Vorschriften zu erfüllen, für die bestimmte Objekte für einen festgelegten Zeitraum oder auf unbestimmte Zeit aufbewahrt werden müssen. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Sichere Speicherung der S3 Zugangsdaten  a| 
+S3-Zugriffsschlüssel werden in einem Format gespeichert, das durch eine Passwort-Hashing-Funktion (SHA-2) geschützt ist.
+| Ermöglicht die sichere Speicherung von Zugriffsschlüsseln durch eine Kombination aus Schlüssellänge (10^31^ zufällig generierte Nummer) und einem Passwort-Hashing-Algorithmus. | -- 
+
+
+| Zeitgebundene S3-Zugriffsschlüssel  a| 
+Beim Erstellen eines S3 Zugriffsschlüssels für einen Benutzer können Kunden ein Ablaufdatum und eine Uhrzeit für den Zugriffsschlüssel festlegen.
+| Bietet Grid-Administratoren die Möglichkeit, temporäre S3-Zugriffsschlüssel bereitzustellen. | -- 
+
+
+| Mehrere Zugriffsschlüssel pro Benutzerkonto  a| 
+Mit StorageGRID können mehrere Zugriffsschlüssel erstellt und gleichzeitig für ein Benutzerkonto aktiv werden. Da jede API-Aktion mit einem Mandanten-Benutzerkonto und einem Zugriffsschlüssel protokolliert wird, bleibt die Nichtabstreitbarkeit erhalten, obwohl mehrere Schlüssel aktiv sind.
+| Ermöglicht Clients das unterbrechungsfreie Drehen von Zugriffsschlüsseln und ermöglicht jedem Client einen eigenen Schlüssel, wodurch die gemeinsame Nutzung von Schlüsseln über Clients hinweg vermieden wird. | -- 
+
+
+| S3 IAM-Zugriffsrichtlinie  a| 
+StorageGRID unterstützt S3 IAM-Richtlinien, sodass Grid-Administratoren granulare Zugriffssteuerung nach Mandanten, Bucket oder Objektpräfix angeben können. StorageGRID unterstützt außerdem IAM-Richtlinienbedingungen und -Variablen, wodurch dynamischere Zugriffssteuerungsrichtlinien ermöglicht werden.
+| Ermöglicht Grid-Administratoren, die Zugriffssteuerung nach Benutzergruppen für den gesamten Mandanten festzulegen; ermöglicht es den Mandantenbenutzern auch, die Zugriffssteuerung für ihre eigenen Buckets und Objekte festzulegen. | -- 
+
+
+| Serverseitige Verschlüsselung mit über StorageGRID gemanagten Schlüsseln (SSE)  a| 
+StorageGRID unterstützt SSE und ermöglicht mandantenfähigen Schutz von Daten im Ruhezustand mit von StorageGRID gemanagten Verschlüsselungen.
+| Ermöglicht Mandanten die Verschlüsselung von Objekten. Zum Schreiben und Abrufen dieser Objekte ist ein Verschlüsselungsschlüssel erforderlich. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+
+
+| Serverseitige Verschlüsselung mit vom Kunden bereitgestellten Verschlüsselungsschlüsseln (SSE-C)  a| 
+StorageGRID unterstützt SSE-C und ermöglicht damit mandantenfähigen Schutz von Daten im Ruhezustand mit vom Client gemanagten Verschlüsselungsschlüsseln.
+
+Obwohl StorageGRID alle Objektverschlüsselung und -Entschlüsselung managt, muss der Client bei SSE-C die Schlüssel selbst managen.
+| Ermöglicht Clients die Verschlüsselung von Objekten mit den Schlüsseln, die sie steuern. Zum Schreiben und Abrufen dieser Objekte ist ein Verschlüsselungsschlüssel erforderlich. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+|===

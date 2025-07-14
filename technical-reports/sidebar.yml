@@ -13,130 +13,130 @@ entries:
     und Wiederherstellen von Daten
   entries:
   - title: Backup und Recovery von Daten mit StorageGRID und CommVault
-    url: "/technical-reports/commvault/index.html"
+    url: "/technical-reports/commvault-index.html"
   - title: Übersicht über die getestete Lösung
-    url: "/technical-reports/commvault/solution-overview.html"
+    url: "/technical-reports/commvault-solution-overview.html"
   - title: Leitfaden zur StorageGRID Dimensionierung
-    url: "/technical-reports/commvault/sizing.html"
+    url: "/technical-reports/commvault-sizing.html"
   - title: Einen Datensicherungsauftrag ausführen
-    url: "/technical-reports/commvault/data-protection-jobs.html"
+    url: "/technical-reports/commvault-data-protection-jobs.html"
   - title: Performance-Tests der Baseline prüfen
-    url: "/technical-reports/commvault/baseline-performance-tests.html"
+    url: "/technical-reports/commvault-baseline-performance-tests.html"
   - title: Empfehlung für die Bucket-Konsistenzstufe
-    url: "/technical-reports/commvault/s3-consistency-levels.html"
+    url: "/technical-reports/commvault-s3-consistency-levels.html"
 - title: 'TR-4626: Load Balancer'
   pdf-filename: 'StorageGRID Load Balancer: Drittanbieter- und globale Load Balancer'
   entries:
   - title: Verwenden Sie Load Balancer von Drittanbietern mit StorageGRID
-    url: "/technical-reports/load-balancer/index.html"
+    url: "/technical-reports/load-balancer-index.html"
   - title: Erfahren Sie, wie Sie SSL-Zertifikate für HTTPS in StorageGRID implementieren
-    url: "/technical-reports/load-balancer/ssl-certificates-storagegrid.html"
+    url: "/technical-reports/load-balancer-ssl-certificates-storagegrid.html"
   - title: Konfigurieren Sie den Load Balancer eines vertrauenswürdigen Drittanbieters
       in StorageGRID
-    url: "/technical-reports/load-balancer/third-party-load-balancer-configuration.html"
+    url: "/technical-reports/load-balancer-third-party-load-balancer-configuration.html"
   - title: Informieren Sie sich über Load Balancer für lokale Traffic Manager
-    url: "/technical-reports/load-balancer/local-traffic-manager-load-balancer.html"
+    url: "/technical-reports/load-balancer-local-traffic-manager-load-balancer.html"
   - title: Lernen Sie einige Anwendungsfälle für StorageGRID Konfigurationen kennen
-    url: "/technical-reports/load-balancer/example-configuration-storagegrid.html"
+    url: "/technical-reports/load-balancer-example-configuration-storagegrid.html"
   - title: SSL-Verbindung in StorageGRID validieren
-    url: "/technical-reports/load-balancer/validate-ssl-connection-storagegrid.html"
+    url: "/technical-reports/load-balancer-validate-ssl-connection-storagegrid.html"
   - title: Informationen zu den globalen Lastausgleichsanforderungen für StorageGRID
-    url: "/technical-reports/load-balancer/global-load-balancing-design.html"
+    url: "/technical-reports/load-balancer-global-load-balancing-design.html"
 - title: 'TR-4645: Sicherheitsfunktionen'
-  pdf-filename: Sicherheitsfunktionen in StorageGRID 11.7 – Schutz Ihrer Daten und
-    Metadaten in einem Objektspeicher
+  pdf-filename: Sicherheitsfunktionen in StorageGRID – Sichern Ihrer Daten und Metadaten
+    in einem Objektspeicher
   entries:
   - title: Sichern von StorageGRID-Daten und -Metadaten in einem Objektspeicher
-    url: "/technical-reports/data-security/index.html"
+    url: "/technical-reports/data-security-index.html"
   - title: Sicherheitsfunktionen für den Datenzugriff
-    url: "/technical-reports/data-security/data-access-security.html"
+    url: "/technical-reports/data-security-data-access-security.html"
   - title: Sicherheit von Objekten und Metadaten
-    url: "/technical-reports/data-security/object-metadata-security.html"
+    url: "/technical-reports/data-security-object-metadata-security.html"
   - title: Sicherheitsfunktionen für die Administration
-    url: "/technical-reports/data-security/administration-security.html"
+    url: "/technical-reports/data-security-administration-security.html"
   - title: Plattformsicherheitsfunktionen
-    url: "/technical-reports/data-security/platform-security.html"
+    url: "/technical-reports/data-security-platform-security.html"
   - title: Cloud-Integration
-    url: "/technical-reports/data-security/cloud-integration-storagegrid.html"
+    url: "/technical-reports/data-security-cloud-integration-storagegrid.html"
 - title: 'TR-4921: Ransomware-Verteidigung'
   pdf-filename: Ransomware Defense with StorageGRID – Schutz Ihrer S3-Objekte
   entries:
   - title: StorageGRID S3 Objekte vor Ransomware schützen
-    url: "/technical-reports/ransomware-protection/index.html"
+    url: "/technical-reports/ransomware-protection-index.html"
   - title: Ransomware-Verteidigung mit Objektsperre
-    url: "/technical-reports/ransomware-protection/understand-object-lock-storagegrid.html"
+    url: "/technical-reports/ransomware-protection-understand-object-lock-storagegrid.html"
   - title: Ransomware-Verteidigung durch replizierten Bucket mit Versionierung
-    url: "/technical-reports/ransomware-protection/replicate-bucket-versioning-storagegrid.html"
+    url: "/technical-reports/ransomware-protection-replicate-bucket-versioning-storagegrid.html"
   - title: Ransomware-Verteidigung durch Versionierung mit Schutz-IAM-Richtlinie
-    url: "/technical-reports/ransomware-protection/versioning-protective-iam-policy-storagegrid.html"
+    url: "/technical-reports/ransomware-protection-versioning-protective-iam-policy-storagegrid.html"
 - title: 'TR-4765: Monitor StorageGRID'
   pdf-filename: Überwachung von StorageGRID mit externen Anwendungen
   entries:
   - title: Einführung in das StorageGRID-Monitoring
-    url: "/technical-reports/monitor/index.html"
+    url: "/technical-reports/monitor-index.html"
   - title: Verwenden Sie das GMI-Dashboard, um StorageGRID zu überwachen
-    url: "/technical-reports/monitor/getting-started.html"
+    url: "/technical-reports/monitor-getting-started.html"
   - title: Verwenden Sie Warnmeldungen, um StorageGRID zu überwachen
-    url: "/technical-reports/monitor/alerts-monitoring.html"
+    url: "/technical-reports/monitor-alerts-monitoring.html"
   - title: Erweiterte Überwachung in StorageGRID
-    url: "/technical-reports/monitor/advanced-monitor-storagegrid.html"
+    url: "/technical-reports/monitor-advanced-monitor-storagegrid.html"
   - title: Zugriff auf Metriken mithilfe von Curl in StorageGRID
-    url: "/technical-reports/monitor/access-metrics-curl.html"
+    url: "/technical-reports/monitor-access-metrics-curl.html"
   - title: Anzeigen von Kennzahlen mithilfe von Grafana in StorageGRID
-    url: "/technical-reports/monitor/grafana-dashboard.html"
+    url: "/technical-reports/monitor-grafana-dashboard.html"
   - title: Verwenden Sie Richtlinien zur Verkehrsklassifizierung im StorageGRID
-    url: "/technical-reports/monitor/traffic-classification-policies.html"
+    url: "/technical-reports/monitor-traffic-classification-policies.html"
   - title: Verwenden Sie Prüfprotokolle, um StorageGRID zu überwachen
-    url: "/technical-reports/monitor/audit-log-monitoring.html"
+    url: "/technical-reports/monitor-audit-log-monitoring.html"
   - title: Die StorageGRID App für Splunk
-    url: "/technical-reports/monitor/storagegrid-app-splunk.html"
+    url: "/technical-reports/monitor-storagegrid-app-splunk.html"
 - title: 'TR-4882: Installation eines StorageGRID Bare-Metal Grid'
   pdf-filename: Installieren Sie StorageGRID auf Bare-Metal-Hosts
   entries:
   - title: Einführung in die Installation von StorageGRID
-    url: "/technical-reports/bare-metal/index.html"
+    url: "/technical-reports/bare-metal-index.html"
   - title: Voraussetzungen für die Installation von StorageGRID
-    url: "/technical-reports/bare-metal/prerequisites-install-storagegrid.html"
+    url: "/technical-reports/bare-metal-prerequisites-install-storagegrid.html"
   - title: Installieren Sie Docker für StorageGRID
-    url: "/technical-reports/bare-metal/install-docker-storagegrid.html"
+    url: "/technical-reports/bare-metal-install-docker-storagegrid.html"
   - title: Vorbereiten der Node-Konfigurationsdateien für StorageGRID
-    url: "/technical-reports/bare-metal/node-config-file-storagegrid.html"
+    url: "/technical-reports/bare-metal-node-config-file-storagegrid.html"
   - title: Installieren von StorageGRID-Abhängigkeiten und -Paketen
-    url: "/technical-reports/bare-metal/install-storagegrid-dependencies.html"
+    url: "/technical-reports/bare-metal-install-storagegrid-dependencies.html"
   - title: Validieren Sie die StorageGRID-Konfigurationsdateien
-    url: "/technical-reports/bare-metal/validate-storagegrid-config-files.html"
+    url: "/technical-reports/bare-metal-validate-storagegrid-config-files.html"
   - title: Starten Sie den StorageGRID Host Service
-    url: "/technical-reports/bare-metal/start-storagegrid-host-service.html"
+    url: "/technical-reports/bare-metal-start-storagegrid-host-service.html"
   - title: Konfigurieren Sie den Grid-Manager in StorageGRID
-    url: "/technical-reports/bare-metal/configure-grid-manager-storagegrid.html"
+    url: "/technical-reports/bare-metal-configure-grid-manager-storagegrid.html"
   - title: Details zur StorageGRID-Lizenz hinzufügen
-    url: "/technical-reports/bare-metal/storagegrid-license.html"
+    url: "/technical-reports/bare-metal-storagegrid-license.html"
   - title: Fügen Sie Sites zu StorageGRID hinzu
-    url: "/technical-reports/bare-metal/add-sites-storagegrid.html"
+    url: "/technical-reports/bare-metal-add-sites-storagegrid.html"
   - title: Grid-Netzwerk-Subnetze für StorageGRID angeben
-    url: "/technical-reports/bare-metal/grid-network-subnets-storagegrid.html"
+    url: "/technical-reports/bare-metal-grid-network-subnets-storagegrid.html"
   - title: Grid-Nodes für StorageGRID genehmigen
-    url: "/technical-reports/bare-metal/approve-grid-nodes-storagegrid.html"
+    url: "/technical-reports/bare-metal-approve-grid-nodes-storagegrid.html"
   - title: Geben Sie NTP-Serverdetails für StorageGRID an
-    url: "/technical-reports/bare-metal/ntp-server-storagegrid.html"
+    url: "/technical-reports/bare-metal-ntp-server-storagegrid.html"
   - title: Geben Sie Details zum DNS-Server für StorageGRID an
-    url: "/technical-reports/bare-metal/dns-server-storagegrid.html"
+    url: "/technical-reports/bare-metal-dns-server-storagegrid.html"
   - title: Geben Sie die Systemkennwörter für StorageGRID an
-    url: "/technical-reports/bare-metal/system-passwords-storagegrid.html"
+    url: "/technical-reports/bare-metal-system-passwords-storagegrid.html"
   - title: Überprüfen Sie die Konfiguration und schließen Sie die StorageGRID Installation
       ab
-    url: "/technical-reports/bare-metal/review-config-complete-storagegrid-install.html"
+    url: "/technical-reports/bare-metal-review-config-complete-storagegrid-install.html"
   - title: Upgrade von Bare-Metal-Nodes in StorageGRID
-    url: "/technical-reports/bare-metal/upgrading-bare-metal-nodes-storagegrid.html"
+    url: "/technical-reports/bare-metal-upgrading-bare-metal-nodes-storagegrid.html"
 - title: 'TR-4907: Konfigurieren Sie StorageGRID mit veritas Enterprise Vault'
-  pdf-filename: StorageGRID Disaster Recovery – Konfigurieren von StorageGRID für
-    Standort-Failover mit veritas Enterprise Vault
+  pdf-filename: StorageGRID Notfallwiederherstellung – Konfigurieren von StorageGRID
+    für Site-Failover mit Veritas Enterprise Vault
   entries:
   - title: Einführung in die Konfiguration von StorageGRID für Site Failover
-    url: "/technical-reports/veritas/index.html"
+    url: "/technical-reports/veritas-index.html"
   - title: Konfigurieren Sie StorageGRID und veritas Enterprise Vault
-    url: "/technical-reports/veritas/configure-storagegrid-enterprise-vault.html"
+    url: "/technical-reports/veritas-configure-storagegrid-enterprise-vault.html"
   - title: Konfigurieren Sie StorageGRID für WORM Storage
-    url: "/technical-reports/veritas/configure-storagegrid-s3-object-lock.html"
+    url: "/technical-reports/veritas-configure-storagegrid-s3-object-lock.html"
   - title: Konfiguration von StorageGRID für Disaster Recovery
-    url: "/technical-reports/veritas/configure-storagegrid-site-failover.html"
+    url: "/technical-reports/veritas-configure-storagegrid-site-failover.html"

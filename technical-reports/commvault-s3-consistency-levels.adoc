@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/commvault-s3-consistency-levels.html 
+keywords: Backup, on-premises, commvault, storagegrid, object, S3, WORM 
+summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden. 
+---
+= Empfehlung für die Bucket-Konsistenzstufe
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit NetApp StorageGRID kann der Endbenutzer die Konsistenzstufe für Vorgänge auswählen, die für Objekte in S3-Buckets (Simple Storage Service) durchgeführt werden.
+
+CommVault MediaAgents sind die Data Mover in einer CommVault-Umgebung. In den meisten Fällen werden MediaAgents so konfiguriert, dass sie lokal in einen primären StorageGRID-Standort schreiben. Aus diesem Grund wird eine hohe Konsistenz innerhalb eines lokalen primären Standorts empfohlen. Beachten Sie die folgenden Richtlinien, wenn Sie die Konsistenzstufe für CommVault Buckets festlegen, die in StorageGRID erstellt wurden.
+
+[NOTE]
+====
+Wenn Sie eine CommVault-Version vor 11.0.0 - Service Pack 16 haben, sollten Sie ein Upgrade von CommVault auf die neueste Version in Betracht ziehen. Wenn dies keine Option ist, beachten Sie bitte die Richtlinien für Ihre Version.
+
+====
+* CommVault-Versionen vor 11.0.0 - Service Pack 16.* in Versionen vor 11.0.0 - Service Pack 16 führt CommVault S3 HEAD und GET-Operationen an nicht vorhandenen Objekten als Teil des Wiederherstellungs- und Beschneidungsprozesses durch. Wenn Sie die Konsistenzstufe für Bucket auf starke Standorte festlegen, wird die optimale Konsistenzstufe für CommVault Backups auf StorageGRID erreicht.
+* CommVault-Versionen 11.0.0 - Service Pack 16 und höher.* in Version 11.0.0 - Service Pack 16 und höher wird die Anzahl der S3-HEAD- und GET-Vorgänge für nicht vorhandene Objekte minimiert. Setzen Sie die Standard-Bucket-Konsistenzstufe auf „Read-after-New-write“, um eine hohe Konsistenzstufe in der CommVault- und StorageGRID-Umgebung zu gewährleisten.
+

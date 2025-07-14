@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/ransomware-protection-understand-object-lock-storagegrid.html 
+keywords: object lock, storagegrid 
+summary: Entdecken Sie, wie die Objektsperre in StorageGRID ein WORM-Modell bietet, das das Löschen oder Überschreiben von Daten verhindert, und wie es die gesetzlichen Vorgaben erfüllt. 
+---
+= Ransomware-Verteidigung mit Objektsperre
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Entdecken Sie, wie die Objektsperre in StorageGRID ein WORM-Modell bietet, das das Löschen oder Überschreiben von Daten verhindert, und wie es die gesetzlichen Vorgaben erfüllt.
+
+Die Objektsperrung verfügt über ein WORM-Modell, mit dem verhindert wird, dass Objekte gelöscht oder überschrieben werden. Die StorageGRID-Implementierung von Objektsperrung https://www.netapp.com/media/9041-ar-cohasset-netapp-storagegrid-sec-assessment.pdf["Cohasset bewertet"^] unterstützt die Einhaltung gesetzlicher Vorgaben; sie unterstützt die gesetzliche Aufbewahrungspflichten, den Compliance-Modus und den Governance-Modus für die Objektaufbewahrung sowie die standardmäßigen Bucket-Aufbewahrungsrichtlinien. Sie müssen die Objektsperre als Teil der Bucket-Erstellung und -Versionierung aktivieren. Eine bestimmte Version eines Objekts ist gesperrt, und wenn keine Versions-ID definiert ist, wird die Aufbewahrung auf die aktuelle Version des Objekts platziert. Wenn für die aktuelle Version die Aufbewahrung konfiguriert ist und versucht wird, das Objekt zu löschen, zu ändern oder zu überschreiben, wird eine neue Version mit einer Löschmarkierung oder der neuen Revision des Objekts als aktuelle Version erstellt. und die gesperrte Version wird als nicht aktuelle Version beibehalten. Für Applikationen, die noch nicht kompatibel sind, können Sie möglicherweise noch Objektsperre und eine Standardkonfiguration für die Aufbewahrung auf dem Bucket nutzen. Nach der Definition der Konfiguration wird dabei eine Objektaufbewahrung auf jedes neue Objekt angewendet, das in den Bucket aufgenommen wird. Dies funktioniert, solange die Anwendung so konfiguriert ist, dass die Objekte nicht vor Ablauf der Aufbewahrungszeit gelöscht oder überschrieben werden.
+
+Hier sind einige Beispiele für die Verwendung der Objektsperre API:
+
+Objektsperre Legal Hold ist ein einfacher ein/aus-Status, der auf ein Objekt angewendet wird.
+
+[listing]
+----
+aws s3api put-object-legal-hold --bucket mybucket --key myfile.txt --legal-hold Status=ON --endpoint-url https://s3.company.com
+
+----
+Wenn Sie den Legal Hold-Status festlegen, wird bei Erfolg kein Wert zurückgegeben, sodass er mit einer GET-Operation überprüft werden kann.
+
+[listing]
+----
+aws s3api get-object-legal-hold --bucket mybucket --key myfile.txt --endpoint-url https://s3.company.com
+{
+    "LegalHold": {
+        "Status": "ON"
+    }
+}
+----
+Um die Legal Hold-Taste zu deaktivieren, wenden Sie den AUS-Status an.
+
+[listing]
+----
+aws s3api put-object-legal-hold --bucket mybucket --key myfile.txt --legal-hold Status=OFF --endpoint-url https://s3.company.com
+aws s3api get-object-legal-hold --bucket mybucket --key myfile.txt --endpoint-url https://s3.company.com
+{
+    "LegalHold": {
+        "Status": "OFF"
+    }
+}
+
+----
+Die Objektaufbewahrung wird mit einem Zeitstempel bis beibehalten.
+
+[listing]
+----
+aws s3api put-object-retention --bucket mybucket --key myfile.txt --retention '{"Mode":"COMPLIANCE", "RetainUntilDate": "2022-06-10T16:00:00"}'  --endpoint-url https://s3.company.com
+----
+Auch hier gibt es keinen zurückgegebenen Wert auf Erfolg, so dass Sie den Status der Aufbewahrung ähnlich mit einem get Call überprüfen können.
+
+[listing]
+----
+aws s3api get-object-retention --bucket mybucket --key myfile.txt  --endpoint-url https://s3.company.com
+{
+    "Retention": {
+        "Mode": "COMPLIANCE",
+        "RetainUntilDate": "2022-06-10T16:00:00+00:00"
+    }
+----
+Wenn für einen Bucket mit aktivierter Objektsperre eine Standardaufbewahrung eingerichtet wird, wird eine Aufbewahrungsfrist in Tagen und Jahren verwendet.
+
+[listing]
+----
+aws s3api put-object-lock-configuration --bucket mybucket --object-lock-configuration '{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 1 }}}' --endpoint-url https://s3.company.com
+----
+Wie bei den meisten dieser Operationen wird bei Erfolg keine Antwort zurückgegeben. Daher können wir ein GET durchführen, damit die Konfiguration überprüft werden kann.
+
+[listing]
+----
+aws s3api get-object-lock-configuration --bucket mybucket --endpoint-url https://s3.company.com
+{
+    "ObjectLockConfiguration": {
+        "ObjectLockEnabled": "Enabled",
+        "Rule": {
+            "DefaultRetention": {
+                "Mode": "COMPLIANCE",
+                "Days": 1
+            }
+        }
+    }
+}
+----
+Als Nächstes können Sie ein Objekt mit der angewandten Aufbewahrungskonfiguration in den Bucket legen.
+
+[listing]
+----
+aws s3 cp myfile.txt s3://mybucket --endpoint-url https://s3.company.com
+----
+Der PUT-Vorgang gibt eine Antwort zurück.
+
+[listing]
+----
+upload: ./myfile.txt to s3://mybucket/myfile.txt
+----
+Für das Aufbewahrungs-Objekt wird die Aufbewahrungsdauer, die im vorhergehenden Beispiel auf dem Bucket festgelegt wurde, in einen Aufbewahrungszeitstempel für das Objekt konvertiert.
+
+[listing]
+----
+aws s3api get-object-retention --bucket mybucket --key myfile.txt --endpoint-url https://s3.company.com
+{
+    "Retention": {
+        "Mode": "COMPLIANCE",
+        "RetainUntilDate": "2022-03-02T15:22:47.202000+00:00"
+    }
+}
+----

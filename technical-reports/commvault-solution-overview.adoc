@@ -1,0 +1,222 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/commvault-solution-overview.html 
+keywords: Backup, on-premises, commvault, storagegrid, object, S3, WORM 
+summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen an, die von Kunden und NetApp IT implementiert wurden. 
+---
+= Übersicht über die getestete Lösung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die getestete Lösung kombiniert CommVault und NetApp Lösungen in einer leistungsstarken gemeinsamen Lösung.
+
+
+
+== Lösungseinrichtung
+
+Die StorageGRID-Umgebung bestand in der Lab-Einrichtung aus vier NetApp StorageGRID SG5712 Appliances, einem virtuellen primären Administrator-Node und einem virtuellen Gateway Node. Die SG5712 Appliance ist eine Entry-Level-Option – eine Basiskonfiguration. Durch die Auswahl von Optionen für Appliances mit höherer Performance, wie z. B. NetApp StorageGRID SG5760 oder SG6060, können deutliche Performance-Vorteile erzielt werden. Wenden Sie sich an Ihren NetApp StorageGRID Solution Architect, um Hilfe bei der Dimensionierung zu erhalten.
+
+Die StorageGRID Richtlinie für Datensicherung verwendet für das Management und die Sicherung von Daten eine Richtlinie für integriertes Lifecycle Management (ILM). ILM-Regeln werden in einer Richtlinie von oben nach unten bewertet. Die in der folgenden Tabelle dargestellte ILM-Richtlinie wurde implementiert:
+
+[cols="1a,1a,1a"]
+|===
+| ILM-Regel | Kriterien | Aufnahmeverhalten 
+
+
+ a| 
+Erasure Coding 2+1
+ a| 
+Objekte über 200 KB
+ a| 
+Ausgeglichen
+
+
+
+ a| 
+2 Kopien
+ a| 
+Alle Objekte
+ a| 
+Doppelte Provisionierung
+
+|===
+Die Standardregel für ILM 2 Kopien ist. Für diesen Test wurde die Regel Erasure Coding 2+1 auf jedes Objekt mit mindestens 200 KB angewendet. Die Standardregel wurde auf Objekte angewendet, die kleiner als 200 KB sind. Die Anwendung der Regeln auf diese Weise ist eine StorageGRID Best Practice.
+
+Technische Details zu dieser Testumgebung finden Sie im Abschnitt Solution Design and Best Practices in der https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] Technischer Bericht.
+
+
+
+== Hardware-Spezifikationen für StorageGRID
+
+Die folgende Tabelle beschreibt die bei diesen Tests verwendete NetApp StorageGRID-Hardware. Die StorageGRID SG5712 Appliance mit 10 Gbit/s-Netzwerkbetrieb ist die Einstiegsoption und stellt eine Basiskonfiguration dar. Optional kann die SG5712 für 25-Gbit/s-Netzwerke konfiguriert werden.
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| Trennt | Menge | Festplatte | Nutzbare Kapazität | Netzwerk 
+
+
+ a| 
+StorageGRID SG5712 Appliances
+ a| 
+4
+ a| 
+48 x 4 TB (Nearline SAS-HDD)
+ a| 
+136 TB
+ a| 
+10 Gbit/s
+
+|===
+Durch die Auswahl von Appliance-Optionen mit höherer Performance, wie z. B. NetApp StorageGRID SG5760, SG6060 oder All-Flash SGF6112 Appliances, können deutliche Performance-Vorteile erzielt werden. Wenden Sie sich an Ihren NetApp StorageGRID Solution Architect, um Hilfe bei der Dimensionierung zu erhalten.
+
+
+
+== Softwareanforderungen von CommVault und StorageGRID
+
+In den folgenden Tabellen sind die Software-Anforderungen für die auf der Software von VMware installierte CommVault und NetApp StorageGRID für unsere Tests aufgeführt. Vier MediaAgent Datenübertragungsmanager und ein CommServe-Server wurden installiert. In den Tests wurden 10-Gbit-s-Networking für die VMware Infrastruktur implementiert. Der folgenden Tabelle zu entnehmen
+
+In der folgenden Tabelle sind die Gesamtsystemanforderungen der CommVault Software aufgeführt:
+
+[cols="1a,1a,1a,1a,1a,1a"]
+|===
+| Komponente | Menge | Datenspeicher | Größe | Gesamt | Gesamte erforderliche IOPS 
+
+
+ a| 
+CommServe Server
+ a| 
+1
+ a| 
+BETRIEBSSYSTEM
+ a| 
+500 GB
+ a| 
+500 GB
+ a| 
+k. A.
+
+
+
+ a| 
+ a| 
+ a| 
+SQL SERVER GESCHULT SIND
+ a| 
+500 GB
+ a| 
+500 GB
+ a| 
+k. A.
+
+
+
+ a| 
+MediaAgent
+ a| 
+4
+ a| 
+Virtuelle CPU (vCPU)
+ a| 
+16
+ a| 
+64
+ a| 
+k. A.
+
+
+
+ a| 
+ a| 
+ a| 
+RAM
+ a| 
+128 GB
+ a| 
+512
+ a| 
+k. A.
+
+
+
+ a| 
+ a| 
+ a| 
+BETRIEBSSYSTEM
+ a| 
+500 GB
+ a| 
+2 TB
+ a| 
+k. A.
+
+
+
+ a| 
+ a| 
+ a| 
+Index-Cache
+ a| 
+2 TB
+ a| 
+8 TB
+ a| 
+200+
+
+
+
+ a| 
+ a| 
+ a| 
+DDB
+ a| 
+2 TB
+ a| 
+8 TB
+ a| 
+200–80.000 K
+
+|===
+In der Testumgebung wurden ein primärer virtueller Administrator-Node und ein virtueller Gateway-Node auf VMware auf einem NetApp E-Series E2812 Storage-Array implementiert. Jeder Knoten befand sich auf einem separaten Server mit den in der folgenden Tabelle beschriebenen Mindestanforderungen an die Produktionsumgebung:
+
+Die folgende Tabelle listet die Anforderungen für virtuelle StorageGRID-Admin-Nodes und Gateway-Nodes auf:
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| Node-Typ | Menge | VCPU | RAM | Storage 
+
+
+ a| 
+Gateway-Node
+ a| 
+1
+ a| 
+8
+ a| 
+24 GB
+ a| 
+100 GB LUN für das OS
+
+
+
+ a| 
+Administrator-Node
+ a| 
+1
+ a| 
+8
+ a| 
+24 GB
+ a| 
+100 GB LUN für das OS
+
+200-GB-LUN für Administrator-Node-Tabellen
+
+200 GB-LUN für das Admin-Node-Revisionsprotokoll
+
+|===

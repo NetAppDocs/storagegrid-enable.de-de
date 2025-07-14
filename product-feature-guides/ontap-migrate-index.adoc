@@ -1,0 +1,21 @@
+---
+permalink: product-feature-guides/ontap-migrate-index.html 
+sidebar: sidebar 
+keywords: S3, ONTAP S3, ONTAP, StorageGRID, migration 
+summary: Migrieren Sie von ONTAP S3 zu StorageGRID. 
+---
+= Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration von objektbasiertem Storage von ONTAP S3 zu StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration von objektbasiertem Storage von ONTAP S3 zu StorageGRID
+
+
+
+== Demo Zur Migration
+
+Dies ist eine Demonstration zur Migration von Benutzern und Buckets von ONTAP S3 zu StorageGRID.

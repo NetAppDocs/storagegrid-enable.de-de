@@ -1,0 +1,25 @@
+---
+permalink: technical-reports/monitor-alerts-monitoring.html 
+sidebar: sidebar 
+keywords: alerts, storagegrid 
+summary: Erfahren Sie, wie Sie das Warnmeldungssystem in StorageGRID für die Überwachung von Problemen, die Verwaltung von benutzerdefinierten Warnmeldungen und die Erweiterung von Benachrichtigungen über SNMP oder E-Mail verwenden. 
+---
+= Verwenden Sie Warnmeldungen, um StorageGRID zu überwachen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie das Warnsystem in StorageGRID verwenden, um Probleme zu überwachen, benutzerdefinierte Warnmeldungen zu verwalten und Benachrichtigungen per SNMP oder E-Mail zu erweitern.
+
+Warnmeldungen liefern wichtige Informationen, mit denen Sie die verschiedenen Ereignisse und Zustände in Ihrem StorageGRID-System überwachen können.
+
+Das Warnmeldungssystem ist das primäre Tool für die Überwachung von Problemen, die in Ihrem StorageGRID-System auftreten können. Das Alarmsystem konzentriert sich auf umsetzbare Probleme im System und bietet eine benutzerfreundliche Oberfläche.
+
+Wir bieten eine Reihe von Standardwarnungsregeln an, mit denen Sie Ihr System überwachen und Fehler beheben können. Sie können Warnmeldungen weiter verwalten, indem Sie benutzerdefinierte Warnmeldungen erstellen, Standardwarnungen bearbeiten oder deaktivieren und Warnmeldungen stummschalten.
+
+Alarme können auch über SNMP oder E-Mail-Benachrichtigungen erweitert werden.
+
+Weitere Informationen zu Warnmeldungen finden Sie im https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["Produktdokumentation"^] Online- und im PDF-Format.

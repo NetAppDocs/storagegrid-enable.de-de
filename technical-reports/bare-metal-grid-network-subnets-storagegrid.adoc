@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-grid-network-subnets-storagegrid.html 
+keywords: grid network, subnets ,storagegrid 
+summary: Erfahren Sie, wie Sie die Grid-Netzwerk-Subnetze für StorageGRID konfigurieren. 
+---
+= Grid-Netzwerk-Subnetze für StorageGRID angeben
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie die Grid-Netzwerk-Subnetze für StorageGRID konfigurieren.
+
+Sie müssen die Subnetze angeben, die im Grid-Netzwerk verwendet werden.
+
+Die Subnetzeinträge umfassen die Subnetze für das Grid-Netzwerk für jeden Standort im StorageGRID-System sowie alle Subnetze, die über das Grid-Netzwerk erreichbar sein müssen (z. B. die Subnetze, auf denen Ihre NTP-Server gehostet werden).
+
+Wenn Sie mehrere Grid-Subnetze haben, ist das Grid-Netzwerk-Gateway erforderlich. Alle angegebenen Grid-Subnetze müssen über dieses Gateway erreichbar sein.
+
+Führen Sie die folgenden Schritte aus, um Subnetze für das Grid-Netzwerk anzugeben:
+
+.Schritte
+. Geben Sie im Textfeld Subnetz 1 die CIDR-Netzwerkadresse für mindestens ein Grid-Netzwerk an.
+. Klicken Sie auf das Pluszeichen neben dem letzten Eintrag, um einen zusätzlichen Netzwerkeintrag hinzuzufügen. Wenn Sie bereits mindestens einen Knoten bereitgestellt haben, klicken Sie auf Subnetze von Grid Networks ermitteln, um die Subnetzliste des Grid-Netzwerks automatisch mit den Subnetzen zu füllen, die von Grid-Nodes gemeldet wurden, die bei Grid Manager registriert sind.
++
+image:bare-metal/bare-metal-subnets-grid-network.png["Bare-Metal-Subnetze-Grid-Netzwerk"]
+
+. Klicken Sie Auf Weiter.
+

@@ -1,0 +1,70 @@
+---
+permalink: technical-reports/monitor-advanced-monitor-storagegrid.html 
+sidebar: sidebar 
+keywords: monitor, storagegrid 
+summary: Erfahren Sie, wie Sie StorageGRID mithilfe einer Kennzahlen-API überwachen. 
+---
+= Erweiterte Überwachung in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie auf Kennzahlen zugreifen und diese exportieren, um Probleme zu beheben.
+
+
+
+== Anzeigen von Kennzahlen-API über eine Prometheus-Abfrage
+
+Prometheus ist eine Open-Source-Software zur Erfassung von Kennzahlen. Über das GMI können Sie auf die in StorageGRID eingebetteten Prometheus zugreifen: Support[Metriken].
+
+image:monitor/monitor-metrics-page.png["Monitor-Metriken-Seite"]
+
+Alternativ können Sie direkt zu dem Link navigieren.
+
+image:monitor/monitor-prometheus-interface.png["Monitor-prometheus-Schnittstelle"]
+
+Mit dieser Ansicht können Sie auf die Prometheus-Schnittstelle zugreifen. Von dort aus können Sie die verfügbaren Metriken durchsuchen und sogar mit Abfragen experimentieren.
+
+Gehen Sie wie folgt vor, um eine Prometheus-URL-Abfrage durchzuführen:
+
+.Schritte
+. Beginnen Sie mit der Eingabe im Textfeld für die Abfrage. Bei der Eingabe werden die Metriken aufgelistet. Für unsere Zwecke sind nur Metriken wichtig, die mit StorageGRID und Node beginnen.
+. Um die Anzahl der HTTP-Sitzungen für jeden Knoten anzuzeigen, geben Sie ein `storagegrid_http` , und wählen Sie `storagegrid_http_sessions_incoming_currently_established`. Klicken Sie auf Ausführen und zeigen Sie die Informationen in einem Diagramm- oder Konsolenformat an.
++
+image:monitor/monitor-http-sessions.png["Monitor-http-Sitzungen"]
+
+
+
+
+NOTE: Abfragen und Diagramme, die Sie über diese URL erstellen, bleiben nicht erhalten. Komplexe Abfragen verbrauchen Ressourcen auf dem Admin-Node. NetApp empfiehlt, die verfügbaren Metriken in dieser Ansicht zu prüfen.
+
+
+NOTE: Es wird nicht empfohlen, eine direkte Schnittstelle zu unserer Prometheus Instanz zu verwenden, da hierzu zusätzliche Ports geöffnet werden müssen. Der Zugriff auf Kennzahlen über unsere API ist die empfohlene und sichere Methode.
+
+
+
+== Exportieren von Kennzahlen über die API
+
+Außerdem können Sie über die StorageGRID Management-API auf dieselben Daten zugreifen.
+
+Gehen Sie wie folgt vor, um Metriken über die API zu exportieren:
+
+. Wählen Sie im GMI die Option MENU:Help[API Documentation].
+. Scrollen Sie nach unten zu Metriken und wählen Sie GET /Grid/metric-query.
++
+image:monitor/monitor-metrics-query.png["Monitor-Metriken-Abfrage"]
+
++
+Die Antwort enthält dieselben Informationen, die Sie über eine Prometheus URL-Abfrage erhalten können. Sie können wieder die Anzahl der HTTP-Sitzungen anzeigen, die derzeit auf jedem Storage-Node eingerichtet sind. Sie können die Antwort zur Lesbarkeit auch im JSON-Format herunterladen. Die folgende Abbildung zeigt beispielhafte Prometheus Abfrageantworten.
+
++
+image:monitor/monitor-sample-prometheus-query-responses.png["Monitor-sample-prometheus-query-responses"]
+
+
+
+
+NOTE: Der Vorteil der Verwendung der API besteht darin, dass Sie authentifizierte Abfragen durchführen können

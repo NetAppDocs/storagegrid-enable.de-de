@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-install-storagegrid-dependencies.html 
+keywords: install dependencies, storagegrid 
+summary: Erfahren Sie, wie Sie StorageGRID-Abhängigkeiten und -Pakete installieren. 
+---
+= Installieren von StorageGRID-Abhängigkeiten und -Paketen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie StorageGRID-Abhängigkeiten und -Pakete installieren.
+
+Um die StorageGRID-Abhängigkeiten und -Pakete zu installieren, führen Sie die folgenden Befehle aus:
+
+[listing]
+----
+[root@host1 rpms]# yum install -y python-netaddr
+[root@host1 rpms]# rpm -ivh StorageGRID-Webscale-Images-*.rpm
+[root@host1 rpms]# rpm -ivh StorageGRID-Webscale-Service-*.rpm
+----
