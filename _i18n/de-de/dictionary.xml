@@ -3382,4 +3382,39 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="0be6d03a29c17471b0414e9b31482b15" category="list-text">IBM Storage Protect</block>
   <block id="0987bb97934aa3a8ea668bd0c91ce52d" category="sidebar">Sicherheitsfunktionen in StorageGRID – Sichern Ihrer Daten und Metadaten in einem Objektspeicher</block>
   <block id="243c98f4ed7a2d56d634e9cc955fda88" category="sidebar">StorageGRID Notfallwiederherstellung – Konfigurieren von StorageGRID für Site-Failover mit Veritas Enterprise Vault</block>
+  <block id="b12c5a1ea2cfdcd9e96af62ad1fff2c7" category="summary">Anweisungen zum Erstellen eines Elasticsearch-Snapshot-Repository zur Verwendung des StorageGRID -Objektspeichers.</block>
+  <block id="4f466fb92f96dcdf64e32b3a68249a6a" category="doc">Konfiguration des Elasticsearch-Snapshot-Repository</block>
+  <block id="19c69b64ad875941da2ed25675b966b5" category="paragraph">Elasticsearch unterstützt die Verwendung von AWS S3-kompatiblem Objektspeicher für Snapshot-Repositorys.  Dieser Artikel enthält schrittweise Anweisungen zum Erstellen eines Elasticsearch S3-Snapshot-Repository mit StorageGRID als Backend-Objektspeicher.</block>
+  <block id="593e0b72d2a3823ab9f1704dbeeea1c8" category="list-text">StorageGRID 11.8 oder höher</block>
+  <block id="51065ec24ee246c3860e0580defca4c6" category="list-text">Elasticsearch 8.x oder höher</block>
+  <block id="3212d51fa371e3cef1d789ecfe0afca6" category="paragraph">Die Leser sind mit der Terminologie und den Vorgängen von StorageGRID und Elasticsearch vertraut.</block>
+  <block id="85c3fd6ac4074bb1ab06b16868d0c009" category="list-text">Erstellen Sie einen StorageGRID Bucket zur Verwendung für das Elasticsearch-Snapshot-Repository.  Die Bucket-Versionierung muss aktiviert sein.  Verwenden Sie einen Bucket pro Repository.  Geben Sie einen Bucket nicht für mehrere Repositories oder Elasticsearch-Cluster frei.</block>
+  <block id="8ed3f9dd5d7290bd016b83485c0170a1" category="list-text">Fügen Sie den StorageGRID Mandantenzugriffsschlüssel und den geheimen Schlüssel zum Elasticsearch-Schlüsselspeicher hinzu.  Melden Sie sich beim Elasticsearch-Masterknoten an, navigieren Sie zum<block ref="1b2b598aea8f192d3794b0c30af92997" prefix=" " category="inline-code"></block> Verzeichnis und verwenden<block ref="0bf694e981bb45a58aed7488327af4f3" prefix=" " category="inline-code"></block> um den Zugriffsschlüssel und den geheimen Schlüssel hinzuzufügen.</block>
+  <block id="5fd300737b7909532dc522634d75def5" category="paragraph">Beispielbefehl:</block>
+  <block id="08a6dcd3a697d0604f6f4b47807f6ca0" category="paragraph">Um die Schlüssel anzuzeigen, verwenden Sie den Befehl „elasticsearch-keystore show &lt;Schlüsselname&gt;“.</block>
+  <block id="6806cdb70b916f3b6bb474b9328b08ca" category="list-text">Wiederholen Sie bei Elasticsearch-Clustern mit mehreren Knoten Schritt 2 in jedem Knoten oder konsultieren Sie die Elasticsearch-Dokumentation.</block>
+  <block id="621e717bf791d95428a170667a596197" category="list-text">Navigieren Sie von der Kibana-Web-GUI zur Seite „Dev Tools Console“ und verwenden Sie<block ref="f6703ca746887e8ad69c184ef80e8ded" prefix=" " category="inline-code"></block> API zum Anwenden der Änderungen auf jeden Knoten.</block>
+  <block id="9b6e1b5bf3e12eb4e808e1b9701528f4" category="inline-image-macro">Beispiel-Screenshot von reload_secure_settings</block>
+  <block id="c94eb203f327e8a870bff84bf0051606" category="paragraph"><block ref="c94eb203f327e8a870bff84bf0051606" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="59b63a4c7f8e78be87c3100ed37b264a" category="list-text">Verwenden Sie die<block ref="14122a9963d2d5fd106baa062ba587b4" prefix=" " category="inline-code"></block> API zum Erstellen eines neuen Snapshot-Repository.</block>
+  <block id="98679aa6d08189789aa0c65c691db370" category="paragraph">In diesem Beispiel lautet der Repository-Name<block ref="be9022aec77b31961957096c13c23219" prefix=" " category="inline-code"></block> , und die Puffergröße entspricht der Teilgröße des mehrteiligen S3-Uploads.</block>
+  <block id="3c823bd21419d345a9d7d4276488edfb" category="paragraph">Das Standardprotokoll ist HTTPS.  Um HTTP mit dem StorageGRID S3-Endpunkt zu verwenden, fügen Sie hinzu<block ref="356f3d9b207a577071350c04e64206cb" prefix=" " category="inline-code"></block> zu den Einstellungen.</block>
+  <block id="e09538d2ae213ccd0a221584775b5ca5" category="paragraph">Verwenden Sie den in Schritt 1 erstellten Bucket-Namen und den in Schritt 2 konfigurierten Client-Namen.</block>
+  <block id="4faca7afc4d2b0538a33d3192d453ad1" category="inline-image-macro">Screenshot des Beispiels der Elasticsearch-API</block>
+  <block id="175e963c73089d05b73e4053f63b0a3a" category="paragraph"><block ref="175e963c73089d05b73e4053f63b0a3a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="09585352abb495a58301939509e2b605" category="list-text">Navigieren Sie in der Kibana-Web-GUI zur Seite „Stack-Verwaltung &gt; Snapshot und Wiederherstellung“ und wählen Sie die Registerkarte „Repositorys“ aus.</block>
+  <block id="73f00594e61a1e09208a849e16bedd7d" category="paragraph">Klicken Sie auf den Repository-Namen, um die Details anzuzeigen oder einige Einstellungen zu ändern, z. B. die maximale Anzahl an Snapshot-Bytes pro Sekunde, die standardmäßig auf 40 MB/s pro Elasticsearch-Knoten eingestellt ist.</block>
+  <block id="fc2619b84c9b3173bc9c93dafbf91e8d" category="paragraph">Für Einstellungen, die auf dieser Seite nicht sichtbar sind, verwenden Sie die<block ref="14122a9963d2d5fd106baa062ba587b4" prefix=" " category="inline-code"></block> API in der Dev Tools Console, um Änderungen vorzunehmen.</block>
+  <block id="565feae94d4b22672a12be27e4f99c63" category="inline-image-macro">Beispiel-Screenshot des Snapshot-Repository</block>
+  <block id="aac419a72b01b501d95dbe3debe250f2" category="paragraph"><block ref="aac419a72b01b501d95dbe3debe250f2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8d7340f8e7c758cdf4fd4e3455548757" category="list-text">Richten Sie eine Bucket-Lebenszyklusrichtlinie ein, um Objekte nicht aktueller Versionen im Snapshot-Bucket zu verwalten.  Entfernen Sie beispielsweise nicht aktuelle Versionen nach 90 Tagen.</block>
+  <block id="5fe1a3050ef9538f4f00d7bf6e4d66b1" category="list-text">Elastic verlangt von Clients, den Nicht-AWS-S3-Speicher zu validieren, bevor er ihn zum Speichern von Snapshots verwendet.</block>
+  <block id="56f4d43e66895a25e9c1e43ca43d69cc" category="paragraph">Befolgen Sie die Anweisungen von Elastic, um die Einrichtung zu bestätigen:</block>
+  <block id="0734208a8b40c0aab9c1218baedefbf1" category="paragraph"><block ref="0734208a8b40c0aab9c1218baedefbf1" category="inline-link-rx"></block></block>
+  <block id="1743c3ed2b99313c86b17e91ff8ae63b" category="list-text">Befolgen Sie nach der Validierung die Anleitung von Elasticsearch, um eine Richtlinie zum Speichern nächtlicher Snapshots zu erstellen.</block>
+  <block id="1d605538b3de6fc7352ff1756867d1b9" category="inline-link">Elasticsearch S3-Repository</block>
+  <block id="755c869a02438bc9363beeea0e91da57" category="list-text"><block ref="755c869a02438bc9363beeea0e91da57" category="inline-link-rx"></block></block>
+  <block id="e226403172953bd7e5c34989260a72a8" category="inline-link">So werden versionierte S3-Objekte gelöscht</block>
+  <block id="e35c2c56a508398c870b7b6e9e717abf" category="list-text"><block ref="e35c2c56a508398c870b7b6e9e717abf" category="inline-link-rx"></block></block>
+  <block id="29b6d470059c168ae42b0d8923792ea7" category="sidebar">Anweisungen zum Erstellen eines Elasticsearch-Snapshot-Repository</block>
 </blocks>
