@@ -10,8 +10,6 @@ entries:
   url: "/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html"
 - title: Nutzen Sie Elasticsearch, Logstash und Kibana für die Protokollanalyse
   url: "/tools-apps-guides/elk-instructions.html"
-- title: Anweisungen zum Erstellen eines Elasticsearch-Snapshot-Repository
-  url: "/tools-apps-guides/elasticsearch-snapshot-configuration.html"
 - title: Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen erweitern
   url: "/tools-apps-guides/federate-prometheus.html"
 - title: Konfigurieren Sie Datadog, um StorageGRID-snmp-Metriken und Traps zu erfassen
