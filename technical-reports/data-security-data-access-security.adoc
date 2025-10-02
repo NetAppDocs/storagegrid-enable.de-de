@@ -44,7 +44,7 @@ StorageGRID unterstützt die folgenden Verschlüsselungssuites für TLS:
 
 TLS v1.2 und 1.3 unterstützt.
 
-SSLv3, TLS v1.1 und frühere Versionen werden nicht mehr unterstützt.
+SSLv3, TLS v1.1 und früher werden nicht unterstützt.
 | Ein Client und ein StorageGRID können sich gegenseitig identifizieren und authentifizieren und mit Vertraulichkeit und Datenintegrität kommunizieren. Stellt die Verwendung einer aktuellen TLS-Version sicher. Die Chiffren können jetzt unter den Konfigurations-/Sicherheitseinstellungen konfiguriert werden | -- 
 
 
@@ -128,6 +128,27 @@ Mit StorageGRID können mehrere Zugriffsschlüssel erstellt und gleichzeitig fü
 | S3 IAM-Zugriffsrichtlinie  a| 
 StorageGRID unterstützt S3 IAM-Richtlinien, sodass Grid-Administratoren granulare Zugriffssteuerung nach Mandanten, Bucket oder Objektpräfix angeben können. StorageGRID unterstützt außerdem IAM-Richtlinienbedingungen und -Variablen, wodurch dynamischere Zugriffssteuerungsrichtlinien ermöglicht werden.
 | Ermöglicht Grid-Administratoren, die Zugriffssteuerung nach Benutzergruppen für den gesamten Mandanten festzulegen; ermöglicht es den Mandantenbenutzern auch, die Zugriffssteuerung für ihre eigenen Buckets und Objekte festzulegen. | -- 
+
+
+| S3 Security Token Service API AssumeRole  a| 
+StorageGRID unterstützt die S3 STS API AssumeRole, um temporäre Sicherheitsanmeldeinformationen (Zugriffsschlüssel-ID, geheimer Zugriffsschlüssel, Sitzungstoken) mit eingeschränkten Berechtigungen und begrenzter Dauer bereitzustellen.  Inline-Sitzungsrichtlinien zur weiteren Einschränkung von Berechtigungen während der Sitzung werden als Teil der AssumeRole-API unterstützt.
+| Ermöglicht Mandantenadministratoren, sicheren temporären Zugriff auf Objektdaten bereitzustellen. | -- 
+
+
+| Einfacher Benachrichtigungsdienst  a| 
+StorageGRID unterstützt das Senden von Benachrichtigungen beim Objektzugriff. Die folgenden Ereignistypen werden unterstützt:
+
+* s3:Objekt erstellt:
+* s3:ObjektErstellt:Put
+* s3:ObjektErstellt:Post
+* s3:ObjektErstellt:Kopie
+* s3:Objekterstellt:MehrteiligerUpload abgeschlossen
+* s3:Objekt entfernt:
+* s3:Objekt entfernt:Löschen
+* s3:Objekt entfernt:DeleteMarker erstellt
+* s3:ObjectRestore:Post
+
+| Ermöglicht Mandantenadministratoren die Überwachung des Zugriffs auf Objekte | -- 
 
 
 | Serverseitige Verschlüsselung mit über StorageGRID gemanagten Schlüsseln (SSE)  a| 

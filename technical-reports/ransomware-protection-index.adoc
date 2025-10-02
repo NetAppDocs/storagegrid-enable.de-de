@@ -40,7 +40,7 @@ Der primäre Mechanismus zum Schutz vor Ransomware in der S3-API ist die Impleme
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* NetApp StorageGRID Dokumentationszentrum https://docs.netapp.com/us-en/storagegrid-118/[]
+* NetApp StorageGRID Dokumentationscenterhttps://docs.netapp.com/us-en/storagegrid/[]
 * NetApp StorageGRID Enablement https://docs.netapp.com/us-en/storagegrid-enable/[]
 * NetApp Produktdokumentation https://www.netapp.com/support-and-training/documentation/[]
 

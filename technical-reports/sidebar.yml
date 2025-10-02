@@ -29,6 +29,8 @@ entries:
   entries:
   - title: Verwenden Sie Load Balancer von Drittanbietern mit StorageGRID
     url: "/technical-reports/load-balancer-index.html"
+  - title: Erfahren Sie mehr über die Rolle der StorageGRID Load Balancer
+    url: "/technical-reports/load-balancer-storagegrid.html"
   - title: Erfahren Sie, wie Sie SSL-Zertifikate für HTTPS in StorageGRID implementieren
     url: "/technical-reports/load-balancer-ssl-certificates-storagegrid.html"
   - title: Konfigurieren Sie den Load Balancer eines vertrauenswürdigen Drittanbieters
@@ -69,6 +71,8 @@ entries:
     url: "/technical-reports/ransomware-protection-replicate-bucket-versioning-storagegrid.html"
   - title: Ransomware-Verteidigung durch Versionierung mit Schutz-IAM-Richtlinie
     url: "/technical-reports/ransomware-protection-versioning-protective-iam-policy-storagegrid.html"
+  - title: Untersuchung der Ransomware-Abwehr mithilfe von Branch Buckets
+    url: "/technical-reports/ransomware-protection-investigate-branch-buckets.html"
 - title: 'TR-4765: Monitor StorageGRID'
   pdf-filename: Überwachung von StorageGRID mit externen Anwendungen
   entries:

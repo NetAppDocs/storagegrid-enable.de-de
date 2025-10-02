@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/ransomware-protection-investigate-branch-buckets.html 
+keywords: object lock, storagegrid 
+summary: Informieren Sie sich, wie Branch Buckets zur Untersuchung und Behebung eines Ransomware-Angriffs verwendet werden können. 
+---
+= Untersuchung und Behebung von Ransomware
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie Buckets nach einem möglichen Ransomware-Angriff mit StorageGRID untersuchen und beheben.
+
+In StorageGRID 12.0 wurde die neue Branch-Bucket-Funktion hinzugefügt, um die Nützlichkeit der Versionierung für die Ransomware-Abwehr zu erweitern.  Ein Branch-Bucket bietet Zugriff auf Objekte in einem Bucket, wie sie zu einem bestimmten Zeitpunkt existierten, sofern sie noch im Bucket vorhanden sind.  Branch-Buckets können nur für versionierungsfähige Basis-Buckets erstellt werden.
+
+Das bedeutet, dass Sie bei Verdacht auf einen Ransomware-Angriff einen Lese-/Schreib- oder schreibgeschützten Branch-Bucket erstellen können, der alle Objekte und Versionen enthält, die vor dem ersten Angriff vorhanden waren.  Sie können diesen Zweig-Bucket zum Vergleich mit dem Inhalt des Basis-Buckets verwenden, um herauszufinden, welche Objekte geändert wurden und ob die Änderung Teil des Angriffs war oder nicht.  Sie können auch einen Branch-Bucket verwenden, um die Clientvorgänge mithilfe des Clean-Branch fortzusetzen, während Sie den Angriff untersuchen.
+
+
+
+== Erstellen eines Branch-Buckets
+
+* Navigieren Sie zur Detailseite des Basis-Buckets und zur Registerkarte „Branches“, um einen Branch-Bucket zu erstellen.
+
+
+image:ransomware/ransomware-protection-branch-create.png["Ransomware-Schutz-Zweigstelle-Erstellung"]
+
+* Sobald Sie auf die Schaltfläche „Zweig-Bucket erstellen“ klicken, wird ein Popup mit vorab ausgefüllten Details der mit dem Basis-Bucket verknüpften Region geöffnet.
+* Geben Sie vor der Zeit den Namen des Branch-Buckets ein und wählen Sie aus, welcher Branch-Bucket-Typ erstellt werden soll.
+
+
+image:ransomware/ransomware-protection-branch-define.png["Ransomware-Schutz-Zweig-Definieren"]

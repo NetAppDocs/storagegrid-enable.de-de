@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer-storagegrid.html 
+keywords: object storage, load balancer 
+summary: Erfahren Sie mehr über die Rolle der StorageGRID Load Balancer. 
+---
+= Verwenden Sie StorageGRID Load Balancer
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie mehr über die Rolle eines StorageGRID Gateway Node-Load Balancers.
+
+Allgemeine Anleitung zur Implementierung von NetApp® StorageGRID® Gateway Nodes.
+
+
+
+== Load Balancer für StorageGRID-Gateway-Nodes im Vergleich zum Load Balancer eines Drittanbieters
+
+StorageGRID ist einzigartig unter S3-kompatiblen Objekt-Storage-Anbietern und bietet einen nativen Load Balancer als speziell entwickelte Appliance, VM oder Container. Der von StorageGRID bereitgestellte Load Balancer wird auch als Gateway-Node bezeichnet.
+
+Für Kunden, die noch keinen Load Balancer wie F5, Citrix usw. besitzen, kann die Implementierung eines Load Balancers eines Drittanbieters sehr komplex sein. Der StorageGRID Load Balancer vereinfacht den Load Balancer erheblich.
+
+Der Gateway Node ist ein hochverfügbarer und hochperformanter Load Balancer der Enterprise-Klasse. Kunden können den Gateway Node, den Load Balancer eines Drittanbieters oder sogar beide in einem Grid implementieren. Der Gateway Node ist ein lokaler Traffic-Manager und kein GSLB.
+
+Der StorageGRID Load Balancer bietet folgende Vorteile:
+
+* *Einfachheit*. Automatische Konfiguration von Ressourcen-Pools, Zustandsprüfungen, Patching und Wartung, alle gemanagt durch StorageGRID.
+* *Leistung*.  Der StorageGRID Load Balancer ist speziell für StorageGRID vorgesehen, kann Hochleistungs-Caching bereitstellen und Sie konkurrieren nicht mit anderen Anwendungen um Bandbreite.
+* *Kosten*. Die Versionen für Virtual Machines (VM) und Container werden ohne zusätzliche Kosten bereitgestellt.
+* *Verkehrsklassifizierungen*. Die Funktion zur erweiterten Traffic-Klassifizierung ermöglicht für StorageGRID spezifische QoS-Regeln sowie Workload-Analysen.
+* *Zukünftige StorageGRID-spezifische Funktionen*. StorageGRID wird den Load Balancer in künftigen Versionen weiter optimieren und um innovative Funktionen erweitern.
+
+
+Als integrierter Knoten von StorageGRID kann der lokale Verkehrsmanager erweiterte Integritätsprüfungen durchführen, um Anfragen basierend auf der Integrität, Auslastung und Ressourcenverfügbarkeit des Speicherknotens zu verteilen.  Darüber hinaus besteht die Möglichkeit, die Last auf mehrere Standorte zu verteilen, wenn die StorageGRID Verbindungskosten zwischen den Standorten auf „0“ gesetzt sind.  Falls die Speicherknoten nicht verfügbar sind, der Gateway-Knoten an einem Standort jedoch verfügbar ist, wird die Last automatisch an einen anderen Standort im Netz umgeleitet.
+
+Die Load Balancer-Caching-Funktion des Gateway-Knotens soll eine erhebliche Leistungsverbesserung für bestimmte Workloads (wie z. B. KI-Training) bieten, bei denen ein Datensatz im Rahmen der Verarbeitung dieser Daten mehrmals erneut gelesen wird.  Caching-Gateway-Knoten können auch physisch vom Rest des Grids entfernt bereitgestellt werden, was bei einigen Workloads eine bessere Leistung und eine geringere WAN-Netzwerkauslastung ermöglicht.  Der Cache arbeitet in einem Rücklesemodus, in dem Schreibvorgänge nicht zwischengespeichert werden und den Zustand des Caches nicht ändern.  Jeder Caching-Gateway-Knoten arbeitet unabhängig von allen anderen Caching-Gateway-Knoten.
+
+Weitere Informationen zum Bereitstellen des StorageGRID Gateway Node finden Sie im https://docs.netapp.com/us-en/storagegrid/["StorageGRID-Dokumentation"^] .

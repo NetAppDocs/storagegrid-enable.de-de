@@ -14,8 +14,6 @@ entries:
   url: "/product-feature-guides/storagegrid-search-integration-service.html"
 - title: Überlegungen und Performance von Node-Klonen
   url: "/product-feature-guides/node-clone.html"
-- title: So verwenden Sie die Port-Neuzuordnung
-  url: "/product-feature-guides/port-remap.html"
 - title: Standortwechsel und Netzwerkwechsel
   url: "/product-feature-guides/site-relocation-and-network-change.html"
 - title: Migration von objektbasiertem Storage von ONTAP S3 zu StorageGRID

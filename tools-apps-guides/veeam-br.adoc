@@ -1,7 +1,7 @@
 ---
 permalink: tools-apps-guides/veeam-br.html 
 sidebar: sidebar 
-keywords: veeam,backup,veeam12,veeam11, 
+keywords: veeam,backup,veeam13,veeam12,veeam11 
 summary: Dieser Leitfaden konzentriert sich auf die Konfiguration von NetApp StorageGRID und teilweise Veeam Backup and Replication. Dieses Dokument richtet sich an Storage- und Netzwerkadministratoren, die mit Linux-Systemen vertraut sind und mit der Wartung oder Implementierung eines NetApp StorageGRID-Systems in Kombination mit Veeam Backup and Replication betraut sind. 
 ---
 = StorageGRID Best Practices für die Implementierung mit Veeam Backup and Replication
@@ -26,7 +26,7 @@ Veeam und NetApp StorageGRID bieten eine benutzerfreundliche Lösung, die zusamm
 
 Der Objekt-Workload von Veeam erstellt eine große Anzahl von gleichzeitigen PUT-, DELETE- und LISTENVORGÄNGEN für kleine Objekte. Durch die Unveränderlichkeit wird die Anzahl der Anfragen an den Objektspeicher zur Festlegung von Aufbewahrungs- und Listenversionen weiter addiert. Der Prozess eines Backup-Jobs umfasst das Schreiben von Objekten für die tägliche Änderung. Nach Abschluss der neuen Schreibvorgänge löscht der Job alle Objekte, die auf der Aufbewahrungsrichtlinie des Backups basieren. Die Planung von Backup-Jobs wird sich fast immer überschneiden. Diese Überschneidung führt zu einem großen Teil des Backup-Fensters, das aus 50/50 PUT/DELETE Workloads auf dem Objektspeicher besteht. Anpassungen an die Anzahl gleichzeitiger Vorgänge mit der Einstellung für den Task-Slot vornehmen und die Objektgröße dadurch erhöhen, dass die Blockgröße für den Backup-Job erhöht wird, die Anzahl der Objekte in den Anforderungen zum Löschen mehrerer Objekte reduziert wird, und wenn Sie das maximale Zeitfenster für die Fertigstellung der Jobs auswählen, wird die Lösung hinsichtlich Performance und Kosten optimiert.
 
-Lesen Sie unbedingt die Produktdokumentation für https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Veeam Backup und Replication"^] Und https://docs.netapp.com/us-en/storagegrid-117/["StorageGRID"^] Bevor Sie beginnen. Veeam bietet Rechner mit Informationen zur Dimensionierung der Veeam Infrastruktur und den Kapazitätsanforderungen, die vor der Dimensionierung Ihrer StorageGRID Lösung verwendet werden sollten. Informationen zu validierten Veeam-NetApp Konfigurationen finden Sie auf der Veeam Ready Program Website für https://www.veeam.com/alliance-partner-technical-programs.html?alliancePartner=netapp1&page=1["Veeam Ready Objekt, Unveränderlichkeit von Objekten und Repository"^].
+Lesen Sie unbedingt die Produktdokumentation für https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Veeam Backup und Replication"^] Und https://docs.netapp.com/us-en/storagegrid/["StorageGRID"^] bevor Sie beginnen.  Veeam bietet Rechner zum Verständnis der Dimensionierung der Veeam-Infrastruktur und der Kapazitätsanforderungen, die vor der Dimensionierung Ihrer StorageGRID Lösung verwendet werden sollten.  Bitte überprüfen Sie immer die Veeam- NetApp validierten Konfigurationen auf der Veeam Ready Program Website für https://www.veeam.com/alliance-partner-technical-programs.html?alliancePartner=netapp1&page=1["Veeam Ready Objekt, Unveränderlichkeit von Objekten und Repository"^] .
 
 
 
@@ -87,7 +87,7 @@ Wenden Sie sich an Ihr NetApp Account Team, um die empfohlene Konfiguration basi
 
 === Empfohlene Version
 
-NetApp StorageGRID 11.7 oder 11.8 mit dem aktuellen Hotfix sind die empfohlenen Versionen für Veeam-Bereitstellungen. Es wird empfohlen, immer auf dem neuesten Stand zu bleiben und die neuesten Hotfixes für Ihr StorageGRID-System anzuwenden.
+NetApp StorageGRID 11.9 oder 12.0 mit dem neuesten Hotfix sind die empfohlenen Versionen für Veeam-Bereitstellungen.  Es wird immer empfohlen, auf dem neuesten Stand zu bleiben und die neuesten Hotfixes für Ihr StorageGRID System anzuwenden.
 
 
 
@@ -99,13 +99,64 @@ Für Veeam muss der Endpunkt nur über HTTPS verbunden sein. Eine nicht verschl�
 
 === S3-Bucket
 
-StorageGRID ist ein sicheres mandantenfähiges Storage-System. Es wird empfohlen, einen dedizierten Mandanten für den Veeam Workload zu erstellen. Optional kann ein Storage-Kontingent zugewiesen werden. Aktivieren Sie als Best Practice „eigene Identitätsquelle verwenden“. Sichern Sie den Mandanten-Root-Managementbenutzer mit einem geeigneten Passwort. Veeam Backup 12 erfordert eine hohe Konsistenz für S3 Buckets. StorageGRID bietet mehrere Konsistenzoptionen, die auf Bucket-Ebene konfiguriert sind. Implementierungen an mehreren Standorten, bei denen Veeam von diversen Standorten auf Daten zugreifen kann, wählen Sie „Strong Global“. Wenn Veeam-Backups und -Restores nur an einem einzigen Standort durchgeführt werden, sollte das Konsistenzniveau auf „Strong-Site“ gesetzt werden. Weitere Informationen zu Bucket-Konsistenzstufen finden Sie im https://docs.netapp.com/us-en/storagegrid-117/s3/consistency-controls.html["Dokumentation"]. Um StorageGRID Backups zur Unveränderlichkeit von Veeam zu nutzen, muss S3 Object Lock global aktiviert und während der Bucket-Erstellung auf dem Bucket konfiguriert werden.
+StorageGRID ist ein sicheres Multi-Tenant-Speichersystem.  Es wird empfohlen, einen dedizierten Mandanten für die Veeam-Workload zu erstellen.  Optional kann ein Speicherkontingent zugewiesen werden.  Aktivieren Sie als Best Practice „Eigene Identitätsquelle verwenden“.  Sichern Sie den Stammverwaltungsbenutzer des Mandanten mit einem entsprechenden Kennwort.  Veeam Backup 12 erfordert eine starke Konsistenz für S3-Buckets.  StorageGRID bietet mehrere Konsistenzoptionen, die auf Bucket-Ebene konfiguriert werden.  Wählen Sie für Bereitstellungen an mehreren Standorten, bei denen Veeam von mehreren Standorten auf die Daten zugreift, „strong-global“ aus.  Wenn Veeam-Backups und -Wiederherstellungen nur an einem einzigen Standort erfolgen, sollte die Konsistenzebene auf „starker Standort“ eingestellt werden.  Weitere Informationen zu den Eimerkonsistenzstufen finden Sie in der https://docs.netapp.com/us-en/storagegrid/s3/consistency-controls.html["Dokumentation"] .  Um StorageGRID für Veeam-Unveränderlichkeitssicherungen zu verwenden, muss S3 Object Lock global aktiviert und während der Bucket-Erstellung im Bucket konfiguriert werden.
 
 
 
 === Lifecycle Management
 
 StorageGRID unterstützt Replizierung und Erasure Coding für eine Sicherung auf Objektebene über StorageGRID Nodes und Standorte hinweg. Erasure Coding erfordert mindestens eine Objektgröße von 200 kB. Die standardmäßige Blockgröße für Veeam von 1 MB erzeugt Objektgrößen, die oft unter dieser empfohlenen Mindestgröße von 200 KB liegen können, nachdem Veeam die Storage-Effizienz erreicht hat. Für die Performance der Lösung wird empfohlen, kein Erasure Coding-Profil für mehrere Standorte zu verwenden, es sei denn, die Verbindung zwischen den Standorten reicht aus, um keine Latenz hinzuzufügen oder die Bandbreite des StorageGRID-Systems zu beschränken. Bei einem StorageGRID System mit mehreren Standorten kann die ILM-Regel so konfiguriert werden, dass eine einzige Kopie an jedem Standort gespeichert wird. Um die ultimative Aufbewahrungszeit zu gewährleisten, kann eine Regel für die Speicherung einer Kopie, die nach dem Verfahren zur Fehlerkorrektur codiert wurde, an jedem Standort konfiguriert werden. Die am besten empfohlene Implementierung für diesen Workload ist der lokale Einsatz von zwei Kopien auf den Veeam Backup Servern.
+
+
+
+=== Leistung löschen
+
+Veeam ermöglicht die Optimierung der Löschanforderungsrate und die Planung des Sicherungslöschvorgangs.  Um die Löschleistung weiter zu optimieren, können Sie synchrone Löschvorgänge deaktivieren und das endgültige Löschen von Objekten dem ILM-Scanner überlassen.
+
+*Schritte zum Deaktivieren synchroner Löschungen*
+
+. Öffnen Sie den StorageGRID Grid Manager.
+. Wählen Sie in der oberen rechten Ecke das Fragezeichen und dann API-Dokumentation aus.
+. Klicken Sie oben rechts auf den Link zur Seite „Private API-Dokumentation“.
+. Erweitern Sie ilm-advanced.
+. Wählen Sie GET ilm-advanced.
+. Wählen Sie „Ausprobieren“ und dann „Ausführen“.
+. Überprüfen Sie das Antwortergebnis.
++
+.. Wenn die Werte null sind, bedeutet dies, dass die standardmäßigen ILM-Advanced-Werte verwendet werden.
+.. Wenn die Werte nicht null sind, bedeutet dies, dass benutzerdefinierte erweiterte ILM-Werte verwendet werden.  Kopieren Sie die gesamte Ausgabe nach „data“:, beginnend mit { bis zum vorletzten }.
++
+... Speichern Sie es in einem Texteditor.
++
+Beispielantwort:
+
++
+image:veeam-bp/get_ilm_adv_before.png["GET ILM-Advanced-Ausgabe"]
+
+
+
+
+
+. Wählen Sie PUT ilm-advanced.
+. Wählen Sie „Ausprobieren“ aus, um mit der Bearbeitung des API-Texts zu beginnen.
++
+.. Standardmäßig enthält der API-Text Standardwerte und keine zuvor konfigurierten benutzerdefinierten Werte.  Aus diesem Grund ist es SEHR wichtig, die Schritte 5 bis 7 auszuführen.
+
+
+. Wenn in den Schritten 5–7 nicht standardmäßige Werte gefunden werden, ersetzen Sie den API-Text durch die in Schritt 7 gespeicherte Ausgabe. .  Andernfalls, wenn die Werte in den Schritten 5–7 null waren, lassen Sie den API-Text unverändert.
+. Passen Sie die folgenden Parameter im API-Body-Feld an:
++
+.. Setzen Sie den synchronen Wert auf „false“.
++
+Beispiel für API-Textkörper:
+
++
+image:veeam-bp/put_ilm_adv.png["PUT ILM-Advanced-Input"]
+
+
+
+. Wenn Sie fertig sind, wählen Sie Ausführen
+
 
 
 
@@ -188,6 +239,6 @@ image:veeam-bp/tc_2.png["Kennzahlen für die Richtlinie zur Traffic-Klassifizier
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* link:https://docs.netapp.com/us-en/storagegrid-119/["NetApp StorageGRID 11.9 Produktdokumentation"^]
+* link:https://docs.netapp.com/us-en/storagegrid/["NetApp StorageGRID -Produktdokumentation"^]
 * link:https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Veeam Backup und Replication"^]
 

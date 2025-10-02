@@ -72,8 +72,8 @@ Verwaltung offener und geschlossener Ports für Admin-, Grid- und Client-Netzwer
 
 
 | Erweitertes SSH-Verhalten  a| 
-Beim Upgrade eines Node auf StorageGRID 11.5 werden neue SSH-Hostzertifikate und Hostschlüssel generiert.
-| Verbessert den man-in-the-Middle-Angriffsschutz. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
+Deaktivieren Sie SSH standardmäßig vor der Installation.  Im Standardzustand ist der SSH-Zugriff nur auf die Adresse der Link-Local-Verwaltungsports aktiviert.  Die Passwörter für die Benutzer „Admin“ und „Root“ sind auf die Seriennummer des Compute Controllers des Geräts eingestellt.  Die Anmeldung ist nur auf der seriellen Konsole und der grafischen Konsole (BMC KVM) zulässig.  SSH ist auf allen Netzwerkports deaktiviert.
+| Verbessert den Netzwerkzugriffsschutz. | SEC-Regel 17a-4(f) CTFC 1.31(c)-(d) (FINRA) Regel 4511(c) 
 
 
 | Node-Verschlüsselung  a| 

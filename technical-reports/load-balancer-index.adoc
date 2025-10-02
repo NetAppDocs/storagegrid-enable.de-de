@@ -46,32 +46,11 @@ Es gibt zwei Arten von Load Balancern:
 
 
 
-=== Load Balancer für StorageGRID-Gateway-Nodes im Vergleich zum Load Balancer eines Drittanbieters
-
-StorageGRID ist einzigartig unter S3-kompatiblen Objekt-Storage-Anbietern und bietet einen nativen Load Balancer als speziell entwickelte Appliance, VM oder Container. Der von StorageGRID bereitgestellte Load Balancer wird auch als Gateway-Node bezeichnet.
-
-Für Kunden, die noch keinen Load Balancer wie F5, Citrix usw. besitzen, kann die Implementierung eines Load Balancers eines Drittanbieters sehr komplex sein. Der StorageGRID Load Balancer vereinfacht den Load Balancer erheblich.
-
-Der Gateway Node ist ein hochverfügbarer und hochperformanter Load Balancer der Enterprise-Klasse. Kunden können den Gateway Node, den Load Balancer eines Drittanbieters oder sogar beide in einem Grid implementieren. Der Gateway Node ist ein lokaler Traffic-Manager und kein GSLB.
-
-Der StorageGRID Load Balancer bietet folgende Vorteile:
-
-* *Einfachheit*. Automatische Konfiguration von Ressourcen-Pools, Zustandsprüfungen, Patching und Wartung, alle gemanagt durch StorageGRID.
-* *Leistung*. Der StorageGRID Load Balancer ist speziell für StorageGRID vorgesehen. Das heißt, Sie konkurrieren nicht mit anderen Anwendungen um Bandbreite.
-* *Kosten*. Die Versionen für Virtual Machines (VM) und Container werden ohne zusätzliche Kosten bereitgestellt.
-* *Verkehrsklassifizierungen*. Die Funktion zur erweiterten Traffic-Klassifizierung ermöglicht für StorageGRID spezifische QoS-Regeln sowie Workload-Analysen.
-* *Zukünftige StorageGRID-spezifische Funktionen*. StorageGRID wird den Load Balancer in künftigen Versionen weiter optimieren und um innovative Funktionen erweitern.
-
-
-Weitere Informationen zum Bereitstellen des StorageGRID-Gateway-Knotens finden Sie unter https://docs.netapp.com/us-en/storagegrid-117/["StorageGRID-Dokumentation"^].
-
-
-
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
 
-* NetApp StorageGRID Dokumentationszentrum https://docs.netapp.com/us-en/storagegrid-118/[]
+* NetApp StorageGRID Dokumentationscenterhttps://docs.netapp.com/us-en/storagegrid/[]
 * NetApp StorageGRID Enablement https://docs.netapp.com/us-en/storagegrid-enable/[]
 * Überlegungen zum Design der StorageGRID f5 Load Balancer https://www.netapp.com/blog/storagegrid-f5-load-balancer-design-considerations/[]
 * Loadbalancer.org—Load NetApp StorageGRID ausgleichen https://www.loadbalancer.org/applications/load-balancing-netapp-storagegrid/[]

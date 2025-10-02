@@ -44,13 +44,15 @@ Grid-Administratoren können Rollen Berechtigungen zuweisen und administrativen 
 | Verteilte Audit-Protokollierung  a| 
 StorageGRID bietet eine integrierte, verteilte Audit-Protokollierungs-Infrastruktur, die auf Hunderte Nodes an bis zu 16 Standorten skalierbar ist. Die StorageGRID-Software-Knoten erzeugen Audit-Meldungen, die über ein redundantes Audit-Relay-System übertragen und schließlich in einem oder mehreren Audit-Log-Repositorys erfasst werden. Audit-Meldungen erfassen Ereignisse auf Objektebene, z. B. Client-initiierte S3-API-Operationen, Objekt-Lebenszyklus-Ereignisse durch ILM, Zustandsprüfungen von Objekten im Hintergrund sowie Konfigurationsänderungen, die über die Management-UI oder -APIs vorgenommen werden.
 
-Audit-Protokolle können über CIFS oder NFS von Admin-Nodes exportiert werden, sodass Audit-Meldungen durch Tools wie Splunk und ELK abgebaut werden. Es gibt vier Arten von Überwachungsmeldungen:
+Prüfprotokolle können per Syslog exportiert werden, sodass Prüfmeldungen von Tools wie Splunk und ELK ausgewertet werden können.  Es gibt vier Arten von Prüfmeldungen:
 
 * Systemaudits Meldungen
 * Audit-Meldungen zu Objekt-Storage
 * HTTP-Protokollauditmeldungen
 * Meldungen von Management-Audits
 
+
+Prüfprotokolle können zur langfristigen Aufbewahrung und für den Anwendungszugriff in einem S3-Bucket gespeichert werden.
 | Bietet Grid-Administratoren einen bewährten und skalierbaren Audit-Service und ermöglicht es ihnen, Audit-Daten für verschiedene Ziele zu extrahieren. Zu diesen Zielen gehören Fehlerbehebung, Revision der SLA-Performance, Client-Datenzugriffs-API-Operationen und Änderungen der Managementkonfiguration. | -- 
 
 
