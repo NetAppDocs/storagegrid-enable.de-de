@@ -12,7 +12,7 @@ summary: 'Dieser technische Bericht beschreibt die Implementierung von StorageGR
 
 
 [role="lead"]
-Dieser technische Bericht enthält einen umfassenden Leitfaden zur Implementierung von StorageGRID Replizierungsstrategien zum Erreichen eines Recovery Point Objective (RPO) von null bei einem Standortausfall. Im Dokument werden verschiedene Bereitstellungsoptionen für StorageGRID beschrieben, darunter synchrone Replikation an mehreren Standorten und asynchrone Replikation in mehreren Grids. Es wird erläutert, wie die Richtlinien für Information Lifecycle Management (ILM) von StorageGRID konfiguriert werden können, um die Datenaufbewahrung und Verfügbarkeit von Daten über mehrere Standorte hinweg zu gewährleisten. Darüber hinaus werden Leistungsüberlegungen, Ausfallszenarien und Wiederherstellungsprozesse behandelt, um einen unterbrechungsfreien Clientbetrieb aufrechtzuerhalten. Ziel dieses Dokuments ist es, die Informationen bereitzustellen, die gewährleisten, dass die Daten auch bei einem vollständigen Standortausfall zugänglich und konsistent bleiben, indem sowohl synchrone als auch asynchrone Replikationstechniken genutzt werden.
+Dieser technische Bericht bietet eine umfassende Anleitung zur Implementierung von StorageGRID Replikationsstrategien, um im Falle eines Standortausfalls ein Recovery Point Objective (RPO) von Null zu erreichen. Das Dokument beschreibt detailliert verschiedene Bereitstellungsoptionen für StorageGRID, darunter standortübergreifende synchrone Replikation und standortübergreifende asynchrone Replikation. Darin wird erläutert, wie StorageGRID Information Lifecycle Management (ILM)-Richtlinien konfiguriert werden können, um die Datenbeständigkeit und -verfügbarkeit über mehrere Standorte hinweg zu gewährleisten. Darüber hinaus behandelt der Bericht Leistungsaspekte, Fehlerszenarien und Wiederherstellungsprozesse, um einen ununterbrochenen Kundenbetrieb zu gewährleisten. Ziel dieses Dokuments ist es, Informationen bereitzustellen, die sicherstellen, dass die Daten auch im Falle eines vollständigen Ausfalls der Website zugänglich und konsistent bleiben, indem sowohl synchrone als auch asynchrone Replikationstechniken genutzt werden.
 
 
 
@@ -28,13 +28,13 @@ StorageGRID ermöglicht die konfigurierbare Aufbewahrung und Verfügbarkeit Ihre
 
 === StorageGRID Scale
 
-Eine minimale StorageGRID -Bereitstellung besteht aus einem Admin-Knoten und 3 Speicherknoten an einem einzigen Standort.  Ein einzelnes Raster kann bis zu 220 Knoten umfassen.  StorageGRID kann als einzelner Standort bereitgestellt oder auf 16 Standorte erweitert werden.
+Eine minimale StorageGRID Bereitstellung besteht aus einem Admin-Knoten und 3 Speicherknoten an einem einzigen Standort. Ein einzelnes Grid kann auf bis zu 220 Knoten anwachsen. StorageGRID kann als einzelner Standort eingesetzt oder auf bis zu 16 Standorte erweitert werden.
 
 Der Admin-Knoten enthält die Verwaltungsschnittstelle, einen zentralen Punkt für Metriken und Protokollierung und verwaltet die Konfiguration der StorageGRID Komponenten.  Der Admin-Knoten enthält außerdem einen integrierten Load Balancer für den S3-API-Zugriff.
 
 StorageGRID kann als reine Software, als VMware Virtual Machine Appliances oder als speziell entwickelte Appliances bereitgestellt werden.
 
-Ein StorageGRID-Knoten kann wie folgt bereitgestellt werden:
+Ein Speicherknoten kann wie folgt bereitgestellt werden:
 
 * Ein reiner Metadatenknoten, der die Objektanzahl maximiert
 * Ein reiner Objektspeicherknoten, der den Objektspeicherplatz maximiert
@@ -67,7 +67,7 @@ Bei Objekt-Storage ist die Storage-Einheit ein Objekt und nicht eine Datei oder 
 
 Jedes Objekt in einem objektbasierten Storage-System besteht aus zwei Teilen: Objekt-Daten und Objekt-Metadaten.
 
-* Objektdaten stellen die tatsächlichen zugrunde liegenden Daten dar, z. B. ein Foto, ein Film oder eine Patientenakte.
+* Objektdaten stellen die eigentlichen zugrunde liegenden Daten dar, zum Beispiel ein Foto, einen Film oder eine Krankenakte.
 * Objektmetadaten sind alle Informationen, die ein Objekt beschreiben.
 
 
@@ -76,10 +76,10 @@ StorageGRID verwendet Objektmetadaten, um die Standorte aller Objekte im Grid zu
 Objektmetadaten enthalten Informationen wie die folgenden:
 
 * Systemmetadaten, einschließlich einer eindeutigen ID für jedes Objekt, des Objektnamens, des Namens des S3-Buckets, des Mandantenkontonamens oder der ID, der logischen Größe des Objekts, des Datums und der Uhrzeit der ersten Erstellung des Objekts sowie des Datums und der Uhrzeit der letzten Änderung des Objekts.
-* Der aktuelle Speicherort der einzelnen Objektreplikate oder Erasure-Coded-Fragmente.
+* Der aktuelle Speicherort der Replikatkopie oder des löschcodierten Fragments jedes Objekts.
 * Alle mit dem Objekt verknüpften Schlüssel-Wert-Paare für benutzerdefinierte Benutzer-Metadaten.
 * Bei S3-Objekten sind alle dem Objekt zugeordneten Objekt-Tag-Schlüssel-Wert-Paare vorhanden
-* Für segmentierte Objekte und mehrteilige Objekte, Segment-IDs und Datengrößen.
+* Für segmentierte Objekte und mehrteilige Objekte, Segmentkennungen und Datengrößen.
 
 
 Objektmetadaten sind individuell anpassbar und erweiterbar und bieten dadurch Flexibilität für die Nutzung von Applikationen. Detaillierte Informationen darüber, wie und wo StorageGRID Objektmetadaten speichert, finden Sie unter https://docs.netapp.com/us-en/storagegrid/admin/managing-object-metadata-storage.html["Management von Objekt-Metadaten-Storage"].
@@ -94,7 +94,7 @@ StorageGRID bietet die Möglichkeit, Codedaten auf Knoten- und Laufwerksebene zu
 
 Darüber hinaus verwenden StorageGRID Geräte Erasure-Coding-Schemata, um Objektdaten über die Knoten innerhalb eines Standorts oder verteilt auf drei oder mehr Standorte im StorageGRID -System zu speichern, wobei die ILM-Regeln von StorageGRID vor Knotenausfällen schützen.
 
-Erasure Coding bietet ein Speicherlayout, das bei geringem Overhead widerstandsfähig gegenüber Knoten- und Site-Ausfällen ist, während die Replikation dasselbe mit mehr Overhead leisten kann.  Alle StorageGRID -Erasure-Coding-Schemata können an einem einzigen Standort eingesetzt werden, sofern die zum Speichern der Datenblöcke erforderliche Mindestanzahl an Knoten erreicht wird.  Dies bedeutet, dass für ein EC-Schema von 4+2 mindestens 6 Knoten zum Empfangen der Daten verfügbar sein müssen.
+Erasure Coding bietet ein Speicherlayout, das gegenüber Knoten- und Standortausfällen robust ist und einen geringeren Aufwand als die Replikation verursacht. Alle StorageGRID -Erasure-Coding-Verfahren sind an einem einzigen Standort einsetzbar, sofern die Mindestanzahl der Knoten, die zum Speichern der Datenblöcke erforderlich sind, erreicht ist. Das bedeutet, dass für ein EC-Schema von 4+2 mindestens 6 Knoten zur Verfügung stehen müssen, um die Daten zu empfangen.
 
 image:zero-rpo/ec-schemes.png["Verfügbare StorageGRID Erasure Coding-Schemata für Objekte"]
 
@@ -109,11 +109,20 @@ Die Standardkonsistenz wird auf einer Grid-weiten Ebene definiert. Benutzer kön
 Die in StorageGRID verfügbaren Bucket-Konsistenzoptionen sind:
 
 * *All*: Bietet die höchste Konsistenz. Alle Nodes im Grid erhalten die Daten sofort, andernfalls schlägt die Anforderung fehl.
-* *Strong-global*: Garantiert Lese-nach-Schreiben-Konsistenz für alle Client-Anfragen über alle Standorte hinweg.
-* *Quorum Strong-global*: Garantiert Lese-nach-Schreib-Konsistenz für alle Clientanforderungen auf allen Sites.  Bietet Konsistenz für mehrere Knoten oder sogar einen Site-Ausfall, wenn das Quorum für die Metadatenreplikation erreicht werden kann.
+* *Stark-global*:
 +
-** QUORUM-Konsistenz wird als Quorum von Storage Node-Metadatenreplikaten definiert, wobei jeder Standort über 3 Metadatenreplikate verfügt.  Es kann wie folgt berechnet werden: 1+((N*3)/2), wobei N die Gesamtzahl der Standorte ist
-** Beispielsweise müssen aus einem Raster mit 3 Standorten mindestens 5 Replikate erstellt werden, innerhalb eines Standorts dürfen maximal 3 Replikate vorhanden sein.
+** *Legacy Strong Global*: Gewährleistet Lese-nach-Schreib-Konsistenz für alle Client-Anfragen an allen Standorten.
++
+*** Dies ist das Standardverhalten für alle Systeme, die von Version 11.9 oder älter auf Version 12.0 aktualisiert wurden, ohne dass manuell auf das neue Quorum Strong Global umgestellt wurde.
+
+
+** *Quorum Strong-global*: Garantiert Lese-nach-Schreib-Konsistenz für alle Clientanforderungen auf allen Sites.  Bietet Konsistenz für mehrere Knoten oder sogar einen Site-Ausfall, wenn das Quorum für die Metadatenreplikation erreicht werden kann.
++
+*** Dies ist das Standardverhalten für alle Systeme, die neu mit Version 12.0 oder höher installiert werden.
+*** QUORUM-Konsistenz wird als Quorum von Storage Node-Metadatenreplikaten definiert, wobei jeder Standort über 3 Metadatenreplikate verfügt.  Es kann wie folgt berechnet werden: 1+((N*3)/2), wobei N die Gesamtzahl der Standorte ist
+*** Beispielsweise müssen aus einem Raster mit 3 Standorten mindestens 5 Replikate erstellt werden, innerhalb eines Standorts dürfen maximal 3 Replikate vorhanden sein.
+
+
 
 
 * *Strong-site*: Garantiert Lese-nach-Schreiben Konsistenz für alle Client-Anfragen innerhalb einer Site.
@@ -129,11 +138,11 @@ Metadaten werden automatisch innerhalb von und über Standorte hinweg repliziert
 
 Jede ILM-Regel wird mit einem von drei Aufnahmeverhalten zum Schutz von Objekten konfiguriert: Dual Commit, Balanced oder Strict.
 
-Die Option für die doppelte Provisionierung erstellt sofort zwei Kopien auf zwei beliebigen unterschiedlichen Storage-Nodes im Grid und gibt die Anforderung erfolgreich an den Client zurück. Die Knotenauswahl wird innerhalb des Standorts der Anforderung versucht, kann jedoch unter Umständen Knoten eines anderen Standorts verwenden. Das Objekt wird der ILM-Warteschlange hinzugefügt, die bewertet und gemäß den ILM-Regeln platziert werden soll.
+Die Dual-Commit-Option erstellt sofort zwei Kopien auf zwei beliebigen verschiedenen Speicherknoten im Grid und meldet dem Client, dass die Anfrage erfolgreich war. Die Knotenauswahl erfolgt innerhalb des Standorts der Anfrage, kann aber unter bestimmten Umständen auch Knoten eines anderen Standorts verwenden. Das Objekt wird der ILM-Warteschlange hinzugefügt, um gemäß den ILM-Regeln ausgewertet und platziert zu werden.
 
-Die Option „ausgeglichen“ bewertet das Objekt sofort mit der ILM-Richtlinie und platziert das Objekt synchron, bevor die Anforderung erfolgreich an den Client zurückgegeben wird. Wenn die ILM-Regel aufgrund eines Ausfalls oder aufgrund unzureichenden Storage zur Erfüllung der Platzierungsanforderungen nicht sofort erfüllt werden kann, wird stattdessen Dual Commit verwendet. Sobald das Problem behoben ist, platziert ILM das Objekt automatisch basierend auf der definierten Regel.
+Die Option „ausgewogen“ wertet das Objekt sofort anhand der ILM-Richtlinie aus und platziert das Objekt synchron, bevor die Anfrage als erfolgreich an den Client zurückgesendet wird. Kann die ILM-Regel aufgrund eines Ausfalls oder unzureichenden Speicherplatzes zur Erfüllung der Platzierungsanforderungen nicht sofort eingehalten werden, wird stattdessen Dual Commit verwendet. Sobald das Problem behoben ist, platziert ILM das Objekt automatisch gemäß der definierten Regel.
 
-Die strikte Option wertet das Objekt anhand der ILM-Richtlinie sofort aus und platziert das Objekt synchron, bevor die Anforderung erfolgreich an den Client zurückgegeben wird. Wenn die ILM-Regel aufgrund eines Ausfalls oder aufgrund unzureichenden Storage nicht sofort erfüllt werden kann, um die Platzierungsanforderungen zu erfüllen, schlägt die Anforderung fehl und der Client muss einen Vorgang wiederholen.
+Die strikte Option wertet das Objekt sofort anhand der ILM-Richtlinie aus und platziert das Objekt synchron, bevor die Anfrage als erfolgreich an den Client zurückgesendet wird. Kann die ILM-Regel aufgrund eines Ausfalls oder unzureichenden Speicherplatzes zur Erfüllung der Platzierungsanforderungen nicht sofort erfüllt werden, schlägt die Anfrage fehl und der Kunde muss es erneut versuchen.
 
 
 
@@ -141,9 +150,9 @@ Die strikte Option wertet das Objekt anhand der ILM-Richtlinie sofort aus und pl
 
 StorageGRID kann mit Client-Zugriff über die integrierten Gateway-Nodes, einen externen Load Balancer von 3^Rd^ Party, DNS-Round Robin oder direkt zu einem Storage-Node implementiert werden. Mehrere Gateway Nodes können an einem Standort implementiert und in Hochverfügbarkeitsgruppen konfiguriert werden, die für automatisches Failover und Failback bei einem Ausfall des Gateway Node sorgen. Sie können Lastausgleichsmethoden in einer Lösung kombinieren, um einen zentralen Zugriffspunkt für alle Standorte in einer Lösung bereitzustellen.
 
-Die Gateway-Nodes gleichen die Last zwischen den Speicher-Nodes an dem Standort aus, an dem sich der Gateway-Node befindet. StorageGRID kann so konfiguriert werden, dass die Gateway-Nodes mithilfe von Nodes von mehreren Standorten eine Lastenverteilung erhalten. Bei dieser Konfiguration würde die Latenz zwischen diesen Standorten auf die Antwortlatenz für die Clientanfragen erhöht. Diese Einstellung sollte nur konfiguriert werden, wenn die Gesamtlatenz für die Clients akzeptabel ist.
+Die Gateway-Knoten gleichen standardmäßig die Last zwischen den Speicherknoten an dem Standort aus, an dem sich der Gateway-Knoten befindet. StorageGRID kann so konfiguriert werden, dass die Gateway-Knoten die Last mithilfe von Knoten von mehreren Standorten ausgleichen können. Diese Konfiguration würde die Latenz zwischen diesen Standorten zur Antwortlatenz der Clientanfragen addieren. Diese Konfiguration sollte nur vorgenommen werden, wenn die Gesamtlatenz für die Clients akzeptabel ist.
 
-Durch eine Kombination aus lokalem und globalem Lastausgleich kann ein RTO von Null erreicht werden.  Um einen unterbrechungsfreien Clientzugriff zu gewährleisten, ist ein Lastenausgleich der Clientanforderungen erforderlich.  Eine StorageGRID -Lösung kann an jedem Standort viele Gateway-Knoten und Hochverfügbarkeitsgruppen enthalten.  Um Clients an jedem Standort auch bei einem Standortausfall einen unterbrechungsfreien Zugriff zu ermöglichen, sollten Sie eine externe Lastausgleichslösung in Kombination mit StorageGRID Gateway-Knoten konfigurieren.  Konfigurieren Sie Hochverfügbarkeitsgruppen für Gateway-Knoten, die die Last innerhalb der einzelnen Sites verwalten, und verwenden Sie den externen Lastenausgleich, um die Last über die Hochverfügbarkeitsgruppen hinweg zu verteilen.  Der externe Lastenausgleich muss so konfiguriert sein, dass er eine Integritätsprüfung durchführt, um sicherzustellen, dass Anfragen nur an Betriebsstandorte gesendet werden.  Weitere Informationen zum Lastenausgleich mit StorageGRID finden Sie im https://www.netapp.com/media/17068-tr4626.pdf["Technischer Bericht zum StorageGRID Load Balancer"] .
+Durch eine Kombination aus lokalem und globalem Lastausgleich kann ein RTO von Null erreicht werden. Um einen unterbrechungsfreien Clientzugriff zu gewährleisten, ist ein Lastausgleich der Clientanfragen erforderlich. Eine StorageGRID Lösung kann an jedem Standort viele Gateway-Knoten und Hochverfügbarkeitsgruppen enthalten. Um einen unterbrechungsfreien Zugriff für Clients an jedem Standort auch bei einem Standortausfall zu gewährleisten, sollten Sie eine externe Load-Balancing-Lösung in Kombination mit StorageGRID Gateway-Knoten konfigurieren. Konfigurieren Sie Hochverfügbarkeitsgruppen für Gateway-Knoten, die die Last innerhalb jedes Standorts verwalten, und verwenden Sie den externen Load Balancer, um die Last auf die Hochverfügbarkeitsgruppen zu verteilen. Der externe Load Balancer muss so konfiguriert sein, dass er eine Zustandsprüfung durchführt, um sicherzustellen, dass Anfragen nur an betriebsbereite Standorte gesendet werden. Weitere Informationen zum Lastausgleich mit StorageGRID finden Sie unter https://www.netapp.com/media/17068-tr4626.pdf["Technischer Bericht zum StorageGRID Load Balancer"]Die
 
 
 
@@ -157,7 +166,7 @@ Um ein Recovery Point Objective (RPO) von null in einem Objekt-Storage-System zu
 
 Bei einer Bereitstellung an mehreren Standorten ist Quorum Strong Global das bevorzugte Konsistenzmodell, um sicherzustellen, dass Metadaten über alle Standorte hinweg synchronisiert werden. Dies ist für die Erfüllung der Null-RPO-Anforderung unerlässlich.
 
-Objekte im Storage-System werden nach ILM-Regeln (Information Lifecycle Management) gespeichert, die festlegen, wie und wo Daten während ihres gesamten Lebenszyklus gespeichert werden. Bei der synchronen Replikation kann zwischen strenger Ausführung oder ausgeglichener Ausführung berücksichtigt werden.
+Objekte im Speichersystem werden auf der Grundlage von Information Lifecycle Management (ILM)-Regeln gespeichert, die vorschreiben, wie und wo Daten während ihres gesamten Lebenszyklus gespeichert werden. Bei der synchronen Replikation kann man zwischen strikter Ausführung und ausgewogener Ausführung abwägen.
 
 * Für ein RPO von null ist eine strikte Ausführung dieser ILM-Regeln nötig, da so sichergestellt wird, dass Objekte ohne Verzögerung oder Fallback an den definierten Standorten platziert werden, sodass die Datenverfügbarkeit und -Konsistenz erhalten bleiben.
 * Das ILM-Balance-Aufnahmeverhalten von StorageGRID sorgt für ein Gleichgewicht zwischen Hochverfügbarkeit und Ausfallsicherheit, sodass Benutzer auch bei einem Standortausfall weiterhin Daten aufnehmen können.
@@ -183,13 +192,17 @@ Sobald der Ausfall behoben ist, sind keine manuellen Failback-Prozesse erforderl
 
 == Bereitstellung über mehrere Standorte in einem einzigen Grid
 
-In den folgenden Szenarien werden die StorageGRID -Lösungen mit einem optionalen externen Load Balancer konfiguriert, der Anfragen an die integrierten Load Balancer-Hochverfügbarkeitsgruppen verwaltet.  Dadurch wird zusätzlich zu einem RPO von Null ein RTO von Null erreicht.  ILM ist mit Balanced Ingest Protection für synchrone Platzierung konfiguriert.  Jeder Bucket ist mit dem Quorum Strong Global-Konsistenzmodell für Grids mit 3 oder mehr Sites und mit starker globaler Konsistenz für weniger als 3 Sites konfiguriert.
+In den folgenden Szenarien werden die StorageGRID Lösungen mit einem optionalen externen Load Balancer konfiguriert, der die Anfragen an die integrierten Load-Balancer-Hochverfügbarkeitsgruppen verwaltet. Dadurch wird sowohl ein RTO von Null als auch ein RPO von Null erreicht. ILM ist mit Balanced Ingest Protection für die synchrone Platzierung konfiguriert. Jeder Bucket ist mit der Quorum-Version des Strong Global-Konsistenzmodells für Grids mit 3 oder mehr Standorten und der Legacy-Version des Strong Global-Konsistenzmodells für 2 Standorte konfiguriert.
 
-In einer StorageGRID-Lösung mit zwei Standorten gibt es mindestens zwei Replikate oder 3 EC-Blöcke jedes Objekts und 6 Replikate aller Metadaten. Bei der Wiederherstellung werden die Updates nach dem Ausfall automatisch mit dem wiederhergestellten Standort/den wiederhergestellten Nodes synchronisiert. Bei nur 2 Standorten wird es wahrscheinlich nicht möglich sein, ein RPO von null in Ausfallszenarien zu erzielen, die über einen vollständigen Standortausfall hinausgehen.
+*Szenario 1:*
+
+Bei einer StorageGRID Lösung mit zwei Standorten gibt es mindestens zwei Replikate jedes Objekts und sechs Replikate aller Metadaten. Nach der Wiederherstellung nach einem Ausfall werden die Aktualisierungen vom Ausfallort automatisch mit dem wiederhergestellten Standort/den wiederhergestellten Knoten synchronisiert. Bei nur zwei Standorten ist es unwahrscheinlich, dass in Ausfallszenarien, die über einen vollständigen Standortausfall hinausgehen, ein RPO von Null erreicht werden kann.
 
 image:zero-rpo/2-site.png["StorageGRID System mit zwei Standorten"]
 
-In einer StorageGRID-Lösung mit drei oder mehr Standorten gibt es mindestens 3 Replikate oder 3 EC-Blöcke jedes Objekts und 9 Replikate aller Metadaten. Bei der Wiederherstellung werden die Updates nach dem Ausfall automatisch mit dem wiederhergestellten Standort/den wiederhergestellten Nodes synchronisiert. Mit drei oder mehr Standorten wird ein RPO von Null erreicht.
+*Szenario 2:*
+
+In einer StorageGRID Lösung mit drei oder mehr Standorten gibt es mindestens 3 Replikate oder 3 EC-Chunks von jedem Objekt und 9 Replikate aller Metadaten. Nach der Wiederherstellung nach einem Ausfall werden die Aktualisierungen vom Ausfallort automatisch mit dem wiederhergestellten Standort/den wiederhergestellten Knoten synchronisiert. Mit drei oder mehr Standorten ist es möglich, einen RPO von Null zu erreichen.
 
 image:zero-rpo/3-site.png["StorageGRID System mit drei Standorten"]
 
@@ -197,7 +210,7 @@ Ausfallszenarien für mehrere Standorte
 
 [cols="34%,33%,33%"]
 |===
-| Ausfall | 2-Site-Ergebnis | 3 oder mehr Websites Ergebnis 
+| Ausfall | Ergebnis an zwei Standorten + Vermächtnis Starke globale Präsenz | Ergebnis von 3 oder mehr Standorten + Quorum Strong Global 
 
 
 | Ausfall eines Laufwerks mit einem Node | Jede Appliance nutzt mehrere Festplattengruppen und kann den Ausfall von mindestens einem Laufwerk pro Gruppe ohne Unterbrechung oder Datenverlust überstehen. | Jede Appliance nutzt mehrere Festplattengruppen und kann den Ausfall von mindestens einem Laufwerk pro Gruppe ohne Unterbrechung oder Datenverlust überstehen. 
@@ -216,47 +229,43 @@ Der auf den anderen Standort gerichtete Betrieb bleibt ohne Unterbrechung und oh
 | Ausfall eines einzelnen Nodes an mehreren Standorten  a| 
 Keine Unterbrechungen oder Datenverluste bei:
 
-* Im Raster ist mindestens ein einzelnes Replikat vorhanden
+* Im Raster existiert mindestens eine Replikatkopie.
 * Im Raster sind ausreichend EC-Blöcke vorhanden
 
 
 Betriebsausfall und Gefahr von Datenverlusten bei:
 
-* Es sind keine Replikate vorhanden
+* Es existieren keine Duplikate.
 * Es sind nicht genügend EC-Spannfutter vorhanden
 
  a| 
 Keine Unterbrechungen oder Datenverluste bei:
 
-* Im Raster ist mindestens ein einzelnes Replikat vorhanden
+* Im Raster existiert mindestens eine einzige Replikatkopie.
 * Im Raster sind ausreichend EC-Blöcke vorhanden
 
 
 Betriebsausfall und Gefahr von Datenverlusten bei:
 
-* Es sind keine Replikate vorhanden
+* Es existieren keine Duplikate.
 * Es sind nicht genügend EC-Chucks vorhanden, um das Objekt abzurufen
 
 
 
 
-| Ausfall eines einzelnen Standorts | Der Client-Betrieb wird unterbrochen, bis entweder der Fehler behoben oder die Bucket-Konsistenz auf einen starken Standort oder niedriger gesenkt wird, damit der Betrieb erfolgreich ausgeführt werden kann, aber kein Datenverlust auftritt. | Keine Unterbrechung von Prozessen oder Datenverlust: 
+| Ausfall eines einzelnen Standorts | Einige Clientvorgänge werden unterbrochen, bis die Störung behoben ist. GET- und HEAD-Operationen werden ohne Unterbrechung fortgesetzt. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. | Keine Unterbrechung von Prozessen oder Datenverlust: 
 
 
-| Ausfall eines Standorts und eines einzelnen Node | Der Client-Betrieb wird unterbrochen, bis entweder der Fehler behoben oder die Bucket-Konsistenz auf Read-after-New-Write oder niedriger gesenkt wird, um einen erfolgreichen Betrieb und möglichen Datenverlust zu ermöglichen. | Keine Unterbrechung von Prozessen oder Datenverlust: 
+| Ausfall eines Standorts und eines einzelnen Node | Einige Clientvorgänge werden unterbrochen, bis der Fehler behoben ist. Der Betrieb von HEAD wird ohne Unterbrechung fortgesetzt. GET-Operationen werden ohne Unterbrechung fortgesetzt, wenn eine Replikatkopie oder ausreichend viele EC-Chunks vorhanden sind. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. | Keine Betriebsunterbrechung oder Datenverlust. Möglicher Datenverlust abhängig von der Anzahl der Replikate. Lokales Erasure Coding kann Datenverlust verhindern. 
 
 
-| Von jedem verbleibenden Standort aus einen Standort und einen Node | Der Client-Betrieb wird unterbrochen, bis entweder der Fehler behoben oder die Bucket-Konsistenz auf Read-after-New-Write oder niedriger gesenkt wird, um einen erfolgreichen Betrieb und möglichen Datenverlust zu ermöglichen. | Der Betrieb wird unterbrochen, wenn das Quorum der Metadatenreplikate nicht erfüllt werden kann und ein möglicher Datenverlust möglich ist. 
+| Von jedem verbleibenden Standort aus einen Standort und einen Node | Es existieren nur zwei Standorte. Siehe: Einzelner Standort plus ein einzelner Knoten. | Der Betrieb wird gestört, wenn das Quorum für die Metadatenreplikate nicht erreicht werden kann. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. Möglicher Datenverlust bei dauerhaftem Ausfall, abhängig von der Anzahl der Replikatkopien. Lokales Erasure Coding kann Datenverlust verhindern. 
 
 
-| Ausfall mehrerer Standorte | Keine Betriebsstandorte bleiben Daten verloren gehen, wenn mindestens ein Standort nicht vollständig wiederhergestellt werden kann. | Der Betrieb wird unterbrochen, wenn das Quorum der Metadatenreplikate nicht erfüllt werden kann. Kein Datenverlust, solange mindestens ein Standort verbleibt. 
+| Ausfall mehrerer Standorte | Es gibt keine betriebsbereiten Standorte mehr. Daten gehen verloren, wenn auch nur ein Standort nicht vollständig wiederhergestellt werden kann. | Der Betrieb wird gestört, wenn das Quorum für die Metadatenreplikate nicht erreicht werden kann. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. Bei einem permanenten Ausfall ist ein Datenverlust möglich, wenn nicht genügend löschcodierte Datenblöcke übrig bleiben. Lokales Erasure-Coding oder das Erstellen von Replikaten können Datenverlust verhindern. 
 
 
-| Netzwerkisolierung eines Standorts | Der Client-Betrieb wird unterbrochen, bis entweder der Fehler behoben oder die Bucket-Konsistenz auf einen starken Standort oder niedriger gesenkt wird, um den Betrieb erfolgreich zu machen, aber keinen Datenverlust  a| 
-Der Betrieb des isolierten Standorts wird unterbrochen, es kommt jedoch zu keinem Datenverlust
-
-Es gibt keine Unterbrechung des Betriebs an den verbleibenden Standorten und keinen Datenverlust
-
+| Netzwerkisolierung eines Standorts | Der Betrieb der Kunden wird unterbrochen, bis der Fehler behoben ist. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. Kein Datenverlust | Der Betrieb des isolierten Standorts wird beeinträchtigt sein, es wird jedoch keinen Datenverlust geben. Reduzieren Sie die Bucket-Konsistenz auf „Lesen nach neuem Schreiben“ oder niedriger, um den Betrieb in diesem Fehlerzustand ununterbrochen fortzusetzen. Keine Betriebsunterbrechungen an den übrigen Standorten und kein Datenverlust. 
 |===
 
 
