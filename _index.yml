@@ -70,6 +70,8 @@ indexpage:
     - title: Mit Prometheus und Grafana können Sie die Aufbewahrung Ihrer Kennzahlen
         erweitern
       url: "/tools-apps-guides/federate-prometheus.html"
+    - title: Verwenden Sie F5 DNS für den globalen Lastausgleich von StorageGRID.
+      url: "/tools-apps-guides/f5-dns.html"
     - title: Konfigurieren Sie Datadog, um StorageGRID-snmp-Metriken und Traps zu
         erfassen
       url: "/tools-apps-guides/use-datadog-snmp.html"
