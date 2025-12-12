@@ -3448,4 +3448,7 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="2a304a1348456ccd2234cd71a81bd338" category="inline-link">Link</block>
   <block id="e7231390c57dc37d5702b1a1f744ae19" category="paragraph">Weitere Informationen finden Sie in der offiziellen F5-Dokumentation für BIG-IP DNS unter diesem Link.<block ref="98041f95ee22116ad4e8461c85d3aab4" category="inline-link-rx"></block>Die Ein geführter Leitfaden für den Unterricht, der Schritt-für-Schritt-Anleitungen für ein Beispiel-Setup bietet, ist ebenfalls verfügbar.<block ref="93a629078016876f75dc8c57122e621c" category="inline-link-rx"></block>Die</block>
   <block id="3589fb6a3746ade58489c4cf348140dc" category="summary">Dieser technische Bericht enthält detaillierte Anweisungen zur Konfiguration von NetApp StorageGRID mit externen Prometheus- und Grafana-Diensten.</block>
+  <block id="c3cbbc5200045db15e74e5cd91bc3f5c" category="list-text">NetApp StorageGRID NIST FIPS 140-3 Kernel Crypto-Zertifizierung <block ref="07269b03af49e81fce537f0040aa007d" category="inline-link-rx"></block></block>
+  <block id="170420c360dbd78303a11b0a7cbdbe0f" category="list-text">NetApp StorageGRID NIST SP 800-90B Entropie-Zertifizierung <block ref="459857fb7709b7e2d73edb78f17869ea" category="inline-link-rx"></block></block>
+  <block id="c7a996558a05f3b352c4ed7d96e209f6" category="list-text">NetApp StorageGRID Canadian Centre for Cyber ​​Security Common Criteria Zertifizierung <block ref="af4723441da5d2d8888b51d6ccd71fe3" category="inline-link-rx"></block></block>
 </blocks>
