@@ -171,7 +171,7 @@ Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Speicherung veralt
 ----
 
 
-=== Behalten Sie 5 nicht aktuelle Versionen
+=== Bewahren Sie 5 nicht aktuelle Versionen auf und löschen Sie sie nach 90 Tagen
 
 Anwendungsfall: Nützlich, wenn Sie eine begrenzte Anzahl früherer Versionen zu Wiederherstellungs- oder Prüfzwecken behalten möchten. Vorteil: Behalten Sie genügend nicht aktuelle Versionen, um ausreichend Verlauf und Wiederherstellungspunkte sicherzustellen.
 
@@ -184,12 +184,16 @@ Anwendungsfall: Nützlich, wenn Sie eine begrenzte Anzahl früherer Versionen zu
 		"Filter": {},
 		"Status": "Enabled"，
 		"NoncurrentVersionExpiration": {
-		  	"NewerNoncurrentVersions": 5
+		  	"NewerNoncurrentVersions": 5,
+        	"NoncurrentDays": 90
 	    }
     }
 	]
 }
 ----
+
+NOTE: Sie müssen *NoncurrentDays* mit *NewerNoncurrentVersions* verwenden.
+
 
 
 === Löschmarkierungen entfernen, wenn keine anderen Versionen vorhanden sind
