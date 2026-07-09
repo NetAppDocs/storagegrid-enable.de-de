@@ -13,6 +13,7 @@ summary: Dieser Bericht behandelt Big Data Analytics zu StorageGRID.
 
 
 
+[[netapp-storagegrid-use-cases]]
 == Anwendungsfälle für NetApp StorageGRID
 
 Die NetApp StorageGRID Objekt-Storage-Lösung bietet Skalierbarkeit, Datenverfügbarkeit, Sicherheit und hohe Performance. Unternehmen jeder Größe und Branche nutzen StorageGRID S3 für zahlreiche Anwendungsfälle. Sehen wir uns einige typische Szenarien an:
@@ -37,6 +38,7 @@ Zu den oben genannten Fällen gehört Big-Data-Analysen zu den häufigsten Nutzu
 
 
 
+[[why-storagegrid-for-data-lakes]]
 == Warum StorageGRID für Data Lakes?
 
 * Verstärkte Zusammenarbeit: Enorme, gemeinsam genutzte Mandantenfähigkeit mit branchenüblicher API-Zugriff
@@ -52,9 +54,10 @@ image:datalake-analytics/image2.png["StorageGRID-Datenbeispiel, Breite=614, Höh
 
 
 
+[[benchmarking-data-warehouses-and-lakehouses-with-s3-object-storage-a-comparative-study]]
 == Benchmarking von Data Warehouses und Lakehouses mit S3 Object Storage: Eine vergleichende Studie
 
-Dieser Artikel stellt eine umfassende Benchmark verschiedener Data Warehouse- und Lakehouse-Ökosysteme vor, die NetApp StorageGRID verwenden. Ziel ist es zu ermitteln, welches System mit S3 Objekt-Storage am besten funktioniert. In diesem Abschnitt https://www.dremio.com/wp-content/uploads/2023/02/apache-Iceberg-TDG_ER1.pdf?aliId=eyJpIjoieDRUYjFKN2ZMbXhTRnFRWCIsInQiOiJIUUw0djJsWnlJa21iNUsyQURRalNnPT0ifQ%253D%253D["Apache Iceberg: Der Endgültige Führer"]erfahren Sie mehr über Datawarehous/Lakehouse-Architekturen und Tischformate (Parkett und Iceberg).
+Dieser Artikel bietet einen umfassenden Vergleich verschiedener Data Warehouse- und Lakehouse-Ökosysteme mithilfe von NetApp StorageGRID. Das Ziel besteht darin, zu ermitteln, welches System mit S3-Objektspeicher die beste Performance bietet. In diesem https://hello.dremio.com/wp-apache-iceberg-the-definitive-guide-reg.html["Apache Iceberg: Der Endgültige Führer"] finden sich weitere Informationen zu Data Warehouse-/Lakehouse-Architekturen und Tabellenformaten (Parquet und Iceberg).
 
 * Benchmark-Tool - TPC-DS - https://www.tpc.org/tpcds/[]
 * Big-Data-Ecosysteme

@@ -18,6 +18,7 @@ Zur Konfiguration von StorageGRID mit CommVault Complete Backup and Recovery for
 
 
 
+[[step-1-configure-commvault-with-storagegrid]]
 == Schritt: CommVault mit StorageGRID konfigurieren
 
 .Schritte
@@ -37,6 +38,7 @@ Folgen Sie den Schritten in der StorageGRID-Dokumentation auf https://docs.netap
 
 
 
+[[step-2-create-a-backup-plan-with-storagegrid-as-the-primary-target]]
 == Schritt 2: Erstellen eines Backup-Plans mit StorageGRID als primäres Ziel
 
 .Schritte
@@ -52,6 +54,7 @@ image:commvault/create-server.png["Erstellen eines Server-Backup-Plans"]
 
 
 
+[[step-3-start-a-backup-job-to-protect-your-workloads]]
 == Schritt 3: Starten Sie einen Backup-Job zum Schutz Ihrer Workloads
 
 .Schritte

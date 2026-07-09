@@ -18,6 +18,7 @@ Die getestete Lösung kombiniert CommVault und NetApp Lösungen in einer leistun
 
 
 
+[[solution-setup]]
 == Lösungseinrichtung
 
 Die StorageGRID-Umgebung bestand in der Lab-Einrichtung aus vier NetApp StorageGRID SG5712 Appliances, einem virtuellen primären Administrator-Node und einem virtuellen Gateway Node. Die SG5712 Appliance ist eine Entry-Level-Option – eine Basiskonfiguration. Durch die Auswahl von Optionen für Appliances mit höherer Performance, wie z. B. NetApp StorageGRID SG5760 oder SG6060, können deutliche Performance-Vorteile erzielt werden. Wenden Sie sich an Ihren NetApp StorageGRID Solution Architect, um Hilfe bei der Dimensionierung zu erhalten.
@@ -48,10 +49,9 @@ Doppelte Provisionierung
 |===
 Die Standardregel für ILM 2 Kopien ist. Für diesen Test wurde die Regel Erasure Coding 2+1 auf jedes Objekt mit mindestens 200 KB angewendet. Die Standardregel wurde auf Objekte angewendet, die kleiner als 200 KB sind. Die Anwendung der Regeln auf diese Weise ist eine StorageGRID Best Practice.
 
-Technische Details zu dieser Testumgebung finden Sie im Abschnitt Solution Design and Best Practices in der https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] Technischer Bericht.
 
 
-
+[[storagegrid-hardware-specifications]]
 == Hardware-Spezifikationen für StorageGRID
 
 Die folgende Tabelle beschreibt die bei diesen Tests verwendete NetApp StorageGRID-Hardware. Die StorageGRID SG5712 Appliance mit 10 Gbit/s-Netzwerkbetrieb ist die Einstiegsoption und stellt eine Basiskonfiguration dar. Optional kann die SG5712 für 25-Gbit/s-Netzwerke konfiguriert werden.
@@ -77,6 +77,7 @@ Durch die Auswahl von Appliance-Optionen mit höherer Performance, wie z. B. Net
 
 
 
+[[commvault-and-storagegrid-software-requirements]]
 == Softwareanforderungen von CommVault und StorageGRID
 
 In den folgenden Tabellen sind die Software-Anforderungen für die auf der Software von VMware installierte CommVault und NetApp StorageGRID für unsere Tests aufgeführt. Vier MediaAgent Datenübertragungsmanager und ein CommServe-Server wurden installiert. In den Tests wurden 10-Gbit-s-Networking für die VMware Infrastruktur implementiert. Der folgenden Tabelle zu entnehmen

@@ -18,12 +18,14 @@ Konfigurieren Sie Datadog, um StorageGRID-snmp-Metriken und Traps zu erfassen.
 
 
 
+[[configure-datadog]]
 == Konfigurieren Sie Das Datadog
 
 Datadog ist eine Überwachungslösung, die Metriken, Visualisierungen und Warnmeldungen bereitstellt. Die folgende Konfiguration wurde mit linux Agent Version 7.43.1 auf einem lokalen Ubuntu 22.04.1-Host auf dem StorageGRID-System implementiert.
 
 
 
+[[datadog-profile-and-trap-files-generated-from-storagegrid-mib-file]]
 === Datadog-Profil- und Trap-Dateien, die aus der StorageGRID-MIB-Datei generiert wurden
 
 Datadog bietet eine Methode zum Konvertieren von Produkt-MIB-Dateien in Datadog-Referenzdateien, die für die Zuordnung der SNMP-Meldungen erforderlich sind.
@@ -50,6 +52,7 @@ Diese yaml-Datei für das StorageGRID-Profil für die Datadog-Metrikzuordnung wu
 
 
 
+[[snmp-datadog-configuration-for-metrics]]
 === SNMP-Datadog-Konfiguration für Metriken
 
 Die Konfiguration von SNMP für Metriken kann auf zwei Arten verwaltet werden. Sie können für die automatische Erkennung konfigurieren, indem Sie einen Netzwerkadressbereich bereitstellen, der die StorageGRID-Systeme enthält, oder die IP-Adressen der einzelnen Geräte definieren. Der Konfigurationsposition unterscheidet sich je nach getroffenen Entscheidungen. Die automatische Erkennung wird in der Datei des Datadog-Agenten yaml definiert. Explizite Gerätedefinitionen werden in der snmp-yaml-Konfigurationsdatei konfiguriert. Im Folgenden finden Sie Beispiele für jedes System eines StorageGRID.
@@ -103,6 +106,7 @@ instances:
 ----
 
 
+[[snmp-configuration-for-traps]]
 === SNMP-Konfiguration für Traps
 
 Die Konfiguration für SNMP-Traps wird in der Datei /etc/datadog-Agent/datadog.yaml der Datendog-Konfiguration definiert
@@ -119,6 +123,7 @@ network_devices:
 ----
 
 
+[[example-storagegrid-snmp-configuration]]
 === Beispiel für eine StorageGRID-SNMP-Konfiguration
 
 Der SNMP-Agent in Ihrem StorageGRID-System befindet sich auf der Registerkarte Konfiguration in der Spalte Überwachung. Aktivieren Sie SNMP und geben Sie die gewünschten Informationen ein. Wenn Sie Traps konfigurieren möchten, wählen Sie „Traps-Ziele“ und erstellen Sie ein Ziel für den Datadog-Agent-Host, der die Trap-Konfiguration enthält.

@@ -16,6 +16,7 @@ Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration vo
 
 
 
+[[populate-the-source-bucket]]
 == Füllen Sie den Quelleimer aus
 
 Lassen Sie uns einige Objekte in den Quell-ONTAP-Bucket legen. Wir verwenden S3Browser für diese Demo, aber Sie können jedes Tool verwenden, mit dem Sie vertraut sind.
@@ -48,6 +49,7 @@ image:ontap-migrate/ontap-s3browser-versions.png["Versionen anzeigen"]
 
 
 
+[[establish-the-replication-relationship]]
 === Festlegen der Replikationsbeziehung
 
 Beginnen Sie damit, Daten von ONTAP an StorageGRID zu senden.
@@ -93,6 +95,7 @@ image:ontap-migrate/ontap-snapmirror-status.png["SnapMirror-Beziehung prüfen"]
 
 
 
+[[the-replication-details]]
 === Details zur Replikation
 
 Wir verfügen jetzt über einen erfolgreich replizierenden Bucket von ONTAP zu StorageGRID. Aber was ist eigentlich Replikation? Unsere Quelle und unser Ziel sind beide versionierte Buckets. Replizieren die vorherigen Versionen auch an das Zielsystem? Wenn wir uns unseren StorageGRID-Bucket mit S3Browser ansehen, sehen wir, dass die bestehenden Versionen nicht repliziert wurden und unser gelöschtes Objekt nicht vorhanden ist, und es gibt auch keine Löschmarkierungen für dieses Objekt. Unser dupliziertes Objekt hat nur eine Version im StorageGRID Bucket.

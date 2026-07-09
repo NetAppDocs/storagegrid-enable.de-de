@@ -18,22 +18,26 @@ Dieser technische Bericht enthält detaillierte Anweisungen zur Konfiguration vo
 
 
 
+[[introduction]]
 == Einführung
 
 StorageGRID speichert Kennzahlen mithilfe von Prometheus und visualisiert diese Kennzahlen über integrierte Grafana Dashboards. Die Kennzahlen von Prometheus können über StorageGRID sicher abgerufen werden, indem Client-Zugriffszertifikate konfiguriert und prometheus-Zugriff für den angegebenen Client ermöglicht wird. Derzeit wird die Aufbewahrung dieser metrischen Daten durch die Storage-Kapazität des Administrations-Nodes begrenzt. Um eine längere Dauer zu erreichen und individuelle Visualisierungen dieser Kennzahlen zu erstellen, werden wir einen neuen Prometheus- und Grafana-Server einsetzen, unseren neuen Server für die Scrape der Kennzahlen aus der StorageGRIDs-Instanz konfigurieren und ein Dashboard mit den für uns wichtigen Kennzahlen erstellen. Weitere Informationen zu den in der erfassten Prometheus-Kennzahlen finden Sie unter https://docs.netapp.com/us-en/storagegrid-116/monitor/commonly-used-prometheus-metrics.html["StorageGRID-Dokumentation"^].
 
 
 
+[[federate-prometheus]]
 == Föderate Prometheus
 
 
 
+[[lab-details]]
 === Labordetails
 
 Für die Zwecke dieses Beispiels werde ich alle virtuellen Maschinen für StorageGRID 11.6 Knoten und einen Debian 11-Server verwenden. Die StorageGRID-Managementoberfläche ist mit einem öffentlich vertrauenswürdigen CA-Zertifikat konfiguriert. Dieses Beispiel wird die Installation und Konfiguration des StorageGRID-Systems oder der Debian linux-Installation nicht durchlaufen. Sie können jeden gewünschten Linux-Geschmack verwenden, der von Prometheus und Grafana unterstützt wird. Sowohl Prometheus als auch Grafana können als Docker-Container installiert, aus der Quelle erstellt oder vorkompilierte Binärdateien erstellt werden. In diesem Beispiel werde ich sowohl Prometheus- als auch Grafana-Binärdateien direkt auf dem gleichen Debian-Server installieren. Laden Sie sich die grundlegenden Installationsanweisungen von herunter https://prometheus.io[] Und https://grafana.com/grafana/[] Jeweils.
 
 
 
+[[configure-storagegrid-for-prometheus-client-access]]
 === Konfigurieren Sie StorageGRID für Prometheus Client-Zugriff
 
 Um Zugriff auf gespeicherte prometheus-Kennzahlen zu StorageGRIDs zu erhalten, müssen Sie ein Clientzertifikat mit privatem Schlüssel generieren oder hochladen und die Berechtigung für den Client aktivieren. Die StorageGRID-Schnittstelle muss ein SSL-Zertifikat haben. Dieses Zertifikat muss vom prometheus-Server entweder von einer vertrauenswürdigen CA oder manuell vertrauenswürdig sein, wenn es selbst signiert ist. Weitere Informationen finden Sie auf der https://docs.netapp.com/us-en/storagegrid-116/admin/configuring-administrator-client-certificates.html["StorageGRID-Dokumentation"].
@@ -66,6 +70,7 @@ image:prometheus/cert_download.png["Zertifikat-Download"]
 ====
 
 
+[[prepare-the-linux-server-for-prometheus-installation]]
 === Bereiten Sie den Linux-Server für die Prometheus-Installation vor
 
 Vor der Installation von Prometheus möchte ich meine Umgebung mit einem Prometheus-Benutzer, der Verzeichnisstruktur vorbereiten und die Kapazität für den Speicherort der Kennzahlen konfigurieren.
@@ -112,6 +117,7 @@ UUID=9af2c5a3-bfc2-4ec1-85d9-ebab850bb4a1 /var/lib/prometheus	ext4	defaults	0	0
 
 
 
+[[install-and-configure-prometheus]]
 === Installation und Konfiguration von Prometheus
 
 Nachdem der Server nun bereit ist, kann ich die Prometheus-Installation starten und den Service konfigurieren.
@@ -273,12 +279,14 @@ image:prometheus/prometheus_execute.png["prometheus Abfrage ausführen"]
 
 
 
+[[install-and-configure-grafana]]
 == Installation und Konfiguration von Grafana
 
 Nach der Installation und dem Betrieb von prometheus können wir nun zur Installation von Grafana und zur Konfiguration eines Dashboards wechseln
 
 
 
+[[grafana-instalation]]
 === Grafana-Instalation
 
 . Installieren Sie die neueste Enterprise Edition von Grafana
@@ -316,6 +324,7 @@ sudo systemctl enable grafana-server.service
 
 
 
+[[create-a-grafana-dashboard-for-storagegrid]]
 === Erstellen eines Grafana Dashboards für StorageGRID
 
 Mit der Installation und dem Betrieb von Grafana und Prometheus ist es jetzt an der Zeit, beide zu verbinden. Dazu wird eine Datenquelle erstellt und ein Dashboard erstellt
@@ -383,6 +392,7 @@ image:prometheus/grafana_panel_edit.png["grafana-Bearbeitungsfenster"]
 
 
 
+[[conclusion]]
 === Schlussfolgerung
 
 Jetzt verfügen wir über einen Prometheus Server mit anpassbarer Datenaufbewahrung und Storage-Kapazität. Damit können wir unsere eigenen Dashboards mit den für unsere Betriebsabläufe wichtigsten Kennzahlen weiterentwickeln. Weitere Informationen zu den in der erfassten Prometheus-Kennzahlen finden Sie unter https://docs.netapp.com/us-en/storagegrid-116/monitor/commonly-used-prometheus-metrics.html["StorageGRID-Dokumentation"^].

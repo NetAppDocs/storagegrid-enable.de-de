@@ -22,6 +22,7 @@ Das bedeutet, dass Sie bei Verdacht auf einen Ransomware-Angriff einen Lese-/Sch
 
 
 
+[[creating-a-branch-bucket]]
 == Erstellen eines Branch-Buckets
 
 * Navigieren Sie zur Detailseite des Basis-Buckets und zur Registerkarte „Branches“, um einen Branch-Bucket zu erstellen.

@@ -20,12 +20,13 @@ TR-4882 bietet eine praktische Schritt-für-Schritt-Anleitung, die zu einer funk
 
 Weitere Informationen zu StorageGRID und dem Installationsprozess finden Sie unter https://docs.netapp.com/us-en/storagegrid-118/landing-install-upgrade/index.html[] [StorageGRID installieren, aktualisieren und Hotfix] in der Produktdokumentation.
 
-Bevor Sie mit der Implementierung beginnen, sollten wir die Computing-, Storage- und Netzwerkanforderungen für NetApp StorageGRID Software untersuchen. StorageGRID wird als Container-Service in Podman oder Docker ausgeführt. Einige Anforderungen beziehen sich in diesem Modell auf das Host-Betriebssystem (das Betriebssystem, auf dem Docker gehostet wird, auf dem die StorageGRID Software ausgeführt wird). Einige Ressourcen werden direkt den Docker Containern zugewiesen, die innerhalb jedes Hosts ausgeführt werden. In dieser Implementierung implementieren wir zur Maximierung der Hardwarenutzung zwei Services pro physischem Host. Weitere Informationen finden Sie im nächsten Abschnitt. link:prerequisites-install-storagegrid.html["Voraussetzungen für die Installation von StorageGRID"]
+Bevor Sie mit der Bereitstellung beginnen, werden die Rechen-, Speicher- und Netzwerkanforderungen für die NetApp StorageGRID Software betrachtet. StorageGRID läuft als containerisierter Dienst innerhalb von Podman oder Docker. In diesem Modell beziehen sich einige Anforderungen auf das Host-Betriebssystem (das Betriebssystem, das Docker hostet, welches die StorageGRID Software ausführt). Einige Ressourcen werden direkt den Docker Containern zugewiesen, die auf jedem Host ausgeführt werden. In dieser Bereitstellung werden zur Maximierung der Hardwareauslastung zwei Dienste pro physischem Host bereitgestellt. Weitere Informationen enthält der nächste Abschnitt link:bare-metal-prerequisites-install-storagegrid.html["Voraussetzungen für die Installation von StorageGRID"].
 
 Die in dieser TR beschriebenen Schritte führen zu einer funktionierenden StorageGRID-Installation auf sechs Bare-Metal-Hosts. Sie verfügen jetzt über ein funktionierendes Grid- und Client-Netzwerk, das in den meisten Testszenarien nützlich ist.
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Folgende Dokumentationsressourcen enthalten weitere Informationen zu den in diesem TR enthaltenen Informationen:

@@ -14,7 +14,7 @@ summary: Sehen Sie sich einige Anwendungsfälle für StorageGRID-Konfigurationen
 
 
 [role="lead"]
-Beim Aux-Kopiervorgang haben vier CommVault MediaAgents Daten auf einem NetApp AFF A300-System gesichert und eine zusätzliche Kopie auf NetApp StorageGRID erstellt. Details zur Test-Setup-Umgebung finden Sie im Abschnitt Solution Design and Best Practices im https://www.netapp.com/us/media/tr-4831.pdf["NetApp Scale-out-Datensicherung mit CommVault"] technischen Bericht.
+Bei der Aux Copy-Operation haben vier Commvault MediaAgents Daten auf einem NetApp AFF A300 System gesichert und eine zusätzliche Kopie wurde auf NetApp StorageGRID erstellt.
 
 Die Tests wurden mit 100 VMs und 1000 VMs durchgeführt, wobei beide Tests mit einer Kombination aus Windows und CentOS VMs 50/50 durchgeführt wurden. Die folgende Tabelle enthält die Ergebnisse unserer grundlegenden Performance-Tests:
 

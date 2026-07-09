@@ -18,10 +18,12 @@ Dremio unterstützt eine Vielzahl von Datenquellen, einschließlich Cloud-basier
 
 
 
+[[configure-dremio-data-source]]
 == Dremio-Datenquelle konfigurieren
 
 
 
+[[prerequisites]]
 === Voraussetzungen
 
 * Eine StorageGRID S3-Endpunkt-URL, eine s3-Zugriffsschlüssel-ID des Mandanten und ein geheimer Zugriffsschlüssel.
@@ -31,12 +33,14 @@ Dremio verwendet Byte-Bereich GET, um während der Abfrage verschiedene Byte-Ber
 
 
 
+[[dremio-guide]]
 === Dremio-Führer
 
 https://docs.dremio.com/current/sonar/data-sources/object/s3/["Connecting to Amazon S3 - Configuring S3-Compatible Storage"^].
 
 
 
+[[instruction]]
 == Anweisung
 
 . Klicken Sie auf der Seite Dremio Datasets auf + signieren, um eine Quelle hinzuzufügen, und wählen Sie „Amazon S3“.

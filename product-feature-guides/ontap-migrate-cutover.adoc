@@ -16,6 +16,7 @@ Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration vo
 
 
 
+[[migrate-s3-keys]]
 == Migrieren Sie S3 Schlüssel
 
 Bei einer Migration sollten Sie die Anmeldeinformationen für die Benutzer meistens migrieren, statt auf der Zielseite neue Anmeldeinformationen zu generieren. StorageGRID stellt API's bereit, mit denen s3 Schlüssel in einen Benutzer importiert werden können.
@@ -44,6 +45,7 @@ image:ontap-migrate/sg-user-keys.png["Benutzerschlüssel"]
 
 
 
+[[the-final-cut-over]]
 === Der letzte Cut-Over
 
 Wenn beabsichtigt ist, einen ständig replizierenden Bucket von ONTAP auf StorageGRID zu haben, können Sie hier enden. Wenn es sich um eine Migration von ONTAP S3 zu StorageGRID handelt, ist es an der Zeit, diese zu beenden und sie zu übernehmen.

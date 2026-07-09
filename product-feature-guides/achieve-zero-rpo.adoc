@@ -16,6 +16,7 @@ Dieser technische Bericht bietet eine umfassende Anleitung zur Implementierung v
 
 
 
+[[storagegrid-overview]]
 == Übersicht über StorageGRID
 
 NetApp StorageGRID ist ein objektbasiertes Storage-System, das die branchenübliche API Amazon Simple Storage Service (Amazon S3) unterstützt.
@@ -26,6 +27,7 @@ StorageGRID ermöglicht die konfigurierbare Aufbewahrung und Verfügbarkeit Ihre
 
 
 
+[[storagegrid-scale]]
 === StorageGRID Scale
 
 Eine minimale StorageGRID Bereitstellung besteht aus einem Admin-Knoten und 3 Speicherknoten an einem einzigen Standort. Ein einzelnes Grid kann auf bis zu 220 Knoten anwachsen. StorageGRID kann als einzelner Standort eingesetzt oder auf bis zu 16 Standorte erweitert werden.
@@ -49,6 +51,7 @@ StorageGRID besteht aus einer Sammlung von Knoten, die in einer Site-Topologie p
 
 
 
+[[storagegrid-and-failure-domains]]
 === StorageGRID und Ausfall-Domains
 
 StorageGRID umfasst mehrere Schichten von Ausfall-Domains, die Sie bei der Entscheidung, wie Sie Ihre Lösung planen, wie Sie Ihre Daten speichern und wo Ihre Daten gespeichert werden sollten, um das Risiko von Ausfällen zu mindern.
@@ -61,6 +64,7 @@ StorageGRID umfasst mehrere Schichten von Ausfall-Domains, die Sie bei der Entsc
 
 
 
+[[object-data-and-metadata]]
 === Objektdaten und Metadaten
 
 Bei Objekt-Storage ist die Storage-Einheit ein Objekt und nicht eine Datei oder ein Block. Im Gegensatz zur Baumstruktur eines File-Systems oder Block-Storage werden die Daten im Objekt-Storage in einem flachen, unstrukturierten Layout organisiert. Objekt-Storage entkoppelt den physischen Standort der Daten von der Methode zum Speichern und Abrufen dieser Daten.
@@ -88,6 +92,7 @@ Das Information Lifecycle Management-System (ILM) von StorageGRID wird zur Orche
 
 
 
+[[erasure-coding]]
 === Erasure Coding
 
 StorageGRID bietet die Möglichkeit, Codedaten auf Knoten- und Laufwerksebene zu löschen.  Mit StorageGRID -Geräten löschen wir die auf jedem Knoten gespeicherten Daten auf allen Laufwerken innerhalb des Knotens und bieten so lokalen Schutz vor mehreren Festplattenausfällen, die zu Datenverlust oder Unterbrechungen führen.  Wiederherstellungen nach Laufwerksfehlern erfolgen lokal auf dem Knoten und erfordern keine Datenreplikation über das Netzwerk.
@@ -100,6 +105,7 @@ image:zero-rpo/ec-schemes.png["Verfügbare StorageGRID Erasure Coding-Schemata f
 
 
 
+[[metadata-consistency]]
 === Metadatenkonsistenz
 
 In StorageGRID werden Metadaten normalerweise mit drei Replikaten pro Standort gespeichert, um Konsistenz und Verfügbarkeit zu gewährleisten. Diese Redundanz trägt dazu bei, die Datenintegrität und -Verfügbarkeit auch bei einem Ausfall aufrechtzuerhalten.
@@ -132,6 +138,7 @@ Die in StorageGRID verfügbaren Bucket-Konsistenzoptionen sind:
 
 
 
+[[object-data-consistency]]
 === Konsistenz von Objektdaten
 
 Metadaten werden automatisch innerhalb von und über Standorte hinweg repliziert, Entscheidungen zur Platzierung von Objektdaten liegen bei Ihnen. Objektdaten können in Replikaten innerhalb und über Standorte hinweg gespeichert werden, in Erasure Coding innerhalb von oder über Standorte hinweg, in einer Kombination oder in Replikaten und in Storage-Schemata, die nach Erasure Coding codiert sind. ILM-Regeln können für alle Objekte angewendet oder so gefiltert werden, dass sie nur für bestimmte Objekte, Buckets oder Mandanten gelten. ILM-Regeln legen fest, wie Objekte gespeichert werden, wie Replikate und/oder Erasure Coding codiert wird, wie lange Objekte an diesen Standorten gespeichert werden, ob sich die Anzahl der Replikate oder Erasure Coding-Schemata ändert oder sich der Standort im Laufe der Zeit ändert.
@@ -146,6 +153,7 @@ Die strikte Option wertet das Objekt sofort anhand der ILM-Richtlinie aus und pl
 
 
 
+[[load-balancing]]
 === Lastverteilung
 
 StorageGRID kann mit Client-Zugriff über die integrierten Gateway-Nodes, einen externen Load Balancer von 3^Rd^ Party, DNS-Round Robin oder direkt zu einem Storage-Node implementiert werden. Mehrere Gateway Nodes können an einem Standort implementiert und in Hochverfügbarkeitsgruppen konfiguriert werden, die für automatisches Failover und Failback bei einem Ausfall des Gateway Node sorgen. Sie können Lastausgleichsmethoden in einer Lösung kombinieren, um einen zentralen Zugriffspunkt für alle Standorte in einer Lösung bereitzustellen.
@@ -156,6 +164,7 @@ Durch eine Kombination aus lokalem und globalem Lastausgleich kann ein RTO von N
 
 
 
+[[requirements-for-zero-rpo-with-storagegrid]]
 == Anforderungen für Zero RPO mit StorageGRID
 
 Um ein Recovery Point Objective (RPO) von null in einem Objekt-Storage-System zu erreichen, ist es bei einem Ausfall entscheidend:
@@ -174,6 +183,7 @@ Objekte im Speichersystem werden auf der Grundlage von Information Lifecycle Man
 
 
 
+[[synchronous-deployments-across-multiple-sites]]
 == Synchrone Implementierungen an mehreren Standorten
 
 *Multi-Site-Lösungen:* StorageGRID ermöglicht Ihnen die synchrone Replikation von Objekten über mehrere Sites innerhalb des Grids hinweg.  Durch das Einrichten von Information Lifecycle Management (ILM)-Regeln mit ausgewogenem oder striktem Verhalten werden Objekte sofort an den angegebenen Orten platziert.  Durch Konfigurieren der Bucket-Konsistenzebene auf Quorum Strong Global wird auch die synchrone Metadatenreplikation sichergestellt.  StorageGRID verwendet einen einzigen globalen Namespace und speichert die Platzierungsorte der Objekte als Metadaten, sodass jeder Knoten weiß, wo sich alle Kopien oder Erasure-Coded-Teile befinden.  Wenn ein Objekt nicht von der Site abgerufen werden kann, von der die Anforderung gestellt wurde, wird es automatisch von einer Remote-Site abgerufen, ohne dass Failover-Verfahren erforderlich sind.
@@ -190,6 +200,7 @@ Sobald der Ausfall behoben ist, sind keine manuellen Failback-Prozesse erforderl
 
 
 
+[[a-single-grid-multi-site-deployment]]
 == Bereitstellung über mehrere Standorte in einem einzigen Grid
 
 In den folgenden Szenarien werden die StorageGRID Lösungen mit einem optionalen externen Load Balancer konfiguriert, der die Anfragen an die integrierten Load-Balancer-Hochverfügbarkeitsgruppen verwaltet. Dadurch wird sowohl ein RTO von Null als auch ein RPO von Null erreicht. ILM ist mit Balanced Ingest Protection für die synchrone Platzierung konfiguriert. Jeder Bucket ist mit der Quorum-Version des Strong Global-Konsistenzmodells für Grids mit 3 oder mehr Standorten und der Legacy-Version des Strong Global-Konsistenzmodells für 2 Standorte konfiguriert.
@@ -269,6 +280,7 @@ Betriebsausfall und Gefahr von Datenverlusten bei:
 |===
 
 
+[[a-multi-site-multi-grid-deployment]]
 == Eine Multi-Grid-Implementierung an mehreren Standorten
 
 Um eine zusätzliche Redundanzebene hinzuzufügen, werden in diesem Szenario zwei StorageGRID Cluster eingesetzt und mithilfe der Cross-Grid-Replikation synchron gehalten.  Für diese Lösung verfügt jeder StorageGRID Cluster über drei Standorte.  Zwei Standorte werden für die Objektspeicherung und Metadaten verwendet, während der dritte Standort ausschließlich für Metadaten genutzt wird.  Beide Systeme werden mit einer ausgewogenen ILM-Regel konfiguriert, um die Objekte mithilfe von Erasure Coding an jedem der beiden Datenstandorte synchron zu speichern.  Buckets werden mit dem Quorum Strong Global-Konsistenzmodell konfiguriert.  Jedes Grid wird mit einer bidirektionalen Cross-Grid-Replikation auf jedem Bucket konfiguriert.  Dies ermöglicht die asynchrone Replikation zwischen den Regionen.  Optional kann ein globaler Load Balancer implementiert werden, um Anfragen an die integrierten Load Balancer-Hochverfügbarkeitsgruppen beider StorageGRID -Systeme zu verwalten und so ein RPO von Null zu erreichen.
@@ -354,6 +366,7 @@ Es gibt keine Unterbrechung des Betriebs an den verbleibenden Standorten oder Da
 |===
 
 
+[[conclusion]]
 == Schlussfolgerung
 
 Das Erreichen eines Recovery Point Objective (RPO) von null mit StorageGRID ist ein wichtiges Ziel, um die Datenaufbewahrung und Verfügbarkeit bei Standortausfällen sicherzustellen. Durch den Einsatz der robusten Replikationsstrategien von StorageGRID, einschließlich synchroner Replizierung an mehreren Standorten und asynchroner Multi-Grid-Replizierung, können Unternehmen den unterbrechungsfreien Client-Betrieb gewährleisten und über mehrere Standorte hinweg für Datenkonsistenz sorgen. Die Implementierung von ILM-Richtlinien (Information Lifecycle Management) und die Verwendung von Nodes, die nur Metadaten enthalten, erhöhen die Ausfallsicherheit und Performance des Systems noch weiter. Mit StorageGRID können Unternehmen ihre Daten zuversichtlich managen, da sie wissen, dass sie auch bei komplexen Ausfallszenarien zugänglich und konsistent bleiben. Dieser umfassende Ansatz für Datenmanagement und -Replikation unterstreicht die Bedeutung einer sorgfältigen Planung und Ausführung bei der Erreichung eines Null-RPO-Ziels und der Sicherung wertvoller Informationen.

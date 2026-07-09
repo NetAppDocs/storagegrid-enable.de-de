@@ -42,7 +42,7 @@ NOTE: Wenn Ihr GMI-Passwort Sonderzeichen enthält, vergessen Sie nicht, \ zu ve
 {"responseTime":"2020-06-03T00:12:17.031Z","status":"success","apiVersion":"3.2","data":"8a1e528d-18a7-4283-9a5e-b2e6d731e0b2"}
 ----
 +
-Jetzt können Sie die Zeichenfolge für das Autorisierungstoken verwenden, um auf Metriken durch Curl zuzugreifen. Der Prozess für den Zugriff auf Kennzahlen ähnelt den Schritten in Abschnitt link:advanced-monitor-storagegrid.html#export-metrics-through-the-api["Erweiterte Überwachung in StorageGRID"]. Zu Demonstrationszwecken zeigen wir jedoch ein Beispiel mit GET /GRID/metric-Labels/{Label}/values, das in der Kategorie Metrics ausgewählt wurde.
+Sie können nun die Autorisierungs-Token-Zeichenfolge verwenden, um über cURL auf Metriken zuzugreifen. Der Zugriff auf Metriken erfolgt ähnlich wie in Abschnitt link:monitoradvanced-monitor-storagegrid.html#export-metrics-through-the-api["Erweiterte Überwachung in StorageGRID"]. Zur Veranschaulichung wird jedoch ein Beispiel mit GET /grid/metric-labels/{label}/values in der Kategorie Metriken gezeigt.
 
 . Beispiel: Der folgende Curl-Befehl mit dem vorangehenden Autorisierungstoken führt die Standortnamen in StorageGRID auf.
 +

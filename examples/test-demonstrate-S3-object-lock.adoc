@@ -20,6 +20,7 @@ In diesem Handbuch wird die S3-Objekt-Lock-API demonstriert.
 
 
 
+[[legal-hold]]
 == Gesetzliche Aufbewahrungspflichten
 
 * Object Lock Legal Hold ist ein einfacher ein-/Ausschaltstatus, der auf ein Objekt angewendet wird.
@@ -68,6 +69,7 @@ aws s3api get-object-legal-hold --bucket <bucket> --key <file> --endpoint-url ht
 
 
 
+[[compliance-mode]]
 == Compliance-Modus
 
 * Die Objektspeicherung erfolgt mit einer Aufbewahrung bis zum Zeitstempel.
@@ -97,6 +99,7 @@ aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url htt
 
 
 
+[[default-retention]]
 == Standardaufbewahrung
 
 * Legen Sie den Aufbewahrungszeitraum in Tagen und Jahren als Aufbewahrungsdatum fest, das mit der API pro Objekt definiert wurde.
@@ -152,6 +155,7 @@ aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url htt
 
 
 
+[[test-deleting-an-object-with-a-defined-retention]]
 == Testen Löschen eines Objekts mit einer definierten Aufbewahrung
 
 Objekt Lock basiert auf der Versionierung. Die Aufbewahrung ist für eine Version des Objekts definiert. Wenn versucht wird, ein Objekt mit einer definierten Aufbewahrung zu löschen, und keine Version angegeben wird, wird als aktuelle Version des Objekts eine Löschmarkierung erstellt.

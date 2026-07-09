@@ -16,6 +16,7 @@ summary: Performance von Node-Klonen und Best Practices
 
 
 
+[[node-clone-considerations]]
 == Überlegungen zu Node-Klonen
 
 Node-Klone können eine schnellere Methode zum Austausch vorhandener Appliance-Nodes für eine Technologieaktualisierung sein, die Kapazität erhöhen oder die Performance Ihres StorageGRID Systems steigern. Node-Klon kann auch für die Konvertierung in Node-Verschlüsselung mit einem KMS oder die Änderung eines Storage-Node von DDP8 zu DDP16 nützlich sein.
@@ -41,12 +42,14 @@ Node-Klone können eine schnellere Methode zum Austausch vorhandener Appliance-N
 
 
 
+[[node-clone-performance-estimates]]
 == Schätzungen der Performance von Node-Klonen
 
 Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node-Klonen. Die Bedingungen variieren, sodass Einträge in *BOLD* das 15-Tage-Limit für einen Knoten nach unten überschreiten können.
 
 
 
+[[ddp8]]
 === DDP8
 
 
@@ -327,6 +330,7 @@ Die folgenden Tabellen enthalten berechnete Schätzungen für die Dauer von Node
 |===
 
 
+[[ddp16]]
 === DDP16
 
 

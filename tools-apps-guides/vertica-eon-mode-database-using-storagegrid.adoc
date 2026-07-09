@@ -18,6 +18,7 @@ In diesem Leitfaden werden die Verfahren zum Erstellen einer Vertica Eon-Modus-D
 
 
 
+[[introduction]]
 == Einführung
 
 Vertica ist eine Software für das Analyse-Datenbankmanagement. Es handelt sich um eine spaltenbasierte Storage-Plattform zur Verarbeitung großer Datenvolumen. Damit ermöglicht sie eine sehr schnelle Abfrage-Performance in einem klassisch intensiven Szenario. Eine Vertica-Datenbank läuft in einem der beiden Modi: Eon oder Enterprise. Beide Modi können sowohl lokal als auch in der Cloud implementiert werden.
@@ -30,6 +31,7 @@ Eon- und Enterprise-Modi unterscheiden sich hauptsächlich darin, wo sie Daten s
 
 
 
+[[eon-mode-architecture]]
 === Eon-Mode-Architektur
 
 Eon-Modus trennt die Computing-Ressourcen von der gemeinsamen Storage-Schicht der Datenbank, wodurch Computing- und Storage-Ressourcen getrennt skaliert werden können. Vertica im Eon-Modus ist für variable Workloads optimiert und kann durch die Nutzung separater Computing- und Storage-Ressourcen voneinander isoliert werden.
@@ -40,6 +42,7 @@ image:vertica-eon/sg-vertica-eon-mode-cluster-with-communal-storage.png["Vertica
 
 
 
+[[communal-storage]]
 === Gemeinschaftsspeicher
 
 Statt Daten lokal zu speichern, verwendet der Eon-Modus einen einzigen gemeinsamen Speicherort für alle Daten und den Katalog (Metadaten). Der zentrale Speicherort der Datenbank, der von den Datenbank-Nodes gemeinsam genutzt wird, ist die gemeinsame Speicherung.
@@ -54,12 +57,14 @@ Kommunale Lagerung hat folgende Eigenschaften:
 
 
 
+[[the-depot]]
 === Das Depot
 
 Ein Nachteil der kommunalen Lagerung ist seine Geschwindigkeit. Der Zugriff auf Daten von einem gemeinsam genutzten Cloud-Speicherort ist langsamer als das Lesen von einer lokalen Festplatte. Darüber hinaus kann die Verbindung zu kommunalem Storage zu einem Engpass werden, wenn viele Nodes die Daten gleichzeitig lesen. Zur Verbesserung der Zugriffsgeschwindigkeit für Daten führen die Knoten in einer Eon-Modus-Datenbank einen lokalen Festplatten-Cache mit Daten, die als Depot bezeichnet werden. Bei der Ausführung einer Abfrage prüfen die Knoten zunächst, ob sich die erforderlichen Daten im Depot befinden. Ist dies der Fall, wird die Abfrage beendet, indem die lokale Kopie der Daten verwendet wird. Wenn sich die Daten nicht im Depot befindet, ruft der Knoten die Daten aus dem gemeinsamen Lager ab und speichert eine Kopie im Depot.
 
 
 
+[[netapp-storagegrid-recommendations]]
 == NetApp StorageGRID-Empfehlungen
 
 Vertica speichert Datenbankdaten im Objekt-Storage als Tausende (oder Millionen) komprimierter Objekte (die beobachtete Größe beträgt 200 bis 500 MB pro Objekt. Wenn ein Benutzer Datenbankabfragen ausführt, ruft Vertica den ausgewählten Datenbereich aus diesen komprimierten Objekten parallel mit dem GET-Aufruf des Byte-Bereichs ab. Jeder Byte-Bereich HAT ca. 8 KB.
@@ -86,6 +91,7 @@ Empfehlungen für eine Vertica Konfiguration sind:
 
 
 
+[[installing-eon-mode-on-premises-with-communal-storage-on-storagegrid]]
 == Installation von Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID
 
 In den folgenden Abschnitten wird das Verfahren beschrieben, um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren. Das Verfahren zur Konfiguration von S3-kompatiblem Objektspeicher (Simple Storage Service) ähnelt dem Verfahren im Vertica-Leitfaden. link:https://www.vertica.com/docs/10.1.x/HTML/Content/Authoring/InstallationGuide/EonOnPrem/InstallingEonOnPremiseWithMinio.htm?tocpath=Installing%20Vertica%7CInstalling%20Vertica%20For%20Eon%20Mode%20on-Premises%7C_____2["Installation einer On-Premises-Eon-Mode-Datenbank"^].
@@ -101,6 +107,7 @@ Diese drei Nodes sind mit einem SSH-Schlüssel (Secure Shell) eingerichtet, um S
 
 
 
+[[information-required-from-netapp-storagegrid]]
 === Erforderliche Informationen von NetApp StorageGRID
 
 Um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren, müssen Sie die folgenden Vorbedingung-Informationen haben.
@@ -112,6 +119,8 @@ Um den Eon-Modus vor Ort mit kommunalem Speicher auf StorageGRID zu installieren
 
 
 
+[[creating-an-authorization-file-to-access-the-s3-endpoint]]
+[[createauthorization]]
 === Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt
 
 Beim Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt gelten die folgenden Voraussetzungen:
@@ -159,6 +168,7 @@ NOTE: In einer Produktionsumgebung muss der Kunde ein Serverzertifikat implement
 
 
 
+[[choosing-a-depot-path-on-all-vertica-nodes]]
 === Auswählen eines Depotpfads auf allen Vertica-Knoten
 
 Wählen Sie auf jedem Knoten ein Verzeichnis für den Depot-Speicherpfad aus oder erstellen Sie ein Verzeichnis. Das Verzeichnis, das Sie für den Parameter Depot-Speicherpfad bereitstellen, muss Folgendes haben:
@@ -176,6 +186,7 @@ Der `admintools create_db` Das Tool versucht, den Depotpfad für Sie zu erstelle
 
 
 
+[[creating-the-eon-on-premises-database]]
 === Erstellen der On-Premises-Datenbank von Eon
 
 So erstellen Sie die On-Premises-Datenbank von Eon:
@@ -638,6 +649,8 @@ Database creation SQL tasks completed successfully. Database vmart created succe
 |===
 
 
+[[disabling-streaming-limitations]]
+[[Streamlimitations]]
 === Deaktivieren von Streaming-Einschränkungen
 
 Dieses Verfahren basiert auf dem Vertica-Leitfaden für andere On-Premises-Objektspeicher und sollte für StorageGRID angewendet werden.
@@ -659,6 +672,7 @@ dbadmin=> \q
 ----
 
 
+[[verifying-depot-settings]]
 === Depot-Einstellungen werden überprüft
 
 Standarddepot-Einstellungen der Vertica-Datenbank sind aktiviert (Wert = 1) für Lese- und Schreibvorgänge. NetApp empfiehlt dringend, diese Depoteinstellungen für die Performance-Steigerung zu aktivieren.
@@ -671,6 +685,7 @@ DATABASE | UseDepotForWrites | 1
 ----
 
 
+[[loading-sample-data-optional]]
 === Laden von Probendaten (optional)
 
 Wenn diese Datenbank zu Testzwecken bereit ist und entfernt werden wird, können Sie Beispieldaten zu Testzwecken in diese Datenbank laden. Vertica kommt mit Probendatensatz, VMart, gefunden unter `/opt/vertica/examples/VMart_Schema/` Auf jedem Vertica-Knoten. Weitere Informationen zu diesem Beispieldatensatz finden Sie hier link:https://www.vertica.com/docs/10.1.x/HTML/Content/Authoring/GettingStartedGuide/IntroducingVMart/IntroducingVMart.htm?zoom_highlight=VMart["Hier"^].
@@ -691,6 +706,7 @@ Führen Sie die folgenden Schritte aus, um die Probendaten zu laden:
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
@@ -702,6 +718,7 @@ Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die i
 
 
 
+[[version-history]]
 == Versionsverlauf
 
 [cols="1a,1a,2a"]

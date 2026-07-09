@@ -18,18 +18,21 @@ Dieser technische Bericht enthält detaillierte Anweisungen zur Konfiguration vo
 
 
 
+[[introduction]]
 == Einführung
 
 Die F5 BIG-IP DNS-Lösung, die früher BIG-IP GTM (Global Traffic Manager) und informell GSLB (Global Server Load Balancing) genannt wurde, ermöglicht einen nahtlosen Zugriff über mehrere aktive HA-Gruppen und aktive, standortübergreifende StorageGRID Lösungen hinweg.
 
 
 
+[[f5-big-ip-multi-site-storagegrid-configuration]]
 == F5 BIG-IP Multi-Site StorageGRID -Konfiguration
 
 Unabhängig von der Anzahl der zu unterstützenden StorageGRID Standorte müssen mindestens zwei BIG-IP-Appliances, physisch oder virtuell, über das aktivierte und eingerichtete BIG-IP-DNS-Modul verfügen. Je mehr DNS-Appliances, desto größer ist der Grad an Redundanz, von dem ein Unternehmen profitiert.
 
 
 
+[[big-ip-dns-first-steps-in-initial-set-up]]
 === BIG-IP DNS – Erste Schritte bei der Ersteinrichtung
 
 Sobald die BIG-IP-Appliance mindestens initial provisioniert wurde, verwenden Sie einen Webbrowser, um sich in die TMUI (BIG-IP GUI)-Oberfläche einzuloggen und wählen Sie System -> Ressourcenbereitstellung. Wie bereits erwähnt, muss sichergestellt werden, dass das Modul „Global Traffic (DNS)“ ein Häkchen aufweist und als lizenziert angezeigt wird. Beachten Sie, dass es, wie im Bild dargestellt, üblich ist, dass „Local Traffic (LTM)“ auf demselben Gerät bereitgestellt werden kann.
@@ -38,6 +41,7 @@ image:f5-dns/global-traffic.png["Globaler DNS-Dienst aktiviert"]
 
 
 
+[[configure-dns-protocol-foundational-elements]]
 === DNS-Protokoll-Grundelemente konfigurieren
 
 Der erste Schritt zur globalen Verkehrssteuerung für StorageGRID -Sites besteht darin, die Registerkarte DNS auszuwählen, wo praktisch die gesamte globale Verkehrssteuerung konfiguriert wird, und dann Einstellungen-> GLSB auszuwählen. Aktivieren Sie die beiden Synchronisierungsoptionen und wählen Sie einen DNS-Gruppennamen, der von allen teilnehmenden BIG-IP-Appliances gemeinsam genutzt werden soll.
@@ -68,6 +72,7 @@ Hiermit sind die vorbereitenden, in der Regel einmaligen Einrichtungsschritte ei
 
 
 
+[[setting-up-data-center-sites-and-establishing-inter-big-ip-communications-in-four-steps]]
 === Einrichtung von Rechenzentrumsstandorten und Etablierung der Inter-BIG-IP-Kommunikation in vier Schritten
 
 
@@ -130,6 +135,7 @@ An diesem Punkt können alle weiteren DNS-Konfigurationsarbeiten auf jedem BIG-I
 
 
 
+[[setting-up-data-center-sites-and-establishing-inter-big-ip-communications]]
 === Einrichtung von Rechenzentrumsstandorten und Aufbau der Inter-BIG-IP-Kommunikation
 
 An diesem Punkt sind alle Schritte zur Erstellung der zugrunde liegenden, fehlerfreien BIG-IP DNS-Appliance-Gruppe abgeschlossen. Wir können nun mit der Erstellung von Namen, FQDNs, fortfahren, die auf unsere verteilten Web-/S3-Dienste verweisen, die in jedem StorageGRID Rechenzentrum bereitgestellt werden.
@@ -156,6 +162,7 @@ image:f5-dns/wip-config.png["WIP konfigurieren"]
 
 
 
+[[adjust-dns-to-support-global-traffic-management]]
 === DNS zur Unterstützung des globalen Datenverkehrsmanagements anpassen
 
 An diesem Punkt sind alle unsere zugrunde liegenden BIG-IP-Appliances bereit, GSLB (Global Server Load Balancing) durchzuführen. Wir müssen lediglich die für die S3-Datenflüsse verwendeten Namen anpassen und zuweisen, um die Lösung optimal nutzen zu können. Der allgemeine Ansatz besteht darin, einen Teil der bestehenden DNS-Domäne eines Unternehmens an die Kontrolle von BIG-IP DNS zu delegieren. Dies bedeutet, einen Abschnitt des Namensraums, eine Subdomain, zu „exkl. ) und die Kontrolle über diese Subdomain an die BIG-IP DNS-Appliances zu delegieren. Technisch gesehen geschieht dies dadurch, dass sichergestellt wird, dass die BIG-IP DNS-Appliances über A-DNS-Ressourceneinträge (RRs) im Unternehmens-DNS verfügen und diese Namen/Adressen dann zu Name Server (NS)-DNS-Ressourceneinträgen für die delegierte Domäne gemacht werden.
@@ -198,6 +205,7 @@ Schließlich, wenn sich die Standorte über den gesamten Globus erstrecken, lohn
 
 
 
+[[conclusion]]
 == Schlussfolgerung
 
 Die Integration von F5 BIG-IP mit NetApp StorageGRID adressiert technische Herausforderungen im Zusammenhang mit der Datenverfügbarkeit und -konsistenz über mehrere Standorte hinweg sowie der Optimierung des S3-Transaktionsroutings. Durch den Einsatz dieser Lösung werden Speicherstabilität, Leistung und Zuverlässigkeit verbessert, wodurch sie sich ideal für Unternehmen eignet, die eine robuste, skalierbare und flexible Speicherinfrastruktur suchen.

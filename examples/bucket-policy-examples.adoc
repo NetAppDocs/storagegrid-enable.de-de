@@ -16,6 +16,7 @@ Hier sind Beispielrichtlinien und Berechtigungen in StorageGRID S3.
 
 
 
+[[the-structure-of-a-policy]]
 == Die Struktur einer Richtlinie
 
 In StorageGRID sind die Gruppenrichtlinien mit den S3 Service-Richtlinien für AWS Benutzer (IAM) identisch.
@@ -116,6 +117,7 @@ Das Format der JSON-Richtlinie sieht wie folgt aus:
 ----
 
 
+[[using-the-aws-policy-generator]]
 == Verwenden des AWS-Richtliniengenerators
 
 Der AWS Richtlinien-Generator ist ein großartiges Werkzeug, um den json-Code mit dem richtigen Format und den Informationen zu erhalten, die Sie zu implementieren versuchen.
@@ -245,10 +247,12 @@ Beispiel:
 ----
 
 
+[[group-policies-iam]]
 == Gruppenrichtlinien (IAM)
 
 
 
+[[home-directory-style-bucket-access]]
 === Bucket-Zugriff im Home Directory-Stil
 
 Diese Gruppenrichtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket mit dem Namen „username“.
@@ -280,6 +284,7 @@ Diese Gruppenrichtlinie erlaubt Benutzern nur den Zugriff auf Objekte im Bucket 
 ----
 
 
+[[deny-object-lock-bucket-creation]]
 === Erstellung von Bucket-Objektsperrung verweigern
 
 Diese Gruppenrichtlinie schränkt Benutzer am Erstellen eines Buckets ein, für den die Objektsperre für den Bucket aktiviert ist.
@@ -311,6 +316,7 @@ Diese Richtlinie wird in der StorageGRID-Benutzeroberfläche nicht durchgesetzt,
 ----
 
 
+[[object-lock-retention-limit]]
 === Aufbewahrungslimit für Objektsperre
 
 Diese Bucket-Richtlinie beschränkt die Aufbewahrungsdauer der Objektsperre auf maximal 10 Tage
@@ -340,6 +346,7 @@ Diese Bucket-Richtlinie beschränkt die Aufbewahrungsdauer der Objektsperre auf 
 ----
 
 
+[[restrict-users-from-deleting-objects-by-versionid]]
 === Benutzer daran hindern, Objekte mit VersionID zu löschen
 
 Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach VersionID zu löschen
@@ -365,6 +372,7 @@ Diese Gruppenrichtlinie schränkt Benutzer davon ab, versionierte Objekte nach V
 ----
 
 
+[[restrict-a-group-to-single-subdirectory-prefix-with-read-only-access]]
 === Beschränken Sie eine Gruppe auf ein einzelnes Unterverzeichnis (Präfix) mit Lesezugriff
 
 Diese Richtlinie ermöglicht Mitgliedern der Gruppe schreibgeschützten Zugriff auf ein Unterverzeichnis (Präfix) innerhalb eines Buckets. Der Bucket-Name lautet „Study“ und das Unterverzeichnis lautet „study01“.
@@ -436,10 +444,12 @@ Diese Richtlinie ermöglicht Mitgliedern der Gruppe schreibgeschützten Zugriff 
 ----
 
 
+[[bucket-policies]]
 == Bucket-Richtlinien
 
 
 
+[[restrict-bucket-to-single-user-with-read-only-access]]
 === Bucket auf einzelnen Benutzer mit schreibgeschütztem Zugriff beschränken
 
 Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff auf einen Bucket zu haben und explizit allen anderen Benutzern den zugriff zu verweigert. Die Gruppierung der Ablehenserklärungen an der Spitze der Richtlinie ist eine gute Methode für eine schnellere Bewertung.
@@ -482,6 +492,7 @@ Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff a
 ----
 
 
+[[restrict-a-bucket-to-a-few-users-with-read-only-access]]
 === Beschränken Sie einen Bucket auf einige Benutzer mit schreibgeschütztem Zugriff.
 
 [source, json]
@@ -531,6 +542,7 @@ Diese Richtlinie erlaubt einem einzelnen Benutzer, schreibgeschützten Zugriff a
 ----
 
 
+[[restrict-user-deletes-of-versioned-objects-in-a-bucket]]
 === Beschränken Sie das Löschen versionierter Objekte in einem Bucket
 
 Diese Bucket-Richtlinie beschränkt das Löschen versionierter Objekte durch einen Benutzer (identifiziert durch Benutzer-ID „56622399308951294926“) nach VersionID

@@ -16,6 +16,7 @@ Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration vo
 
 
 
+[[preparing-ontap]]
 == ONTAP wird vorbereitet
 
 Für Demonstrationszwecke werden ein SVM Objektspeicher-Server, Benutzer, Gruppen, Gruppenrichtlinien und Buckets erstellt.

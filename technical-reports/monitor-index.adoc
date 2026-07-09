@@ -24,6 +24,7 @@ Ziel dieses Dokuments ist die Ergänzung der Produktdokumentation und die Erläu
 
 
 
+[[data-sources]]
 == Datenquellen
 
 Für die erfolgreiche Überwachung von NetApp StorageGRID ist es wichtig zu wissen, wo Daten über den Zustand und die Vorgänge Ihres StorageGRID Systems erfasst werden müssen.
@@ -35,6 +36,7 @@ Für die erfolgreiche Überwachung von NetApp StorageGRID ist es wichtig zu wiss
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:

@@ -17,6 +17,7 @@ Erfahren Sie, wie Sie auf Kennzahlen zugreifen und diese exportieren, um Problem
 
 
 
+[[view-metrics-api-through-a-prometheus-query]]
 == Anzeigen von Kennzahlen-API über eine Prometheus-Abfrage
 
 Prometheus ist eine Open-Source-Software zur Erfassung von Kennzahlen. Über das GMI können Sie auf die in StorageGRID eingebetteten Prometheus zugreifen: Support[Metriken].
@@ -47,6 +48,7 @@ NOTE: Es wird nicht empfohlen, eine direkte Schnittstelle zu unserer Prometheus 
 
 
 
+[[export-metrics-through-the-api]]
 == Exportieren von Kennzahlen über die API
 
 Außerdem können Sie über die StorageGRID Management-API auf dieselben Daten zugreifen.

@@ -18,6 +18,7 @@ Dieser Leitfaden konzentriert sich auf die Konfiguration von NetApp StorageGRID 
 
 
 
+[[overview]]
 == Überblick
 
 Speicheradministratoren möchten das Wachstum ihrer Daten mit Lösungen managen, die die Anforderungen an Verfügbarkeit, schnelle Wiederherstellung erfüllen, an ihre Bedürfnisse anpassen und ihre Richtlinien für die langfristige Aufbewahrung von Daten automatisieren. Diese Lösungen sollten auch Schutz vor Verlust oder böswilligen Angriffen bieten. Veeam und NetApp haben gemeinsam eine Datensicherungslösung entwickelt, die Veeam Backup & Recovery mit NetApp StorageGRID kombiniert und damit Objekt-Storage vor Ort ermöglicht.
@@ -30,16 +31,19 @@ Lesen Sie unbedingt die Produktdokumentation für https://www.veeam.com/document
 
 
 
+[[veeam-configuration]]
 == Veeam Konfiguration
 
 
 
+[[recommended-version]]
 === Empfohlene Version
 
 Es wird empfohlen, immer auf dem neuesten Stand zu bleiben und die neuesten Hotfixes für Ihr Veeam Backup & Replication 12- oder 12.1-System anzuwenden. Derzeit wird empfohlen, mindestens Veeam 12 Patch P20230718 zu installieren.
 
 
 
+[[s3-repository-configuration]]
 === S3-Repository-Konfiguration
 
 Ein Scale-out-Backup-Repository (SOBR) ist die Kapazitäts-Tier des S3-Objekt-Storage. Die Kapazitäts-Tier ist eine Erweiterung des primären Repositorys mit längeren Aufbewahrungszeiträumen und einer kostengünstigeren Storage-Lösung. Veeam ermöglicht Unveränderlichkeit über die S3 Object Lock API. Veeam 12 kann mehrere Buckets in einem Scale-out-Repository verwenden. StorageGRID hat keine Obergrenze für die Anzahl der Objekte oder Kapazität in einem einzelnen Bucket. Die Verwendung mehrerer Buckets verbessert möglicherweise die Performance beim Backup von sehr großen Datensätzen, bei denen die Backup-Daten in Objekten bis in den Petabyte-Bereich skaliert werden können.
@@ -48,6 +52,7 @@ Je nach Dimensionierung Ihrer spezifischen Lösung und den Anforderungen können
 
 
 
+[[backup-job-configuration]]
 === Konfiguration des Backupjobs
 
 Veeam Backup-Jobs können mit anderen Blockgrößen konfiguriert werden, die besonders sorgfältig geprüft werden sollten. Die standardmäßige Blockgröße beträgt 1 MB und mit der Speichereffizienz, die Veeam mit Komprimierung und Deduplizierung bietet, erzeugt Objektgrößen von ca. 500 KB für das erste vollständige Backup und 100-200-KB-Objekte für die inkrementellen Jobs. Wir können die Performance des Objektspeichers deutlich steigern und die Anforderungen reduzieren, indem wir eine größere Blockgröße für Backups auswählen. Obwohl die größere Blockgröße zu großen Verbesserungen der Objektspeicher-Performance führt, geht dies zu Kosten, da potenziell höhere Anforderungen an die Kapazität des primären Storage aufgrund niedrigerer Storage-Effizienz-Performance entstehen. Es wird empfohlen, die Backup-Jobs mit einer Blockgröße von 4 MB zu konfigurieren, die ca. 2 MB Objekte für die vollständigen Backups und 700kB-1MB Objektgrößen für inkrementelle Backups erzeugt. Kunden ziehen möglicherweise sogar die Konfiguration von Backup-Jobs mit einer Blockgröße von 8 MB in Betracht, die mithilfe des Veeam Supports aktiviert werden kann.
@@ -81,34 +86,40 @@ Wenden Sie sich an Ihr NetApp Account Team, um die empfohlene Konfiguration basi
 ====
 
 
+[[storagegrid-configuration]]
 == StorageGRID-Konfiguration
 
 
 
+[[recommended-version]]
 === Empfohlene Version
 
 NetApp StorageGRID 11.9 oder 12.0 mit dem neuesten Hotfix sind die empfohlenen Versionen für Veeam-Bereitstellungen.  Es wird immer empfohlen, auf dem neuesten Stand zu bleiben und die neuesten Hotfixes für Ihr StorageGRID System anzuwenden.
 
 
 
+[[load-balancer-and-s3-endpoint-configuration]]
 === Load Balancer und S3-Endpunktkonfiguration
 
 Für Veeam muss der Endpunkt nur über HTTPS verbunden sein. Eine nicht verschlüsselte Verbindung wird von Veeam nicht unterstützt. Das SSL-Zertifikat kann ein selbstsigniertes Zertifikat, eine private vertrauenswürdige Zertifizierungsstelle oder eine öffentliche vertrauenswürdige Zertifizierungsstelle sein. Um den kontinuierlichen Zugriff auf das S3-Repository zu gewährleisten, wird die Verwendung von mindestens zwei Load Balancern in einer HA-Konfiguration empfohlen. Beim Lastausgleich kann es sich um einen von StorageGRID bereitgestellten integrierten Load Balancer handeln, der sich auf jedem Administrator-Node und Gateway-Node oder bei Lösungen von Drittanbietern wie F5, Kemp, HAProxy, Loadbalancer.org usw. befindet Mithilfe eines StorageGRID Load Balancer kann man Traffic-Klassifikatoren (QoS-Regeln) festlegen, die den Veeam Workload priorisieren können oder Veeam auf Workloads mit höherer Priorität im StorageGRID System beschränken.
 
 
 
+[[s3-bucket]]
 === S3-Bucket
 
 StorageGRID ist ein sicheres Multi-Tenant-Speichersystem.  Es wird empfohlen, einen dedizierten Mandanten für die Veeam-Workload zu erstellen.  Optional kann ein Speicherkontingent zugewiesen werden.  Aktivieren Sie als Best Practice „Eigene Identitätsquelle verwenden“.  Sichern Sie den Stammverwaltungsbenutzer des Mandanten mit einem entsprechenden Kennwort.  Veeam Backup 12 erfordert eine starke Konsistenz für S3-Buckets.  StorageGRID bietet mehrere Konsistenzoptionen, die auf Bucket-Ebene konfiguriert werden.  Wählen Sie für Bereitstellungen an mehreren Standorten, bei denen Veeam von mehreren Standorten auf die Daten zugreift, „strong-global“ aus.  Wenn Veeam-Backups und -Wiederherstellungen nur an einem einzigen Standort erfolgen, sollte die Konsistenzebene auf „starker Standort“ eingestellt werden.  Weitere Informationen zu den Eimerkonsistenzstufen finden Sie in der https://docs.netapp.com/us-en/storagegrid/s3/consistency-controls.html["Dokumentation"] .  Um StorageGRID für Veeam-Unveränderlichkeitssicherungen zu verwenden, muss S3 Object Lock global aktiviert und während der Bucket-Erstellung im Bucket konfiguriert werden.
 
 
 
+[[lifecycle-management]]
 === Lifecycle Management
 
 StorageGRID unterstützt Replizierung und Erasure Coding für eine Sicherung auf Objektebene über StorageGRID Nodes und Standorte hinweg. Erasure Coding erfordert mindestens eine Objektgröße von 200 kB. Die standardmäßige Blockgröße für Veeam von 1 MB erzeugt Objektgrößen, die oft unter dieser empfohlenen Mindestgröße von 200 KB liegen können, nachdem Veeam die Storage-Effizienz erreicht hat. Für die Performance der Lösung wird empfohlen, kein Erasure Coding-Profil für mehrere Standorte zu verwenden, es sei denn, die Verbindung zwischen den Standorten reicht aus, um keine Latenz hinzuzufügen oder die Bandbreite des StorageGRID-Systems zu beschränken. Bei einem StorageGRID System mit mehreren Standorten kann die ILM-Regel so konfiguriert werden, dass eine einzige Kopie an jedem Standort gespeichert wird. Um die ultimative Aufbewahrungszeit zu gewährleisten, kann eine Regel für die Speicherung einer Kopie, die nach dem Verfahren zur Fehlerkorrektur codiert wurde, an jedem Standort konfiguriert werden. Die am besten empfohlene Implementierung für diesen Workload ist der lokale Einsatz von zwei Kopien auf den Veeam Backup Servern.
 
 
 
+[[delete-performance]]
 === Leistung löschen
 
 Veeam ermöglicht die Optimierung der Löschanforderungsrate und die Planung des Sicherungslöschvorgangs.  Um die Löschleistung weiter zu optimieren, können Sie synchrone Löschvorgänge deaktivieren und das endgültige Löschen von Objekten dem ILM-Scanner überlassen.
@@ -160,10 +171,12 @@ image:veeam-bp/put_ilm_adv.png["PUT ILM-Advanced-Input"]
 
 
 
+[[implementation-key-points]]
 == Zentrale Punkte bei der Implementierung
 
 
 
+[[storagegrid]]
 === StorageGRID
 
 Stellen Sie sicher, dass die Objektsperre auf dem StorageGRID System aktiviert ist, falls eine Unveränderlichkeit erforderlich ist. Suchen Sie die Option in der Management-UI unter Configuration/S3 Object Lock.
@@ -190,6 +203,7 @@ image:veeam-bp/tc_policy.png["TC-Richtlinie erstellen"]
 
 
 
+[[veeam]]
 === Veeam
 
 Je nach Modell und Anzahl der StorageGRID Appliances kann es erforderlich sein, eine Begrenzung der Anzahl gleichzeitiger Operationen auf dem Bucket auszuwählen und zu konfigurieren.
@@ -206,6 +220,7 @@ image:veeam-bp/veeam_blk_sz.png["Ein Screenshot eines Computers Beschreibung aut
 
 
 
+[[monitoring-storagegrid]]
 == Monitoring von StorageGRID
 
 Um sich ein vollständiges Bild davon zu machen, wie Veeam und StorageGRID zusammenarbeiten, müssen Sie warten, bis die Aufbewahrungszeit der ersten Backups abgelaufen ist. Bis zu diesem Zeitpunkt besteht der Veeam-Workload in erster Linie aus PUT-Vorgängen und es sind keine Löschungen aufgetreten. Sobald Sicherungsdaten ablaufen und Clean-ups durchgeführt werden, können Sie jetzt die vollständige konsistente Nutzung im Objektspeicher sehen und die Einstellungen in Veeam bei Bedarf anpassen.
@@ -235,6 +250,7 @@ image:veeam-bp/tc_2.png["Kennzahlen für die Richtlinie zur Traffic-Klassifizier
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:

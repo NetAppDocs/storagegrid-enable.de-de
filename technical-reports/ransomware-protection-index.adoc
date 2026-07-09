@@ -24,18 +24,21 @@ Ransomware ist eine der größten Sicherheitsbedrohungen von heute. Das NetApp S
 
 
 
+[[storagegrid-best-practices]]
 == Best Practices von StorageGRID
 
 Für StorageGRID sollten Sicherheits-Best-Practices die Verwendung von HTTPS mit signierten Zertifikaten für Management und Objektzugriff umfassen. Erstellen Sie dedizierte Benutzerkonten für Anwendungen und Personen und verwenden Sie die Mandanten-Root-Konten nicht für den Zugriff auf Anwendungen oder Benutzerdaten. Mit anderen Worten, folgen Sie dem Prinzip der geringsten Privilegien. Verwenden Sie Sicherheitsgruppen mit definierten IAM-Richtlinien (Identity and Access Management) zur Steuerung von Benutzerrechten und Zugriffskonten für spezifische Anwendungen und Benutzer. Mit diesen Maßnahmen müssen Sie dennoch sicherstellen, dass Ihre Daten geschützt sind. Bei Simple Storage Service (S3) wird bei Änderungen von Objekten zur Verschlüsselung das ursprüngliche Objekt überschrieben.
 
 
 
+[[methods-of-defense]]
 == Verteidigungsmethoden
 
 Der primäre Mechanismus zum Schutz vor Ransomware in der S3-API ist die Implementierung von Objektsperrung. Nicht alle Anwendungen sind mit Objektsperre kompatibel, daher gibt es zwei weitere Optionen zum Schutz Ihrer Objekte, die in diesem Bericht beschrieben werden: Replikation in einen anderen Bucket mit aktivierter Versionierung und Versionierung mit IAM-Richtlinien.
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:

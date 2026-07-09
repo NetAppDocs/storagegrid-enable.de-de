@@ -18,6 +18,7 @@ Hadoop ist bereits seit einiger Zeit ein beliebtes Datenwissenschaftlerteam. Had
 
 
 
+[[why-use-s3a-for-hadoop-workflows]]
 == Vorteile von S3A für Hadoop Workflows
 
 Mit der Zeit hat das Datenvolumen zugenommen, aber die Nutzung der IT-Infrastruktur mit eigenen Computing- und Storage-Ressourcen ist ineffizient. Lineare Skalierung führt zu Herausforderungen bei der effizienten Nutzung von Ressourcen und dem Management der Infrastruktur.
@@ -26,10 +27,12 @@ Zur Bewältigung dieser Herausforderungen bietet der Hadoop S3A-Client hochperfo
 
 
 
+[[configure-s3a-connector-to-use-storagegrid]]
 == S3A-Anschluss für die Verwendung von StorageGRID konfigurieren
 
 
 
+[[prerequisites]]
 === Voraussetzungen
 
 * Einen StorageGRID S3-Endpunkt-URL, einen S3-Zugriffsschlüssel für Mandanten und einen geheimen Schlüssel für Hadoop S3A-Verbindungstests.
@@ -40,9 +43,10 @@ Seit April 2022 wurde Java 11.0.14 mit Cloudera 7.1.7 gegen StorageGRID 11.5 und
 
 
 
+[[install-java-package]]
 === Installieren Sie das Java-Paket
 
-. Prüfen Sie die https://docs.cloudera.com/cdp-private-cloud-upgrade/latest/release-guide/topics/cdpdc-java-requirements.html["Cloudera Support-Matrix"^] Für die unterstützte JDK-Version.
+. Die  https://docs.cloudera.com/cdp-private-cloud-upgrade/latest/upgrade/topics/cdpdc-java-requirements.html["Cloudera Support-Matrix"^] auf die unterstützte JDK-Version prüfen.
 . Laden Sie die herunter https://www.oracle.com/java/technologies/downloads/["Java 11.x-Paket"^] Das dem Cloudera Cluster-Betriebssystem entspricht. Kopieren Sie dieses Paket auf jeden Host im Cluster. In diesem Beispiel wird das rpm-Paket für CentOS verwendet.
 . Melden Sie sich bei jedem Host als Root an oder verwenden Sie ein Konto mit sudo-Berechtigung. Führen Sie für jeden Host folgende Schritte durch:
 +
@@ -85,6 +89,7 @@ source /etc/profile
 
 
 
+[[cloudera-hdfs-s3a-configuration]]
 === Konfiguration von Cloudera HDFS S3A
 
 *Schritte*
@@ -153,10 +158,12 @@ image:hadoop-s3a/hadoop-restart-stale-service-icon.png["Veraltete Service-Symbol
 
 
 
+[[test-s3a-connection-to-storagegrid]]
 == S3A-Verbindung mit StorageGRID testen
 
 
 
+[[perform-basic-connection-test]]
 === Führen Sie einen grundlegenden Verbindungstest durch
 
 Melden Sie sich bei einem der Hosts im Cloudera Cluster an, und geben Sie ein `hadoop fs -ls s3a://_<bucket-name>_/`.
@@ -178,6 +185,7 @@ Found 1 items
 ----
 
 
+[[troubleshooting]]
 === Fehlerbehebung
 
 

@@ -16,6 +16,7 @@ Diese Schulung richtet sich an NetApp Vertriebsmitarbeiter, Partner und potenzie
 
 
 
+[[register-for-an-account]]
 == Für ein Konto registrieren
 
 . Registrieren Sie sich für ein Konto auf der https://mysupport.netapp.com/site/user/registration["NetApp Support Website"] mit Ihrer geschäftlichen E-Mail-Adresse.
@@ -35,6 +36,7 @@ Diese Schulung richtet sich an NetApp Vertriebsmitarbeiter, Partner und potenzie
 
 
 
+[[download-storagegrid]]
 == Laden Sie StorageGRID herunter
 
 . Nachdem Ihr Support-Fall geprüft und genehmigt wurde, werden Sie vom NetApp Support per E-Mail darüber informiert, dass Ihr Konto potenziellen Kunden Zugang gewährt wurde.

@@ -16,6 +16,7 @@ Die Lösung ermöglicht S3 der Enterprise-Klasse durch die nahtlose Migration vo
 
 
 
+[[preparing-storagegrid]]
 == StorageGRID wird vorbereitet
 
 Wenn Sie mit der Konfiguration für diese Demo fortfahren, erstellen wir einen Mandanten, Benutzer, Sicherheitsgruppe, Gruppenrichtlinie und Bucket.

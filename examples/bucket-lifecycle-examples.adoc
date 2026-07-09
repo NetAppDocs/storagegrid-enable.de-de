@@ -16,6 +16,7 @@ Sie können eine S3-Lebenszyklukonfiguration erstellen, um zu steuern, wann best
 
 
 
+[[what-is-a-lifecycle-configuration]]
 == Was ist eine Lebenszykluskonfiguration?
 
 Eine Lifecycle-Konfiguration ist ein Satz von Regeln, die auf die Objekte in bestimmten S3-Buckets angewendet werden. Jede Regel gibt an, welche Objekte betroffen sind und wann diese Objekte ablaufen (an einem bestimmten Datum oder nach einigen Tagen).
@@ -41,6 +42,7 @@ StorageGRID unterstützt den Einsatz der folgenden Bucket-Operationen zum Manage
 
 
 
+[[structure-of-a-lifecycle-policy]]
 == Aufbau einer Lifecycle-Policy
 
 Als erster Schritt beim Erstellen einer Lebenszykluskonfiguration erstellen Sie eine JSON-Datei mit einem oder mehreren Regeln. Diese JSON-Datei enthält beispielsweise drei Regeln:
@@ -101,6 +103,7 @@ CAUTION: Regeln, die eine Anzahl von Tagen angeben, sind relativ zu dem Zeitpunk
 ----
 
 
+[[apply-lifecycle-configuration-to-bucket]]
 == Lifecycle-Konfiguration auf Bucket anwenden
 
 Nachdem Sie die Lebenszykluskonfigurationsdatei erstellt haben, wenden Sie sie auf einen Bucket an, indem Sie eine Anforderung von PutkBucketLifecycleConfiguration ausgeben.
@@ -121,10 +124,12 @@ aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configurati
 ----
 
 
+[[example-lifecycle-policies-for-standard-non-versioned-buckets]]
 == Beispiel-Lebenszyklusrichtlinien für Standard-Buckets (ohne Versionsangabe)
 
 
 
+[[delete-objects-after-90-days]]
 === Objekte nach 90 Tagen löschen
 
 Anwendungsfall: Diese Richtlinie eignet sich ideal für die Verwaltung zeitlich begrenzt relevanter Daten, wie z. B. temporäre Dateien, Protokolle oder Zwischenverarbeitungsdaten. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket.
@@ -146,10 +151,12 @@ Anwendungsfall: Diese Richtlinie eignet sich ideal für die Verwaltung zeitlich 
 ----
 
 
+[[example-lifecycle-policies-for-versioned-buckets]]
 == Beispiel-Lebenszyklusrichtlinien für versionierte Buckets
 
 
 
+[[delete-noncurrent-versions-after-10-days]]
 === Nicht aktuelle Versionen nach 10 Tagen löschen
 
 Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Speicherung veralteter Versionsobjekte, die sich im Laufe der Zeit ansammeln und viel Speicherplatz beanspruchen können. Vorteil: Optimieren Sie die Speichernutzung, indem Sie nur die neueste Version speichern.
@@ -171,6 +178,7 @@ Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Speicherung veralt
 ----
 
 
+[[keep-5-noncurrent-versions-and-delete-after-90-days]]
 === Bewahren Sie 5 nicht aktuelle Versionen auf und löschen Sie sie nach 90 Tagen
 
 Anwendungsfall: Nützlich, wenn Sie eine begrenzte Anzahl früherer Versionen zu Wiederherstellungs- oder Prüfzwecken behalten möchten. Vorteil: Behalten Sie genügend nicht aktuelle Versionen, um ausreichend Verlauf und Wiederherstellungspunkte sicherzustellen.
@@ -196,6 +204,7 @@ NOTE: Sie müssen *NoncurrentDays* mit *NewerNoncurrentVersions* verwenden.
 
 
 
+[[remove-delete-markers-when-no-other-versions-exist]]
 === Löschmarkierungen entfernen, wenn keine anderen Versionen vorhanden sind
 
 Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Löschmarkierungen, die nach dem Entfernen aller nicht aktuellen Versionen übrig bleiben und sich im Laufe der Zeit ansammeln können. Vorteil: Reduzierung unnötiger Unordnung.
@@ -217,6 +226,7 @@ Anwendungsfall: Diese Richtlinie hilft bei der Verwaltung der Löschmarkierungen
 ----
 
 
+[[delete-current-versions-after-30-days-delete-non-current-versions-after-60-days-and-remove-the-delete-markers-created-by-the-current-version-delete-once-no-other-versions-exist]]
 === Löschen Sie aktuelle Versionen nach 30 Tagen, löschen Sie nicht aktuelle Versionen nach 60 Tagen und entfernen Sie die Löschmarkierungen, die durch das Löschen der aktuellen Version erstellt wurden, sobald keine anderen Versionen mehr vorhanden sind.
 
 Anwendungsfall: Bereitstellung eines vollständigen Lebenszyklus für aktuelle und nicht aktuelle Versionen inklusive Löschmarkierungen. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket, während ausreichend Wiederherstellungspunkte und Verlauf erhalten bleiben.
@@ -254,6 +264,7 @@ Anwendungsfall: Bereitstellung eines vollständigen Lebenszyklus für aktuelle u
 ----
 
 
+[[remove-delete-markers-that-have-no-other-versions-retain-4-non-current-versions-and-at-least-30-days-worth-of-history-for-objects-with-the-accounts-prefix-and-keep-2-versions-and-at-least-10-days-worth-of-history-for-all-other-object-versions]]
 === Entfernen Sie Löschmarkierungen, die keine anderen Versionen haben. Behalten Sie 4 nicht aktuelle Versionen und mindestens 30 Tage Verlauf für Objekte mit dem Präfix „accounts_“ und behalten Sie 2 Versionen und mindestens 10 Tage Verlauf für alle anderen Objektversionen.
 
 Anwendungsfall: Definieren Sie eindeutige Regeln für bestimmte Objekte neben anderen Objekten, um den gesamten Lebenszyklus aktueller und nicht aktueller Versionen inklusive Löschmarkierungen zu verwalten. Vorteil: Reduzieren Sie die Speicherkosten und sorgen Sie für einen übersichtlichen Bucket. Gleichzeitig bleiben ausreichend Wiederherstellungspunkte und Verlaufsdaten erhalten, um verschiedene Kundenanforderungen zu erfüllen.
@@ -293,6 +304,7 @@ Anwendungsfall: Definieren Sie eindeutige Regeln für bestimmte Objekte neben an
 ----
 
 
+[[conclusion]]
 == Schlussfolgerung
 
 * Überprüfen und aktualisieren Sie Lebenszyklusrichtlinien regelmäßig und richten Sie sie an den ILM- und Datenverwaltungszielen aus.

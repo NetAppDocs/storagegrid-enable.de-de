@@ -20,6 +20,7 @@ Allgemeine Anleitung zur Implementierung von NetApp® StorageGRID® Gateway Node
 
 
 
+[[storagegrid-gateway-node-load-balancer-versus-third-party-load-balancer]]
 == Load Balancer für StorageGRID-Gateway-Nodes im Vergleich zum Load Balancer eines Drittanbieters
 
 StorageGRID ist einzigartig unter S3-kompatiblen Objekt-Storage-Anbietern und bietet einen nativen Load Balancer als speziell entwickelte Appliance, VM oder Container. Der von StorageGRID bereitgestellte Load Balancer wird auch als Gateway-Node bezeichnet.

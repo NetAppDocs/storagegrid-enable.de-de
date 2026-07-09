@@ -49,6 +49,7 @@ NOTE: Der Name der Datei definiert den tatsächlichen Node-Namen für die Instal
 
 
 
+[[preparing-the-node-config-files]]
 == Vorbereiten der Node-Konfigurationsdateien
 
 Die folgenden Beispiele verwenden das `/dev/disk/by-path` Format. Sie können die korrekten Pfade überprüfen, indem Sie die folgenden Befehle ausführen:
@@ -94,6 +95,7 @@ lrwxrwxrwx 1 root root 9 Dec 21 16:42 pci-0000:03:00.0-scsi-0:0:9:0 -> ../../sdi
 ----
 
 
+[[example-for-primary-admin-node]]
 == Beispiel für primären Admin-Node
 
 Beispiel für einen Dateinamen:
@@ -127,6 +129,7 @@ CLIENT_NETWORK_GATEWAY = 10.193.205.1
 ----
 
 
+[[example-for-a-storage-node]]
 == Beispiel für einen Storage-Node
 
 Beispiel für einen Dateinamen:
@@ -154,6 +157,7 @@ GRID_NETWORK_GATEWAY = 10.193.204.1
 ----
 
 
+[[example-for-gateway-node]]
 == Beispiel für Gateway Node
 
 Beispiel für einen Dateinamen:

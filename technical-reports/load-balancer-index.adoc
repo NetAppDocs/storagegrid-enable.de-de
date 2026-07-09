@@ -24,6 +24,7 @@ Dieses Dokument dient dazu, StorageGRID Kunden über Load Balancer-Optionen zu i
 
 
 
+[[load-balancer-basics]]
 == Grundlagen der Lastverteilung
 
 Load Balancer sind eine wesentliche Komponente von Objekt-Storage-Systemen der Enterprise-Klasse wie StorageGRID. StorageGRID besteht aus mehreren Storage-Nodes, von denen jeder den gesamten S3-Namensraum (Simple Storage Service) für eine bestimmte StorageGRID Instanz darstellen kann. Load Balancer erzeugen einen hochverfügbaren Endpunkt, hinter dem StorageGRID Nodes platziert werden können. StorageGRID ist einzigartig unter S3-kompatiblen Objektspeichersystemen, da es einen eigenen Load Balancer anbietet, aber auch Load Balancer von Drittanbietern oder Mehrzweck-Systemen wie F5, Citrix NetScaler, HA Proxy, NGINX usw. unterstützt.
@@ -36,6 +37,7 @@ Die Abbildung zeigt den von StorageGRID bereitgestellten Load Balancer, das Konz
 
 
 
+[[local-and-global-load-balancers]]
 === Lokale und globale Load Balancer
 
 Es gibt zwei Arten von Load Balancern:
@@ -46,6 +48,7 @@ Es gibt zwei Arten von Load Balancern:
 
 
 
+[[where-to-find-additional-information]]
 == Wo Sie weitere Informationen finden
 
 Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die in diesem Dokument beschriebenen Informationen zu erfahren:
@@ -53,6 +56,6 @@ Sehen Sie sich die folgenden Dokumente und/oder Websites an, um mehr über die i
 * NetApp StorageGRID Dokumentationscenterhttps://docs.netapp.com/us-en/storagegrid/[]
 * NetApp StorageGRID Enablement https://docs.netapp.com/us-en/storagegrid-enable/[]
 * Überlegungen zum Design der StorageGRID f5 Load Balancer https://www.netapp.com/blog/storagegrid-f5-load-balancer-design-considerations/[]
-* Loadbalancer.org—Load NetApp StorageGRID ausgleichen https://www.loadbalancer.org/applications/load-balancing-netapp-storagegrid/[]
+* Loadbalancer.org, Lastverteilung NetApp StorageGRID https://www.loadbalancer.org/applications/netapp-storagegrid/[]
 * Kemp – Load Balancing NetApp StorageGRID https://support.kemptechnologies.com/hc/en-us/articles/360045186451-NetApp-StorageGRID[]
 

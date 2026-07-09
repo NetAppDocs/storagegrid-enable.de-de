@@ -19,6 +19,7 @@ link:https://docs.netapp.com/us-en/storagegrid-118/maintain/changing-nodes-netwo
 
 
 
+[[considerations-before-site-relocation]]
 == Überlegungen vor Standortverlagerung
 
 * Die Standortverschiebungen sollten abgeschlossen sein und alle Nodes innerhalb von 15 Tagen online sein, um eine Wiederherstellung der Cassandra-Datenbank zu vermeiden.
@@ -34,11 +35,11 @@ image:site-relocation/s3-completed-request.png["S3 Übersicht Grafana-Diagramm B
 
 
 
+[[procedure-to-change-grid-ip-address-before-site-relocation]]
 === Verfahren zum Ändern der Grid-IP-Adresse vor Standortverlagerung
 
 .Schritte
-. Wenn das neue Netznetz-Subnetz am neuen Standort verwendet wird,
-link:https://docs.netapp.com/us-en/storagegrid-118/expand/updating-subnets-for-grid-network.htmll["Fügen Sie das Subnetz der Subnetzliste des Netznetzes hinzu"^]
+. Wenn am neuen Standort ein neues Grid Netzwerk-Subnetz verwendet wirdlink:https://docs.netapp.com/us-en/storagegrid/expand/updating-subnets-for-grid-network.html["Fügen Sie das Subnetz der Subnetzliste des Netznetzes hinzu"^]
 . Melden Sie sich beim primären Admin-Knoten an, verwenden Sie Change-IP, um Grid IP-Änderungen vorzunehmen, müssen Sie die Änderung * inszenieren*, bevor Sie den Knoten für die Verlagerung herunterfahren.
 +
 .. Wählen Sie 2 und dann 1 für Grid IP-Änderung
@@ -75,6 +76,7 @@ image:site-relocation/ip-change-6.png["Weiter"]
 
 
 
+[[appliance-vlan-change]]
 === VLAN-Änderung der Appliance
 
 Bei der folgenden Vorgehensweise wird davon ausgegangen, dass Sie Remote-Zugriff auf das Admin- oder Client-Netzwerk der StorageGRID Appliance haben, um die Änderung Remote durchzuführen.

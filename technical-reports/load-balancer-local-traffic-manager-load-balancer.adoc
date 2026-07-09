@@ -21,6 +21,7 @@ Die folgenden Informationen werden als allgemeine Anleitung für die Konfigurati
 
 
 
+[[create-a-resource-group-of-storage-nodes]]
 == Erstellen Sie eine Ressourcengruppe von Storage-Nodes
 
 Gruppieren Sie StorageGRID-Speicherknoten in einen Ressourcen-Pool oder eine Dienstgruppe (die Terminologie kann sich von bestimmten Load Balancern unterscheiden). StorageGRID-Storage-Nodes stellen die S3-API auf den folgenden Ports zur Verfügung:
@@ -36,6 +37,7 @@ NOTE: Für jeden StorageGRID-Standort sind standardmäßig drei Storage-Nodes er
 
 
 
+[[health-check]]
 == Zustandsprüfung
 
 Load Balancer von Drittanbietern erfordern eine Methode, um den Zustand der einzelnen Nodes und ihre Eignung für den Empfang von Traffic zu bestimmen. NetApp empfiehlt zur Durchführung der Integritätsprüfung die HTTP- `OPTIONS` Methode. Der Load Balancer sendet HTTP- `OPTIONS` Anforderungen an jeden einzelnen Speicher-Node und erwartet eine `200` Statusantwort.
@@ -48,6 +50,7 @@ Das empfohlene Abfrageintervall beträgt einmal pro Sekunde und markiert den Kno
 
 
 
+[[s3-health-check-example]]
 === Beispiel für S3-Integritätsprüfung
 
 Im folgenden Beispiel senden wir `OPTIONS` und überprüfen nach `200 OK`. Wir verwenden `OPTIONS` , da Amazon S3) nicht autorisierte Anfragen unterstützt.
@@ -76,6 +79,7 @@ Im folgenden Beispiel senden wir `OPTIONS` und überprüfen nach `200 OK`. Wir v
 ----
 
 
+[[file-or-content-based-health-checks]]
 === Zustandsprüfungen für Dateien oder Inhalte
 
 Im Allgemeinen werden von NetApp keine dateibasierten Zustandsprüfungen empfohlen. In der Regel wird eine kleine Datei —`healthcheck.htm`z. B. in einem Bucket mit einer schreibgeschützten Richtlinie erstellt. Diese Datei wird dann vom Load Balancer abgerufen und ausgewertet. Dieser Ansatz hat mehrere Nachteile:
@@ -90,12 +94,14 @@ Wenn eine inhaltsbasierte Zustandsprüfung erforderlich ist, verwenden Sie einen
 
 
 
+[[session-persistence]]
 === Persistenz der Sitzung
 
 Sitzungspersistence oder Stickiness bezieht sich auf den Zeitpunkt, zu dem eine bestimmte HTTP-Sitzung bestehen darf. Standardmäßig werden Sitzungen von Storage-Nodes nach 10 Minuten getrennt. Längere Persistenz kann zu besserer Performance führen, da die Applikationen nicht für jede Aktion neu Sitzungen erstellen müssen. Offen zu halten, verbraucht jedoch Ressourcen. Wenn Sie feststellen, dass Ihr Workload von Vorteil ist, können Sie die Persistenz der Sitzung bei einem Load Balancer eines Drittanbieters verringern.
 
 
 
+[[virtual-hosted-style-addressing]]
 == Virtuelle Hosted-Style-Adressierung
 
 Virtual Hosted-Style ist jetzt die Standardmethode für AWS S3. Während StorageGRID und viele Applikationen weiterhin Pfadstil unterstützen, empfiehlt es sich, Unterstützung im Virtual Hosted-Stil zu implementieren. Virtuelle Anforderungen im gehosteten Stil enthalten den Bucket als Teil des Host-Namens.
@@ -108,6 +114,7 @@ Gehen Sie wie folgt vor, um Virtual Hosted-Style zu unterstützen:
 
 
 
+[[ssl-termination]]
 == SSL-Terminierung
 
 Die SSL-Terminierung bei Load Balancern von Drittanbietern bietet Sicherheitsvorteile. Wenn der Load Balancer beschädigt ist, wird das Grid unterteilt.
@@ -121,12 +128,14 @@ Es gibt drei unterstützte Konfigurationen:
 
 
 
+[[pass-through-configuration]]
 == Konfiguration durchlaufen
 
 Wenn Sie den Load Balancer für Passthrough konfigurieren möchten, müssen Sie das Zertifikat auf StorageGRID installieren. Gehen Sie zum Menü:Konfiguration[Serverzertifikate > Object Storage API Service Endpoints Server Certificate].
 
 
 
+[[source-client-ip-visibility]]
 == IP-Sichtbarkeit des Quell-Clients
 
 Mit StorageGRID 11.4 wurde das Konzept eines vertrauenswürdigen Load Balancers eines Drittanbieters eingeführt. Um die Client-Anwendungs-IP an StorageGRID weiterzuleiten, müssen Sie diese Funktion konfigurieren. Weitere Informationen finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_StorageGRID_to_work_with_third-party_Layer_7_load_balancers["So konfigurieren Sie StorageGRID für die Verwendung mit Layer-7-Load-Balancern von Drittanbietern."^]
@@ -140,6 +149,7 @@ So aktivieren Sie den XFF-Header, um die IP-Adresse der Client-Anwendung anzuzei
 
 
 
+[[load-balancing-strategies]]
 === Strategien für die Lastverteilung
 
 Die meisten Lastausgleichslösungen bieten mehrere Strategien für den Lastausgleich. Es folgen gängige Strategien:
@@ -152,6 +162,7 @@ Die Auswahl des Algorithmus wird mit einer wachsenden Anzahl von Storage-Nodes w
 
 
 
+[[data-path]]
 === Datenpfad
 
 Alle Daten fließen über den Lastenausgleich des lokalen Traffic Managers. StorageGRID unterstützt kein direktes Server-Routing (DSR).

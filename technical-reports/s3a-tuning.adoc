@@ -18,6 +18,7 @@ Der Hadoop S3A Connector ermöglicht die nahtlose Interaktion zwischen Hadoop-ba
 
 
 
+[[what-is-hadoop]]
 == Was ist Hadoop?
 
 *Hadoop* ist ein leistungsfähiges Open-Source-Framework, das für die Verarbeitung und Speicherung großer Datenmengen entwickelt wurde. Sie ermöglicht verteilte Speicherung und parallele Verarbeitung über Cluster von Computern hinweg.
@@ -31,6 +32,7 @@ Die drei Kernkomponenten von Hadoop sind:
 
 
 
+[[hadoop-hdfs-and-s3a-connector]]
 == Hadoop HDFS- und S3A-Steckverbinder
 
 HDFS ist eine wichtige Komponente des Hadoop Ecosystems und spielt eine entscheidende Rolle bei der effizienten Verarbeitung von Big Data. HDFS ermöglicht zuverlässige Speicherung und Verwaltung. Sie ermöglicht die parallele Verarbeitung und optimiert den Datenspeicher, was zu schnellerem Datenzugriff und schnelleren Analysen führt.
@@ -43,6 +45,7 @@ Als Antwort auf diese Herausforderungen bietet der Hadoop S3A Connector hochperf
 
 
 
+[[hadoop-s3a-connector-tuning]]
 == Hadoop S3A Connector Tuning
 
 S3 verhält sich anders als HDFS, und einige Versuche, das Aussehen eines Filesystems beizubehalten, sind aggressiv suboptimal. Um die S3-Ressourcen möglichst effizient zu nutzen, sind sorgfältiges Tuning/Testen/Experimentieren erforderlich.

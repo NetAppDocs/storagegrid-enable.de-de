@@ -16,6 +16,7 @@ Die folgenden Lösungen von Drittanbietern wurden für die Verwendung mit Storag
 
 
 
+[[third-party-solutions-validated-on-storagegrid]]
 == Drittanbieterlösungen, die auf StorageGRID validiert sind
 
 Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
@@ -84,6 +85,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 
 
+[[third-party-solutions-validated-on-storagegrid-with-object-lock]]
 == Lösungen von Drittanbietern, die auf StorageGRID mit Objektsperre validiert wurden
 
 Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
@@ -100,6 +102,7 @@ Diese Lösungen wurden in Zusammenarbeit mit den jeweiligen Partnern getestet.
 
 
 
+[[third-party-solutions-supported-on-storagegrid]]
 == Von StorageGRID unterstützte Lösungen von Drittanbietern
 
 Diese Lösungen wurden getestet.
@@ -126,6 +129,7 @@ Diese Lösungen wurden getestet.
 
 
 
+[[key-managers-supported-on-storagegrid]]
 == Auf StorageGRID unterstützte Schlüsselmanager
 
 Diese Lösungen wurden getestet.
