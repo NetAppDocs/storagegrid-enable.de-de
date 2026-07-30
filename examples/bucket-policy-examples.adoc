@@ -29,23 +29,19 @@ Alle Richtlinien definieren den Effekt, die Aktion(en) und die Ressource(en). In
 
 Der *Effekt* wird entweder sein, die Anfrage zuzulassen oder abzulehnen.
 
-Der * Principal*
+Der *Principal*:
 
-* Gilt nur für Bucket-Richtlinien.
-* Der Hauptbenutzer ist der/die Konto(e)/Benutzer, dem/den die Berechtigungen gewährt oder verweigert werden.
+* Gilt nur für Bucket-Richtlinien
+* Der Principal ist das/die Konto(s) bzw. der/die Benutzer, denen Berechtigungen erteilt oder verweigert werden.
 * Kann definiert werden als:
 +
 ** Ein Platzhalter „++*+“
 +
-[listing]
-----
-"Principal":"*"
-----
+`"Principal": "*"`Entspricht allen, einschließlich anonymer (nicht signierter) Anfragen
+
 +
-[listing]
-----
-"Principal":{"AWS":"*"}
-----
+`"Principal": { "AWS": "*" }`Entspricht jeder authentifizierten Identität oder jedem Benutzer (entspricht nicht anonymen Anfragen)
+
 ** Eine Mandanten-ID für alle Benutzer in einem Mandanten (entspricht AWS-Konto)
 +
 [listing]
