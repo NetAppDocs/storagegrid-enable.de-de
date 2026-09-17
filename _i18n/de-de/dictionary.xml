@@ -3457,4 +3457,5 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="8f58f72ce7022a4fdfe329ca00a2e451" category="list-text">Thales CipherTrust Manager 2.21</block>
   <block id="b0ff3f641f5c47519d662ddd7719ff87" category="sidebar">StorageGRID 12.1</block>
   <block id="147e111488eb55eac75032941f65577f" category="list-text">WEKA v3.10 oder höher</block>
+  <block id="7408450fc527ea7cf95ee02a041a379b" category="paragraph">Big Data Analytics gehören zu den häufigsten Anwendungsfällen für objektbasierte Data Lakes. Bei der Auswahl einer Analyseplattform kann das Verständnis darüber, wie Data Warehouse- und Lakehouse-Technologien mit S3-Objektspeicher interagieren, dazu beitragen, Leistung, Skalierbarkeit und Betriebseffizienz zu optimieren. StorageGRID bietet S3-kompatiblen Objektspeicher für Analytics-Workloads, einschließlich Plattformen wie Apache Spark, Dremio, Trino und Starburst.</block>
 </blocks>

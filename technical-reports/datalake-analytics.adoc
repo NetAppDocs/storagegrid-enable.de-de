@@ -11,6 +11,9 @@ summary: Dieser Bericht behandelt Big Data Analytics zu StorageGRID.
 :imagesdir: ../media/
 
 
+[role="lead"]
+Big Data Analytics gehören zu den häufigsten Anwendungsfällen für objektbasierte Data Lakes. Bei der Auswahl einer Analyseplattform kann das Verständnis darüber, wie Data Warehouse- und Lakehouse-Technologien mit S3-Objektspeicher interagieren, dazu beitragen, Leistung, Skalierbarkeit und Betriebseffizienz zu optimieren. StorageGRID bietet S3-kompatiblen Objektspeicher für Analytics-Workloads, einschließlich Plattformen wie Apache Spark, Dremio, Trino und Starburst.
+
 
 
 [[netapp-storagegrid-use-cases]]
