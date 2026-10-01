@@ -31,7 +31,7 @@ Dieses Dokument bietet einen Überblick über die zahlreichen Sicherheitsfunktio
 
 Dieses Dokument ist als Sicherheitsdatenblatt gedacht. Es enthält keine detaillierten Informationen zur Konfiguration des Systems, um die darin aufgeführten Sicherheitsfunktionen zu unterstützen, die nicht standardmäßig konfiguriert sind.  Der https://docs.netapp.com/us-en/storagegrid/harden/index.html["Leitfaden zum StorageGRID Hardening"^] ist auf der offiziellen https://docs.netapp.com/us-en/storagegrid/["StorageGRID-Dokumentation"^] Seite.
 
-Zusätzlich zu den in diesem Bericht beschriebenen Funktionen folgt StorageGRID den https://www.netapp.com/us/legal/vulnerability-response.aspx["NetApp Richtlinie zur Reaktion auf und Benachrichtigung bei Produktsicherheitsschwachstellen"^]. Gemeldete Schwachstellen werden überprüft und entsprechend dem Reaktionsprozess für Produktsicherheitsvorfälle reagiert.
+Zusätzlich zu den in diesem Bericht beschriebenen Funktionen befolgt StorageGRID die https://security.netapp.com/policy/["NetApp Richtlinie zur Reaktion auf und Benachrichtigung bei Produktsicherheitsschwachstellen"^]. Gemeldete Schwachstellen werden gemäß dem Prozess zur Reaktion auf Produktsicherheitsvorfälle überprüft und bearbeitet.
 
 NetApp StorageGRID bietet erweiterte Sicherheitsfunktionen für äußerst anspruchsvolle Enterprise-Objekt-Storage-Anwendungsfälle.
 

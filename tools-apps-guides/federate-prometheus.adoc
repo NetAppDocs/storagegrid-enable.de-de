@@ -260,7 +260,7 @@ Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z call
 Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z caller=main.go:961 level=info msg="Server is ready to receive web requests."
 Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z caller=manager.go:941 level=info component="rule manager" msg="Starting rule manager..."
 ----
-. Sie sollten nun in der Lage sein, auf die Benutzeroberfläche Ihres prometheus-Servers zu navigieren http://Prometheus-server:9090[] Und siehe UI
+. Sie sollten nun in der Lage sein, die Benutzeroberfläche Ihres prometheus server unter \http://<prometheus-server-ip>:9090 aufzurufen und die Benutzeroberfläche anzuzeigen
 +
 image:prometheus/prometheus_ui.png["prometheus UI-Seite"]
 
@@ -318,7 +318,7 @@ sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server.service
 ----
-. Grafana wird jetzt installiert und ausgeführt. Wenn Sie einen Browser zu HTTP://Prometheus-Server:3000 öffnen, werden Sie mit der Grafana-Anmeldeseite begrüßt.
+. Grafana ist nun installiert und betriebsbereit. Wenn in einem Browser http://<prometheus-server-ip>:3000 geöffnet wird, wird die Grafana-Anmeldeseite angezeigt.
 . Die Standard-Anmeldeinformationen sind admin/admin. Sie sollten ein neues Passwort festlegen, wenn Sie dazu aufgefordert werden.
 
 

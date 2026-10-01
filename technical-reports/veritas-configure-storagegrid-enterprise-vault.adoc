@@ -37,8 +37,8 @@ NOTE: Für WORM Storage (Object Lock) ist Enterprise Vault ab Version 14.2.2 erf
 * Vault-Speichergruppen und ein Vault-Speicher wurden erstellt. Weitere Informationen finden Sie im veritas Enterprise Vault Administration Guide.
 * Ein StorageGRID-Mandant, Zugriffsschlüssel, geheimer Schlüssel und Bucket wurden erstellt.
 * Ein StorageGRID-Load-Balancer-Endpunkt wurde erstellt (entweder HTTP oder HTTPS).
-* Wenn Sie ein selbstsigniertes Zertifikat verwenden, fügen Sie das selbstsignierte StorageGRID-CA-Zertifikat zu den Enterprise Vault-Servern hinzu. Weitere Informationen finden Sie in diesem https://www.veritas.com/support/en_US/article.100049744["Artikel der veritas Knowledge Base"^].
-* Aktualisieren Sie die aktuelle Enterprise Vault-Konfigurationsdatei, und wenden Sie sie an, um unterstützte Speicherlösungen wie NetApp StorageGRID zu ermöglichen. Weitere Informationen finden Sie in diesem https://www.veritas.com/content/support/en_US/article.100039174["Artikel der veritas Knowledge Base"^].
+* Bei Verwendung eines selbstsignierten Zertifikats ist das selbstsignierte StorageGRID CA-Zertifikat zu den Enterprise Vault Servern hinzuzufügen. Weitere Informationen hierzu enthält dies https://supportenterprisevault.cloud.com/support-home/kbsearch/article?articleNumber=100049744["Artikel der veritas Knowledge Base"^].
+* Die neueste Enterprise Vault Konfigurationsdatei wird angewendet, um unterstützte Speicherlösungen wie NetApp StorageGRID zu aktivieren. Weitere Informationen finden Sie hier https://supportenterprisevault.cloud.com/support-home/kbsearch/article?articleNumber=100039174["Artikel der veritas Knowledge Base"^].
 
 
 
