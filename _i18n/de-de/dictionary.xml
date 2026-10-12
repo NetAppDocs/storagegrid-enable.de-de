@@ -339,13 +339,7 @@
   <block id="6ed9ef1283f8a665ad7dbfe450f4616c" category="paragraph">So erstellen Sie die On-Premises-Datenbank von Eon:</block>
   <block id="c8fac0ae7f28a985c6f7041e704cb9e9" category="list-text">Verwenden Sie zum Erstellen der Datenbank die<block ref="87d9cc3ea9ea36136197dfac04f97f7e" prefix=" " category="inline-code"></block> Werkzeug.</block>
   <block id="ba1f54172ea851b435ebad930979214e" category="paragraph">Die folgende Liste enthält eine kurze Erläuterung der Argumente, die in diesem Beispiel verwendet werden. Eine detaillierte Erläuterung aller erforderlichen und optionalen Argumente finden Sie im Dokument Vertica.</block>
-  <block id="d560ea5a8e684843d3e61026f97988ea" category="inline-xref">„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“</block>
-  <block id="49231ccf7e1f2892d02e363b3996f6b1" category="list-text">-X &lt;Pfad/Dateiname der in erstellten Autorisierungsdatei <block ref="ff01d755c02cf9eac8acabe776f4ae31" category="inline-xref-macro-rx"></block> &gt;.</block>
   <block id="f405bc9fea0f983aec86bf3b39598931" category="paragraph">Die Autorisierungsdetails werden nach erfolgreicher Erstellung in der Datenbank gespeichert. Sie können diese Datei entfernen, um zu vermeiden, dass der S3-Geheimschlüssel offengelegt wird.</block>
-  <block id="8bb92892cb170f0a2e9faa38b08707d2" category="list-text">--communal-Storage-location &lt;s3://storagegrid buchname&gt;</block>
-  <block id="730286a138b893db744ec9b6d5eb53cc" category="list-text">-S &lt;kommagetrennte Liste der Vertica-Knoten, die für diese Datenbank verwendet werden sollen&gt;</block>
-  <block id="ff3ce7ef8f8faa42ab218e0e6a952005" category="list-text">-D &lt;Name der zu erstellenden Datenbank&gt;</block>
-  <block id="cbfebf618a39b6eebd458ebccb35811d" category="list-text">-P &lt;Kennwort für diese neue Datenbank&gt; festlegen. Den folgenden Beispielbefehl können Sie z. B. einsehen:</block>
   <block id="f0f9a3849fe5730a2c9d6f1fec222ca3" category="paragraph">Das Erstellen einer neuen Datenbank dauert abhängig von der Anzahl der Nodes für die Datenbank mehrere Minuten. Wenn Sie die Datenbank zum ersten Mal erstellen, werden Sie aufgefordert, die Lizenzvereinbarung zu akzeptieren.</block>
   <block id="3b8065a08e54f4e0956f3b822ffb8a91" category="paragraph">Informationen hierzu finden Sie z. B. in der folgenden Beispielautorisierungsdatei und<block ref="4b8d66b6fea92738d266b3270eb3ee2a" prefix=" " category="inline-code"></block> Befehl:</block>
   <block id="011babd6bb6bec44f7f5c42f6c3e7a38" category="cell">Objektgröße (Byte)</block>
@@ -3458,4 +3452,10 @@ StorageGRID skaliert die Performance mithilfe von Nodes mit höherer Performance
   <block id="77a99c68d4a1bcc489efaedf2f81d8ac" category="list-text">Die neueste Enterprise Vault Konfigurationsdatei wird angewendet, um unterstützte Speicherlösungen wie NetApp StorageGRID zu aktivieren. Weitere Informationen finden Sie hier<block ref="5906a7358f9e1d2351926b6621eb4acd" category="inline-link-rx"></block>.</block>
   <block id="00a090a871a0df6adc9219e75e6aed51" category="list-text">Sie sollten nun in der Lage sein, die Benutzeroberfläche Ihres prometheus server unter \http://&lt;prometheus-server-ip&gt;:9090 aufzurufen und die Benutzeroberfläche anzuzeigen</block>
   <block id="973ed7db4a25bc3f01fccde97b27c7a1" category="list-text">Grafana ist nun installiert und betriebsbereit. Wenn in einem Browser http://&lt;prometheus-server-ip&gt;:3000 geöffnet wird, wird die Grafana-Anmeldeseite angezeigt.</block>
+  <block id="e64c46bb4ce9a526df258e7f1272a8bf" category="list-text"><block ref="6c54c99ba9534ff26f0be55aca43ba88" prefix="" category="inline-code"></block></block>
+  <block id="27e5401a5432522c4a59659b79949bda" category="paragraph">Einzelheiten zur Autorisierungsdatei finden sich in <block ref="5652bb278cd06b6326f440573e03522e" category="inline-xref-macro-rx"></block>.</block>
+  <block id="deef0d341b8cf5253a456575b59ad3ce" category="list-text"><block ref="399fa6cc0d3e7718be729c48c6cbd287" prefix="" category="inline-code"></block></block>
+  <block id="9bcef99ac69179506104bc1a219370b4" category="list-text"><block ref="778e8289811af1130cb32a43d9f5bebf" prefix="" category="inline-code"></block></block>
+  <block id="85d18b76832b43fb6d1cbc2dbcbb077d" category="list-text"><block ref="b601ce715bcbacbaf5adf14ea523938a" prefix="" category="inline-code"></block></block>
+  <block id="1ea1e8a4588340cf0e25df3c8bc69bb7" category="list-text"><block ref="09f7639dfb26383ef118c948a1c0001b" prefix="" category="inline-code"></block> Zum Beispiel der folgende Beispielbefehl:</block>
 </blocks>

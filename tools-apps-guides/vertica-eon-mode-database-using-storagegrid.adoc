@@ -196,14 +196,17 @@ So erstellen Sie die On-Premises-Datenbank von Eon:
 Die folgende Liste enthält eine kurze Erläuterung der Argumente, die in diesem Beispiel verwendet werden. Eine detaillierte Erläuterung aller erforderlichen und optionalen Argumente finden Sie im Dokument Vertica.
 
 +
-** -X <Pfad/Dateiname der in erstellten Autorisierungsdatei <<createauthorization,„Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt“>> >.
+** `-x <path/filename of authorization file>`
++
+Einzelheiten zur Autorisierungsdatei finden sich in <<createauthorization,Erstellen einer Autorisierungsdatei für den Zugriff auf den S3-Endpunkt>>.
+
 +
 Die Autorisierungsdetails werden nach erfolgreicher Erstellung in der Datenbank gespeichert. Sie können diese Datei entfernen, um zu vermeiden, dass der S3-Geheimschlüssel offengelegt wird.
 
-** --communal-Storage-location <s3://storagegrid buchname>
-** -S <kommagetrennte Liste der Vertica-Knoten, die für diese Datenbank verwendet werden sollen>
-** -D <Name der zu erstellenden Datenbank>
-** -P <Kennwort für diese neue Datenbank> festlegen. Den folgenden Beispielbefehl können Sie z. B. einsehen:
+** `--communal-storage-location <s3://storagegrid bucketname>`
+** `-s <comma-separated list of Vertica nodes to be used for this database>`
+** `-d <name of database to be created>`
+** `-p <password to be set for this new database>` Zum Beispiel der folgende Beispielbefehl:
 +
 [listing]
 ----
